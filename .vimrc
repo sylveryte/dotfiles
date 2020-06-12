@@ -204,7 +204,7 @@ let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-j
 " prettier config
 " autocmd BufWritePre,TextChanged,InsertLeave *.js Format
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nmap <leader>p :Format<CR>
+nmap <leader>p :Prettier<CR>
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 

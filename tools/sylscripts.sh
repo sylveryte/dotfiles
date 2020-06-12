@@ -6,8 +6,8 @@
 # Distributed under terms of the MIT license.
 #
 
-case "$(printf "music on\nwallpaper\ntransparency\nmusic off" | dmenu)" in
-	"music on")
+case "$(printf "music\nbluetooth\nwallpaper\ntransparency" | dmenu)" in
+	"music")
 		~/sylveryte/dotfiles/tools/music.sh
 		;;
 	"wallpaper")
@@ -16,7 +16,7 @@ case "$(printf "music on\nwallpaper\ntransparency\nmusic off" | dmenu)" in
 	"transparency")
 		~/sylveryte/dotfiles/tools/transparency.sh
 		;;
-	"music off")
-		~/sylveryte/dotfiles/tools/music.sh off
+	"bluetooth")
+		~/sylveryte/dotfiles/tools/bluetooth.sh
 		;;
 esac
