@@ -1,0 +1,5 @@
+xinput set-prop 12 --type=int 327 1
+# exec dwm
+exec bspwm
+
+

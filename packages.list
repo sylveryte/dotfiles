@@ -1,0 +1,161 @@
+   0.02 MiB	acpi                	Client for battery, power, and thermal readings
+   0.00 MiB	base                	Minimal package set to define a basic Arch Linux installation
+   1.92 MiB	bluedevil           	Integrate the Bluetooth technology within KDE workspace and applications
+  24.70 MiB	breeze              	Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
+   7.43 MiB	breeze-gtk          	Breeze widget theme for GTK 2 and 3
+   0.25 MiB	bspwm               	Tiling window manager based on binary space partitioning
+ 184.05 MiB	chromium            	A web browser built for speed, simplicity, and security
+  68.71 MiB	code                	The Open Source build of Visual Studio Code (vscode) editor
+   1.06 MiB	ctags               	Generates an index file of language objects found in source files
+ 159.13 MiB	discord             	All-in-one voice and text chat for gamers that's free and secure.
+  10.82 MiB	discover            	KDE and Plasma resources management GUI
+   0.08 MiB	dmenu               	Generic menu for X
+   9.17 MiB	dolphin             	KDE File Manager
+   4.68 MiB	drkonqi             	The KDE crash handler
+   0.20 MiB	dunst               	Customizable and lightweight notification-daemon
+   0.03 MiB	expac               	pacman database extraction utility
+   0.43 MiB	feh                 	Fast and light imlib2-based image viewer
+ 187.79 MiB	firefox             	Standalone web browser from mozilla.org
+ 189.27 MiB	firefox-developer-edition	Developer Edition of the popular Firefox web browser
+  10.69 MiB	fscrypt             	A tool for managing Linux filesystem encryption
+   3.30 MiB	fzf                 	Command-line fuzzy finder
+  38.22 MiB	git                 	the fast distributed version control system
+   7.04 MiB	gparted             	A Partition Magic clone, frontend to GNU Parted
+  32.53 MiB	grub                	GNU GRand Unified Bootloader (2)
+  16.16 MiB	gtop                	System monitoring dashboard for terminal
+  10.30 MiB	gwenview            	A fast and easy to use image viewer
+   0.19 MiB	htop                	Interactive process viewer
+   1.37 MiB	i3-gaps             	A fork of i3wm tiling window manager with more features, including gaps
+   9.72 MiB	imagemagick         	An image viewing/manipulation program
+   0.71 MiB	kactivitymanagerd   	System service to manage user's activities and track the usage patterns
+   4.19 MiB	kde-cli-tools       	Tools based on KDE Frameworks 5 to better interact with the system
+   0.26 MiB	kdecoration         	Plugin based library to create window decorations
+   0.19 MiB	kde-gtk-config      	GTK2 and GTK3 Configurator for KDE
+   5.36 MiB	kdeplasma-addons    	All kind of addons to improve your Plasma experience
+   0.41 MiB	kgamma5             	Adjust your monitor's gamma settings
+   3.91 MiB	khotkeys            	  KHotKeys
+   6.93 MiB	kinfocenter         	A utility that provides information about a computer system
+  11.71 MiB	kitty               	A modern, hackable, featureful, OpenGL-based terminal emulator
+   1.75 MiB	kmenuedit           	KDE menu editor
+   0.07 MiB	knetattach          	Wizard which makes it easier to integrate network resources with the Plasma Desktop
+   5.18 MiB	konsole             	KDE's terminal emulator
+   1.01 MiB	kscreen             	KDE's screen management software
+   0.78 MiB	kscreenlocker       	Library and components for secure lock screen architecture
+   0.08 MiB	ksshaskpass         	ssh-add helper that uses kwallet and kpassworddialog
+   2.90 MiB	ksysguard           	Track and control the processes running in your system
+   0.03 MiB	kwallet-pam         	KWallet PAM integration
+   0.12 MiB	kwayland-integration	Provides integration plugins for various KDE frameworks for the wayland windowing system
+  23.40 MiB	kwin                	An easy to use, but flexible, composited Window Manager
+   0.04 MiB	kwrited             	KDE daemon listening for wall and write messages
+   1.34 MiB	libkscreen          	KDE screen management software
+   4.87 MiB	libksysguard        	Libraries for ksysguard
+   0.12 MiB	liblightdm-qt5      	LightDM Qt client library
+   0.08 MiB	light               	Program to easily change brightness on backlight-controllers.
+  74.57 MiB	linux               	The Linux kernel and modules
+ 514.04 MiB	linux-firmware      	Firmware files for Linux
+   0.40 MiB	lxappearance        	Feature-rich GTK+ theme switcher of the LXDE Desktop
+   0.31 MiB	maim                	Utility to take a screenshot using imlib2
+   0.37 MiB	milou               	A dedicated search application built on top of Baloo
+   4.66 MiB	mpv                 	a free, open source, and cross-platform media player
+   0.08 MiB	ncdu                	Disk usage analyzer with an ncurses interface
+   0.31 MiB	neofetch            	A CLI system information tool written in BASH that supports displaying images.
+  15.36 MiB	networkmanager      	Network connection manager and user applications
+   0.64 MiB	network-manager-applet	Applet for managing network connections
+  26.85 MiB	nodejs              	Evented I/O for V8 javascript
+  91.19 MiB	noto-fonts          	Google Noto TTF fonts
+  20.63 MiB	npm                 	A package manager for javascript
+   5.20 MiB	openssh             	Premier connectivity tool for remote login with the SSH protocol
+   0.12 MiB	os-prober           	Utility to detect other OSes on a set of drives
+  19.70 MiB	oxygen              	KDE Oxygen style
+   0.92 MiB	pavucontrol         	PulseAudio Volume Control
+   0.32 MiB	picom               	X compositor that may fix tearing issues
+   0.44 MiB	plasma-browser-integration	Components necessary to integrate browsers into the Plasma Desktop
+  35.56 MiB	plasma-desktop      	KDE Plasma Desktop
+   0.51 MiB	plasma-integration  	Qt Platform Theme integration plugins for the Plasma workspaces
+   7.98 MiB	plasma-nm           	Plasma applet written in QML for managing network connections
+   0.90 MiB	plasma-pa           	Plasma applet for audio volume management using PulseAudio
+   2.05 MiB	plasma-sdk          	Applications useful for Plasma development
+   0.41 MiB	plasma-thunderbolt  	Plasma integration for controlling Thunderbolt devices
+   1.28 MiB	plasma-vault        	Plasma applet and services for creating encrypted vaults
+  28.77 MiB	plasma-workspace    	KDE Plasma Workspace
+  35.85 MiB	plasma-workspace-wallpapers	Additional wallpapers for the Plasma Workspace
+   0.23 MiB	polkit-kde-agent    	Daemon providing a polkit authentication UI for KDE
+   2.62 MiB	powerdevil          	Manages the power consumption settings of a Plasma Shell
+   1.31 MiB	python-pip          	The PyPA recommended tool for installing Python packages
+   1.82 MiB	ranger              	Simple, vim-like file manager
+   3.88 MiB	redis               	Advanced key-value store
+   0.83 MiB	redshift            	Adjusts the color temperature of your screen according to your surroundings.
+   0.51 MiB	rofi                	A window switcher, application launcher and dmenu replacement
+   0.09 MiB	scrot               	Simple command-line screenshot utility for X
+   4.68 MiB	sddm                	QML based X11 and Wayland display manager
+   0.43 MiB	sddm-kcm            	KDE Config Module for SDDM
+   0.14 MiB	sxhkd               	Simple X hotkey daemon
+   0.08 MiB	sxiv                	Simple X Image Viewer
+   1.08 MiB	systemsettings      	KDE system manager for hardware, software, and workspaces
+   1.41 MiB	termite             	A simple VTE-based terminal
+   0.10 MiB	the_silver_searcher 	Code searching tool similar to Ack, but faster
+   0.11 MiB	tree                	A directory listing program displaying a depth indented list of files
+   0.35 MiB	ttf-font-awesome    	Iconic font designed for Bootstrap
+   0.34 MiB	unzip               	For extracting and viewing files in .zip archives
+   2.42 MiB	user-manager        	A simple system settings module to manage the users of your system
+   0.30 MiB	vi                  	The original ex/vi text editor
+   2.13 MiB	vifm                	A file manager with curses interface, which provides Vi[m]-like environment
+   3.48 MiB	vim                 	Vi Improved, a highly configurable, improved version of the vi text editor
+   2.02 MiB	w3m                 	Text-based Web browser as well as pager
+   0.68 MiB	xdg-desktop-portal-kde	A backend implementation for xdg-desktop-portal using Qt/KF5
+   0.07 MiB	xf86-video-vesa     	X.org vesa video driver
+   0.04 MiB	xorg-bdftopcf       	Convert X font from Bitmap Distribution Format to Portable Compiled Format
+   0.82 MiB	xorg-docs           	X.org documentations
+  12.27 MiB	xorg-fonts-100dpi   	X.org 100dpi fonts
+  10.67 MiB	xorg-fonts-75dpi    	X.org 75dpi fonts
+   0.64 MiB	xorg-fonts-encodings	X.org font encoding files
+   0.28 MiB	xorg-font-util      	X.Org font utilities
+   0.07 MiB	xorg-iceauth        	ICE authority file utility
+   0.05 MiB	xorg-luit           	Filter that can be run between an arbitrary application and a UTF-8 terminal emulator
+   0.05 MiB	xorg-mkfontscale    	Create an index of scalable font files for X
+   3.50 MiB	xorg-server         	Xorg X server
+   0.12 MiB	xorg-server-common  	Xorg server common files
+   1.21 MiB	xorg-server-devel   	Development files for the X.Org X server
+   2.11 MiB	xorg-server-xephyr  	A nested X server that runs as an X application
+   1.33 MiB	xorg-server-xnest   	A nested X server that runs as an X application
+   1.78 MiB	xorg-server-xvfb    	Virtual framebuffer X server
+   2.04 MiB	xorg-server-xwayland	run X clients under wayland
+   0.05 MiB	xorg-sessreg        	Register X sessions in system utmp/utmpx databases
+   0.06 MiB	xorg-setxkbmap      	Set the keyboard using the X Keyboard Extension
+   0.02 MiB	xorg-smproxy        	Allows X applications that do not support X11R6 session management to participate in an X11R6 session
+   0.27 MiB	xorg-x11perf        	Simple X server performance benchmarker
+   0.09 MiB	xorg-xauth          	X.Org authorization settings program
+   0.05 MiB	xorg-xbacklight     	RandR-based backlight control application
+   0.03 MiB	xorg-xcmsdb         	Device Color Characterization utility for X Color Management System
+   0.05 MiB	xorg-xcursorgen     	Create an X cursor file from PNG images
+   0.03 MiB	xorg-xdpyinfo       	Display information utility for X
+   0.04 MiB	xorg-xdriinfo       	Query configuration information of DRI drivers
+   0.06 MiB	xorg-xev            	Print contents of X events
+   0.01 MiB	xorg-xgamma         	Alter a monitor's gamma correction
+   0.05 MiB	xorg-xhost          	Server access control program for X
+   0.08 MiB	xorg-xinit          	X.Org initialisation program
+   0.09 MiB	xorg-xinput         	Small commandline tool to configure devices
+   0.21 MiB	xorg-xkbcomp        	X Keyboard description compiler
+   0.04 MiB	xorg-xkbevd         	XKB event daemon
+   0.05 MiB	xorg-xkbutils       	XKB utility demos
+   0.05 MiB	xorg-xkill          	Kill a client by its X resource
+   0.05 MiB	xorg-xlsatoms       	List interned atoms defined on server
+   0.05 MiB	xorg-xlsclients     	List client applications running on a display
+   0.08 MiB	xorg-xmodmap        	Utility for modifying keymaps and button mappings
+   0.09 MiB	xorg-xpr            	Print an X window dump from xwd
+   0.08 MiB	xorg-xprop          	Property displayer for X
+   0.10 MiB	xorg-xrandr         	Primitive command line interface to RandR extension
+   0.07 MiB	xorg-xrdb           	X server resource database utility
+   0.05 MiB	xorg-xrefresh       	Refresh all or part of an X screen
+   0.07 MiB	xorg-xset           	User preference utility for X
+   0.05 MiB	xorg-xsetroot       	Classic X utility to set your root window background to a given pattern or color
+   0.05 MiB	xorg-xvinfo         	Prints out the capabilities of any video adaptors associated with the display that are accessible through the X-Video extension
+   0.07 MiB	xorg-xwd            	X Window System image dumping utility
+   0.08 MiB	xorg-xwininfo       	Command-line utility to print information about windows on an X server
+   0.06 MiB	xorg-xwud           	X Window System image undumping utility
+   0.04 MiB	xsel                	XSel is a command-line program for getting and setting the contents of the X selection
+  12.55 MiB	youtube-dl          	A small command-line program to download videos from YouTube.com and a few more sites
+   0.55 MiB	zathura             	Minimalistic document viewer
+   0.02 MiB	zathura-pdf-poppler 	Adds pdf support to zathura by using the poppler engine
+   6.65 MiB	zenity              	Display graphical dialog boxes from shell scripts
+   6.22 MiB	zsh                 	A very advanced and programmable command interpreter (shell) for UNIX

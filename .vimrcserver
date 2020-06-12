@@ -1,0 +1,45 @@
+" if you have no color in servers
+" export TERM=xterm-256color
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/pl    ug.vim
+set encoding=UTF-8
+set nocompatible              " be iMproved, required
+filetype on                  " required
+filetype plugin on
+
+set relativenumber
+set number
+syntax on
+set hls
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set laststatus=2
+" set cursorline
+" set cursorcolumn
+set showcmd
+set autoread
+set mouse=a
+set smartcase
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"resize splits
+nnoremap <silent> <A-Up> :exe "resize -1 "<CR>
+nnoremap <silent> <A-Down> :exe "resize +1 "<CR>
+nnoremap <silent> <A-Left> :exe "vertical resize -1"<CR>
+nnoremap <silent> <A-Right> :exe "vertical resize +1"<CR>
+
+call plug#begin()
+Plug 'preservim/nerdtree'
+Plug 'rafi/awesome-vim-colorschemes'
+nnoremap <F3> <Esc>:NERDTreeToggle<CR>
+Plug 'tpope/vim-commentary'
+map cm gc
+Plug 'ctrlpvim/ctrlp.vim'
+
+call plug#end()
