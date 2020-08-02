@@ -1,5 +1,5 @@
 file=$(ls -d -1 /home/sylveryte/sylveryte/dotfiles/.remindme/* | sort -R | tail -1)
-case "$(printf "playlist\non\noff" | dmenu -p "bluetooth")" in
+case "$(printf "playlist\non\noff\nloop1on\nloop1off" | dmenu -p "bluetooth")" in
 	"off")
 		msg="Music down :("
 		mpc stop
@@ -9,9 +9,9 @@ case "$(printf "playlist\non\noff" | dmenu -p "bluetooth")" in
 	"on")
 		mpd
 		mpd-notification -m /home/sylveryte/music -s 200 &
-		mpc load all
+		mpc load pop
 		msg="Music Up :)"
-		mpc random on
+		mpc shuffle
 		mpc play
 		;;
 	"playlist")
@@ -19,6 +19,17 @@ case "$(printf "playlist\non\noff" | dmenu -p "bluetooth")" in
 		msg="Playing $pl playlist"
 		mpc clear
 		mpc load $pl
+		mpc shuffle
+		mpc play
+		;;
+	"loop1on")
+		mpc single on
+		mpc repeat on
+		msg="Looping current song"
+		;;
+	"loop1off")
+		mpc single off
+		msg="Looping one song off"
 		;;
 esac
 

@@ -6,9 +6,12 @@
 # Distributed under terms of the MIT license.
 #
 
-case "$(printf "music\nbluetooth\nwallpaper\ntransparency" | dmenu)" in
+case "$(printf "music\nscreenshot\nbluetooth\nwallpaper\ntransparency" | dmenu)" in
 	"music")
 		~/sylveryte/dotfiles/tools/music.sh
+		;;
+	"screenshot")
+		~/sylveryte/dotfiles/tools/screenshot.sh
 		;;
 	"wallpaper")
 		~/sylveryte/dotfiles/tools/changewal.sh

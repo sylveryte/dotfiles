@@ -133,3 +133,9 @@ no label, UUID=1a33f401-0e75-4537-890c-7b7c5535028c
 
 ###  mpd notification
 https://wiki.archlinux.org/index.php/Music_Player_Daemon/Tips_and_tricks#mpd-notification
+
+## nmap find connected devices
+sudo nmap -sn 192.168.1.0/24
+
+## create image pdf
+img2pdf -o j.pdf *.jpg  -s 500x700

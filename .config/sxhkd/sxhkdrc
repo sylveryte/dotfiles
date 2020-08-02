@@ -2,7 +2,7 @@
 # wm independent hotkeys
 #
 # kitty terminal emulator
-super + Space
+super + space
 	kitty
 
 # terminal emulator
@@ -23,7 +23,7 @@ super + Escape
 
 # Open sxhkdrc config file
 super F1
-	termite -e vim /home/sylveryte/.config/sxhkd/sxhkdrc
+	kitty -e vim /home/sylveryte/.config/sxhkd/sxhkdrc
 
 #
 # bspwm hotkeys
@@ -149,6 +149,9 @@ super + alt + shift + {h,j,k,l}
 # control transparency
 super + shift + o
 	~/sylveryte/dotfiles/tools/transparency.sh
+# polybar
+super + y
+	~/sylveryte/dotfiles/tools/polybar.sh
 
 # wallpaper set
 super + shift + w

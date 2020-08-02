@@ -1,6 +1,7 @@
 #! /bin/sh
 
 sxhkd &
+echo '0' > ~/sylveryte/dotfiles/tools/.polybar.data
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
@@ -21,7 +22,9 @@ bspc config single_monocle      true
 # Reload .Xresources
 xrdb -load ~/.Xresources
 # Launch polybar
-# ~/.config/polybar/launch.sh
+pa-applet &
+blueman-applet &
+nm-applet &
 # Change from ugly 'X' cursor when hovering over background
 xsetroot -cursor_name left_ptr
 # Make betterlockscreen generate and cache a background image for locking

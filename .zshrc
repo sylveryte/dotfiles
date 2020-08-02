@@ -112,19 +112,16 @@ function kwolski-analysis(){
 	echo '--------------------------------------------------------------'
 }
 
-function touchoff(){
-	xinput set-prop 10 --type=int 164 0
-}
-function touchon(){
-	xinput set-prop 10 --type=int 164 1
-}
-
+alias t=task
+alias tm=timew
 alias bitchcolor='python ~/sylveryte/dotfiles/tools/colorscheme.py'
 alias sylfairygravity='python ~/sylveryte/dotfiles/tools/fairygravity.py'
+source /home/sylveryte/.zshnogit.sh
 
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export TERM=xterm-256color
 
 source $ZSH/oh-my-zsh.sh
 

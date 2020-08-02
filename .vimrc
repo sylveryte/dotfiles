@@ -4,13 +4,15 @@
 iabbrev cll console.log(``)
 ab Attr Attributes
 "---------------------------------user defined-------------------------------------------------------
-
 set encoding=UTF-8
 set nocompatible              " be iMproved, required
 filetype on                  " required
 filetype plugin on
-" set termguicolors
+set termguicolors
 let g:palenight_terminal_italics=1
+if !has('gui_running')
+  set t_Co=256
+endif
 
 set relativenumber
 set number
@@ -28,7 +30,6 @@ set autoread
 set mouse=a
 set smartcase
 " set spell
-set t_Co=256
 set undofile
 set hidden "maintain buffer change history
 
@@ -36,7 +37,7 @@ set hidden "maintain buffer change history
 " directories
 set directory=~/.vim/swp//
 set undodir=~/.vim/undodir//
-runtime colorchangerc
+" runtime colorchangerc
 
 " Mappings
 nnoremap <C-q> <Esc>:q<CR>
@@ -67,23 +68,24 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'flazz/vim-colorschemes'
 
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'NLKNguyen/papercolor-theme'
 set background=dark
 " material theme
 Plug 'chuling/vim-equinusocio-material'
-
 Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'dylanaraps/wal.vim'
 
-Plug 'dylanaraps/wal.vim'
 
-Plug 'leafgarland/typescript-vim'
-
+" Plug 'itchyny/lightline.vim'
+" let g:lightline = {
+"       \ 'colorscheme': 'wombat',
+"       \ }
 Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" let g:airline_powerline_fonts = 1
-" let g:airline_theme='base16_pop'
-" nnoremap <leader>a <ESC>:AirlineTheme random<CR>
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='base16_pop'
+nnoremap <leader>a <ESC>:AirlineTheme random<CR>
 
 Plug 'camspiers/lens.vim'
 Plug 'camspiers/animate.vim'
@@ -100,10 +102,13 @@ Plug 'yonchu/accelerated-smooth-scroll'
 " post install (yarn install | npm install)
 " Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
+Plug 'leafgarland/typescript-vim'
 Plug 'pechorin/any-jump.vim'
 
 " gitlens
-Plug 'APZelos/blamer.nvim'
+" Plug 'APZelos/blamer.nvim'
+" let g:blamer_enabled = 1
+" bug in insert mode
 
 " " Plug 'doums/coBra'
 
@@ -116,30 +121,49 @@ let g:vcoolor_map = '<F6>'
 " noremap <F5> :Autoformat<CR>
 
 
-Plug 'tpope/vim-surround'
 
-Plug 'majutsushi/tagbar'
-nmap <F7> :TagbarToggle<CR>
-let g:tagbar_type_typescript = {
-  \ 'ctagsbin' : 'tstags',
-  \ 'ctagsargs' : '-f-',
-  \ 'kinds': [
-    \ 'e:enums:0:1',
-    \ 'f:function:0:1',
-    \ 't:typealias:0:1',
-    \ 'M:Module:0:1',
-    \ 'I:import:0:1',
-    \ 'i:interface:0:1',
-    \ 'C:class:0:1',
-    \ 'm:method:0:1',
-    \ 'p:property:0:1',
-    \ 'v:variable:0:1',
-    \ 'c:const:0:1',
-  \ ],
-  \ 'sort' : 0
-\ }
-Plug 'ternjs/tern_for_vim'
-" tagbar specific 
+" tagbar alternative
+Plug 'liuchengxu/vista.vim'
+nmap <F8> :Vista coc<CR>
+let g:vista_executive_for = {
+  \ 'ts': 'coc',
+  \ }
+
+" Plug 'majutsushi/tagbar'
+" nmap <F7> :TagbarToggle<CR>
+" let g:tagbar_type_typescript = {
+"   \ 'ctagsbin' : 'tstags',
+"   \ 'ctagsargs' : '-f-',
+"   \ 'kinds': [
+"     \ 'e:enums:0:1',
+"     \ 'f:function:0:1',
+"     \ 't:typealias:0:1',
+"     \ 'M:Module:0:1',
+"     \ 'I:import:0:1',
+"     \ 'i:interface:0:1',
+"     \ 'C:class:0:1',
+"     \ 'm:method:0:1',
+"     \ 'p:property:0:1',
+"     \ 'v:variable:0:1',
+"     \ 'c:const:0:1',
+"   \ ],
+"   \ 'sort' : 0
+" \ }
+" let g:tagbar_type_typescript = {
+"   \ 'ctagstype': 'typescript',
+"   \ 'kinds': [
+"     \ 'c:classes',
+"     \ 'n:modules',
+"     \ 'f:functions',
+"     \ 'v:variables',
+"     \ 'v:varlambdas',
+"     \ 'm:members',
+"     \ 'i:interfaces',
+"     \ 'e:enums',
+"   \ ]
+" \ }
+" Plug 'ternjs/tern_for_vim'
+" " tagbar specific 
 
 " " Track the engine.
 " Plug 'SirVer/ultisnips'
@@ -154,12 +178,28 @@ Plug 'ternjs/tern_for_vim'
 
 Plug 'christoomey/vim-system-copy'
 
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 map cm gc
 
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-nnoremap <F3> <Esc>:NERDTreeToggle<CR>
+" nerdtree alternative
+Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
+nnoremap <leader>ee :Dirvish %<CR>
+nnoremap <leader>er :Dirvish<CR>
+augroup dirvish_config
+	autocmd!
+	autocmd FileType dirvish
+		\ nnoremap <silent><buffer> p ddO<Esc>:let @"=substitute(@", '\n', '', 'g')<CR>:r ! find "<C-R>"" -maxdepth 1 -print0 \| xargs -0 ls -Fd<CR>:silent! keeppatterns %s/\/\//\//g<CR>:silent! keeppatterns %s/[^a-zA-Z0-9\/]$//g<CR>:silent! keeppatterns g/^$/d<CR>:noh<CR>
+augroup END
+
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" nnoremap <F3> <Esc>:NERDTreeToggle<CR>
+" let NERDTreeShowBookmarks=1
 
 Plug 'mileszs/ack.vim'
 if executable('ag')
@@ -175,6 +215,7 @@ if executable('ag')
 	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+nmap <leader>p :CtrlP<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>m :CtrlPMRUFiles<CR>
 
@@ -204,9 +245,8 @@ let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-j
 " prettier config
 " autocmd BufWritePre,TextChanged,InsertLeave *.js Format
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nmap <leader>p :Prettier<CR>
+nmap <leader>f :Prettier<CR>
 vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <F6> :call CocAction('pickColor')<CR>
@@ -242,8 +282,22 @@ call plug#end()
 "for delay purpose
 " colorscheme PaperColor
 " colorscheme sierra
-colorscheme palenight
+" colorscheme palenight
 " colorscheme hybrid
 " colorscheme molokai
 " colorscheme gruvbox
 " colorscheme wal
+
+" Below command helps on enter, it to get rid of ;2R^[[>1;2802;0c garbage.
+" It's happening on kitty with Vista.vim plugin combo.
+autocmd vimenter * colorscheme gruvbox
+" autocmd VimEnter * redraw!
+
+
+" kitty terminal specific
+" vim hardcodes background color erase even if the terminfo file does
+" not contain bce (not to mention that libvte based terminals
+" incorrectly contain bce in their terminfo files). This causes
+" incorrect background rendering when using a color theme with a
+" background color.
+let &t_ut=''
