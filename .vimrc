@@ -23,8 +23,8 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set laststatus=2
-" set cursorline
-" set cursorcolumn
+set cursorline
+set cursorcolumn
 set showcmd
 set autoread
 set mouse=a
@@ -89,10 +89,11 @@ nnoremap <leader>a <ESC>:AirlineTheme random<CR>
 
 Plug 'camspiers/lens.vim'
 Plug 'camspiers/animate.vim'
-
-" Plug 'ryanoasis/vim-devicons'
-
+" Plug 'psliwka/vim-smoothie'
 Plug 'yonchu/accelerated-smooth-scroll'
+
+Plug 'ryanoasis/vim-devicons'
+
 
 
 " functional plugins ---------------------------------------------------------------
@@ -249,7 +250,7 @@ nmap <leader>f :Prettier<CR>
 vmap <leader>f  <Plug>(coc-format-selected)
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
-nmap <F6> :call CocAction('pickColor')<CR>
+" nmap <F6> :call CocAction('pickColor')<CR>
 " use <tab> for trigger completion and navigate to the next complete item
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
