@@ -1,11 +1,11 @@
-isOn=$(cat ~/sylveryte/dotfiles/tools/.polybar.data)
+isOn=$(cat /tmp/.polybar.data)
 case "$isOn" in
 	"0")
 		polybar shortie -q&
-		echo '1' > ~/sylveryte/dotfiles/tools/.polybar.data
+		echo '1' > /tmp/.polybar.data
 		;;
 	"1")
-		echo '0' > ~/sylveryte/dotfiles/tools/.polybar.data
+		echo '0' > /tmp/.polybar.data
 		killall polybar
 		;;
 esac
