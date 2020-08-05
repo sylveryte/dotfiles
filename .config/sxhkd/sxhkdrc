@@ -162,6 +162,9 @@ super + alt + shift + {h,j,k,l}
 # ========== User-specific ==========
 # ===================================
 
+super + m
+	sxiv -bf $(find ~/Pictures/galaxy -type f | sort -R | head -1)	
+
 # control transparency
 super + shift + o
 	~/sylveryte/dotfiles/tools/transparency.sh

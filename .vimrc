@@ -90,7 +90,7 @@ nnoremap <leader>a <ESC>:AirlineTheme random<CR>
 Plug 'camspiers/lens.vim'
 Plug 'camspiers/animate.vim'
 " Plug 'psliwka/vim-smoothie'
-Plug 'yonchu/accelerated-smooth-scroll'
+" Plug 'yonchu/accelerated-smooth-scroll'
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -189,8 +189,9 @@ map cm gc
 " nerdtree alternative
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
-nnoremap <leader>ee :Dirvish %<CR>
-nnoremap <leader>er :Dirvish<CR>
+nnoremap <leader>e :Dirvish %<CR>
+nnoremap <leader>r :Dirvish<CR>
+" for tree expanding instead of preview
 augroup dirvish_config
 	autocmd!
 	autocmd FileType dirvish

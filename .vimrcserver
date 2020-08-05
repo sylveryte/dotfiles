@@ -1,6 +1,5 @@
-" if you have no color in servers
-" export TERM=xterm-256color
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" if you have no color in servers run below command 
+" echo "export TERM=xterm-256color" >> ~/.bashrc && echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '">> ~/.bashrc && curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim && curl https://raw.githubusercontent.com/sylveryte/dotfiles/master/.vimrcserver > ~/.vimrc
 set encoding=UTF-8
 set nocompatible              " be iMproved, required
 filetype on                  " required
@@ -41,6 +40,14 @@ nnoremap <F3> <Esc>:NERDTreeToggle<CR>
 Plug 'tpope/vim-commentary'
 map cm gc
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'justinmk/vim-dirvish'
+nnoremap <leader>e :Dirvish %<CR>
+nnoremap <leader>r :Dirvish<CR>
+augroup dirvish_config
+	autocmd!
+	autocmd FileType dirvish
+		\ nnoremap <silent><buffer> p ddO<Esc>:let @"=substitute(@", '\n', '', 'g')<CR>:r ! find "<C-R>"" -maxdepth 1 -print0 \| xargs -0 ls -Fd<CR>:silent! keeppatterns %s/\/\//\//g<CR>:silent! keeppatterns %s/[^a-zA-Z0-9\/]$//g<CR>:silent! keeppatterns g/^$/d<CR>:noh<CR>
+augroup END
 
 call plug#end()
 
