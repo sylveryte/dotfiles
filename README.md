@@ -139,3 +139,10 @@ sudo nmap -sn 192.168.1.0/24
 
 ## create image pdf
 img2pdf -o j.pdf *.jpg  -s 500x700
+
+## check soft hard block wifi bluetooth
+rfkill list
+rfkill unblock all # to unblock all
+
+## pull from mobile (termux + sshd) 
+rsync -aP -e "ssh -p 8022" $(nmap -sn 192.168.43.133/24 | grep -P '192.168.43.(?!133\b)\d{1,3}' -o):~/sdcard/push/ ~/linuxdata/wolfexchange/pull

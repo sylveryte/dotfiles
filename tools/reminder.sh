@@ -12,7 +12,7 @@ then
 	msg=$(printf "take a short break\n take a break\n take a hike\n get back to work\n attend meeting\n" | dmenu -p "Message?")
 	if [ -n "$msg" ]
 	then
-		sec=$(echo "$min * 60" | bc)
+		sec=$(("$min * 60"))
 		file=$(ls -d -1 /home/sylveryte/sylveryte/dotfiles/.remindme/* | sort -R | tail -1)
 		dunstify -t 10000 "I'll have someone remind you to $msg in $min mins" </dev/null &>/dev/null
 		sleep $sec && dunstify -t 200000 -i $file -a "RemindMe" "$msg" </dev/null &>/dev/null &

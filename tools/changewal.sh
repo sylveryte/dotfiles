@@ -1,6 +1,6 @@
 apply_wallpaper(){
 	feh --bg-fill $1
-	dunstify -t 5000 -i $1 -a 'Wal ' "Wall applied is -> "
+	# dunstify -t 5000 -i $1 -a 'Wal ' "Wall applied is -> "
 }
 
 if [ -n "$1" ]

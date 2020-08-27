@@ -23,8 +23,8 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set laststatus=2
-set cursorline
-set cursorcolumn
+" set cursorline
+" set cursorcolumn
 set showcmd
 set autoread
 set mouse=a
@@ -42,8 +42,8 @@ set undodir=~/.vim/undodir//
 " Mappings
 nnoremap <C-q> <Esc>:q<CR>
 map <F2> :echo 'Current time is ' . strftime('%c')<CR>
-nmap <leader>D :read !date +"\%A - \%d \%B \%y"<CR>
-nmap <leader>d :read !date +"\%r"<CR>
+nmap <leader>wD :read !date +"\%A - \%d \%B \%y"<CR>
+nmap <leader>wd :read !date +"\%r"<CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -74,6 +74,7 @@ set background=dark
 " material theme
 Plug 'chuling/vim-equinusocio-material'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'joshdick/onedark.vim'
 " Plug 'dylanaraps/wal.vim'
 
 
@@ -86,6 +87,9 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16_pop'
 nnoremap <leader>a <ESC>:AirlineTheme random<CR>
+
+" Improves syntax for various languages 
+Plug 'sheerun/vim-polyglot'
 
 Plug 'camspiers/lens.vim'
 Plug 'camspiers/animate.vim'
@@ -130,42 +134,6 @@ let g:vista_executive_for = {
   \ 'ts': 'coc',
   \ }
 
-" Plug 'majutsushi/tagbar'
-" nmap <F7> :TagbarToggle<CR>
-" let g:tagbar_type_typescript = {
-"   \ 'ctagsbin' : 'tstags',
-"   \ 'ctagsargs' : '-f-',
-"   \ 'kinds': [
-"     \ 'e:enums:0:1',
-"     \ 'f:function:0:1',
-"     \ 't:typealias:0:1',
-"     \ 'M:Module:0:1',
-"     \ 'I:import:0:1',
-"     \ 'i:interface:0:1',
-"     \ 'C:class:0:1',
-"     \ 'm:method:0:1',
-"     \ 'p:property:0:1',
-"     \ 'v:variable:0:1',
-"     \ 'c:const:0:1',
-"   \ ],
-"   \ 'sort' : 0
-" \ }
-" let g:tagbar_type_typescript = {
-"   \ 'ctagstype': 'typescript',
-"   \ 'kinds': [
-"     \ 'c:classes',
-"     \ 'n:modules',
-"     \ 'f:functions',
-"     \ 'v:variables',
-"     \ 'v:varlambdas',
-"     \ 'm:members',
-"     \ 'i:interfaces',
-"     \ 'e:enums',
-"   \ ]
-" \ }
-" Plug 'ternjs/tern_for_vim'
-" " tagbar specific 
-
 " " Track the engine.
 " Plug 'SirVer/ultisnips'
 " " Snippets are separated from the engine. Add this if you want them:
@@ -180,6 +148,7 @@ let g:vista_executive_for = {
 Plug 'christoomey/vim-system-copy'
 
 Plug 'tpope/vim-fugitive'
+nnoremap <leader>g :Git<CR>
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -221,14 +190,14 @@ nmap <leader>p :CtrlP<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>m :CtrlPMRUFiles<CR>
 
-" Plug 'aperezdc/vim-template'
-" let g:templates_search_height = 5
-" let g:templates_directory = "~/.vim/templates"
-" let g:username = "sylveryte"
+Plug 'aperezdc/vim-template'
+let g:templates_search_height = 5
+let g:templates_directory = "~/.vim/templates"
+let g:username = "sylveryte"
 
 Plug 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
-autocmd FileType vue,html,css EmmetInstall
+autocmd FileType vue,html,css,ts,js EmmetInstall
 
 Plug 'valloric/MatchTagAlways'
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
@@ -240,7 +209,7 @@ set nobackup
 set nowritebackup
 set cmdheight=2
 set updatetime=300
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json', 'coc-tslint-plugin', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-cssmodules','coc-python']
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json', 'coc-eslint', 'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-cssmodules','coc-python']
 " Coc python tips
 " install jedi  pip install jedi
 " set python.interpreter :CocCommand -> python.interpreter
@@ -249,6 +218,17 @@ let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-j
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nmap <leader>f :Prettier<CR>
 vmap <leader>f  <Plug>(coc-format-selected)
+
+" coc diag
+nmap <leader>dl :CocDiagnostics<CR>
+nmap <leader>di <Plug>(coc-diagnostic-info)
+nmap <leader>dn <Plug>(coc-diagnostic-next-error)			 
+nmap <leader>dp <Plug>(coc-diagnostic-prev-error)			 
+nmap <leader>db <Plug>(coc-diagnostic-next)			 
+nmap <leader>do <Plug>(coc-diagnostic-prev)			 
+nmap <leader>dd <Plug>(coc-definition)				
+nmap <leader>dc <Plug>(coc-declaration)				
+nmap <leader>dm <Plug>(coc-implementation)				
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " nmap <F6> :call CocAction('pickColor')<CR>
@@ -303,3 +283,7 @@ autocmd vimenter * colorscheme gruvbox
 " incorrect background rendering when using a color theme with a
 " background color.
 let &t_ut=''
+autocmd vimenter * highlight CocErrorHighlight ctermbg=Red  guibg=#902222
+autocmd vimenter * highlight CocWarningHighlight  ctermbg=Brown guibg=#7E5024
+autocmd vimenter * highlight CocInfoHighlight  ctermbg=Yellow guibg=#BE8708
+autocmd vimenter * highlight CocHintHighlight  ctermbg=Blue guibg=#0B7685

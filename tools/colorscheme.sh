@@ -9,7 +9,7 @@
 announce_applied(){
 	echo $1 >> ~/sylveryte/themes
 	echo $1
-	dunstify -t 5000 -i $(ls ~/Pictures/Wallpapers/story/* | sort -R | head -1) -a 'Sylnotification' "theme applied $1"
+	dunstify -t 5000 -a 'Sylnotification' "theme applied $1"
 }
 
 apply_theme(){

@@ -53,7 +53,7 @@ super + {t,shift + t,shift + space}
 super + f
 	bspc desktop -l next
 
- set the node flags
+# set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
@@ -127,8 +127,8 @@ super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
 # Move window into presel position
-alt + shift {h,j,k,l}
-	bspc node -w {left.manual,down.manual,up.manual,right.manual}
+# alt + shift {h,j,k,l}
+# 	bspc node -w {left.manual,down.manual,up.manual,right.manual}
 
 # send the newest marked node to the newest preselected node
 super + shift + y

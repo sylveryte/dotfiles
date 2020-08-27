@@ -18,7 +18,7 @@ cat ~/.cache/wal/sequences
 source ~/.cache/wal/colors-tty.sh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/home/sylveryte/.yarn/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/sylveryte/.oh-my-zsh"
@@ -90,8 +90,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git fzf zsh-autosuggestions  virtualenv zsh-syntax-highlighting)
 
 
-alias neofetch='neofetch --kitty $(ls ~/Pictures/Wallpapers/story/* | sort -R | head -n 1)'
-alias noefetch='neofetch --kitty $(ls ~/Pictures/Wallpapers/story/* | sort -R | head -n 1)'
+alias neofetch='neofetch --kitty'
+alias noefetch='neofetch --kitty'
 alias gits='git status'
 alias zathura='zathura --fork'
 function cya(){

@@ -8,3 +8,5 @@ xinput set-prop 12 --type=int 300 1
 # exec awesome
 exec bspwm
 # xmodmap /home/sylveryte/.speedswapper
+# export DESKTOP_SESSION=plasma
+# exec startplasma-x11

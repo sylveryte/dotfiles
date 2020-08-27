@@ -7,6 +7,7 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 bspc rule -a termite:scratchy sticky=on state=floating rectangle=widthxheight+Xoffset+Yoffset
 bspc rule -a lxappearance state=floating follow=on
+bspc rule -a Zathura state=tiled
 
 # source the colors.
 . "${HOME}/.cache/wal/colors.sh"
