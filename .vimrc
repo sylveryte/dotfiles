@@ -39,9 +39,24 @@ set directory=~/.vim/swp//
 set undodir=~/.vim/undodir//
 " runtime colorchangerc
 
+" userdefined functions
+function Stat()
+	:echom "Time -> " strftime('%c') 
+	:echom "File ->" expand('%:p')
+	:echom "Wrkd ->" getcwd()
+endfunction
+
+function ColorMeImpress()
+	highlight CocErrorHighlight ctermbg=Red  guibg=#902222
+	highlight CocWarningHighlight  ctermbg=Brown guibg=#7E5024
+	highlight CocInfoHighlight  ctermbg=Yellow guibg=#BE8708
+	highlight CocHintHighlight  ctermbg=Blue guibg=#0B7685    " kitty terminal specific
+	echom "Colored"
+endfunction
+
 " Mappings
 nnoremap <C-q> <Esc>:q<CR>
-map <F2> :echo 'Current time is ' . strftime('%c')<CR>
+map <F2> :call Stat()<CR>
 nmap <leader>wD :read !date +"\%A - \%d \%B \%y"<CR>
 nmap <leader>wd :read !date +"\%r"<CR>
 
@@ -137,7 +152,7 @@ let g:vista_executive_for = {
 " " Track the engine.
 " Plug 'SirVer/ultisnips'
 " " Snippets are separated from the engine. Add this if you want them:
-" " Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " let g:UltiSnipsExpandTrigger="<c-q>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -152,8 +167,9 @@ nnoremap <leader>g :Git<CR>
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
 map cm gc
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 
 " nerdtree alternative
 Plug 'justinmk/vim-dirvish'
@@ -163,8 +179,9 @@ nnoremap <leader>r :Dirvish<CR>
 " for tree expanding instead of preview
 augroup dirvish_config
 	autocmd!
-	autocmd FileType dirvish
-		\ nnoremap <silent><buffer> p ddO<Esc>:let @"=substitute(@", '\n', '', 'g')<CR>:r ! find "<C-R>"" -maxdepth 1 -print0 \| xargs -0 ls -Fd<CR>:silent! keeppatterns %s/\/\//\//g<CR>:silent! keeppatterns %s/[^a-zA-Z0-9\/]$//g<CR>:silent! keeppatterns g/^$/d<CR>:noh<CR>
+	" autocmd FileType dirvish
+	" 	\ nnoremap <silent><buffer> p ddO<Esc>:let @"=substitute(@", '\n', '', 'g')<CR>:r ! find "<C-R>"" -maxdepth 1 -print0 \| xargs -0 ls -Fd<CR>:silent! keeppatterns %s/\/\//\//g<CR>:silent! keeppatterns %s/[^a-zA-Z0-9\/]$//g<CR>:silent! keeppatterns g/^$/d<CR>:noh<CR>
+	autocmd FileType dirvish nmap <buffer> cd :cd %<CR>
 augroup END
 
 " Plug 'scrooloose/nerdtree'
@@ -178,17 +195,26 @@ if executable('ag')
 endif
 nmap <leader>o :Ack 
 
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-if executable('ag')
-	" Use Ag over Grep
-	set grepprg=ag\ --nogroup\ --nocolor
-	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-nmap <leader>p :CtrlP<CR>
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>m :CtrlPMRUFiles<CR>
+" Plug 'ctrlpvim/ctrlp.vim'
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" if executable('ag')
+" 	" Use Ag over Grep
+" 	set grepprg=ag\ --nogroup\ --nocolor
+" 	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+" 	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" endif
+" nmap <leader>p :CtrlP<CR>
+" nmap <leader>b :CtrlPBuffer<CR>
+" nmap <leader>m :CtrlPMRUFiles<CR>
+
+" Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+nmap <leader>f :Files<CR>
+nmap <leader>m :History<CR>
+nmap <leader>c :Colors<CR>
+nmap <leader>b :Buffers<CR>
+nmap <leader>s :Rg<CR>
 
 Plug 'aperezdc/vim-template'
 let g:templates_search_height = 5
@@ -209,15 +235,28 @@ set nobackup
 set nowritebackup
 set cmdheight=2
 set updatetime=300
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json', 'coc-eslint', 'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-cssmodules','coc-python']
+" 'coc-eslint',
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets']
 " Coc python tips
 " install jedi  pip install jedi
 " set python.interpreter :CocCommand -> python.interpreter
 " prettier config
 " autocmd BufWritePre,TextChanged,InsertLeave *.js Format
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nmap <leader>f :Prettier<CR>
-vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>p :Prettier<CR>
+vmap <leader>p  <Plug>(coc-format-selected)
+
+" coc snippets
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " coc diag
 nmap <leader>dl :CocDiagnostics<CR>
@@ -275,15 +314,11 @@ call plug#end()
 autocmd vimenter * colorscheme gruvbox
 " autocmd VimEnter * redraw!
 
-
-" kitty terminal specific
 " vim hardcodes background color erase even if the terminfo file does
 " not contain bce (not to mention that libvte based terminals
 " incorrectly contain bce in their terminfo files). This causes
 " incorrect background rendering when using a color theme with a
 " background color.
 let &t_ut=''
-autocmd vimenter * highlight CocErrorHighlight ctermbg=Red  guibg=#902222
-autocmd vimenter * highlight CocWarningHighlight  ctermbg=Brown guibg=#7E5024
-autocmd vimenter * highlight CocInfoHighlight  ctermbg=Yellow guibg=#BE8708
-autocmd vimenter * highlight CocHintHighlight  ctermbg=Blue guibg=#0B7685
+autocmd vimenter * call ColorMeImpress()
+autocmd vimenter * AirlineRefresh

@@ -162,8 +162,14 @@ super + alt + shift + {h,j,k,l}
 # ========== User-specific ==========
 # ===================================
 
+super + c
+	clipmenu
+
 super + m
-	sxiv -bf $(find ~/Pictures/galaxy -type f | sort -R | head -1)	
+	sxiv -bf $(sh ~/sylveryte/dotfiles/tools/motiv.sh)	
+	
+super + n
+	sxiv -bf $(find ~/Pictures/universe -type f | sort -R | head -1)	
 
 # control transparency
 super + shift + o
@@ -180,10 +186,10 @@ super + shift + s
 	~/sylveryte/dotfiles/tools/changewal.sh story
 
 # colorscheme change
-super + shift + c
+super + shift + v
 	~/sylveryte/dotfiles/tools/colorscheme.sh
 
-super + c
+super + v
 	~/sylveryte/dotfiles/tools/colorscheme.sh random
 
 super + shift + r

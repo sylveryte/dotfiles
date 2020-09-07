@@ -1,6 +1,6 @@
 #xrandr --setprovideroutputsource modesetting NVIDIA-0
 #xrandr --auto
-xinput set-prop 12 --type=int 300 1
+xinput set-prop 12 --type=int 305 1
 # wal -R
 # sxhkd&
 # exec i3
