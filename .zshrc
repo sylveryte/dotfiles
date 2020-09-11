@@ -106,9 +106,9 @@ function bye(){
 }
 function kwolski-analysis(){
 	echo '--------------------------------------------------------------'
-	acpi | awk '{print "Battery : " $4}'
+	acpi | awk '{print "Battery\t: " $4}'
+	nmcli connection show --active | sed "1,1 d" | awk '{print "WiFi\t: " $1}'
 	timedatectl|head -n 1 | awk '{print $3 " "  $4 " " $5}'
-	nmcli connection show --active
 	echo '--------------------------------------------------------------'
 }
 

@@ -6,10 +6,17 @@
 # Distributed under terms of the MIT license.
 #
 
+GALAXYDIR=~/Pictures/galaxy
+DARKTHEMES=~/sylveryte/dotfiles/tools/colors/dark
+LIGHTTHEMES=~/sylveryte/dotfiles/tools/colors/light
+HISTTHEMES=~/sylveryte/themes
+FAVTHEMES=~/sylveryte/dotfiles/tools/colors/fav
+TEMPFAVTHEMES=/tmp/fav
+
 announce_applied(){
 	echo $1 >> ~/sylveryte/themes
 	echo $1
-	dunstify -t 5000 -a 'Sylnotification' "theme applied $1"
+	dunstify -t 15000 -a 'Sylnotification' "theme applied $1"
 }
 
 apply_theme(){
@@ -29,7 +36,7 @@ apply_theme_light(){
 }
 
 console_log(){
-	dunstify -t 3000 -a 'log' "$1"
+	dunstify -t 13000 -a 'log' "$1"
 }
 if [ -n "$1" ]
 then
@@ -39,35 +46,43 @@ else
 fi
 case "$c" in
 	'light')
-		apply_theme_light $(cat ~/sylveryte/dotfiles/tools/colors/light | sort -R | dmenu -p "Light themes")
+		apply_theme_light $(cat $LIGHTTHEMES | sort -R | dmenu -p "Light themes")
 		;;
 	'random')
-		apply_theme $(cat ~/sylveryte/dotfiles/tools/colors/dark | sort -R | head -n 1)
+		apply_theme $(cat $DARKTHEMES | sort -R | head -n 1)
 		;;
 	'last')
-		apply_theme $(cat ~/sylveryte/themes | tail | tac | dmenu -p "Last themes")
+		apply_theme $(cat $HISTTHEMES | tail | tac | dmenu -p "Last themes")
+		;;
+	'favsrandom')
+		apply_theme $(cat $FAVTHEMES | sort -R | head -n 1)
 		;;
 	'favs')
-		apply_theme $(cat ~/sylveryte/dotfiles/tools/colors/fav | sort -R | dmenu -p "Favourite themes")
+		apply_theme $(cat $FAVTHEMES | sort -R | dmenu -p "Favourite themes")
 		;;
 	'addtofav')
 		# sort -u ~/sylveryte/themes > ~/sylveryte/themes # mistake will erase file before reading
 		# awk '!a[$0]++' ~/sylveryte/themes # fast but no output
-		uniq ~/sylveryte/themes > ~/sylveryte/themestmp && mv ~/sylveryte/themestmp ~/sylveryte/themes
-		k=$(cat ~/sylveryte/themes | tac | dmenu -p "Add to favourites")
+		# uniq ~/sylveryte/themes > ~/sylveryte/themestmp && mv ~/sylveryte/themestmp ~/sylveryte/themes
+		k=$(tac $HISTTHEMES | dmenu -p "Add to favourites")
+		echo "Got $k"
 		if [ -n "$k" ]
 		then
-			conf=$(dmenu -p "sure? add $k to fav? (y/n)")
+			echo "Asking for conf"
+			conf=$( printf "y\nn" | dmenu -p "sure? add $k to fav? (y/n)")
+			echo "Conf is $conf"
 			if [ $conf = "y" ]
 			then
-				echo $k >> ~/sylveryte/dotfiles/tools/colors/fav
-				dunstify -t 5000 -i $(ls ~/Pictures/Wallpapers/story/* | sort -R | head -1) -a 'Sylnotification' "added $k to favs"
+				echo "Adding $k to $FAVTHEMES"
+				echo $k >> $FAVTHEMES
+				uniq $FAVTHEMES > $TEMPFAVTHEMES && cp $TEMPFAVTHEMES $FAVTHEMES
+				dunstify -t 5000 -i $(ls $GALAXYDIR | sort -R | head -1) -a 'Sylnotification' "added $k to favs"
 			fi
 		fi
 		exit
 		;;
 	'dark')
-		apply_theme $(cat ~/sylveryte/dotfiles/tools/colors/dark | sort -R | dmenu -p "Dark themes")
+		apply_theme $(cat $DARKTHEMES | sort -R | dmenu -p "Dark themes")
 		;;
 esac
 

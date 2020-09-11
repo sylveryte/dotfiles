@@ -192,6 +192,9 @@ super + shift + v
 super + v
 	~/sylveryte/dotfiles/tools/colorscheme.sh random
 
+super + b
+	~/sylveryte/dotfiles/tools/colorscheme.sh favsrandom
+
 super + shift + r
 	~/sylveryte/dotfiles/tools/kwolski_analysis.sh
 

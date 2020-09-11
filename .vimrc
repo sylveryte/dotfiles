@@ -1,15 +1,11 @@
-"to try
-"coc-cssmodules
 "---------------------------------abbreivation-------------------------------------------------------
 iabbrev cll console.log(``)
-ab Attr Attributes
 "---------------------------------user defined-------------------------------------------------------
 set encoding=UTF-8
 set nocompatible              " be iMproved, required
 filetype on                  " required
 filetype plugin on
 set termguicolors
-let g:palenight_terminal_italics=1
 if !has('gui_running')
   set t_Co=256
 endif
@@ -33,25 +29,23 @@ set smartcase
 set undofile
 set hidden "maintain buffer change history
 
-
 " directories
 set directory=~/.vim/swp//
 set undodir=~/.vim/undodir//
-" runtime colorchangerc
 
 " userdefined functions
 function Stat()
-	:echom "Time -> " strftime('%c') 
-	:echom "File ->" expand('%:p')
-	:echom "Wrkd ->" getcwd()
+  :echom "Time -> " strftime('%c')
+  :echom "File ->" expand('%:p')
+  :echom "Wrkd ->" getcwd()
 endfunction
 
 function ColorMeImpress()
-	highlight CocErrorHighlight ctermbg=Red  guibg=#902222
-	highlight CocWarningHighlight  ctermbg=Brown guibg=#7E5024
-	highlight CocInfoHighlight  ctermbg=Yellow guibg=#BE8708
-	highlight CocHintHighlight  ctermbg=Blue guibg=#0B7685    " kitty terminal specific
-	echom "Colored"
+  highlight CocErrorHighlight ctermbg=Red  guibg=#902222
+  highlight CocWarningHighlight  ctermbg=Brown guibg=#7E5024
+  highlight CocInfoHighlight  ctermbg=Yellow guibg=#BE8708
+  highlight CocHintHighlight  ctermbg=Blue guibg=#0B7685
+  echom "Colored"
 endfunction
 
 " Mappings
@@ -65,6 +59,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap ,s <Esc>:split<CR>
+nnoremap ,v <Esc>:vsplit<CR>
 
 "resize splits
 nnoremap <silent> <A-Up> :exe "resize -1 "<CR>
@@ -77,88 +73,74 @@ autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%,
 autocmd FileType sh map <buffer> <F9> :w<CR>:exec '!sh' shellescape(@%, 1)<CR>
 autocmd FileType markdown map <buffer> <leader>r :w<CR>:exec '!glow' shellescape(@%, 1)<CR>
 
+" switching buffers
+augroup VIMRC
+  " this one is which you're most likely to use?
+  autocmd BufLeave *.scss,*.css normal! mC
+  autocmd BufLeave *.js,*.ts normal! mJ
+  autocmd BufLeave *.html, normal! mH
+  autocmd BufLeave *.vue, normal! mV
+augroup end
 
 "--------------------------------------PLUGINS VIm Plug----------------------------------
 call plug#begin('~/.vim/plugged')
 
 " Plug 'flazz/vim-colorschemes'
 
-" Plug 'drewtempelmeyer/palenight.vim'
-" Plug 'NLKNguyen/papercolor-theme'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'NLKNguyen/papercolor-theme'
 set background=dark
 " material theme
-Plug 'chuling/vim-equinusocio-material'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'joshdick/onedark.vim'
+" Plug 'rafi/awesome-vim-colorschemes'
 " Plug 'dylanaraps/wal.vim'
+Plug 'chuling/vim-equinusocio-material'
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+let g:gruvbox_italic=1
+Plug 'joshdick/onedark.vim'
+Plug 'atelierbram/vim-colors_atelier-schemes'
 
 
-" Plug 'itchyny/lightline.vim'
-" let g:lightline = {
-"       \ 'colorscheme': 'wombat',
-"       \ }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16_pop'
 nnoremap <leader>a <ESC>:AirlineTheme random<CR>
 
-" Improves syntax for various languages 
+" Improves syntax for various languages
 Plug 'sheerun/vim-polyglot'
 
 Plug 'camspiers/lens.vim'
 Plug 'camspiers/animate.vim'
-" Plug 'psliwka/vim-smoothie'
-" Plug 'yonchu/accelerated-smooth-scroll'
 
 Plug 'ryanoasis/vim-devicons'
 
-
-
 " functional plugins ---------------------------------------------------------------
-
-" Plug 'jiangmiao/auto-pairs'
 
 " post install (yarn install | npm install)
 " Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
+" language specifics
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'pechorin/any-jump.vim'
-
-" gitlens
-" Plug 'APZelos/blamer.nvim'
-" let g:blamer_enabled = 1
-" bug in insert mode
-
-" " Plug 'doums/coBra'
 
 Plug 'ap/vim-css-color'
 Plug 'KabbAmine/vCoolor.vim'
 let g:vcoolor_map = '<F6>'
-" " Plug 'maksimr/vim-jsbeautify'
 
-" Plug 'Chiel92/vim-autoformat'
-" noremap <F5> :Autoformat<CR>
-
-
+Plug 'Chiel92/vim-autoformat'
+noremap <F5> :Autoformat<CR>
 
 " tagbar alternative
 Plug 'liuchengxu/vista.vim'
 nmap <F8> :Vista coc<CR>
 let g:vista_executive_for = {
-  \ 'ts': 'coc',
-  \ }
+      \ 'ts': 'coc',
+      \ }
 
-" " Track the engine.
-" Plug 'SirVer/ultisnips'
-" " Snippets are separated from the engine. Add this if you want them:
+" Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-" " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<c-q>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
 
 Plug 'christoomey/vim-system-copy'
 
@@ -178,43 +160,49 @@ nnoremap <leader>e :Dirvish %<CR>
 nnoremap <leader>r :Dirvish<CR>
 " for tree expanding instead of preview
 augroup dirvish_config
-	autocmd!
-	" autocmd FileType dirvish
-	" 	\ nnoremap <silent><buffer> p ddO<Esc>:let @"=substitute(@", '\n', '', 'g')<CR>:r ! find "<C-R>"" -maxdepth 1 -print0 \| xargs -0 ls -Fd<CR>:silent! keeppatterns %s/\/\//\//g<CR>:silent! keeppatterns %s/[^a-zA-Z0-9\/]$//g<CR>:silent! keeppatterns g/^$/d<CR>:noh<CR>
-	autocmd FileType dirvish nmap <buffer> cd :cd %<CR>
+  autocmd!
+  " autocmd FileType dirvish
+  "   \ nnoremap <silent><buffer> p ddO<Esc>:let @"=substitute(@", '\n', '', 'g')<CR>:r ! find "<C-R>"" -maxdepth 1 -print0 \| xargs -0 ls -Fd<CR>:silent! keeppatterns %s/\/\//\//g<CR>:silent! keeppatterns %s/[^a-zA-Z0-9\/]$//g<CR>:silent! keeppatterns g/^$/d<CR>:noh<CR>
+  autocmd FileType dirvish nmap <buffer> cd :cd %<CR>
 augroup END
 
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" nnoremap <F3> <Esc>:NERDTreeToggle<CR>
-" let NERDTreeShowBookmarks=1
-
-Plug 'mileszs/ack.vim'
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-nmap <leader>o :Ack 
-
-" Plug 'ctrlpvim/ctrlp.vim'
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" if executable('ag')
-" 	" Use Ag over Grep
-" 	set grepprg=ag\ --nogroup\ --nocolor
-" 	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-" 	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" endif
-" nmap <leader>p :CtrlP<CR>
-" nmap <leader>b :CtrlPBuffer<CR>
-" nmap <leader>m :CtrlPMRUFiles<CR>
-
-" Plug 'junegunn/fzf'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 nmap <leader>f :Files<CR>
+nmap <leader>F :Files!<CR>
 nmap <leader>m :History<CR>
+nmap <leader>M :History!<CR>
 nmap <leader>c :Colors<CR>
 nmap <leader>b :Buffers<CR>
+nmap <leader>B :Buffers!<CR>
 nmap <leader>s :Rg<CR>
+nmap <leader>S :Rg!<CR>
+" CTRL-A CTRL-Q to select all and build quickfix list
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+let g:fzf_action = {
+      \ 'ctrl-q': function('s:build_quickfix_list'),
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit' }
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 Plug 'aperezdc/vim-template'
 let g:templates_search_height = 5
@@ -261,13 +249,13 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " coc diag
 nmap <leader>dl :CocDiagnostics<CR>
 nmap <leader>di <Plug>(coc-diagnostic-info)
-nmap <leader>dn <Plug>(coc-diagnostic-next-error)			 
-nmap <leader>dp <Plug>(coc-diagnostic-prev-error)			 
-nmap <leader>db <Plug>(coc-diagnostic-next)			 
-nmap <leader>do <Plug>(coc-diagnostic-prev)			 
-nmap <leader>dd <Plug>(coc-definition)				
-nmap <leader>dc <Plug>(coc-declaration)				
-nmap <leader>dm <Plug>(coc-implementation)				
+nmap <leader>dn <Plug>(coc-diagnostic-next-error)
+nmap <leader>dp <Plug>(coc-diagnostic-prev-error)
+nmap <leader>db <Plug>(coc-diagnostic-next)
+nmap <leader>do <Plug>(coc-diagnostic-prev)
+nmap <leader>dd <Plug>(coc-definition)
+nmap <leader>dc <Plug>(coc-declaration)
+nmap <leader>dm <Plug>(coc-implementation)
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " nmap <F6> :call CocAction('pickColor')<CR>
@@ -300,18 +288,10 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 call plug#end()
 
-"for delay purpose
-" colorscheme PaperColor
-" colorscheme sierra
-" colorscheme palenight
-" colorscheme hybrid
-" colorscheme molokai
-" colorscheme gruvbox
-" colorscheme wal
-
+" kitty terminal specific
 " Below command helps on enter, it to get rid of ;2R^[[>1;2802;0c garbage.
 " It's happening on kitty with Vista.vim plugin combo.
-autocmd vimenter * colorscheme gruvbox
+let &t_ut=''
 " autocmd VimEnter * redraw!
 
 " vim hardcodes background color erase even if the terminfo file does
@@ -319,6 +299,6 @@ autocmd vimenter * colorscheme gruvbox
 " incorrectly contain bce in their terminfo files). This causes
 " incorrect background rendering when using a color theme with a
 " background color.
-let &t_ut=''
+autocmd vimenter * colorscheme gruvbox
 autocmd vimenter * call ColorMeImpress()
 autocmd vimenter * AirlineRefresh
