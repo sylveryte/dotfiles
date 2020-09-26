@@ -72,6 +72,7 @@ nnoremap <silent> <A-Right> :exe "vertical resize +1"<CR>
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType sh map <buffer> <F9> :w<CR>:exec '!sh' shellescape(@%, 1)<CR>
 autocmd FileType markdown map <buffer> <leader>r :w<CR>:exec '!glow' shellescape(@%, 1)<CR>
+autocmd FileType markdown map <buffer> <leader>y :w<CR>:exec '!remarkable %'<CR>
 
 " switching buffers
 augroup VIMRC
@@ -95,6 +96,8 @@ set background=dark
 " Plug 'dylanaraps/wal.vim'
 Plug 'chuling/vim-equinusocio-material'
 Plug 'morhetz/gruvbox'
+Plug 'embark-theme/vim', { 'as': 'embark' }
+let g:embark_terminal_italics = 1
 Plug 'dracula/vim', { 'as': 'dracula' }
 let g:gruvbox_italic=1
 Plug 'joshdick/onedark.vim'
@@ -167,6 +170,9 @@ augroup dirvish_config
 augroup END
 
 Plug 'junegunn/fzf'
+Plug 'benwainwright/fzf-switch-project'
+let g:fzfSwitchProjectWorkspaces = [ '~/projects/','~/work/*']
+nmap <leader>w :FzfSwitchProject<CR>
 Plug 'junegunn/fzf.vim'
 nmap <leader>f :Files<CR>
 nmap <leader>F :Files!<CR>

@@ -153,17 +153,17 @@ class Compressor:
             budget_portrait, budget, normal = self._filter_budget_images(images)
             if budget :
                 print("These budget landscape images".center(120,"-"))
-                os.system("mogrify -strip -sampling-factor 4:2:0 -quality 85 -interlace JPEG -colorspace RGB -resize x"+str(self.threshold_size)+" "+" ".join(budget))
+                os.system("mogrify -strip -sampling-factor 4:2:0 -quality 75 -interlace JPEG -colorspace RGB -resize x"+str(self.threshold_size)+" "+" ".join(budget))
             if budget_portrait:
                 print("These budget portrait images".center(120,"-"))
-                os.system("mogrify -strip -sampling-factor 4:2:0 -quality 85 -interlace JPEG -colorspace RGB -resize "+str(self.threshold_size)+"x "+" ".join(budget_portrait))
+                os.system("mogrify -strip -sampling-factor 4:2:0 -quality 75 -interlace JPEG -colorspace RGB -resize "+str(self.threshold_size)+"x "+" ".join(budget_portrait))
             if normal and not self.on_compress: 
                 print("so raww".center(120,"^"))
-                os.system("mogrify -strip -sampling-factor 4:2:0 -quality 85 -interlace JPEG -colorspace RGB "+" ".join(normal))
+                os.system("mogrify -strip -sampling-factor 4:2:0 -quality 75 -interlace JPEG -colorspace RGB "+" ".join(normal))
             else:
                 print(f"NIgga these {len(normal)} are sliding fine af".center(120,"*"))
         else:
-            os.system("mogrify -strip -sampling-factor 4:2:0 -quality 85 -interlace JPEG -colorspace RGB "+" ".join(images))
+            os.system("mogrify -strip -sampling-factor 4:2:0 -quality 75 -interlace JPEG -colorspace RGB "+" ".join(images))
 
     def compress_images(self, images):
         for ims in self.chunks(images,self.chunk_size):
