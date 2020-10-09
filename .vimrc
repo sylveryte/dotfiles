@@ -53,13 +53,15 @@ nnoremap <C-q> <Esc>:q<CR>
 map <F2> :call Stat()<CR>
 nmap <leader>wD :read !date +"\%A - \%d \%B \%y"<CR>
 nmap <leader>wd :read !date +"\%r"<CR>
+nmap ,t :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR>
+nmap ,T :terminal<CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap ,s <Esc>:split<CR>
+nnoremap ,x <Esc>:split<CR>
 nnoremap ,v <Esc>:vsplit<CR>
 
 "resize splits
@@ -157,6 +159,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 
 " nerdtree alternative
+Plug 'vifm/vifm.vim'
+let loaded_vifm = 1
+let g:vifm_embed_cwd = 1
+let g:vifm = "/usr/bin/vifmrun"
+nnoremap ,f :Vifm<CR>
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
 nnoremap <leader>e :Dirvish %<CR>
@@ -170,9 +177,6 @@ augroup dirvish_config
 augroup END
 
 Plug 'junegunn/fzf'
-Plug 'benwainwright/fzf-switch-project'
-let g:fzfSwitchProjectWorkspaces = [ '~/projects/','~/work/*']
-nmap <leader>w :FzfSwitchProject<CR>
 Plug 'junegunn/fzf.vim'
 nmap <leader>f :Files<CR>
 nmap <leader>F :Files!<CR>
@@ -217,7 +221,7 @@ let g:username = "sylveryte"
 
 Plug 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
-autocmd FileType vue,html,css,ts,js EmmetInstall
+autocmd FileType vue,html,css,ts,js,ejs EmmetInstall
 
 Plug 'valloric/MatchTagAlways'
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
@@ -230,7 +234,7 @@ set nowritebackup
 set cmdheight=2
 set updatetime=300
 " 'coc-eslint',
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets']
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets', 'coc-yaml']
 " Coc python tips
 " install jedi  pip install jedi
 " set python.interpreter :CocCommand -> python.interpreter

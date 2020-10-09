@@ -34,4 +34,5 @@ case "$1" in
 "C-c")      tr '\n' '\0' | xargs -0 xclip-copyfile & ;;
 "C-x")      tr '\n' '\0' | xargs -0 xclip-cutfile & ;;
 "C-w")      tr '\n' '\0' | xargs -0 feh --bg-fill & ;;
+"C-s")      tr '\n' '\0' | xargs -0 wal -i & ;;
 esac

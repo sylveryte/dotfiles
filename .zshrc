@@ -94,6 +94,7 @@ alias neofetch='neofetch --kitty $(sh ~/sylveryte/dotfiles/tools/motiv.sh -s)'
 alias noefetch='neofetch'
 alias gits='git status'
 alias zathura='zathura --fork'
+alias vifm='vifmrun'
 function cya(){
 	free -h
 	sleep 1s

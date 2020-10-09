@@ -146,3 +146,6 @@ rfkill unblock all # to unblock all
 
 ## pull from mobile (termux + sshd) 
 rsync -aP -e "ssh -p 8022" $(nmap -sn 192.168.43.133/24 | grep -P '192.168.43.(?!133\b)\d{1,3}' -o):~/sdcard/push/ ~/linuxdata/wolfexchange/pull
+
+git rebase -i COMMIT_HASH
+GIT_COMMITTER_DATE="2020-10-02T22:12:01" git commit --amend --no-edit --date "2020-10-02T22:12:01" ;git rebase --continue
