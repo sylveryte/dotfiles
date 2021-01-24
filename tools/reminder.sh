@@ -15,6 +15,6 @@ then
 		sec=$(("$min * 60"))
 		file=$(ls -d -1 /home/sylveryte/sylveryte/dotfiles/.remindme/* | sort -R | tail -1)
 		dunstify -t 10000 "I'll have someone remind you to $msg in $min mins" </dev/null &>/dev/null
-		sleep $sec && dunstify -t 200000 -i $file -a "RemindMe" "$msg" </dev/null &>/dev/null &
+		sleep $sec && dunstify -t 5000000 -i $file -a "RemindMe" "$msg" </dev/null &>/dev/null &
 	fi
 fi

@@ -31,6 +31,8 @@ case "$1" in
 "C-slash")  rotate 180 ;;
 "C-d")  while read file; do rm "$file" & done ;;
 "C-g")      tr '\n' '\0' | xargs -0 gwenview & ;;
+"C-i")      tr '\n' '\0' | xargs -0 inkscape & ;;
+"C-p")      tr '\n' '\0' | xargs -0 gimp & ;;
 "C-c")      tr '\n' '\0' | xargs -0 xclip-copyfile & ;;
 "C-x")      tr '\n' '\0' | xargs -0 xclip-cutfile & ;;
 "C-w")      tr '\n' '\0' | xargs -0 feh --bg-fill & ;;

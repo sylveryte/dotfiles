@@ -2,6 +2,7 @@ SYLWAL=/tmp/sylwal.jpg
 
 copy_wallpaper(){
 	# mkdir -p -- "$SYLWAL"
+	echo "copying $1 to $SYLWAL"
 	cp $1 $SYLWAL
 }
 
@@ -18,10 +19,10 @@ else
 fi
 case "$c" in
 	"generic")
-		apply_wallpaper $(ls /home/sylveryte/Pictures/Vallpapers/generic/* | sort -R  | head -n 1)
+		apply_wallpaper $(find /home/sylveryte/Pictures/Wallpapers/generic/* -type f | sort -R  | head -n 1)
 		;;
 	"story")
-		WAL=$(ls /home/sylveryte/Pictures/Vallpapers/story/* | sort -R  | head -n 1)
+		WAL=$(find /home/sylveryte/Pictures/Wallpapers/story/* -type f | sort -R  | head -n 1)
 		apply_wallpaper $WAL
 		copy_wallpaper $WAL
 		;;

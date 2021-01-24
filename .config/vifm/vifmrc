@@ -170,13 +170,15 @@ command! reload :write | restart
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
 
+filetype *.csv libreoffice %f
+
 " Pdf
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
-" fileviewer *.pdf pdftotext -nopgbrk %c -
-fileviewer *.pdf
-	\ vifmimg pdfpreview %px %py %pw %ph %c
-	\ %pc
-	\ vifmimg clear
+fileviewer *.pdf pdftotext -nopgbrk %c -
+" fileviewer *.pdf
+" 	\ vifmimg pdfpreview %px %py %pw %ph %c
+" 	\ %pc
+" 	\ vifmimg clear
 
 fileviewer *.epub
 	\ vifmimg epubpreview %px %py %pw %ph %c
@@ -601,11 +603,15 @@ set classify+=' ::*.pptx,,*.ppt::'
 :colorscheme dracula
 
 nnoremap ,f :!pcmanfm-qt %d &<cr>
+nnoremap ,s :!sxiv %d &<cr>
+nnoremap x :!xdg-open %c &<cr>
 nnoremap ,q :q<cr>
 nnoremap E :edit<cr>
 
 " FZF
-command! FZFlocate :set noquickview | :execute 'goto' fnameescape(term('locate $HOME | fzf --height 10 2>/dev/tty'))
-command! FZFfind :set noquickview | :execute 'goto' fnameescape(term('find | fzf --height 10 2>/dev/tty'))
-nnoremap <c-g> :FZFlocate<cr>
-nnoremap <c-f> :FZFfind<cr>
+command! FZFfindHome :set noquickview | :execute 'goto' fnameescape(term('fd --full-path $HOME | fzf 2>/dev/tty'))
+command! FZFfind :set noquickview | :execute 'goto' fnameescape(term('fd | fzf 2>/dev/tty'))
+command! FZFHistory :set noquickview | :execute "normal! :history\r:write /tmp/test\rq" | execute 'cd "'.system('fzf < /tmp/test 2>/dev/tty').'"'
+nnoremap \h :FZFfindHome<cr>
+nnoremap \f :FZFfind<cr>
+nnoremap \m :FZFHistory<cr>

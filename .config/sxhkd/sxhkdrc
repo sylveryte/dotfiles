@@ -174,9 +174,6 @@ super + shift + m
 super + n
 	sxiv -bf $(find ~/Pictures/universe -type f | sort -R | head -1)	
 
-# control transparency
-super + shift + o
-	~/sylveryte/dotfiles/tools/transparency.sh
 # polybar
 super + p
 	~/sylveryte/dotfiles/tools/polybar.sh
@@ -219,9 +216,6 @@ super + w
 
 super + q
 	firefox
-
-super + q
-	firefox --private-window
 
 super + e
 	firefox-developer-edition 

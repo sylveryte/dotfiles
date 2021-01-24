@@ -55,6 +55,10 @@ nmap <leader>wD :read !date +"\%A - \%d \%B \%y"<CR>
 nmap <leader>wd :read !date +"\%r"<CR>
 nmap ,t :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR>
 nmap ,T :terminal<CR>
+nmap <leader>v :let $VIM_DIR=expand('%:p:h')<CR>:!vifm $VIM_DIR<CR> 
+nmap <space> za;
+" tip zxzc to close all children folds
+nmap ,z :Fold<CR>zR;
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -73,8 +77,10 @@ nnoremap <silent> <A-Right> :exe "vertical resize +1"<CR>
 " runnnig codes
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType sh map <buffer> <F9> :w<CR>:exec '!sh' shellescape(@%, 1)<CR>
-autocmd FileType markdown map <buffer> <leader>r :w<CR>:exec '!glow' shellescape(@%, 1)<CR>
+autocmd FileType markdown map <buffer> <leader>r :w<CR>:exec '!glow -p' shellescape(@%, 1)<CR>
 autocmd FileType markdown map <buffer> <leader>y :w<CR>:exec '!remarkable %'<CR>
+
+" autocmd FileType html :normal zR<CR> 
 
 " switching buffers
 augroup VIMRC
@@ -95,7 +101,7 @@ Plug 'NLKNguyen/papercolor-theme'
 set background=dark
 " material theme
 " Plug 'rafi/awesome-vim-colorschemes'
-" Plug 'dylanaraps/wal.vim'
+Plug 'dylanaraps/wal.vim'
 Plug 'chuling/vim-equinusocio-material'
 Plug 'morhetz/gruvbox'
 Plug 'embark-theme/vim', { 'as': 'embark' }
@@ -105,6 +111,8 @@ let g:gruvbox_italic=1
 Plug 'joshdick/onedark.vim'
 Plug 'atelierbram/vim-colors_atelier-schemes'
 
+" Plug 'luochen1990/rainbow'
+" let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -120,19 +128,35 @@ Plug 'camspiers/animate.vim'
 
 Plug 'ryanoasis/vim-devicons'
 
+" framework specific plugins
+Plug 'peitalin/vim-jsx-typescript'
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+Plug 'mlaursen/vim-react-snippets'
+
 " functional plugins ---------------------------------------------------------------
 
 " post install (yarn install | npm install)
 " Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
-" language specifics
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+Plug 'chrisbra/NrrwRgn'
+Plug 'https://github.com/wesQ3/vim-windowswap'
+
 Plug 'pechorin/any-jump.vim'
+
+" language specifics
+" Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+nnoremap ,f :norm vi{\p<CR>
 
 Plug 'ap/vim-css-color'
 Plug 'KabbAmine/vCoolor.vim'
 let g:vcoolor_map = '<F6>'
+
+" autocmd FileType html :normal zR<CR> 
+autocmd FileType markdown vmap ,g :normal! 0f\|Dj<CR>
 
 Plug 'Chiel92/vim-autoformat'
 noremap <F5> :Autoformat<CR>
@@ -163,10 +187,9 @@ Plug 'vifm/vifm.vim'
 let loaded_vifm = 1
 let g:vifm_embed_cwd = 1
 let g:vifm = "/usr/bin/vifmrun"
-nnoremap ,f :Vifm<CR>
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
-nnoremap <leader>e :Dirvish %<CR>
+nnoremap ,e 'B :set ft=dirvish<CR>
 nnoremap <leader>r :Dirvish<CR>
 " for tree expanding instead of preview
 augroup dirvish_config
@@ -181,7 +204,7 @@ Plug 'junegunn/fzf.vim'
 nmap <leader>f :Files<CR>
 nmap <leader>F :Files!<CR>
 nmap <leader>m :History<CR>
-nmap <leader>M :History!<CR>
+nmap <leader>M :Marks<CR>
 nmap <leader>c :Colors<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>B :Buffers!<CR>
@@ -221,7 +244,7 @@ let g:username = "sylveryte"
 
 Plug 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
-autocmd FileType vue,html,css,ts,js,ejs EmmetInstall
+autocmd FileType vue,html,css,ts,js,ejs,javascriptreact,typescriptreact,svelte EmmetInstall
 
 Plug 'valloric/MatchTagAlways'
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
@@ -234,7 +257,7 @@ set nowritebackup
 set cmdheight=2
 set updatetime=300
 " 'coc-eslint',
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets', 'coc-yaml']
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets', 'coc-yaml', 'coc-tailwindcss', 'coc-react-refactor', 'coc-svelte', 'coc-emmet']
 " Coc python tips
 " install jedi  pip install jedi
 " set python.interpreter :CocCommand -> python.interpreter
@@ -243,6 +266,7 @@ let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-j
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nmap <leader>p :Prettier<CR>
 vmap <leader>p  <Plug>(coc-format-selected)
+nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " coc snippets
 " Use <C-l> for trigger snippet expand.
