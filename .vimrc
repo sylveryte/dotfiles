@@ -150,6 +150,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 nnoremap ,f :norm vi{\p<CR>
+nnoremap ,af :norm vat\p<CR>
 
 Plug 'ap/vim-css-color'
 Plug 'KabbAmine/vCoolor.vim'
@@ -208,8 +209,8 @@ nmap <leader>M :Marks<CR>
 nmap <leader>c :Colors<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>B :Buffers!<CR>
-nmap <leader>s :Rg<CR>
-nmap <leader>S :Rg!<CR>
+nmap <leader>s :Rg!<CR>
+nmap <leader>S :Rg<CR>
 " CTRL-A CTRL-Q to select all and build quickfix list
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))

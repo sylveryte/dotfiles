@@ -73,435 +73,318 @@
 # Bookmarks:
 
 # TUI:
-al
+ar
 q1
 v2
 ov
 m-1
-l11,2
+l8,2
 r8,2
 
 # Left window history (oldest to newest):
-d/home/sylveryte/projects/codedfruit/bagpackerme/bagpackerme-web/src/assets
-	exp.jpg
-6
-d/home/sylveryte
-	projects
-13
 d/home/sylveryte/Downloads
-	davit.csv
-40
-d/home/sylveryte
-	projects
+	Holiday List -2021.pdf
 13
+d/home/sylveryte
+	2021-02-02-172414_925x669_scrot.png
+29
 d/home/sylveryte/Downloads
-	tempt4wermore.csv
+	Holiday List -2021.pdf
 41
-d/home/sylveryte/work/kuchnaya/aurionpro/PaymentFormUI
+d/home/sylveryte/work/kuchnaya/aurionpro
+	notes.md
+15
+d/home/sylveryte/Downloads
+	..
+0
+d/home/sylveryte
+	2021-02-05-111308_1920x1080_scrot.png
+31
+d/home/sylveryte/linuxdata/work
+	official
+1
+d/home/sylveryte
+	2021-02-05-111308_1920x1080_scrot.png
+31
+d/home/sylveryte/Downloads
+	Bugs_Bunny_Cartoon_Vector_11-500x500.jpg
+39
+d/home/sylveryte
+	2021-02-05-111308_1920x1080_scrot.png
+31
+d/home/sylveryte/Downloads
+	Bugs_Bunny_Cartoon_Vector_11-500x500.jpg
+39
+d/home/sylveryte/work/kuchnaya/aurionpro
+	HPT
+14
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT
+	POC
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/POC
+	..
+0
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT
+	forms
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms
+	HPTUI
+4
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI
+	dist
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms
+	HPTUI
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI
+	package-lock.json
+18
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task/vision/desktop
+	g3doc
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task/vision/desktop/g3doc
+	detection-output.png
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task/vision/desktop
+	utils
+2
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task/vision/desktop/utils
+	BUILD
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task/vision/desktop
+	utils
+2
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task/vision
+	desktop
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task/vision/desktop
+	utils
+2
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task/vision
+	desktop
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task
+	vision
+2
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples
+	task
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support
+	examples
+4
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples
+	task
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples/task
+	vision
+2
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support/examples
+	task
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/image_segmentation/tests/tflite-support/tensorflow_lite_support
+	examples
+4
+d/home/sylveryte
+	2021-02-11-135512_1920x1080_scrot.png
+40
+d/home/sylveryte/work/kuchnaya/aurionpro
+	HPT
+12
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT
+	forms
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms
+	HPTUI
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI
+	README.md
+5
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms
+	forPayal
+2
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/forPayal
+	HPTUI
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/forPayal/HPTUI
+	dist
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/forPayal/HPTUI/dist
+	..
+0
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/forPayal/HPTUI
+	angular.json
+14
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/forPayal
+	HPTUI
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI
+	src
+2
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src
+	app
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app
+	module
+3
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module
+	shared
+5
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/shared
+	..
+0
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module
+	shared
+5
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/shared
+	..
+0
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module
+	shared
+5
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/shared
+	..
+0
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module
+	secure
+4
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure
+	secure.routes.ts
+13
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms
+	component
+2
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component
+	forms
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/forms
+	find-forms
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component
+	forms
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms
+	component
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/shared/formio-builder
+	formio-builder.component.html
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/shared
+	formio-builder
+2
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component
+	forms
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/forms
+	find-forms
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/forms/find-forms
+	formio-demo
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/forms/find-forms/formio-demo
+	formio-builder-options.ts
+5
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/forms/find-forms
+	formio-demo
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/forms
+	find-forms
+1
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component
+	shared
+2
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/shared
+	formio-builder
+2
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/app/module/secure/forms/component/shared/formio-builder
+	formio-builder-options.ts
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya
+	webscraping
+4
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping
+	poc
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping/poc
+	node_modules
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping/poc/node_modules
+	..
+0
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping/poc
+	package.json
+3
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping
+	send
+2
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping/send
+	bawscrapper
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping
+	dup
+4
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping/dup
+	bawscrapppe
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/webscraping
+	dup
+4
+d/home/sylveryte/work/kuchnaya/kuchnaya
+	initial_test
+2
+d/home/sylveryte/work/kuchnaya/kuchnaya/initial_test
+	etsypress
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya/initial_test/etsypress
+	views
+2
+d/home/sylveryte/work/kuchnaya/kuchnaya/initial_test
+	etsypress
+1
+d/home/sylveryte/work/kuchnaya/kuchnaya
+	api_server
+7
+d/home/sylveryte/work/kuchnaya/kuchnaya/api_server
+	..
+0
+d/home/sylveryte
+	bitmap.png
+37
+d/home/sylveryte/Downloads
+	formio-options.ts (1).zip
+41
+d/home/sylveryte
+	bitmap.png
+37
+d/home/sylveryte/Downloads
+	edit_no_border.png
+25
+d/home/sylveryte
+	2021-02-04-161134_1920x1080_scrot.png
+30
+d/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI/src/assets/i18n
 	..
 0
 d/home/sylveryte/work/kuchnaya/aurionpro
-	PaymentFormUI
-9
-d/home/sylveryte/work/kuchnaya/aurionpro/PaymentFormUI
-	..
-0
+	Holiday List -2021.pdf
+16
 d/home/sylveryte
-	projects
-13
-d/home/sylveryte/Pictures/galaxy
-	trisha.jpg
-39
-d/home/sylveryte
-	projects
-13
-d/home/sylveryte/Pictures/galaxy
-	trisha.jpg
-39
-d/home/sylveryte
-	projects
-13
+	2021-02-04-161134_1920x1080_scrot.png
+30
 d/home/sylveryte/Downloads
-	ACHcard.html
-29
-d/home/sylveryte/Pictures/galaxy
-	trisha.jpg
-39
+	archlinux-2021.02.01-x86_64.iso
+40
 d/home/sylveryte
-	projects
-13
-d/home/sylveryte/Pictures/galaxy
-	c1dd29da12adcaade26cde5b77d310b6.jpg
-1
-d/home/sylveryte/Pictures
-	galaxy
-8
-d/home/sylveryte/Pictures/galaxy
-	003.o.jpg
-7
-d/home/sylveryte/Pictures
-	Vallpapers
-7
-d/home/sylveryte/Pictures/Vallpapers
-	story
-2
-d/home/sylveryte/Pictures/Vallpapers/story
-	001(8).jpg
-4
-d/home/sylveryte/Pictures/Vallpapers
-	story
-2
-d/home/sylveryte/Pictures
-	profile
-6
-d/home/sylveryte/Pictures/profile
-	Light_Yagami-Kira.jpg
-3
-d/home/sylveryte/Pictures
-	Wallpapers
-5
-d/home/sylveryte/Pictures/Wallpapers
-	story
-1
-d/home/sylveryte/Pictures/Wallpapers/story
-	feh_021407_000001_ciri.jpg
-1
-d/home/sylveryte/Pictures/Wallpapers
-	generic_k
-1
-d/home/sylveryte/Pictures/Wallpapers/generic_k
-	dvKAqbv.jpg
-1
-d/home/sylveryte/Pictures/Wallpapers
-	story21oct
-3
-d/home/sylveryte/Pictures/Wallpapers/story21oct
-	073.o.jpg
-3
-d/home/sylveryte/Pictures/Wallpapers
-	generic
-2
-d/home/sylveryte/Pictures
-	universe
-4
-d/home/sylveryte/Pictures/universe
-	mpv-shot0004.jpg
-2
-d/home/sylveryte/Pictures
-	sgalaxy
-3
-d/home/sylveryte/Pictures/sgalaxy
-	001(5).jpg
-1
-d/home/sylveryte/Pictures
-	frenchgirls
-1
-d/home/sylveryte/Pictures/frenchgirls
-	VID_20170101_162815-ANIMATION.gif
-4
-d/home/sylveryte/work/kuchnaya/aurionpro/PaymentFormUI/css
-	..
-0
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/assets/styles/paymentform
-	base.css
-1
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/assets/styles
-	paymentform
-1
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/assets
-	images
-1
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/assets/images
-	paymentform
-3
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/assets/images/paymentform
-	edit-2.png
-39
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI
-	src
-2
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src
-	app
-2
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/app
-	..
-0
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src
-	assets
-1
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/assets
-	images
-1
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/assets/images
-	paymentform
-7
-d/home/sylveryte/work/kuchnaya/aurionpro/CustomerPortal-UI/src/assets/images/paymentform
-	shop_logo.png
-38
-d/home/sylveryte
-	Pictures
-22
-d/home/sylveryte/Pictures
-	Wallpapers
-5
-d/home/sylveryte/Pictures/Wallpapers
-	generic
-2
-d/home/sylveryte/Pictures/Wallpapers/generic
-	fde6848.jpg
-6
-d/home/sylveryte/Pictures/Wallpapers
-	generic_k
-1
-d/home/sylveryte/Pictures/Wallpapers/generic_k
-	dvKAqbv.jpg
-1
-d/home/sylveryte/Pictures/Wallpapers
-	generic_k
-1
-d/home/sylveryte/Pictures/Wallpapers/generic_k
-	dvKAqbv.jpg
-1
-d/home/sylveryte/Pictures/Wallpapers
-	generic
-2
-d/home/sylveryte/Pictures
-	frenchgirls
-1
-d/home/sylveryte/Pictures/frenchgirls
-	Screenshot_2014-11-22-07-05-02-picsay.png
-5
-d/home/sylveryte/Pictures
-	Screenshots
-2
-d/home/sylveryte/Pictures/Screenshots
-	2020-01-25-122800_555x93_scrot.png
-31
-d/home/sylveryte
-	Pictures
-22
-d/home/sylveryte/Pictures
-	Screenshots
-2
-d/home/sylveryte/Pictures/Screenshots
-	2019-12-10-155330_1920x1080_scrot.png
-1
-d/home/sylveryte/Pictures
-	universe
-3
-d/home/sylveryte/Pictures/universe
-	mpv-shot0068.jpg
-37
-d/home/sylveryte/Pictures
-	profile
-4
-d/home/sylveryte/Pictures/profile
-	Xanxus_Scary.jpg
-7
-d/home/sylveryte/Pictures
-	Wallpapers
-5
-d/home/sylveryte/Pictures/Wallpapers
-	generic_k
-1
-d/home/sylveryte/Pictures/Wallpapers/generic_k
-	vibnleun50b31.jpg
-22
-d/home/sylveryte/Pictures/Wallpapers
-	generic_k
-1
-d/home/sylveryte/Pictures
-	frenchgirls
-1
-d/home/sylveryte
-	trisha
-20
-d/home/sylveryte/trisha
-	learn
-1
-d/home/sylveryte/trisha/learn
-	angular
-1
-d/home/sylveryte/trisha/learn/angular
-	ng_book
-1
-d/home/sylveryte/trisha/learn
-	javascript
-2
-d/home/sylveryte/trisha/learn/javascript
-	..
-0
-d/home/sylveryte/trisha/learn
-	javascript
-2
-d/home/sylveryte/trisha
-	fine
-2
-d/home/sylveryte/trisha/fine
-	..
-0
-d/home/sylveryte/trisha
-	ort
-3
-d/home/sylveryte/trisha/ort
-	ort.tar.gz.gpg
-1
-d/home/sylveryte/trisha
-	sveltemoto
-4
-d/home/sylveryte/trisha/sveltemoto
-	..
-0
-d/home/sylveryte/trisha
-	ort
-3
-d/home/sylveryte/trisha/ort
-	ort.tar.gz.gpg
-1
-d/home/sylveryte/trisha
-	lertby
-5
-d/home/sylveryte/trisha/lertby
-	src
-1
-d/home/sylveryte/trisha/lertby/src
-	pages
-1
-d/home/sylveryte/trisha/lertby
-	src
-1
-d/home/sylveryte/trisha
-	l
-6
-d/home/sylveryte/trisha/l
-	..
-0
-d/home/sylveryte/trisha
-	bagpackerme_next
-7
-d/home/sylveryte
-	2020-12-31-130633_1920x1080_scrot.png
+	linuxdata
 21
+d/home/sylveryte/linuxdata
+	os
+11
+d/home/sylveryte/linuxdata/os
+	archlinux-2021.02.01-x86_64.iso
+4
 d
 
 # Right window history (oldest to newest):
-D/home/sylveryte/linuxdata/wolfexchange/push
-	Dr. Axel Rauschmayer - JavaScript for impatient programmers (2019).epub
-3
-D/home/sylveryte/linuxdata/wolfexchange
-	push
-6
-D/home/sylveryte/linuxdata
-	wolfexchange
-18
-D/home/sylveryte
-	work
-36
-D/home/sylveryte/work
-	kuchnaya
-3
-D/home/sylveryte/work/kuchnaya/aurionpro
-	uploadCustomers
-8
-D/home/sylveryte/work/kuchnaya/aurionpro/uploadCustomers
-	testInputs
-3
-D/home/sylveryte/work/kuchnaya/aurionpro/uploadCustomers/testInputs
-	..
-0
-D/home/sylveryte/work/kuchnaya/aurionpro/uploadCustomers
-	testInputs
-3
-D/home/sylveryte/work/kuchnaya/aurionpro/uploadCustomers/testInputs
-	..
-0
-D/home/sylveryte/work/kuchnaya/aurionpro/uploadCustomers
-	testInputs
-3
-D/home/sylveryte/Downloads
-	Dag Site - Bank.xml
-41
-D/home/sylveryte/work/kuchnaya/aurionpro
-	Domain
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain
-	src
-4
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src
-	CustomerAccountKeyRotationExecutor
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain
-	src
-4
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src
-	OrderHandlerNode
-4
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/OrderHandlerNode
-	model
-4
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/OrderHandlerNode/model
-	..
-0
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/OrderHandlerNode
-	model
-4
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src
-	DomainEventHandlerNode
-5
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/DomainEventHandlerNode
-	common
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/DomainEventHandlerNode/common
-	CommonService .js
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/DomainEventHandlerNode
-	repositories
-6
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src
-	CustomerUploadHandlerNode
-8
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode
-	handler
-5
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler
-	flexFields
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler/flexFields
-	BaseCommunicationService.js
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler
-	flexFields
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler/flexFields
-	flexfields
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler/flexFields/commons
-	exceptions
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler/flexFields
-	commons
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler/flexFields/commons
-	exceptions
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler/flexFields
-	commons
-1
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler
-	UploadHandler.js
-11
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode
-	handler
-5
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler
-	UploadHandler.js
-11
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode
-	handler
-5
-D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler
-	flexFields
-1
 D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/handler/flexFields
 	commons
 1
@@ -613,9 +496,6 @@ D/home/sylveryte/work/kuchnaya/aurionpro
 D/home/sylveryte/work/kuchnaya/aurionpro/trash
 	PaymentFormUI_beforeUpdateANDFLOwAcompletionWrapperAPIsIntegration
 2
-D/home/sylveryte/work/kuchnaya/aurionpro/trash/PaymentFormUI_beforeUpdateANDFLOwAcompletionWrapperAPIsIntegration
-	css
-4
 D/home/sylveryte/Downloads
 	k
 2
@@ -636,12 +516,6 @@ D/home/sylveryte
 4
 D/home/sylveryte/trisha
 	bagpackerme_next
-1
-D/home/sylveryte/trisha/bagpackerme_next
-	public
-5
-D/home/sylveryte/trisha/bagpackerme_next/public
-	back
 1
 D/home/sylveryte/trisha/bagpackerme_next
 	public
@@ -668,18 +542,152 @@ D/home/sylveryte/work/kuchnaya/aurionpro/PaymentFormUI
 	images
 3
 D/home/sylveryte/work/kuchnaya/aurionpro/PaymentFormUI/images
-	ico-ach-big.png
+	..
+0
+D/home/sylveryte/Downloads
+	templateMP.csv
+41
+D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/commons/communication
+	customerAccount
+4
+D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode/commons
+	communication
+1
+D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src/CustomerUploadHandlerNode
+	commons
+1
+D/home/sylveryte/work/kuchnaya/aurionpro/Domain/src
+	CustomerUploadHandlerNode
+8
+D/home/sylveryte/work/kuchnaya/aurionpro/Domain
+	src
+3
+D/home/sylveryte/work/kuchnaya/aurionpro
+	uploadCustomers
+12
+D/home/sylveryte/work/kuchnaya/aurionpro/uploadCustomers
+	YodleeIntegrations_v2.4.xlsx
+30
+D/home/sylveryte/work/kuchnaya/aurionpro
+	yodlee
+6
+D/home/sylveryte/work/kuchnaya/aurionpro/yodlee
+	yodleeAdemo-2020-12-31_20.05.45.mkv
+11
+D/home/sylveryte/work/kuchnaya/aurionpro
+	DomainDel
+6
+D/home/sylveryte/work/kuchnaya
+	kuchnaya
+3
+D/home/sylveryte/work/kuchnaya/kuchnaya
+	trash
+5
+D/home/sylveryte/work/kuchnaya/kuchnaya/trash
+	2020-09-28-140512_1175x540_scrot.png
+1
+D/home/sylveryte/work/kuchnaya/kuchnaya
+	trash
+5
+D/home/sylveryte/work/kuchnaya
+	kuchnaya
+5
+D/home/sylveryte/work
+	sikkim
+2
+D/home/sylveryte/work/sikkim
+	gen.msg
+5
+D/home/sylveryte/work
+	sikkim
+3
+D/home/sylveryte/work/sikkim
+	..
+0
+D/home/sylveryte/Downloads
+	Bugs_Bunny_Cartoon_Vector_11-500x500.jpg
+37
+D/home/sylveryte
+	Downloads
+5
+D/home/sylveryte/work/kuchnaya/aurionpro/HPG2-UI/src/assets
+	uploadCustomers
+4
+D/home/sylveryte/work/kuchnaya/aurionpro/HPG2-UI/src
+	assets
+2
+D/home/sylveryte/work/kuchnaya/aurionpro/HPG2-UI
+	src
+3
+D/home/sylveryte/work/kuchnaya/aurionpro
+	HPG2-UI
+13
+D/home/sylveryte/work/kuchnaya
+	aurionpro
+4
+D/home/sylveryte/work
+	kuchnaya
+2
+D/home/sylveryte/work/kuchnaya
+	aurionpro
+4
+D/home/sylveryte/work/kuchnaya/aurionpro
+	HPT
+14
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT
+	HPTUI
+2
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/HPTUI
+	e2e
+1
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT
+	forms
+1
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms
+	HPTUI
+1
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI
+	src
+3
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src
+	app
+3
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src/app
+	..
+0
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src
+	app
+3
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src/app
+	module
+3
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src/app/module
+	..
+0
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src/app
+	module
+3
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src/app/module
+	shared
+4
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src/app/module/shared
+	..
+0
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src/app/module
+	secure
+5
+D/home/sylveryte/work/kuchnaya/aurionpro/HPT/forms/HPTUI/src/app/module/secure
+	secure.routes.ts
+13
+D/home/sylveryte/Downloads
+	VID-20201220-WA0002.mp4
+31
+D/home/sylveryte
+	Downloads
 5
 D
 
 # Command line history (oldest to newest):
-:marks
-:colorscheme Default
-:cd .config/vifm/
-:!git clone https://github.com/vifm/vifm-colors.git
-:vifm
-:fileviewer %
-:fileviewer emma.jpg
 :view
 :ls
 :fileviewer
@@ -711,8 +719,6 @@ D
 :cd /run/media/sylveryte/kingdom/
 :mkdir msg.md
 :mkdir SVallpapers
-:mkdir story
-:mkdir generic
 :mkdir diagrams
 :mkdir sel
 :cdkdp
@@ -766,15 +772,26 @@ D
 :!sxiv %d
 :cd /tmp/
 :mkdir tra
-:mkdir trash
 :!code %
 :!code %f
 :mkdir dup
 :q:q
 :mkdir images
+:mkdir Wallpaper
+:mkdir generic
+:mkdir story
+:!cdka
+:mkdir trash
+:mkdir HPT
+:mkdir POC
+:mkdir HPTUI
+:mkdir forPayal
+:mkdir api_server
 :q
 
 # Search history (oldest to newest):
+/seman
+/jq
 /cred
 /info
 /tras
@@ -807,7 +824,6 @@ D
 /docu
 /linu
 /gordon
-/pic
 /linux
 /sven
 /Music
@@ -817,16 +833,11 @@ D
 /temptv
 /tri
 /davit
+/pic
+/tool
 
 # Prompt history (oldest to newest):
-ptest_v2_trimmed.csv
-p2020117080416_create_customer_additional_table.js
-p20201016160416_create_customer_additional_table.js
-pcustomer_upload_schema_d.pdf
-pCustomerLogMetadataCustomerLog.js
-p20201012133220_customer_log_metadata_customer_log_relation.js
-pcustomer_test_v1.csv
-pdpic.jpg
+pHPTUI-old
 pmenu.svg
 pwhatsapp.svg
 p001(8).jp
@@ -919,13 +930,18 @@ ptrisha.jpg
 plove.jpg
 pScreenshot_2016-12-26-21-03-21.png
 pwonder.png
+pWallpapers
+pSandeep_APS_TS_Jan_2021.xlsx
+ptempt4wermore2.csv
+ptempt4wermore3.csv
+ptempt4wermore4.csv
+picon-verified.png
+pforms
+pngBook.pdf
 
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/sylveryte/work/kuchnaya/aurionpro/PaymentFormUI/images/ico-ach-big.png
-""/home/sylveryte/work/kuchnaya/aurionpro/PaymentFormUI/images/edit-2.png
-""/home/sylveryte/work/kuchnaya/aurionpro/PaymentFormUI/images/icon-green-check-wt-border.png
 
 # Directory stack (oldest to newest):
 
