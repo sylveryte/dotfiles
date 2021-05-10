@@ -1,8 +1,3 @@
-"---------------------------------abbreivation-------------------------------------------------------
-iabbrev cll console.log(``)
-"---------------------------------user defined-------------------------------------------------------
-set encoding=UTF-8
-set nocompatible              " be iMproved, required
 filetype on                  " required
 filetype plugin on
 set termguicolors
@@ -40,14 +35,6 @@ function Stat()
   :echom "Wrkd ->" getcwd()
 endfunction
 
-function ColorMeImpress()
-  highlight CocErrorHighlight ctermbg=Red  guibg=#902222
-  highlight CocWarningHighlight  ctermbg=Brown guibg=#7E5024
-  highlight CocInfoHighlight  ctermbg=Yellow guibg=#BE8708
-  highlight CocHintHighlight  ctermbg=Blue guibg=#0B7685
-  echom "Colored"
-endfunction
-
 " Mappings
 nnoremap <C-q> <Esc>:q<CR>
 map <F2> :call Stat()<CR>
@@ -55,7 +42,7 @@ nmap <leader>wD :read !date +"\%A - \%d \%B \%y"<CR>
 nmap <leader>wd :read !date +"\%r"<CR>
 nmap ,t :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR>
 nmap ,T :terminal<CR>
-nmap <leader>v :let $VIM_DIR=expand('%:p:h')<CR>:!vifm $VIM_DIR<CR> 
+" nmap <leader>v :let $VIM_DIR=expand('%:p:h')<CR>:!vifm $VIM_DIR<CR> 
 nmap <space> za;
 " tip zxzc to close all children folds
 nmap ,z :Fold<CR>zR;
@@ -74,108 +61,39 @@ nnoremap <silent> <A-Down> :exe "resize +1 "<CR>
 nnoremap <silent> <A-Left> :exe "vertical resize -1"<CR>
 nnoremap <silent> <A-Right> :exe "vertical resize +1"<CR>
 
-" runnnig codes
-autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType sh map <buffer> <F9> :w<CR>:exec '!sh' shellescape(@%, 1)<CR>
-autocmd FileType markdown map <buffer> <leader>r :w<CR>:exec '!glow -p' shellescape(@%, 1)<CR>
-autocmd FileType markdown map <buffer> <leader>y :w<CR>:exec '!remarkable %'<CR>
+" autocmds
+autocmd FileType markdown vmap ,g :normal! 0f\|Dj<CR>
 
-" autocmd FileType html :normal zR<CR> 
-
-" switching buffers
-augroup VIMRC
-  " this one is which you're most likely to use?
-  autocmd BufLeave *.scss,*.css normal! mC
-  autocmd BufLeave *.js,*.ts normal! mJ
-  autocmd BufLeave *.html, normal! mH
-  autocmd BufLeave *.vue, normal! mV
-augroup end
 
 "--------------------------------------PLUGINS VIm Plug----------------------------------
 call plug#begin('~/.vim/plugged')
 
-" Plug 'flazz/vim-colorschemes'
-
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'NLKNguyen/papercolor-theme'
+" colors
 set background=dark
-" material theme
-" Plug 'rafi/awesome-vim-colorschemes'
-Plug 'dylanaraps/wal.vim'
-Plug 'chuling/vim-equinusocio-material'
 Plug 'morhetz/gruvbox'
-Plug 'embark-theme/vim', { 'as': 'embark' }
-let g:embark_terminal_italics = 1
-Plug 'dracula/vim', { 'as': 'dracula' }
 let g:gruvbox_italic=1
-Plug 'joshdick/onedark.vim'
-Plug 'atelierbram/vim-colors_atelier-schemes'
-
-" Plug 'luochen1990/rainbow'
-" let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-Plug 'lpinilla/vim-codepainter'
+autocmd vimenter * colorscheme gruvbox
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_pop'
+let g:airline_theme='base16_colors'
+autocmd vimenter * AirlineTheme base16_colors
 nnoremap <leader>a <ESC>:AirlineTheme random<CR>
-
-" Improves syntax for various languages
-Plug 'sheerun/vim-polyglot'
-
-Plug 'camspiers/lens.vim'
-Plug 'camspiers/animate.vim'
 
 Plug 'ryanoasis/vim-devicons'
 
-" framework specific plugins
-Plug 'peitalin/vim-jsx-typescript'
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-Plug 'mlaursen/vim-react-snippets'
-
-" functional plugins ---------------------------------------------------------------
-
-" post install (yarn install | npm install)
-" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-
-Plug 'chrisbra/NrrwRgn'
-Plug 'https://github.com/wesQ3/vim-windowswap'
-
+" interactions
+Plug 'camspiers/lens.vim'
+Plug 'camspiers/animate.vim'
 Plug 'pechorin/any-jump.vim'
 
-" language specifics
-" Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-nnoremap ,f :norm vi{\p<CR>
-nnoremap ,af :norm vat\p<CR>
-
-Plug 'ap/vim-css-color'
-Plug 'KabbAmine/vCoolor.vim'
-let g:vcoolor_map = '<F6>'
-
-" autocmd FileType html :normal zR<CR> 
-autocmd FileType markdown vmap ,g :normal! 0f\|Dj<CR>
-
-Plug 'Chiel92/vim-autoformat'
-noremap <F5> :Autoformat<CR>
-
-" tagbar alternative
-Plug 'liuchengxu/vista.vim'
-nmap <F8> :Vista coc<CR>
-let g:vista_executive_for = {
-      \ 'ts': 'coc',
-      \ }
-
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
-
+Plug 'chrisbra/NrrwRgn'
+" <leader> ww
+Plug 'wesQ3/vim-windowswap'
+" absolute necessary plugs
 Plug 'christoomey/vim-system-copy'
-
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>g :Git<CR>
 Plug 'tpope/vim-eunuch'
@@ -185,14 +103,15 @@ map cm gc
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 
+"file systems
 " nerdtree alternative
 Plug 'vifm/vifm.vim'
-let loaded_vifm = 1
+" let loaded_vifm = 1
 let g:vifm_embed_cwd = 1
 let g:vifm = "/usr/bin/vifmrun"
+nmap <leader>v :Vifm<CR>
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
-nnoremap ,e 'B :set ft=dirvish<CR>
 nnoremap <leader>r :Dirvish<CR>
 " for tree expanding instead of preview
 augroup dirvish_config
@@ -204,63 +123,44 @@ augroup END
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-nmap <leader>f :Files<CR>
-nmap <leader>F :Files!<CR>
-nmap <leader>m :History<CR>
-nmap <leader>M :Marks<CR>
-nmap <leader>c :Colors<CR>
-nmap <leader>b :Buffers<CR>
-nmap <leader>B :Buffers!<CR>
+nmap <leader>f :Files!<CR>
+nmap <leader>F :Files<CR>
+nmap <leader>m :History!<CR>
+nmap <leader>M :Marks!<CR>
+nmap <leader>c :Colors!<CR>
+nmap <leader>b :Buffers!<CR>
+nmap <leader>B :Buffers<CR>
 nmap <leader>s :Rg!<CR>
 nmap <leader>S :Rg<CR>
-" CTRL-A CTRL-Q to select all and build quickfix list
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-let g:fzf_action = {
-      \ 'ctrl-q': function('s:build_quickfix_list'),
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-x': 'split',
-      \ 'ctrl-v': 'vsplit' }
-let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
-let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
 
-Plug 'aperezdc/vim-template'
-let g:templates_search_height = 5
-let g:templates_directory = "~/.vim/templates"
-let g:username = "sylveryte"
-
+" programming
 Plug 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
 autocmd FileType vue,html,css,typescript,javascript,ejs,javascriptreact,typescriptreact,svelte EmmetInstall
+" Improves syntax for various languages
+Plug 'sheerun/vim-polyglot'
+" Plug 'valloric/MatchTagAlways' requiers python
+" nnoremap <leader>% :MtaJumpToOtherTag<cr>
 
-Plug 'valloric/MatchTagAlways'
-nnoremap <leader>% :MtaJumpToOtherTag<cr>
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
 
-" Plug 'angular/angular'
+" -----------------------------COC-------------------------------
+" tagbar alternative
+Plug 'liuchengxu/vista.vim'
+nmap <F8> :Vista coc<CR>
+let g:vista_executive_for = {
+      \ 'ts': 'coc',
+      \ }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 set nobackup
 set nowritebackup
 set cmdheight=2
 set updatetime=300
-" 'coc-eslint',
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets', 'coc-yaml', 'coc-react-refactor', 'coc-svelte', 'coc-emmet']
+
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-snippets', 'coc-svelte', ]
+" let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets', 'coc-yaml', 'coc-react-refactor', 'coc-svelte', 'coc-emmet']
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 " Coc python tips
 " install jedi  pip install jedi
@@ -324,19 +224,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" -----------------------------COC-ENDS--------------------------
+
 call plug#end()
-
-" kitty terminal specific
-" Below command helps on enter, it to get rid of ;2R^[[>1;2802;0c garbage.
-" It's happening on kitty with Vista.vim plugin combo.
-let &t_ut=''
-" autocmd VimEnter * redraw!
-
-" vim hardcodes background color erase even if the terminfo file does
-" not contain bce (not to mention that libvte based terminals
-" incorrectly contain bce in their terminfo files). This causes
-" incorrect background rendering when using a color theme with a
-" background color.
-autocmd vimenter * colorscheme gruvbox
-autocmd vimenter * call ColorMeImpress()
-autocmd vimenter * AirlineRefresh

@@ -218,6 +218,8 @@ fileviewer *.mp3 *.m4a
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
          \*.as[fx]
+        \ {View using mpv}
+        \ mpv %f,
         \ {View using mplayer}
         \ mplayer %f,
         \ {View using ffplay}
@@ -602,7 +604,7 @@ set classify+=' ::*.pptx,,*.ppt::'
 " Syl configs"
 :colorscheme dracula
 
-nnoremap ,f :!pcmanfm-qt %d &<cr>
+nnoremap ,f :!pcmanfm %d &<cr>
 nnoremap ,s :!sxiv %d &<cr>
 nnoremap x :!xdg-open %c &<cr>
 nnoremap ,q :q<cr>

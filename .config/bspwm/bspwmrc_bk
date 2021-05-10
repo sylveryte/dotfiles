@@ -11,7 +11,7 @@ bspc rule -a lxappearance state=floating follow=on
 bspc rule -a Zathura state=tiled
 
 # source the colors.
-#. "${HOME}/.cache/wal/colors.sh"
+. "${HOME}/.cache/wal/colors.sh"
 
 # Set the border colors.
 bspc config normal_border_color "$color0"
@@ -37,6 +37,7 @@ xrdb -load ~/.Xresources
 # Launch polybar
 pa-applet &
 blueman-applet &
+nm-applet &
 # Change from ugly 'X' cursor when hovering over background
 xsetroot -cursor_name left_ptr
 # Make betterlockscreen generate and cache a background image for locking
@@ -49,20 +50,20 @@ dunst &
 # Set wallpaper
 ~/sylveryte/dotfiles/tools/changewal.sh generic
 # Nm-applet
-nm-applet &
+# nm-applet &
 
 # Gnome keyring specifics
-#eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-#export SSH_AUTH_SOCK
-#mkdir -p "$HOME"/.local/share/keyrings
-#source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+mkdir -p "$HOME"/.local/share/keyrings
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # ------- Mouse/Touchpad fixes ------
 # Start libinput gestures
 # libinput-gestures-setup start
 # Xinput configs (touchpad)
 # xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
-xinput set-prop "SYNA32A5:00 06CB:CE17 Touchpad" "libinput Tapping Enabled" 1
+# xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
 # xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Disable While Typing Enabled" 0
 # ------- Keyboard fixes ------
 # Remap Caps-lock key to Escape, for using VIM

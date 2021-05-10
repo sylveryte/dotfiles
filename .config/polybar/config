@@ -61,11 +61,11 @@ font-2 = siji:pixelsize=20;1
 ; modules-left = bspwm 
 ; modules-center = mpd
 ; modules-center = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-left = date battery wlan eth  temperature 
+modules-left = date battery wlan eth  temperature memory cpu
 
 tray-position = right
 tray-padding = 1
-tray-background = ${xrdb:color7:#333}
+tray-background = ${xrdb:color8:#333}
 
 ; wm-restack = bspwm
 ;wm-restack = i3
