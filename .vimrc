@@ -220,25 +220,25 @@ function! s:build_quickfix_list(lines)
   cc
 endfunction
 let g:fzf_action = {
-      \ 'ctrl-q': function('s:build_quickfix_list'),
+      \ 'ctrl-x': function('s:build_quickfix_list'),
       \ 'ctrl-t': 'tab split',
-      \ 'ctrl-x': 'split',
+      \ 'ctrl-p': 'split',
       \ 'ctrl-v': 'vsplit' }
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
-let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
+" let g:fzf_colors =
+"       \ { 'fg':      ['fg', 'Normal'],
+"       \ 'bg':      ['bg', 'Normal'],
+"       \ 'hl':      ['fg', 'Comment'],
+"       \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"       \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"       \ 'hl+':     ['fg', 'Statement'],
+"       \ 'info':    ['fg', 'PreProc'],
+"       \ 'border':  ['fg', 'Ignore'],
+"       \ 'prompt':  ['fg', 'Conditional'],
+"       \ 'pointer': ['fg', 'Exception'],
+"       \ 'marker':  ['fg', 'Keyword'],
+"       \ 'spinner': ['fg', 'Label'],
+"       \ 'header':  ['fg', 'Comment'] }
 
 Plug 'aperezdc/vim-template'
 let g:templates_search_height = 5

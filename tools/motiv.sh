@@ -55,6 +55,7 @@ function usage ()
 	Options:
 	  |get motiv 
 	-s|get square 
+	-d|delete current
 	-h|help       Display this message
 	-v|version    Display script version"
 

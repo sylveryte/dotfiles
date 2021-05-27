@@ -1,3 +1,6 @@
+" WATCHLIST
+" https://github.com/ray-x/navigator.lua
+"
 filetype on                  " required
 filetype plugin on
 set termguicolors
@@ -35,17 +38,29 @@ function Stat()
   :echom "Wrkd ->" getcwd()
 endfunction
 
+function TermHere() abort
+  let currdir = getcwd()
+  let bufferdir = expand('%:p:h')
+  execute 'lcd '.bufferdir
+  execute 'terminal'
+  execute 'lcd '.currdir
+endfunction
+
 " Mappings
+" terminal escape
+tnoremap <C-q> <C-\><C-n>
 nnoremap <C-q> <Esc>:q<CR>
 map <F2> :call Stat()<CR>
 nmap <leader>wD :read !date +"\%A - \%d \%B \%y"<CR>
 nmap <leader>wd :read !date +"\%r"<CR>
-nmap ,t :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR>
+nmap ,t :call TermHere()<CR>
 nmap ,T :terminal<CR>
 " nmap <leader>v :let $VIM_DIR=expand('%:p:h')<CR>:!vifm $VIM_DIR<CR> 
 nmap <space> za;
 " tip zxzc to close all children folds
 nmap ,z :Fold<CR>zR;
+nnoremap ,f :norm vi{\p<CR>
+nnoremap ,af :norm vat\p<CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -56,14 +71,18 @@ nnoremap ,x <Esc>:split<CR>
 nnoremap ,v <Esc>:vsplit<CR>
 
 "resize splits
-nnoremap <silent> <A-Up> :exe "resize -1 "<CR>
-nnoremap <silent> <A-Down> :exe "resize +1 "<CR>
-nnoremap <silent> <A-Left> :exe "vertical resize -1"<CR>
-nnoremap <silent> <A-Right> :exe "vertical resize +1"<CR>
+nnoremap <A-k> :exe "resize -1 "<CR>
+nnoremap <A-j> :exe "resize +1 "<CR>
+nnoremap <A-h> :exe "vertical resize -1"<CR>
+nnoremap <A-l> :exe "vertical resize +1"<CR>
 
 " autocmds
 autocmd FileType markdown vmap ,g :normal! 0f\|Dj<CR>
-
+" runnnig codes
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType sh map <buffer> <F9> :w<CR>:exec '!sh' shellescape(@%, 1)<CR>
+autocmd FileType markdown map <buffer> <leader>r :w<CR>:exec '!glow -p' shellescape(@%, 1)<CR>
+autocmd FileType markdown map <buffer> <leader>y :w<CR>:exec '!remarkable %'<CR>
 
 "--------------------------------------PLUGINS VIm Plug----------------------------------
 call plug#begin('~/.vim/plugged')
@@ -72,8 +91,44 @@ call plug#begin('~/.vim/plugged')
 set background=dark
 Plug 'morhetz/gruvbox'
 let g:gruvbox_italic=1
-autocmd vimenter * colorscheme gruvbox
+" autocmd vimenter * colorscheme gruvbox
+" Plug 'dylanaraps/wal.vim'
+Plug 'chuling/vim-equinusocio-material'
+
 Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'embark-theme/vim', { 'as': 'embark' }
+" let g:embark_terminal_italics = 1
+
+Plug 'joshdick/onedark.vim'
+
+" Plug 'atelierbram/vim-colors_atelier-schemes'
+
+Plug 'ghifarit53/tokyonight-vim'
+" night strom available
+let g:tokyonight_style = "night"
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_italic_functions = 1
+autocmd vimenter * colorscheme tokyonight
+
+" Plug 'shaunsingh/moonlight.nvim'
+" let g:moonlight_italic_comments = true
+" let g:moonlight_italic_keywords = true
+" let g:moonlight_italic_functions = true
+" let g:moonlight_italic_variables = false
+" autocmd vimenter * colorscheme moonlight
+
+Plug 'arcticicestudio/nord-vim'
+" autocmd vimenter * colorscheme nord
+
+Plug 'rakr/vim-one'
+let g:one_allow_italics = 1 " I love italic for comments
+" autocmd vimenter * colorscheme one
+
+Plug 'mhartington/oceanic-next'
+" autocmd vimenter * colorscheme OceanicNext
+
+Plug 'haishanh/night-owl.vim'
+" autocmd vimenter * colorscheme night-owl
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -81,6 +136,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='base16_colors'
 autocmd vimenter * AirlineTheme base16_colors
 nnoremap <leader>a <ESC>:AirlineTheme random<CR>
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -108,7 +165,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vifm/vifm.vim'
 " let loaded_vifm = 1
 let g:vifm_embed_cwd = 1
-let g:vifm = "/usr/bin/vifmrun"
+" let g:vifm = "/usr/bin/vifmrun"
 nmap <leader>v :Vifm<CR>
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
@@ -121,6 +178,13 @@ augroup dirvish_config
   autocmd FileType dirvish nmap <buffer> cd :cd %<CR>
 augroup END
 
+" movement
+Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
+let g:sneak#label = 1
+Plug 'unblevable/quick-scope'
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 nmap <leader>f :Files!<CR>
@@ -132,11 +196,38 @@ nmap <leader>b :Buffers!<CR>
 nmap <leader>B :Buffers<CR>
 nmap <leader>s :Rg!<CR>
 nmap <leader>S :Rg<CR>
+" CTRL-A CTRL-Q to select all and build quickfix list
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+let g:fzf_action = {
+      \ 'ctrl-x': function('s:build_quickfix_list'),
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-i': 'split',
+      \ 'ctrl-v': 'vsplit' }
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 " programming
 Plug 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
 autocmd FileType vue,html,css,typescript,javascript,ejs,javascriptreact,typescriptreact,svelte EmmetInstall
+Plug 'mlaursen/vim-react-snippets'
 " Improves syntax for various languages
 Plug 'sheerun/vim-polyglot'
 " Plug 'valloric/MatchTagAlways' requiers python
@@ -159,9 +250,9 @@ set nowritebackup
 set cmdheight=2
 set updatetime=300
 
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-snippets', 'coc-svelte', ]
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-snippets', 'coc-svelte', 'coc-eslint' , 'coc-tailwindcss']
 " let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets', 'coc-yaml', 'coc-react-refactor', 'coc-svelte', 'coc-emmet']
-Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+Plug 'petertriho/coc-tailwind-intellisense', {'do': 'npm install'}
 " Coc python tips
 " install jedi  pip install jedi
 " set python.interpreter :CocCommand -> python.interpreter
@@ -227,3 +318,13 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " -----------------------------COC-ENDS--------------------------
 
 call plug#end()
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "javascript", "html", "css", "json"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF

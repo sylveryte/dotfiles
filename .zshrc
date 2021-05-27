@@ -98,7 +98,9 @@ alias noefetch='neofetch'
 alias gits='git status'
 alias zathura='zathura --fork'
 alias vifm='~/.config/vifm/scripts/vifmrun'
-alias vim='nvim'
+alias ovim='/bin/vim'
+alias playvidsong='mpv /home/sylveryte/Videos/ --shuffle'
+alias vim='/home/sylveryte/Downloads/nvim/nvim-linux64/bin/nvim'
 function cya(){
 	free -h
 	sleep 1s

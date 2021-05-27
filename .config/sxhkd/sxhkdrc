@@ -167,12 +167,11 @@ super + c
 
 super + m
 	sxiv -bf $(sh ~/sylveryte/dotfiles/tools/motiv.sh)	
+super + n
+    sh ~/sylveryte/dotfiles/tools/motiv.sh -d
 
 super + shift + m
 	sh ~/sylveryte/dotfiles/tools/changewal.sh open
-
-super + n
-	sxiv -bf $(find ~/Pictures/universe -type f | sort -R | head -1)	
 
 # polybar
 super + p
@@ -227,7 +226,7 @@ super + a
 	bspc node -s biggest.local
 
 super + d
-	dmenu_run
+    dmenu_run -fn 'Inconsolata 12'
 
 super + x
 	~/sylveryte/dotfiles/tools/powermenu.sh
