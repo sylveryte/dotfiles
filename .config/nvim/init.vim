@@ -11,10 +11,13 @@ endif
 set relativenumber
 set number
 syntax on
+autocmd vimenter * syntax on
 set hls
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=2
 set softtabstop=4
+set expandtab
+set smarttab
 set autoindent
 set laststatus=2
 " set cursorline
@@ -26,6 +29,9 @@ set smartcase
 " set spell
 set undofile
 set hidden "maintain buffer change history
+set list
+set listchars=eol:·,tab:⍿·,trail:×
+" set listchars=eol:¬,tab:▸\
 
 " directories
 set directory=~/.vim/swp//
@@ -55,7 +61,6 @@ nmap <leader>wD :read !date +"\%A - \%d \%B \%y"<CR>
 nmap <leader>wd :read !date +"\%r"<CR>
 nmap ,t :call TermHere()<CR>
 nmap ,T :terminal<CR>
-" nmap <leader>v :let $VIM_DIR=expand('%:p:h')<CR>:!vifm $VIM_DIR<CR> 
 nmap <space> za;
 " tip zxzc to close all children folds
 nmap ,z :Fold<CR>zR;
@@ -69,6 +74,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap ,x <Esc>:split<CR>
 nnoremap ,v <Esc>:vsplit<CR>
+
+"tab navigations
+nnoremap ,n <Esc>:tabnext<CR>
+nnoremap ,N <Esc>:tabnew<CR>
 
 "resize splits
 nnoremap <A-k> :exe "resize -1 "<CR>
@@ -101,14 +110,19 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'joshdick/onedark.vim'
 
+" Plug 'Pocco81/Catppuccino.nvim'
+
 " Plug 'atelierbram/vim-colors_atelier-schemes'
 
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'sainnhe/sonokai'
+
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
+" Plug 'ghifarit53/tokyonight-vim'
 " night strom available
 let g:tokyonight_style = "night"
 let g:tokyonight_enable_italic = 1
 let g:tokyonight_italic_functions = 1
-autocmd vimenter * colorscheme tokyonight
 
 " Plug 'shaunsingh/moonlight.nvim'
 " let g:moonlight_italic_comments = true
@@ -130,6 +144,9 @@ Plug 'mhartington/oceanic-next'
 Plug 'haishanh/night-owl.vim'
 " autocmd vimenter * colorscheme night-owl
 
+autocmd vimenter * colorscheme onedark
+
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
@@ -138,6 +155,8 @@ autocmd vimenter * AirlineTheme base16_colors
 nnoremap <leader>a <ESC>:AirlineTheme random<CR>
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+
+Plug 'nvim-treesitter/nvim-treesitter-angular'
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -153,6 +172,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>g :Git<CR>
+nnoremap <leader>gb :Git blame<CR>
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -167,6 +187,7 @@ Plug 'vifm/vifm.vim'
 let g:vifm_embed_cwd = 1
 " let g:vifm = "/usr/bin/vifmrun"
 nmap <leader>v :Vifm<CR>
+" nmap <leader>v :let $VIM_DIR=expand('%:p:h')<CR>:!vifm $VIM_DIR<CR> 
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
 nnoremap <leader>r :Dirvish<CR>
@@ -178,12 +199,7 @@ augroup dirvish_config
   autocmd FileType dirvish nmap <buffer> cd :cd %<CR>
 augroup END
 
-" movement
-Plug 'easymotion/vim-easymotion'
-Plug 'justinmk/vim-sneak'
-let g:sneak#label = 1
-Plug 'unblevable/quick-scope'
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+Plug 'ggandor/lightspeed.nvim'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -196,7 +212,7 @@ nmap <leader>b :Buffers!<CR>
 nmap <leader>B :Buffers<CR>
 nmap <leader>s :Rg!<CR>
 nmap <leader>S :Rg<CR>
-" CTRL-A CTRL-Q to select all and build quickfix list
+" CTRL-A CTRL-X to select all and build quickfix list
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
@@ -227,9 +243,9 @@ let g:fzf_colors =
 Plug 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
 autocmd FileType vue,html,css,typescript,javascript,ejs,javascriptreact,typescriptreact,svelte EmmetInstall
-Plug 'mlaursen/vim-react-snippets'
+" Plug 'mlaursen/vim-react-snippets'
 " Improves syntax for various languages
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 " Plug 'valloric/MatchTagAlways' requiers python
 " nnoremap <leader>% :MtaJumpToOtherTag<cr>
 
@@ -250,8 +266,7 @@ set nowritebackup
 set cmdheight=2
 set updatetime=300
 
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-snippets', 'coc-svelte', 'coc-eslint' , 'coc-tailwindcss']
-" let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-git', 'coc-json',  'coc-tslint', 'coc-tslint-plugin', 'coc-pairs', 'coc-angular', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-cssmodules','coc-python', 'coc-snippets', 'coc-yaml', 'coc-react-refactor', 'coc-svelte', 'coc-emmet']
+let g:coc_global_extensions = ['coc-prettier', 'coc-angular', 'coc-tsserver',  'coc-git', 'coc-json',  'coc-pairs', 'coc-highlight', 'coc-html', 'coc-css', 'coc-vetur', 'coc-snippets', 'coc-svelte', 'coc-eslint' , 'coc-tailwindcss']
 Plug 'petertriho/coc-tailwind-intellisense', {'do': 'npm install'}
 " Coc python tips
 " install jedi  pip install jedi
@@ -283,6 +298,7 @@ nmap <leader>dp <Plug>(coc-diagnostic-prev-error)
 nmap <leader>db <Plug>(coc-diagnostic-next)
 nmap <leader>do <Plug>(coc-diagnostic-prev)
 nmap <leader>dd <Plug>(coc-definition)
+nmap <leader>dr <Plug>(coc-references)
 nmap <leader>dc <Plug>(coc-declaration)
 nmap <leader>dm <Plug>(coc-implementation)
 
@@ -313,18 +329,19 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " -----------------------------COC-ENDS--------------------------
 
+" require'hop'.setup{}
 call plug#end()
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "javascript", "html", "css", "json"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = { "javascript", "typescript", "html", "css", "json"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
+    disable = { "rust" },  -- list of language that will be disabled
   },
 }
 EOF

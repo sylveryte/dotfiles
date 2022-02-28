@@ -9,16 +9,12 @@
 
 case "$(printf "select\nfocused\nwhole" | dmenu -p "screenshot")" in
 	"select")
-		scrot --select
+		scrot --select ~/trisha/sc/del.png
 		;;
 	"focused")
-		scrot --focused
+		scrot --focused ~/trisha/sc/del.png
 		;;
 	"whole")
 		scrot
-		;;
-	"connect")
-		dev=$(bluetoothctl devices | dmenu -p "devices")
-		bluetoothctl connect $(echo $dev | awk '{print $2}')
 		;;
 esac

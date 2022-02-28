@@ -29,9 +29,9 @@ alert = ${xrdb:color3:#bd2c40}
 
 [bar/shortie]
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 18%
+width = 25%
 height = 18
-offset-x = 82%
+offset-x = 75%
 ; offset-y = 40%
 radius = 4.0
 fixed-center = true

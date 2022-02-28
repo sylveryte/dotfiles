@@ -100,7 +100,8 @@ alias zathura='zathura --fork'
 alias vifm='~/.config/vifm/scripts/vifmrun'
 alias ovim='/bin/vim'
 alias playvidsong='mpv /home/sylveryte/Videos/ --shuffle'
-alias vim='/home/sylveryte/Downloads/nvim/nvim-linux64/bin/nvim'
+# alias vim='/home/sylveryte/Downloads/nvim/nvim-linux64/bin/nvim'
+alias vim='nvim'
 function cya(){
 	free -h
 	sleep 1s
