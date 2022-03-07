@@ -1,0 +1,12 @@
+{
+  "Const": {
+    "prefix": ["c"],
+    "body": "\nconst $1 = $2",
+    "description": "Creates a React function component without PropTypes"
+  },
+  "React commponent": {
+    "prefix": ["rfc"],
+    "body": "\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t)\n}\n\nexport default ${TM_FILENAME_BASE}",
+    "description": "Creates a React function component without PropTypes"
+  }
+}

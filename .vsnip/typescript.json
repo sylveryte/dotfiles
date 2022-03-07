@@ -1,0 +1,12 @@
+{
+  "Annonymous function": {
+    "prefix": ["af"],
+    "body": "($1) => $2",
+    "description": "Minimal annonymous function"
+  },
+  "Annonymous function Bracketed": {
+    "prefix": ["afb"],
+    "body": "($1) => {\n$2\n}",
+    "description": "Minimal annonymous function"
+  }
+}
