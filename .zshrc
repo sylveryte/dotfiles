@@ -141,6 +141,8 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+eval "$(zoxide init zsh)"
+
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color

@@ -66,8 +66,8 @@ require'nvim-web-devicons'.setup {
 }
 
 -- prettier
-local null_ls = require("null-ls")
 local prettier = require("prettier")
+local null_ls = require("null-ls")
 null_ls.setup({
   on_attach = function(client, bufnr)
     if client.resolved_capabilities.document_formatting then
@@ -79,6 +79,10 @@ null_ls.setup({
       -- vim.cmd("xnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.range_formatting({})<CR>")
     end
   end,
+  sources = {
+    null_ls.builtins.hover.dictionary,
+    null_ls.builtins.completion.spell,
+  }
 })
 prettier.setup({
   bin = 'prettier', -- or `prettierd`

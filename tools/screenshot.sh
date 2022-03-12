@@ -15,6 +15,6 @@ case "$(printf "select\nfocused\nwhole" | dmenu -p "screenshot")" in
 		scrot --focused ~/trisha/sc/del.png
 		;;
 	"whole")
-		scrot
+		scrot ~/trisha/sc/del.png
 		;;
 esac
