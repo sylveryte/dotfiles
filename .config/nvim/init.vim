@@ -11,8 +11,8 @@ set expandtab
 set smarttab
 set autoindent
 set laststatus=2
-" set cursorline
-" set cursorcolumn
+set cursorline
+set cursorcolumn
 set showcmd
 set autoread
 set mouse=a
@@ -50,16 +50,16 @@ nnoremap <C-q> <Esc>:q<CR>
 map <F2> :call Stat()<CR>
 nmap <leader>wD :read !date +"\%A - \%d \%B \%y"<CR>
 nmap <leader>wd :read !date +"\%r"<CR>
-nnoremap <silent>,T :FloatermNew<CR>
-tnoremap <silent>,T <C-\><C-n>:FloatermNew<CR>
-nnoremap <silent>,tt :FloatermNew --cwd=<buffer><CR>
+nnoremap <silent>,tt :FloatermNew<CR>
 tnoremap <silent>,tt <C-\><C-n>:FloatermNew<CR>
+nnoremap <silent>,t :FloatermNew --cwd=<buffer><CR>
+tnoremap <silent>,t <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent>,tp :FloatermPrev<CR>
 tnoremap <silent>,tp <C-\><C-n>:FloatermPrev<CR>
 nnoremap <silent>,tn :FloatermNext<CR>
 tnoremap <silent>,tn <C-\><C-n>:FloatermNext<CR>
-nnoremap <silent>,t :FloatermToggle<CR>
-tnoremap <silent>,t <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent>tt :FloatermToggle<CR>
+tnoremap <silent>tt <C-\><C-n>:FloatermToggle<CR>
 nmap <space> za;
 " tip zxzc to close all children folds
 nmap ,z :Fold<CR>zR;
@@ -127,27 +127,17 @@ Plug 'tpope/vim-unimpaired'
 
 " interactions
 Plug 'camspiers/lens.vim'
-" Plug 'camspiers/animate.vim' "causes telescope jump out issue
-Plug 'chrisbra/NrrwRgn' " <leader> ww
-Plug 'wesQ3/vim-windowswap'
+Plug 'wesQ3/vim-windowswap' "leader ww
 
 "file systems
-Plug 'vifm/vifm.vim'
-" let loaded_vifm = 1
-" let g:vifm_embed_cwd = 1
-" let g:vifm = "/usr/bin/vifmrun"
-nmap <leader>v :Vifm<CR>
-" nmap <leader>v :let $VIM_DIR=expand('%:p:h')<CR>:!vifm $VIM_DIR<CR> 
-Plug 'justinmk/vim-dirvish'
-Plug 'kristijanhusak/vim-dirvish-git'
-nnoremap <leader>r :Dirvish<CR>
-" for tree expanding instead of preview
-augroup dirvish_config
-  autocmd!
-  autocmd FileType dirvish
-    \ nnoremap <silent><buffer> p ddO<Esc>:let @"=substitute(@", '\n', '', 'g')<CR>:r ! find "<C-R>"" -maxdepth 1 -print0 \| xargs -0 ls -Fd<CR>:silent! keeppatterns %s/\/\//\//g<CR>:silent! keeppatterns %s/[^a-zA-Z0-9\/]$//g<CR>:silent! keeppatterns g/^$/d<CR>:noh<CR>
-  autocmd FileType dirvish nmap <buffer> cd :cd %<CR>
-augroup END
+nmap <leader>v :FloatermNew --autoclose=1 --opener=vsplit vifm<CR>
+
+" Plug 'justinmk/vim-dirvish'
+" Plug 'kristijanhusak/vim-dirvish-git'
+" nnoremap <leader>r :Dirvish<CR>
+nnoremap <leader>N :NvimTreeToggle<CR>
+nnoremap <leader>n :NvimTreeFindFileToggle<CR>
+nnoremap - :NvimTreeFindFile<CR>
 
 Plug 'ggandor/lightspeed.nvim'
 
@@ -162,6 +152,7 @@ nnoremap <leader>l <cmd>lua require('telescope.builtin').builtin()<cr>
 nnoremap <leader>ca <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
 nnoremap gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap <leader>gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
+nnoremap <leader>gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_commits()<cr>
 nnoremap <leader>gbc <cmd>lua require('telescope.builtin').git_bcommits()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
@@ -218,7 +209,7 @@ nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
 nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
-nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+nnoremap gr <cmd>TroubleToggle lsp_references<cr>
 
 call plug#end()
 

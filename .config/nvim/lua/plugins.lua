@@ -14,7 +14,7 @@ return require('packer').startup(function()
   use 'voldikss/vim-floaterm'
   -- Simple plugins can be specified as strings
   -- use '9mm/vim-closer'
-  use 'jiangmiao/auto-pairs'
+  use 'windwp/nvim-autopairs'
 
   -- Load on an autocommand event
   use {'andymass/vim-matchup', event = 'VimEnter'}
@@ -58,9 +58,9 @@ return require('packer').startup(function()
   use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
   -- Use specific branch, dependency and run lua file after load
+  use 'kyazdani42/nvim-web-devicons'
   use {
     'dsych/galaxyline.nvim', branch = 'bugfix/diagnostics', config = function() require'statusline' end,
-    requires = {'kyazdani42/nvim-web-devicons'}
   }
 
   -- Use dependency and run lua function after load
@@ -82,7 +82,6 @@ return require('packer').startup(function()
   requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'jvgrootveld/telescope-zoxide'
   use 'cljoly/telescope-repo.nvim'
 
@@ -102,6 +101,11 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use "rafamadriz/friendly-snippets"
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = function() require'nvim-tree'.setup {} end
+  }
 
 end)
 
