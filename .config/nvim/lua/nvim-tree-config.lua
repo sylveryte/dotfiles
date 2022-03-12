@@ -21,7 +21,7 @@ require'nvim-tree'.setup {
   auto_reload_on_write = true,
   open_on_tab          = false,
   hijack_cursor        = true,
-  update_cwd           = true,
+  update_cwd           = false,
   hijack_unnamed_buffer_when_opening = false,
   hijack_directories   = {
     enable = true,
@@ -37,8 +37,8 @@ require'nvim-tree'.setup {
     }
   },
   update_focused_file = {
-    enable      = false,
-    update_cwd  = true,
+    enable      = true,
+    update_cwd  = false,
     ignore_list = {}
   },
   system_open = {
@@ -66,7 +66,8 @@ require'nvim-tree'.setup {
         { key = { "l", "<CR>", "o"}, cb = tree_cb "edit" },
         { key = { "h" }, cb = tree_cb "close_node" },
         { key = { "v" }, cb = tree_cb "vsplit" },
-        { key = { "x" }, cb = tree_cb "split" }
+        { key = { "x" }, cb = tree_cb "split" },
+        { key = { "-" }, cb = tree_cb "close" }
       },
     },
     number = false,
