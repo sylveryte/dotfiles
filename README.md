@@ -46,7 +46,7 @@ GIT_COMMITTER_DATE="2020-10-02T22:12:01" git commit --amend --no-edit --date "20
 * use /etc/systemd/system/suspend@sylveryte.service in system dir, one is enough sleep is enough
 ``` https://wiki.archlinux.org/index.php/Power_management#Sleep_hooks ```
 ```
-Unit]
+[Unit]
 Description=User suspend actions
 Before=sleep.target
 
@@ -61,6 +61,8 @@ ExecStartPost=/usr/bin/sleep 1
 [Install]
 WantedBy=sleep.target
 ```
+`systemctl start suspend@sylveryte`
+`systemctl enable suspend@sylveryte`
 
 
 ### last20

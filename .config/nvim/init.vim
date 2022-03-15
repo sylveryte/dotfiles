@@ -132,12 +132,11 @@ Plug 'wesQ3/vim-windowswap' "leader ww
 "file systems
 nmap <leader>v :FloatermNew --autoclose=1 --opener=vsplit vifm<CR>
 
-" Plug 'justinmk/vim-dirvish'
-" Plug 'kristijanhusak/vim-dirvish-git'
-" nnoremap <leader>r :Dirvish<CR>
+nnoremap <leader>r :Dirvish<CR>
+
 nnoremap <leader>N :NvimTreeToggle<CR>
 nnoremap <leader>n :NvimTreeFindFileToggle<CR>
-nnoremap - :NvimTreeFindFile<CR>
+" nnoremap - :NvimTreeFindFile<CR>
 
 Plug 'ggandor/lightspeed.nvim'
 
@@ -149,7 +148,7 @@ nnoremap <leader>j <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>m <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>l <cmd>lua require('telescope.builtin').builtin()<cr>
-nnoremap <leader>ca <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
+nnoremap <leader>cl <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
 nnoremap gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap <leader>gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 nnoremap <leader>gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
@@ -185,20 +184,20 @@ autocmd FileType vue,html,css,typescript,javascript,ejs,javascriptreact,typescri
    autocmd FileType LspsagaHover nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
  augroup END
  nnoremap <silent><leader>a :Lspsaga lsp_finder<CR>
- nnoremap <silent>ca :Lspsaga code_action<CR>
- vnoremap <silent>ca :<C-U>Lspsaga range_code_action<CR>
+ nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+ vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
  " -- show hover doc
  nnoremap <silent>K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
  " -- scroll up down hover doc or scroll in definition preview
  nnoremap <silent><C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
  nnoremap <silent><C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
  nnoremap <silent><leader>sh <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
- nnoremap <silent><leader>sr <cmd>lua require('lspsaga.rename').rename()<CR>
- nnoremap <silent><leader>gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+ nnoremap <silent><leader>re <cmd>lua require('lspsaga.rename').rename()<CR>
+ nnoremap <silent><leader>pd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
  " -- show
- nnoremap <silent><leader>cd :Lspsaga show_line_diagnostics<CR>
+ nnoremap <silent><leader>sd :Lspsaga show_line_diagnostics<CR>
  " -- only show diagnostic if cursor is over the area
- nnoremap <silent><leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
+ nnoremap <silent><leader>sc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
  " -- jump diagnostic
  nnoremap <silent><leader>d :Lspsaga diagnostic_jump_next<CR>
  nnoremap <silent><leader>e :Lspsaga diagnostic_jump_prev<CR>

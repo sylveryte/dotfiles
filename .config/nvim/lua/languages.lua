@@ -81,7 +81,7 @@ null_ls.setup({
   end,
   sources = {
     null_ls.builtins.hover.dictionary,
-    null_ls.builtins.completion.spell,
+    -- null_ls.builtins.completion.spell,
   }
 })
 prettier.setup({

@@ -102,10 +102,11 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
   use "rafamadriz/friendly-snippets"
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    config = function() require'nvim-tree'.setup {} end
-  }
+  use 'justinmk/vim-dirvish'
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   config = function() require'nvim-tree'.setup {} end
+  -- }
 
 end)
 

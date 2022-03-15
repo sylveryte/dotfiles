@@ -124,7 +124,8 @@ alias t=task
 alias tm=timew
 alias bitchcolor='python ~/sylveryte/dotfiles/tools/colorscheme.py'
 alias sylfairygravity='python ~/sylveryte/dotfiles/tools/fairygravity.py'
-source /home/sylveryte/.zshnogit.sh
+alias ngs='npx ng s'
+alias ngp='npx ng s --port=4300'
 
 
 export FZF_DEFAULT_COMMAND='fd --type f'
