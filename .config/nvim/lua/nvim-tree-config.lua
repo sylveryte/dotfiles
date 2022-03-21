@@ -21,11 +21,12 @@ require'nvim-tree'.setup {
   auto_reload_on_write = true,
   open_on_tab          = false,
   hijack_cursor        = true,
-  update_cwd           = false,
+  update_cwd           = true,
+  update_to_buf_dir    = false,
   hijack_unnamed_buffer_when_opening = false,
   hijack_directories   = {
-    enable = true,
-    auto_open = true,
+    enable = false,
+    auto_open = false,
   },
   diagnostics = {
     enable = false,
@@ -55,9 +56,9 @@ require'nvim-tree'.setup {
     timeout = 500,
   },
   view = {
-    width = 190,
+    width = 50,
     height = 60,
-    hide_root_folder = false,
+    hide_root_folder = true,
     side = 'left',
     preserve_window_proportions = false,
     mappings = {
@@ -80,7 +81,7 @@ require'nvim-tree'.setup {
   },
   actions = {
     change_dir = {
-      enable = true,
+      enable = false,
       global = false,
     },
     open_file = {

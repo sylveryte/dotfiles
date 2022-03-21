@@ -126,13 +126,14 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 
 " interactions
-Plug 'camspiers/lens.vim'
+" Plug 'camspiers/lens.vim'
 Plug 'wesQ3/vim-windowswap' "leader ww
 
 "file systems
 nmap <leader>v :FloatermNew --autoclose=1 --opener=vsplit vifm<CR>
 
 nnoremap <leader>r :Dirvish<CR>
+" nnoremap - :Dirvish<CR>
 
 nnoremap <leader>N :NvimTreeToggle<CR>
 nnoremap <leader>n :NvimTreeFindFileToggle<CR>

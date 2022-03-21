@@ -74,6 +74,7 @@ return require('packer').startup(function()
 
   -- You can alias plugin names
   use {'dracula/vim', as = 'dracula'}
+  use "EdenEast/nightfox.nvim" -- Packer
 
   use { 'tami5/lspsaga.nvim' }  -- nightly
 
@@ -103,10 +104,7 @@ return require('packer').startup(function()
   use "rafamadriz/friendly-snippets"
 
   use 'justinmk/vim-dirvish'
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   config = function() require'nvim-tree'.setup {} end
-  -- }
+  use 'kyazdani42/nvim-tree.lua'
 
 end)
 

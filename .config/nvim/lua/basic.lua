@@ -1,4 +1,3 @@
-require 'nvim-tree-config'
 require('telescope').setup {
   extensions = {
   },
@@ -13,3 +12,4 @@ require('telescope').load_extension'repo'
 
 require('nvim-autopairs').setup{}
 
+require 'nvim-tree-config'

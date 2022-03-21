@@ -5,6 +5,11 @@ clipmenud &
 echo '0' > /tmp/.polybar.data
 ~/sylveryte/dotfiles/tools/polybar.sh
 
+# lockscreen
+xss-lock ~/sylveryte/dotfiles/tools/scrlock.sh --ignore-sleep &
+xset s on
+xset s 30
+
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 bspc rule -a termite:scratchy sticky=on state=floating rectangle=widthxheight+Xoffset+Yoffset
