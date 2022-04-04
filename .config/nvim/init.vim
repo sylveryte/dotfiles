@@ -21,12 +21,15 @@ set smartcase
 set undofile
 set hidden "maintain buffer change history
 set list
-set listchars=eol:·,tab:⍿·,trail:×
-" set listchars=eol:¬,tab:▸\
+set listchars=eol:↴,tab:⍿·,trail:×
 
 " directories
 set directory=~/.vim/swp//
 set undodir=~/.vim/undodir//
+
+set foldlevel=20
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 " userdefined functions
 function Stat()
@@ -89,19 +92,10 @@ call plug#begin()
 
 " colors
 set background=dark
-Plug 'morhetz/gruvbox'
 let g:gruvbox_italic=1
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 let g:tokyonight_style = "night"
 let g:tokyonight_enable_italic = 1
 let g:tokyonight_italic_functions = 1
-Plug 'sainnhe/sonokai'
-Plug 'joshdick/onedark.vim'
-Plug 'chuling/vim-equinusocio-material'
-Plug 'arcticicestudio/nord-vim'
-Plug 'rakr/vim-one'
-Plug 'mhartington/oceanic-next'
-Plug 'haishanh/night-owl.vim'
 let g:one_allow_italics = 1 " I love italic for comments
 
 "" syntax colors
@@ -113,35 +107,21 @@ xmap <Leader>p <Plug>(prettier-format)
 nmap <Leader>p <Plug>(prettier-format)
 
 " absolute necessary plugs
-Plug 'christoomey/vim-system-copy'
-Plug 'tpope/vim-fugitive'
 nnoremap <leader>g :Git<CR>
 nnoremap <leader>gg :Git<CR>
 nnoremap gb :Git blame<CR>
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 map cm gc
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-
-" interactions
-" Plug 'camspiers/lens.vim'
-Plug 'wesQ3/vim-windowswap' "leader ww
 
 "file systems
 nmap <leader>v :FloatermNew --autoclose=1 --opener=vsplit vifm<CR>
 
 nnoremap <leader>r :Dirvish<CR>
-" nnoremap - :Dirvish<CR>
 
-nnoremap <leader>N :NvimTreeToggle<CR>
-nnoremap <leader>n :NvimTreeFindFileToggle<CR>
-" nnoremap - :NvimTreeFindFile<CR>
-
-Plug 'ggandor/lightspeed.nvim'
+nnoremap <leader>n :NvimTreeToggle<CR>
+nnoremap <leader>N :NvimTreeFindFileToggle<CR>
 
 " Using Lua functions
+" :Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍
 nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>t <cmd>lua require('telescope.builtin').treesitter()<cr>
 nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep()<cr>
@@ -149,6 +129,7 @@ nnoremap <leader>j <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>m <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>l <cmd>lua require('telescope.builtin').builtin()<cr>
+nnoremap <leader>/ <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
 nnoremap <leader>cl <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
 nnoremap gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap <leader>gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
@@ -158,9 +139,11 @@ nnoremap <leader>gbc <cmd>lua require('telescope.builtin').git_bcommits()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>z <cmd>lua require'telescope'.extensions.zoxide.list{}<cr>
 
+" interactions lens.vim
+let g:lens#disabled_filetypes = ['TelescopePrompt']
+
 
 " programming
-Plug 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
 autocmd FileType vue,html,css,typescript,javascript,ejs,javascriptreact,typescriptreact,svelte EmmetInstall
 
@@ -203,7 +186,6 @@ autocmd FileType vue,html,css,typescript,javascript,ejs,javascriptreact,typescri
  nnoremap <silent><leader>d :Lspsaga diagnostic_jump_next<CR>
  nnoremap <silent><leader>e :Lspsaga diagnostic_jump_prev<CR>
 
-Plug 'folke/trouble.nvim'
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
 nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>

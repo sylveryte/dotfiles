@@ -25,7 +25,9 @@ require('lspconfig').html.setup {
 
 -- Setup tailwind (too slow)
 -- npm i -g @tailwindcss/language-server
-require('lspconfig').tailwindcss.setup {}
+require('lspconfig').tailwindcss.setup {
+  -- autostart=false
+}
 
 -- npm i -g @angular/language-server
 require('lspconfig').angularls.setup {}
@@ -102,3 +104,4 @@ prettier.setup({
     "lua",
   },
 })
+vim.lsp.set_log_level('debug')

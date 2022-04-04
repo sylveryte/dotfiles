@@ -1,4 +1,9 @@
 # source /usr/share/nvm/init-nvm.sh
+
+# nnn
+export NNN_PLUG='z:autojump;f:fzopen;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;p:preview-tabbed;r:preview-tui'
+export NNN_FIFO=/tmp/nnn.fifo
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -98,15 +103,13 @@ alias noefetch='neofetch'
 alias gits='git status'
 alias zathura='zathura --fork'
 alias vifm='~/.config/vifm/scripts/vifmrun'
-alias ovim='/bin/vim'
-alias playvidsong='mpv /home/sylveryte/Videos/ --shuffle'
-# alias vim='/home/sylveryte/Downloads/nvim/nvim-linux64/bin/nvim'
 alias vim='nvim'
+alias v='nvim'
 function cya(){
 	free -h
 	sleep 1s
 	echo "See you soon!"
-	systemctl hibernate
+	systemctl sleep
 }
 function bye(){
 	echo "I'll see you soooon!!!!!!!!!!!"
@@ -144,7 +147,7 @@ _fzf_compgen_dir() {
 
 eval "$(zoxide init zsh)"
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
 

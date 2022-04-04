@@ -17,7 +17,6 @@ require'nvim-tree'.setup {
   open_on_setup        = false,
   ignore_buffer_on_setup = false,
   ignore_ft_on_setup   = {},
-  auto_close           = true,
   auto_reload_on_write = true,
   open_on_tab          = false,
   hijack_cursor        = true,
@@ -29,7 +28,7 @@ require'nvim-tree'.setup {
     auto_open = false,
   },
   diagnostics = {
-    enable = false,
+    enable = true,
     icons = {
       hint = "",
       info = "",
@@ -72,7 +71,7 @@ require'nvim-tree'.setup {
       },
     },
     number = false,
-    relativenumber = true,
+    relativenumber = false,
     signcolumn = "yes"
   },
   trash = {

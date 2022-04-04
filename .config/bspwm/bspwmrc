@@ -8,7 +8,7 @@ echo '0' > /tmp/.polybar.data
 # lockscreen
 xss-lock ~/sylveryte/dotfiles/tools/scrlock.sh --ignore-sleep &
 xset s on
-xset s 30
+xset s 300
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
