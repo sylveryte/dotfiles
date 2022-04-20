@@ -22,6 +22,9 @@ set undofile
 set hidden "maintain buffer change history
 set list
 set listchars=eol:↴,tab:⍿·,trail:×
+" let g:netrw_browse_split=0
+" let g:netrw_hide = 0
+" nmap - :Explore<CR>
 
 " directories
 set directory=~/.vim/swp//

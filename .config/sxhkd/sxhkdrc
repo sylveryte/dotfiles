@@ -3,7 +3,7 @@
 #
 # kitty terminal emulator
 super + space
-	kitty
+	alacritty
 
 # terminal emulator
 super + Return

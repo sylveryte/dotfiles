@@ -131,6 +131,11 @@ _G.packer_plugins = {
     path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["lens.vim"] = {
     loaded = true,
     path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/lens.vim",
@@ -242,11 +247,6 @@ _G.packer_plugins = {
     path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
-  ["vim-dirvish"] = {
-    loaded = true,
-    path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/vim-dirvish",
-    url = "https://github.com/justinmk/vim-dirvish"
-  },
   ["vim-eunuch"] = {
     loaded = true,
     path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/vim-eunuch",
@@ -290,6 +290,11 @@ _G.packer_plugins = {
     path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
     url = "https://github.com/tpope/vim-unimpaired"
   },
+  ["vim-vinegar"] = {
+    loaded = true,
+    path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/vim-vinegar",
+    url = "https://github.com/tpope/vim-vinegar"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/vim-vsnip",
@@ -299,11 +304,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
     url = "https://github.com/hrsh7th/vim-vsnip-integ"
-  },
-  ["vim-windowswap"] = {
-    loaded = true,
-    path = "/home/sylveryte/.local/share/nvim/site/pack/packer/start/vim-windowswap",
-    url = "https://github.com/wesQ3/vim-windowswap"
   }
 }
 

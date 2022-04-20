@@ -13,10 +13,12 @@ return require('packer').startup(function()
 
   use 'christoomey/vim-system-copy'
   use 'tpope/vim-fugitive'
+  use 'kdheepak/lazygit.nvim'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-unimpaired'
+  use 'tpope/vim-vinegar'
 
   use 'tpope/vim-commentary'
 
@@ -54,7 +56,7 @@ return require('packer').startup(function()
   use 'jvgrootveld/telescope-zoxide'
   use 'cljoly/telescope-repo.nvim'
 
-  use 'justinmk/vim-dirvish'
+  -- use 'justinmk/vim-dirvish'
   use 'kyazdani42/nvim-tree.lua'
   use {
 	"luukvbaal/nnn.nvim",
@@ -62,7 +64,7 @@ return require('packer').startup(function()
   }
 
   -- " interactions "leader ww
-  use 'wesQ3/vim-windowswap' 
+  -- use 'wesQ3/vim-windowswap' 
   use 'ggandor/lightspeed.nvim'
   use 'camspiers/lens.vim'
   -- use 'camspiers/animate.vim' -- cause issue with telescope
@@ -77,6 +79,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-calc'
+
   use 'MunifTanjim/prettier.nvim' 
 
   -- " For vsnip grs.
