@@ -1,3 +1,8 @@
+-- vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }
+vim.opt.termguicolors = true
+
+local trouble = require('trouble')
 require('telescope').setup {
    matchup = {
     enable = true,              -- mandatory, false will disable the whole extension
@@ -15,11 +20,16 @@ require('telescope').setup {
   defaults = {
     layout_strategy = 'flex',
     layout_config = { height = 0.95, width = 0.95 },
+    mappings = {
+      i = { ["<c-t>"] = trouble.open_with_trouble },
+      n = { ["<c-t>"] = trouble.open_with_trouble },
+    },
   },
 }
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('zoxide')
 require('telescope').load_extension'repo'
+require('telescope').load_extension'dap'
 
 require('nvim-autopairs').setup{}
 
@@ -32,3 +42,17 @@ require("indent_blankline").setup {
     show_current_context = true,
     show_current_context_start = true,
 }
+
+require 'colorizer'.setup {
+  'css';
+  'javascript';
+  html = {
+    mode = 'foreground';
+  }
+}
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<C-c>", "<cmd>PickColor<cr>", opts)
+vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+require("color-picker").setup()
+

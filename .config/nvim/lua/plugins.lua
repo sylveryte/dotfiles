@@ -35,26 +35,17 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use { 'dsych/galaxyline.nvim', branch = 'bugfix/diagnostics', config = function() require'statusline' end, }
 
-  -- use 'sainnhe/sonokai'
-  -- use 'joshdick/onedark.vim'
-  -- use 'chuling/vim-equinusocio-material'
-  -- use 'arcticicestudio/nord-vim'
-  -- use 'rakr/vim-one'
-  -- use 'mhartington/oceanic-next'
-  -- use 'haishanh/night-owl.vim'
-  -- use {'dracula/vim', as = 'dracula'}
-  -- use "EdenEast/nightfox.nvim" -- Packer
-  -- use 'morhetz/gruvbox'
-
   use { 'folke/tokyonight.nvim',  branch= 'main' }
 
   use 'mattn/emmet-vim'
-  use {'tjdevries/colorbuddy.vim'}
+  use 'norcalli/nvim-colorizer.lua'
+  use "ziontee113/color-picker.nvim"
 
   use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use 'jvgrootveld/telescope-zoxide'
   use 'cljoly/telescope-repo.nvim'
+  use 'nvim-telescope/telescope-dap.nvim'
 
   -- use 'justinmk/vim-dirvish'
   use 'kyazdani42/nvim-tree.lua'
@@ -82,14 +73,30 @@ return require('packer').startup(function()
 
   use 'MunifTanjim/prettier.nvim' 
 
+  -- -- " For luasnip users.
+  -- use 'L3MON4D3/LuaSnip'
+  -- use 'saadparwaiz1/cmp_luasnip'
+  -- use 'rafamadriz/friendly-snippets'
+
   -- " For vsnip grs.
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
-  use "rafamadriz/friendly-snippets"
 
   -- use { 'echasnovski/mini.nvim', branch = 'stable' }
   use "lukas-reineke/indent-blankline.nvim"
+
+  use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use 'theHamsta/nvim-dap-virtual-text'
+
+  use "stevearc/dressing.nvim"
+  use({
+    "ziontee113/icon-picker.nvim",
+    config = function()
+      require("icon-picker")
+    end,
+  })
 
 end)
 

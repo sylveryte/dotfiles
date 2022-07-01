@@ -1,9 +1,6 @@
 #
 # wm independent hotkeys
 #
-# kitty terminal emulator
-super + space
-	alacritty
 
 # terminal emulator
 super + Return
@@ -11,7 +8,7 @@ super + Return
 
 # terminal emulator in same window as currently focused
 super + shift + Return
-	termite
+	alacritty
 
 # program launcher
 super + s

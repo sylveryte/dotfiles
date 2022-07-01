@@ -26,6 +26,8 @@ set listchars=eol:↴,tab:⍿·,trail:×
 " let g:netrw_hide = 0
 " nmap - :Explore<CR>
 
+let g:colorizer_auto_filetype='css,html'
+
 " directories
 set directory=~/.vim/swp//
 set undodir=~/.vim/undodir//
@@ -59,6 +61,7 @@ nmap <leader>wd :read !date +"\%r"<CR>
 nnoremap <silent>,tt :FloatermNew<CR>
 tnoremap <silent>,tt <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent>,t :FloatermNew --cwd=<buffer><CR>
+nnoremap <silent>,th :call TermHere()<CR>
 tnoremap <silent>,t <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent>,tp :FloatermPrev<CR>
 tnoremap <silent>,tp <C-\><C-n>:FloatermPrev<CR>
@@ -117,8 +120,6 @@ map cm gc
 
 "file systems
 nmap <leader>v :FloatermNew --autoclose=1 --opener=vsplit vifm<CR>
-
-nnoremap <leader>r :Dirvish<CR>
 
 nnoremap <leader>n :NvimTreeToggle<CR>
 nnoremap <leader>N :NvimTreeFindFileToggle<CR>
@@ -197,6 +198,21 @@ nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gr <cmd>TroubleToggle lsp_references<cr>
 
 call plug#end()
+
+lua require('nvim-dap')
+nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
+nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
+nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+nnoremap <silent> ,b <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> ,B <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> ,lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> ,dk <Cmd>lua require'dap.ui.widgets'.hover()<CR>
+nnoremap <silent> ,d? <Cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
+nnoremap <silent> ,da <Cmd>lua require'dap-helper'.attach()<CR>
+nnoremap <silent> ,dr <Cmd>lua require'dap'.repl.open()<CR>
+nnoremap <silent> ,dl <Cmd>lua require'dap'.run_last()<CR>
+nnoremap <silent> ,du <Cmd>lua require("dapui").toggle()<CR>
 
 lua require('basic')
 lua require('plugins')
