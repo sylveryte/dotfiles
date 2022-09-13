@@ -18,9 +18,9 @@
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
       end,
     },
@@ -50,8 +50,9 @@
       { name = 'nvim_lsp' },
       { name = 'nvim_lsp_signature_help' }, 
       { name = 'nvim_lsp_document_symbol' },
-      { name = 'vsnip' }, -- For vsnip users.
-      { name = 'spell' },
+      -- { name = 'vsnip' }, -- For vsnip users.
+      { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'spell' },
       { name = 'treesitter' },
       { name = 'cmdline' },
       { name = 'emoji' },
@@ -92,7 +93,10 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
   require('lspconfig')['tsserver'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+    end,
   }
   require('lspconfig')['angularls'].setup {
     capabilities = capabilities
@@ -114,6 +118,9 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 -- lua snip start
+require("luasnip.loaders.from_snipmate").lazy_load() --/snipmate
+require("luasnip.loaders.from_vscode").lazy_load() --/friendly snipped
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/sylveryte/dotfiles/.vsnip" } })
 local function prequire(...)
 local status, lib = pcall(require, ...)
 if (status) then return lib end

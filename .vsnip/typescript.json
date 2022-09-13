@@ -1,4 +1,9 @@
 {
+  "Console.log": {
+    "prefix": ["cl"],
+    "body": "console.log($1)",
+    "description": "Console.log"
+  },
   "Annonymous function": {
     "prefix": ["af"],
     "body": "($1) => $2",

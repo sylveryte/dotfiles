@@ -1,13 +1,24 @@
 {
-  "datetime": {
-    "prefix": "datetime",
+  "datetimeold": {
+    "prefix": "datetimeold",
     "body": [
       "${VIM:system('date +%Y-%m-%d_%H:%M_%A | sed \"s/_/ /g\"')}"
     ]
   },
 
+  "dattime": {
+    "prefix": "dattime",
+    "body": ["${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE} ${CURRENT_DAY_NAME}"],
+    "description": "I give you back the time and date (Y-m-d H:M) and day name"
+  },
+
   "uuid": {
     "prefix": "uuid",
+    "body": ["${UUID}"]
+  },
+
+  "uuidold": {
+    "prefix": "uuidold",
     "body": ["${VIM:system('python -c \"import uuid, sys;sys.stdout.write(str(uuid.uuid4()))\"')}"]
   }
 }

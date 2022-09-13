@@ -40,15 +40,31 @@ return require('packer').startup(function()
   use 'mattn/emmet-vim'
   use 'norcalli/nvim-colorizer.lua'
   use "ziontee113/color-picker.nvim"
+  use {
+  "max397574/colortils.nvim",
+  cmd = "Colortils",
+  config = function()
+    require("colortils").setup()
+  end,
+}
 
   use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'jvgrootveld/telescope-zoxide'
   use 'cljoly/telescope-repo.nvim'
   use 'nvim-telescope/telescope-dap.nvim'
+  use 'kelly-lin/telescope-ag'
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require"telescope".load_extension("frecency")
+    end,
+    requires = {"tami5/sqlite.lua"}
+  }
+
+  use { 'ibhagwan/fzf-lua' }
 
   -- use 'justinmk/vim-dirvish'
-  use 'kyazdani42/nvim-tree.lua'
   use {
 	"luukvbaal/nnn.nvim",
 	config = function() require("nnn").setup() end
@@ -71,17 +87,17 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-calc'
 
-  use 'MunifTanjim/prettier.nvim' 
-
   -- -- " For luasnip users.
-  -- use 'L3MON4D3/LuaSnip'
-  -- use 'saadparwaiz1/cmp_luasnip'
-  -- use 'rafamadriz/friendly-snippets'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
+  use 'honza/vim-snippets'
 
-  -- " For vsnip grs.
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
+
+  -- -- " For vsnip grs.
+  -- use 'hrsh7th/cmp-vsnip'
+  -- use 'hrsh7th/vim-vsnip'
+  -- use 'hrsh7th/vim-vsnip-integ'
 
   -- use { 'echasnovski/mini.nvim', branch = 'stable' }
   use "lukas-reineke/indent-blankline.nvim"
@@ -89,7 +105,7 @@ return require('packer').startup(function()
   use 'mfussenegger/nvim-dap'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use 'theHamsta/nvim-dap-virtual-text'
-
+ 
   use "stevearc/dressing.nvim"
   use({
     "ziontee113/icon-picker.nvim",

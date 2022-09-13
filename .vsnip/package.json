@@ -1,0 +1,25 @@
+{
+	"name": "example-snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"all"
+				],
+				"path": "./global.json"
+			},
+			{
+				"language": [
+					"html"
+				],
+				"path": "./html.json"
+			},
+			{
+				"language": [
+					"typescriptreact"
+				],
+				"path": "./typescriptreact.json"
+			}
+		]
+	}
+}

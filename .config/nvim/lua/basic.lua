@@ -30,12 +30,9 @@ require('telescope').load_extension('fzf')
 require('telescope').load_extension('zoxide')
 require('telescope').load_extension'repo'
 require('telescope').load_extension'dap'
+require('telescope').load_extension("ag")
 
 require('nvim-autopairs').setup{}
-
--- require('mini').setup{}
-
-require 'nvim-tree-config'
 
 require("indent_blankline").setup {
     space_char_blankline = " ",
@@ -49,6 +46,12 @@ require 'colorizer'.setup {
   html = {
     mode = 'foreground';
   }
+}
+
+-- devicons
+require'nvim-web-devicons'.setup {
+ override = { };
+ default = true;
 }
 
 local opts = { noremap = true, silent = true }

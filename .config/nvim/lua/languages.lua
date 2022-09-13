@@ -10,36 +10,44 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-
--- -- Setup Emmet
--- --  npm i -g emmet-ls
--- require('lspconfig').emmet_ls.setup {
---   on_attach = on_attach,
---   filetypes = { 'html', 'css', 'typescriptreact', 'typescript', 'scss' },
--- }
-
 -- npm i -g vscode-langservers-extracted
 require('lspconfig').html.setup {
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end,
 }
 
 -- Setup tailwind (too slow)
 -- npm i -g @tailwindcss/language-server
 require('lspconfig').tailwindcss.setup {
-  -- autostart=false
+  autostart=false
 }
+
+--Enable (broadcasting) snippet capability for completion
+--npm i -g vscode-langservers-extracted
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+require'lspconfig'.jsonls.setup {
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+    -- on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
+}
+
 
 -- npm i -g @angular/language-server
 require('lspconfig').angularls.setup {}
 
 -- Setup tsserver
-require('lspconfig').tsserver.setup {
+require('lspconfig').tsserver.setup({
   on_attach = function(client, bufnr)
-    -- client.resolved_capabilities.document_formatting = true
-    -- client.resolved_capabilities.document_range_formatting = true
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
     -- on_attach(client, bufnr)
   end,
-}
+})
 
 -- Setup cssls
 --Enable (broadcasting) snippet capability for completion
@@ -51,57 +59,27 @@ require('lspconfig').cssls.setup {
   capabilities = capabilities,
 }
 
-require('lspsaga').init_lsp_saga()
-
- require("trouble").setup {}
-
-
--- devicons
-require'nvim-web-devicons'.setup {
- -- your personnal icons can go here (to override)
- -- you can specify color or cterm_color instead of specifying both of them
- -- DevIcon will be appended to `name`
- override = { };
- -- globally enable default icons (default to false)
- -- will get overriden by `get_icons` option
- default = true;
-}
-
--- prettier
-local prettier = require("prettier")
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
 local null_ls = require("null-ls")
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
+  sources = {
+        -- require("null-ls").builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettierd,
+        null_ls.builtins.formatting.rustywind,
+        null_ls.builtins.diagnostics.eslint,
+        -- null_ls.builtins.completion.spell,
+        -- null_ls.builtins.hover.dictionary,
+    },
   on_attach = function(client, bufnr)
-    if client.resolved_capabilities.document_formatting then
-      -- vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.formatting()<CR>")
+    if client.server_capabilities.documentFormattingProvider then
+      vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.formatting()<CR>")
       -- format on save
       -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
     end
-    if client.resolved_capabilities.document_range_formatting then
-      -- vim.cmd("xnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.range_formatting({})<CR>")
-    end
   end,
-  sources = {
-    null_ls.builtins.hover.dictionary,
-    -- null_ls.builtins.completion.spell,
-  }
 })
-prettier.setup({
-  bin = 'prettier', -- or `prettierd`
-  filetypes = {
-    "css",
-    "graphql",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "less",
-    "markdown",
-    "scss",
-    "typescript",
-    "typescriptreact",
-    "yaml",
-    "lua",
-  },
-})
-vim.lsp.set_log_level('debug')
+
+require('lspsaga').init_lsp_saga()
+require("trouble").setup {}
+

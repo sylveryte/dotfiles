@@ -26,7 +26,7 @@ set listchars=eol:↴,tab:⍿·,trail:×
 " let g:netrw_hide = 0
 " nmap - :Explore<CR>
 
-let g:colorizer_auto_filetype='css,html'
+let g:colorizer_auto_filetype='scss,jsx,tsx,css,html'
 
 " directories
 set directory=~/.vim/swp//
@@ -70,8 +70,6 @@ tnoremap <silent>,tn <C-\><C-n>:FloatermNext<CR>
 nnoremap <silent>tt :FloatermToggle<CR>
 tnoremap <silent>tt <C-\><C-n>:FloatermToggle<CR>
 nmap <space> za;
-" tip zxzc to close all children folds
-nmap ,z :Fold<CR>zR;
 nnoremap ,f :norm vi{\p<CR>
 nnoremap ,af :norm vat\p<CR>
 
@@ -106,11 +104,11 @@ let g:one_allow_italics = 1 " I love italic for comments
 
 "" syntax colors
 
-" formatting
-" range_formatting in visual mode
-xmap <Leader>p <Plug>(prettier-format)
-" formatting in normal mode
-nmap <Leader>p <Plug>(prettier-format)
+" " formatting
+" " range_formatting in visual mode
+" xmap <Leader>p :Prettier<CR>
+" " formatting in normal mode
+" nmap <Leader>p :Prettier<CR>
 
 " absolute necessary plugs
 nnoremap <leader>g :Git<CR>
@@ -119,28 +117,28 @@ nnoremap gb :Git blame<CR>
 map cm gc
 
 "file systems
-nmap <leader>v :FloatermNew --autoclose=1 --opener=vsplit vifm<CR>
+nmap <leader>v :FloatermNew --autoclose=1 --opener=vsplit nnn<CR>
 
-nnoremap <leader>n :NvimTreeToggle<CR>
-nnoremap <leader>N :NvimTreeFindFileToggle<CR>
+nnoremap <leader>n :NnnExplorer<CR>
 
 " Using Lua functions
 " :Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍
 nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>c <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>t <cmd>lua require('telescope.builtin').treesitter()<cr>
-nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep()<cr>
+" nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>s <cmd>:FzfLua live_grep<cr>
+nnoremap <leader>t <cmd>:FzfLua files<cr>
 nnoremap <leader>j <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>m <cmd>lua require('telescope.builtin').oldfiles()<cr>
+nnoremap <leader>m <cmd>lua require('telescope').extensions.frecency.frecency()<cr>
+nnoremap <leader>k <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>l <cmd>lua require('telescope.builtin').builtin()<cr>
 nnoremap <leader>/ <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
 nnoremap <leader>cl <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
 nnoremap gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap <leader>gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 nnoremap <leader>gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
-nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_commits()<cr>
-nnoremap <leader>gbc <cmd>lua require('telescope.builtin').git_bcommits()<cr>
-nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>z <cmd>lua require'telescope'.extensions.zoxide.list{}<cr>
 
 " interactions lens.vim
