@@ -40,13 +40,7 @@ require("indent_blankline").setup {
     show_current_context_start = true,
 }
 
-require 'colorizer'.setup {
-  'css';
-  'javascript';
-  html = {
-    mode = 'foreground';
-  }
-}
+require 'colorizer'.setup()
 
 -- devicons
 require'nvim-web-devicons'.setup {

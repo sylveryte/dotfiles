@@ -208,16 +208,16 @@ super + o
 	scrot
 
 super + w
-	chromium
+	firefox-developer-edition 
 
 super + q
 	firefox
 
 super + e
-	firefox-developer-edition 
+	firefox-beta
 
 super + shift + e
-	firefox-developer-edition --private-window
+	firefox-beta --private-window
 
 super + a
 	bspc node -s biggest.local

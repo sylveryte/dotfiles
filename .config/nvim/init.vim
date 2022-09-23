@@ -124,11 +124,11 @@ nnoremap <leader>n :NnnExplorer<CR>
 " Using Lua functions
 " :Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍
 nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>F <cmd>:FzfLua files<cr>
 nnoremap <leader>c <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>t <cmd>lua require('telescope.builtin').treesitter()<cr>
-" nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>s <cmd>:FzfLua live_grep<cr>
-nnoremap <leader>t <cmd>:FzfLua files<cr>
+nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>S <cmd>:FzfLua live_grep<cr>
 nnoremap <leader>j <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>m <cmd>lua require('telescope').extensions.frecency.frecency()<cr>

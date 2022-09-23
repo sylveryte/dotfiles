@@ -38,7 +38,7 @@ return require('packer').startup(function()
   use { 'folke/tokyonight.nvim',  branch= 'main' }
 
   use 'mattn/emmet-vim'
-  use 'norcalli/nvim-colorizer.lua'
+  use 'NvChad/nvim-colorizer.lua'
   use "ziontee113/color-picker.nvim"
   use {
   "max397574/colortils.nvim",

@@ -1,7 +1,7 @@
 # source /usr/share/nvm/init-nvm.sh
 
 # nnn
-export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;'
+export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;p:!pcmanfm $nnn'
 export NNN_FIFO=/tmp/nnn.fifo
 
 export NVM_DIR="$HOME/.nvm"

@@ -105,6 +105,9 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
     capabilities = capabilities
   }
   require('lspconfig')['html'].setup {
+    on_attach = function(client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+    end,
     capabilities = capabilities
   }
   require('lspconfig')['cssls'].setup {
