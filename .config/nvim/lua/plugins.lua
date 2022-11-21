@@ -13,6 +13,7 @@ return require('packer').startup(function()
 
   use 'christoomey/vim-system-copy'
   use 'tpope/vim-fugitive'
+  use 'sindrets/diffview.nvim'
   use 'kdheepak/lazygit.nvim'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-surround'
@@ -39,7 +40,6 @@ return require('packer').startup(function()
 
   use 'mattn/emmet-vim'
   use 'NvChad/nvim-colorizer.lua'
-  use "ziontee113/color-picker.nvim"
   use {
   "max397574/colortils.nvim",
   cmd = "Colortils",
@@ -86,6 +86,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-calc'
+  use "jcha0713/cmp-tw2css"
 
   -- -- " For luasnip users.
   use 'L3MON4D3/LuaSnip'
@@ -105,14 +106,11 @@ return require('packer').startup(function()
   use 'mfussenegger/nvim-dap'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use 'theHamsta/nvim-dap-virtual-text'
- 
-  use "stevearc/dressing.nvim"
-  use({
-    "ziontee113/icon-picker.nvim",
-    config = function()
-      require("icon-picker")
-    end,
-  })
 
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
+}
+ 
 end)
 

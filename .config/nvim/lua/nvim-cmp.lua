@@ -50,11 +50,11 @@
       { name = 'nvim_lsp' },
       { name = 'nvim_lsp_signature_help' }, 
       { name = 'nvim_lsp_document_symbol' },
+      { name = 'cmp-tw2css' },
       -- { name = 'vsnip' }, -- For vsnip users.
       { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'spell' },
       { name = 'treesitter' },
-      { name = 'cmdline' },
       { name = 'emoji' },
       { name = 'path'},
       { name = 'calc' },
@@ -75,44 +75,45 @@
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline('/', {
     sources = {
-      { name = 'buffer' }
+      { name = 'buffer' },
     }
   })
 
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
-      { name = 'path' }
+      { name = 'path' },
     }, {
+      { name = 'cmdline_history' },
       { name = 'cmdline' }
     })
   })
 
-  -- Setup lspconfig.
-  -- -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-  require('lspconfig')['tsserver'].setup {
-    capabilities = capabilities,
-    on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-    end,
-  }
-  require('lspconfig')['angularls'].setup {
-    capabilities = capabilities
-  }
+  -- -- Setup lspconfig.
+  -- -- -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  -- require('lspconfig')['tsserver'].setup {
+  --   capabilities = capabilities,
+  --   on_attach = function(client, bufnr)
+  --     client.resolved_capabilities.document_formatting = false
+  --   end,
+  -- }
+  -- require('lspconfig')['angularls'].setup {
+  --   capabilities = capabilities
+  -- }
   require('lspconfig')['tailwindcss'].setup {
     capabilities = capabilities
   }
-  require('lspconfig')['html'].setup {
-    on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-    end,
-    capabilities = capabilities
-  }
-  require('lspconfig')['cssls'].setup {
-    capabilities = capabilities
-  }
+  -- require('lspconfig')['html'].setup {
+  --   on_attach = function(client, bufnr)
+  --     client.resolved_capabilities.document_formatting = false
+  --   end,
+  --   capabilities = capabilities
+  -- }
+  -- require('lspconfig')['cssls'].setup {
+  --   capabilities = capabilities
+  -- }
 
   
 

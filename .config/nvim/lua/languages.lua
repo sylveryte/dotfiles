@@ -1,6 +1,36 @@
 local lspconfig = require('lspconfig')
 local configs = require('lspconfig.configs')
 
+local lsp_formatting = function(bufnr)
+    vim.lsp.buf.format({
+        filter = function(client)
+            -- apply whatever logic you want (in this example, we'll only use null-ls)
+            return client.name == "null-ls"
+        end,
+        bufnr = bufnr,
+    })
+end
+
+-- if you want to set up formatting on save, you can use this as a callback
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+-- add to your shared on_attach callback
+local on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                lsp_formatting(bufnr)
+            end,
+        })
+    end
+end
+
+require'lspconfig'.yamlls.setup{}
+require'lspconfig'.prismals.setup{}
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "javascript", "typescript", "html", "css", "json", "scss", "json", "lua", "markdown", "svelte", "tsx",  "vue", "vim" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { }, -- List of parsers to ignore installing
@@ -12,9 +42,7 @@ require'nvim-treesitter.configs'.setup {
 
 -- npm i -g vscode-langservers-extracted
 require('lspconfig').html.setup {
-  on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-  end,
+  on_attach = on_attach
 }
 
 -- Setup tailwind (too slow)
@@ -28,11 +56,7 @@ require('lspconfig').tailwindcss.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.jsonls.setup {
-  on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-    -- on_attach(client, bufnr)
-  end,
+  on_attach = on_attach,
   capabilities = capabilities,
 }
 
@@ -42,11 +66,7 @@ require('lspconfig').angularls.setup {}
 
 -- Setup tsserver
 require('lspconfig').tsserver.setup({
-  on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-    -- on_attach(client, bufnr)
-  end,
+  on_attach = on_attach
 })
 
 -- Setup cssls
@@ -61,22 +81,28 @@ require('lspconfig').cssls.setup {
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
 local null_ls = require("null-ls")
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   sources = {
         -- require("null-ls").builtins.formatting.prettier,
         null_ls.builtins.formatting.prettierd,
         null_ls.builtins.formatting.rustywind,
-        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.formatting.prismaFmt
+        -- null_ls.builtins.diagnostics.eslint,
         -- null_ls.builtins.completion.spell,
         -- null_ls.builtins.hover.dictionary,
     },
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
-      vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.formatting()<CR>")
-      -- format on save
-      -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+      vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.format {async = true}<CR>")
     end
+    vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        lsp_formatting(bufnr)
+      end,
+    })
   end,
 })
 
