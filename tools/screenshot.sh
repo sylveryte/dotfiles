@@ -9,10 +9,12 @@
 
 case "$(printf "select\nfocused\nwhole" | dmenu -p "screenshot")" in
 	"select")
-		scrot --select ~/trisha/sc/del.png
+		spectacle -r
+		# scrot --select ~/trisha/sc/del.png
 		;;
 	"focused")
-		scrot --focused ~/trisha/sc/del.png
+		spectacle -a
+		# scrot --focused ~/trisha/sc/del.png
 		;;
 	"whole")
 		scrot ~/trisha/sc/del.png
