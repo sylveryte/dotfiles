@@ -88,6 +88,8 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-calc'
   use "jcha0713/cmp-tw2css"
 
+  use "ray-x/lsp_signature.nvim"
+
   -- -- " For luasnip users.
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'

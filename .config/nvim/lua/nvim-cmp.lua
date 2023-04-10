@@ -63,6 +63,9 @@
     })
   })
 
+
+require "lsp_signature".setup()
+
   -- -- Set configuration for specific filetype.
   -- cmp.setup.filetype('gitcommit', {
   --   sources = cmp.config.sources({
@@ -122,8 +125,8 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 -- lua snip start
-require("luasnip.loaders.from_snipmate").lazy_load() --/snipmate
-require("luasnip.loaders.from_vscode").lazy_load() --/friendly snipped
+-- require("luasnip.loaders.from_snipmate").lazy_load() --/snipmate
+-- require("luasnip.loaders.from_vscode").lazy_load() --/friendly snipped
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/sylveryte/dotfiles/.vsnip" } })
 local function prequire(...)
 local status, lib = pcall(require, ...)
