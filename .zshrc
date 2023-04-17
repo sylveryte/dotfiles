@@ -123,12 +123,24 @@ function kwolski-analysis(){
 	echo '--------------------------------------------------------------'
 }
 
+function lstart(){
+  sudo cp /home/sylveryte/sylveryte/dotfiles/display/xorg.conf /etc/X11/xorg.conf && startx
+}
+
+function zl(){
+  sudo cp /home/sylveryte/sylveryte/dotfiles/display/xorg.conf /etc/X11/xorg.conf && sudo systemctl start sddm
+}
+
+
+function zd(){
+  sudo cp /home/sylveryte/sylveryte/dotfiles/display/dual.nvidia.first.xorg.conf /etc/X11/xorg.conf && startx
+}
+
+
 alias t=task
 alias tm=timew
 alias bitchcolor='python ~/sylveryte/dotfiles/tools/colorscheme.py'
 alias sylfairygravity='python ~/sylveryte/dotfiles/tools/fairygravity.py'
-alias ngs='npx ng s'
-alias ngp='npx ng s --port=4300'
 
 
 export FZF_DEFAULT_COMMAND='fd --type f'

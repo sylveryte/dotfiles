@@ -7,8 +7,8 @@ source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 # exec i3
 # exec dwm
 # exec awesome
-exec bspwm
+# exec hyprland-wayland
+# exec bspwm
 # exec startxfce4
-# xmodmap /home/sylveryte/.speedswapper
- # export DESKTOP_SESSION=plasma
- # exec startplasma-x11
+export DESKTOP_SESSION=plasma
+exec startplasma-x11
