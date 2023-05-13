@@ -50,7 +50,7 @@ lspconfig.lua_ls.setup {
 require("mason").setup()
 
 require("mason-lspconfig").setup ({
-  ensure_installed = {"lua_ls", "angularls", "tailwindcss", "tsserver", "html",}
+  ensure_installed = {"lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls"}
 })
 
 local null_ls = require("null-ls")

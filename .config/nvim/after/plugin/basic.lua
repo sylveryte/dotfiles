@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 require("pets").setup({
-  row=6,
+  row=5,
   col=0,
   death_animation = true,
   popup = {

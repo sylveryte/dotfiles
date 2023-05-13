@@ -43,8 +43,9 @@ map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- buffers
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<C-,>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+map("n", "<C-.>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "K", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
