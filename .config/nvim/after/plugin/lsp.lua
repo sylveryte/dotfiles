@@ -3,54 +3,36 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lsp_formatting = function(bufnr)
-    vim.lsp.buf.format({
-        filter = function(client)
-            -- apply whatever logic you want (in this example, we'll only use null-ls)
-            return client.name == "null-ls"
-        end,
-        bufnr = bufnr,
-    })
-end
--- add to your shared on_attach callback
-local on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            group = augroup,
-            buffer = bufnr,
-            callback = function()
-                lsp_formatting(bufnr)
-            end,
-        })
-    end
+  vim.lsp.buf.format({
+    filter = function(client)
+      -- apply whatever logic you want (in this example, we'll only use null-ls)
+      return client.name == "null-ls"
+    end,
+    bufnr = bufnr,
+  })
 end
 
 
 lspconfig.angularls.setup {
-  on_attach = on_attach,
-    capabilities = capabilities
+  capabilities = capabilities
 }
 lspconfig.tsserver.setup {
-  on_attach = on_attach,
-    capabilities = capabilities
+  capabilities = capabilities
 }
 lspconfig.tailwindcss.setup {
-  on_attach = on_attach,
-    capabilities = capabilities
+  capabilities = capabilities
 }
 lspconfig.html.setup {
-  on_attach = on_attach,
-    capabilities = capabilities
+  capabilities = capabilities
 }
 lspconfig.lua_ls.setup {
-  on_attach = on_attach,
-    capabilities = capabilities
+  capabilities = capabilities
 }
 
 require("mason").setup()
 
-require("mason-lspconfig").setup ({
-  ensure_installed = {"lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls"}
+require("mason-lspconfig").setup({
+  ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls" }
 })
 
 local null_ls = require("null-ls")
@@ -61,8 +43,8 @@ null_ls.setup({
     null_ls.builtins.formatting.prismaFmt,
     null_ls.builtins.code_actions.proselint,
     null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.code_actions.refactoring ,
-    null_ls.builtins.completion.spell,
+    null_ls.builtins.code_actions.refactoring,
+    -- null_ls.builtins.completion.spell,
     -- null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.diagnostics.jsonlint,
   },
@@ -101,7 +83,7 @@ local keymap = vim.keymap.set
 -- you can use <C-t> to jump back
 keymap("n", "<leader>a", "<cmd>Lspsaga lsp_finder<CR>")
 -- Code action
-keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 -- Rename all occurrences of the hovered word for the entire file
 -- keymap("n", "gr", "<cmd>Lspsaga rename<CR>")
 -- Rename all occurrences of the hovered word for the selected files
@@ -143,7 +125,7 @@ keymap("n", "]e", function()
 end)
 
 -- Toggle outline
-keymap("n","<leader>o", "<cmd>Lspsaga outline<CR>")
+keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 
 -- Hover Doc
 -- If there is no hover doc,
@@ -151,7 +133,7 @@ keymap("n","<leader>o", "<cmd>Lspsaga outline<CR>")
 -- there is no information available.
 -- To disable it just use ":Lspsaga hover_doc ++quiet"
 -- Pressing the key twice will enter the hover window
--- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 -- If you want to keep the hover window in the top right hand corner,
 -- you can pass the ++keep argument
 -- Note that if you use hover with ++keep, pressing this key again will
@@ -164,22 +146,22 @@ keymap("n","<leader>o", "<cmd>Lspsaga outline<CR>")
 
 ----- Trouble.nvim --------------------------------------------------------
 
-require("trouble").setup { }
+require("trouble").setup {}
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-  {silent = true, noremap = true}
+  { silent = true, noremap = true }
 )
