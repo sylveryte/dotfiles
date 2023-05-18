@@ -1,6 +1,7 @@
 local lspconfig = require('lspconfig')
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
@@ -23,7 +24,7 @@ lspconfig.tailwindcss.setup {
   capabilities = capabilities
 }
 lspconfig.html.setup {
-  capabilities = capabilities
+capabilities = capabilities
 }
 lspconfig.lua_ls.setup {
   capabilities = capabilities
@@ -41,17 +42,15 @@ null_ls.setup({
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.rustywind,
     null_ls.builtins.formatting.prismaFmt,
-    null_ls.builtins.code_actions.proselint,
     null_ls.builtins.diagnostics.markdownlint,
+    null_ls.builtins.code_actions.proselint,
     null_ls.builtins.code_actions.refactoring,
     -- null_ls.builtins.completion.spell,
     -- null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.diagnostics.jsonlint,
   },
   on_attach = function(client, bufnr)
-    if client.server_capabilities.documentFormattingProvider then
-      vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.format {async = true}<CR>")
-    end
+    vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.format {async = true}<CR>")
     vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = augroup,
@@ -62,7 +61,7 @@ null_ls.setup({
     })
   end,
 })
-vim.cmd('map <Leader>lf :lua vim.lsp.buf.formatting_sync(nil, 10000)<CR>')
+vim.cmd('map <Leader>lf :lua vim.lsp.buf.format()<CR>')
 
 require("mason-null-ls").setup({
   ensure_installed = nil,

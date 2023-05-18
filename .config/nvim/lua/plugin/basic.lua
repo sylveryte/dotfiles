@@ -1,4 +1,5 @@
 return {
+  "christoomey/vim-system-copy",
   {
   "giusgad/pets.nvim",
   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },

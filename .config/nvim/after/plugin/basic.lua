@@ -15,7 +15,7 @@ require("nvim-surround").setup()
 require("nnn").setup()
 
 map("n", "<leader>g", "<cmd>:Git<cr>")
-map("n", "cm", "<Plug>Commentary")
+map({"n","v"}, "cm", "<Plug>Commentary")
 map("n", "gb", ":Git blame<CR>")
 map({"n","v"}, "tt", ":FloatermToggle --autoclose=1 --opener=vsplit<CR>")
 map({"n","v"}, "tn", ":FloatermNew --autoclose=1 --opener=vsplit<CR>")
