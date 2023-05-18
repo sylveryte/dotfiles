@@ -13,20 +13,38 @@ local lsp_formatting = function(bufnr)
   })
 end
 
+-- add to your shared on_attach callback
+local on_attach = function(client, bufnr)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        lsp_formatting(bufnr)
+      end,
+    })
+  end
+end
 
 lspconfig.angularls.setup {
+  on_attach = on_attach,
   capabilities = capabilities
 }
 lspconfig.tsserver.setup {
+  on_attach = on_attach,
   capabilities = capabilities
 }
 lspconfig.tailwindcss.setup {
+  on_attach = on_attach,
   capabilities = capabilities
 }
 lspconfig.html.setup {
-capabilities = capabilities
+  on_attach = on_attach,
+  capabilities = capabilities
 }
 lspconfig.lua_ls.setup {
+  on_attach = on_attach,
   capabilities = capabilities
 }
 
@@ -35,6 +53,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls" }
 })
+
 
 local null_ls = require("null-ls")
 null_ls.setup({
@@ -50,7 +69,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.jsonlint,
   },
   on_attach = function(client, bufnr)
-    vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.format {async = true}<CR>")
+    vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.format()<CR>")
     vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = augroup,
@@ -61,7 +80,6 @@ null_ls.setup({
     })
   end,
 })
-vim.cmd('map <Leader>lf :lua vim.lsp.buf.format()<CR>')
 
 require("mason-null-ls").setup({
   ensure_installed = nil,

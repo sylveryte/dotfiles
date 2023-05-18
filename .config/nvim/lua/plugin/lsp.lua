@@ -1,6 +1,6 @@
 return {
-  {
     "mattn/emmet-vim",
+  {
     "williamboman/mason.nvim",
     build = ":MasonUpdate" -- :MasonUpdate updates registry contents
   },
