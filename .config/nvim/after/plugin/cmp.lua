@@ -1,10 +1,21 @@
 -- Set up nvim-cmp.
 local cmp = require 'cmp'
+local luasnip = require("luasnip")
 local lspkind = require('lspkind')
 
 require "lsp_signature".setup({})
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/sylveryte/dotfiles/.vsnip" } })
+
+
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 cmp.setup({
+  preselect = cmp.PreselectMode.Item,
   view = {
     entries = "custom"
   },
@@ -35,6 +46,23 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),   -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<Tab>'] = cmp.mapping(function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n', true)
+      elseif has_words_before() and luasnip.expand_or_jumpable() then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '', true)
+      else
+        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+      end
+    end, { 'i', 's' }),
+
+    ['<S-Tab>'] = cmp.mapping(function()
+      if vim.fn.pumvisible() == 1 then
+        vim.api.nvim_feedkeys(t('<C-p>'), 'n', true)
+      elseif luasnip.jumpable(-1) == 1 then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '', true)
+      end
+    end, { 'i', 's' }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -74,3 +102,18 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+
+require("nvim-autopairs").setup {}
+
+local autolist = require("autolist")
+autolist.setup()
+autolist.create_mapping_hook("i", "<S-CR>", autolist.new)
+autolist.create_mapping_hook("i", "<C-CR>", autolist.new)
+autolist.create_mapping_hook("i", "<Tab>", autolist.indent)
+autolist.create_mapping_hook("i", "<S-Tab>", autolist.indent, "<C-D>")
+autolist.create_mapping_hook("n", "o", autolist.new)
+autolist.create_mapping_hook("n", "O", autolist.new_before)
+autolist.create_mapping_hook("n", ">>", autolist.indent)
+autolist.create_mapping_hook("n", "<<", autolist.indent)
+autolist.create_mapping_hook("n", "<C-r>", autolist.force_recalculate)
+autolist.create_mapping_hook("n", "<leader>x", autolist.invert_entry, "")

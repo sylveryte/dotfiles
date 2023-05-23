@@ -1,5 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
+  "gaoDean/autolist.nvim",
   "onsails/lspkind.nvim",
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
