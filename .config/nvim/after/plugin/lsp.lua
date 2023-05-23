@@ -3,6 +3,8 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+-- vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.format()<CR>")
+
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
     filter = function(client)
@@ -27,6 +29,14 @@ local on_attach = function(client, bufnr)
   end
 end
 
+lspconfig.astro.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+lspconfig.prismals.setup {
+  -- on_attach = on_attach,
+  capabilities = capabilities
+}
 lspconfig.angularls.setup {
   on_attach = on_attach,
   capabilities = capabilities
@@ -51,7 +61,7 @@ lspconfig.lua_ls.setup {
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls" }
+  ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals", "astro" }
 })
 
 
@@ -60,16 +70,13 @@ null_ls.setup({
   sources = {
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.rustywind,
-    null_ls.builtins.formatting.prismaFmt,
     null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.code_actions.proselint,
     null_ls.builtins.code_actions.refactoring,
     -- null_ls.builtins.completion.spell,
     -- null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.diagnostics.jsonlint,
   },
   on_attach = function(client, bufnr)
-    vim.cmd("nnoremap <silent><buffer> <Leader>p :lua vim.lsp.buf.format()<CR>")
     vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = augroup,

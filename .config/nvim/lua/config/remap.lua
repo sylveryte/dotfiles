@@ -74,3 +74,6 @@ map("v", ">", ">gv")
 map("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<C-a>", "<cmd>bn|bd #<cr>", { desc = "Quit" })
 
+-- format
+
+map({ "v", "n" }, "<leader>p", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "Format file" })
