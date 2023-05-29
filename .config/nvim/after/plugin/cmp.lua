@@ -26,7 +26,7 @@ cmp.setup({
   },
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol',       -- show only symbol annotations
+      mode = 'symbol_text',       -- show only symbol annotations
       maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
       -- The function below will be called before any actual modifications from lspkind
@@ -69,7 +69,6 @@ cmp.setup({
     { name = 'luasnip' },   -- For luasnip users.
     -- { name = 'nvim_lsp_signature_help' },
     -- { name = 'cmp-tw2css' },
-    { name = 'cmdline' },
     { name = 'path' },
   }, {
     { name = 'buffer' },
@@ -97,6 +96,7 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
+    { name = 'cmdline' },
     { name = 'path' }
   }, {
     { name = 'cmdline' }
