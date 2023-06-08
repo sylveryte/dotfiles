@@ -1,5 +1,12 @@
 # source /usr/share/nvm/init-nvm.sh
 
+# android
+
+export JAVA_HOME=$HOME/linuxdata/android_things/android-studio/jbr
+export ANDROID_SDK_ROOT_ROOT=$HOME/linuxdata/android_things
+export ANDROID_SDK_ROOT=$HOME/linuxdata/android_things/android
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT_ROOT/android-studio/bin
+
 # nnn
 export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;p:!pcmanfm $nnn'
 export NNN_FIFO=/tmp/nnn.fifo

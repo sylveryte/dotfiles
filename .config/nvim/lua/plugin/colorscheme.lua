@@ -1,9 +1,6 @@
 return {
   -- treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TsUpdate"
-  },
+  { "nvim-treesitter/nvim-treesitter" },
   {
     "folke/tokyonight.nvim",
     lazy = true,

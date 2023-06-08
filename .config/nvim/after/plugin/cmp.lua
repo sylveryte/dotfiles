@@ -4,6 +4,13 @@ local luasnip = require("luasnip")
 local lspkind = require('lspkind')
 
 require "lsp_signature".setup({})
+require "lsp_signature".on_attach({
+  bind = true,     -- This is mandatory, otherwise border config won't get registered.
+  handler_opts = {
+    border = "single"
+  }
+})
+
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/sylveryte/dotfiles/.vsnip" } })
 
@@ -21,12 +28,12 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)   -- For `luasnip` users.
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol_text',       -- show only symbol annotations
+      mode = 'symbol_text',  -- show only symbol annotations
       maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
       -- The function below will be called before any actual modifications from lspkind
@@ -45,8 +52,8 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),   -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      ['<Tab>'] = cmp.mapping(function(fallback)
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n', true)
       elseif has_words_before() and luasnip.expand_or_jumpable() then
@@ -66,9 +73,9 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'luasnip' },   -- For luasnip users.
-    -- { name = 'nvim_lsp_signature_help' },
-    -- { name = 'cmp-tw2css' },
+    { name = 'luasnip' }, -- For luasnip users.
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'cmp-tw2css' },
     { name = 'path' },
   }, {
     { name = 'buffer' },
@@ -78,7 +85,7 @@ cmp.setup({
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-    { name = 'cmp_git' },   -- You can specify the `cmp_git` source if you were installed it.
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
     { name = 'buffer' },
   })
