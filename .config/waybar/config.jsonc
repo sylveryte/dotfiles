@@ -12,8 +12,8 @@
     // "cpu",
     // "memory",
     // "custom/weather",
-    "wlr/workspaces",
-    "battery"
+    "battery",
+    "wlr/workspaces"
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [

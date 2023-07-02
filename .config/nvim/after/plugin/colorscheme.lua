@@ -1,6 +1,9 @@
 vim.cmd.colorscheme "tokyonight"
 
+require 'colorizer'.setup()
+
 vim.opt.runtimepath:append("$HOME/.local/share/treesitter")
+
 
 require('nvim-treesitter.configs').setup {
   parser_install_dir = "$HOME/.local/share/treesitter",
