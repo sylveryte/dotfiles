@@ -105,22 +105,7 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
     { name = 'cmdline' },
     { name = 'path' }
-  }, {
-    { name = 'cmdline' }
   })
 })
 
 require("nvim-autopairs").setup {}
-
-local autolist = require("autolist")
-autolist.setup()
-autolist.create_mapping_hook("i", "<S-CR>", autolist.new)
-autolist.create_mapping_hook("i", "<C-CR>", autolist.new)
-autolist.create_mapping_hook("i", "<Tab>", autolist.indent)
-autolist.create_mapping_hook("i", "<S-Tab>", autolist.indent, "<C-D>")
-autolist.create_mapping_hook("n", "o", autolist.new)
-autolist.create_mapping_hook("n", "O", autolist.new_before)
-autolist.create_mapping_hook("n", ">>", autolist.indent)
-autolist.create_mapping_hook("n", "<<", autolist.indent)
-autolist.create_mapping_hook("n", "<C-r>", autolist.force_recalculate)
-autolist.create_mapping_hook("n", "<leader>x", autolist.invert_entry, "")
