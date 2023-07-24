@@ -68,7 +68,7 @@ require("mason-lspconfig").setup({
 local null_ls = require("null-ls")
 null_ls.setup({
   sources = {
-    null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.rustywind,
     null_ls.builtins.diagnostics.markdownlint,
     -- null_ls.builtins.code_actions.refactoring,
@@ -137,8 +137,8 @@ keymap("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
 
 -- Diagnostic jump
 -- You can use <C-o> to jump back to your previous location
-keymap("n", "[E", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-keymap("n", "]E", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+keymap("n", "[w", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+keymap("n", "]w", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 
 -- Diagnostic jump with filters such as only jumping to an error
 keymap("n", "[e", function()
