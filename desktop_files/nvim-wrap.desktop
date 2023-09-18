@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Neovim Wrapper
+TryExec=/home/sylveryte/bin/nvim-wrap %F
+Exec=/home/sylveryte/bin/nvim-wrap %F
+Terminal=true
+Type=Application
+Icon=nvim
+Categories=Utility;TextEditor;
+StartupNotify=false

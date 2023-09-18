@@ -37,6 +37,10 @@ lspconfig.prismals.setup {
   -- on_attach = on_attach,
   capabilities = capabilities
 }
+lspconfig.marksman.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
 lspconfig.angularls.setup {
   on_attach = on_attach,
   capabilities = capabilities
@@ -61,7 +65,7 @@ lspconfig.lua_ls.setup {
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals", "astro" }
+  ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals", "astro", "marksman" }
 })
 
 
