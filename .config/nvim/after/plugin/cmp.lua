@@ -11,8 +11,9 @@ require "lsp_signature".on_attach({
   }
 })
 
+require("luasnip.loaders.from_lua").lazy_load({paths = {"./lua/luasnippets"}})
 require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/sylveryte/dotfiles/.vsnip" } })
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/trisha/dotfiles/.vsnip" } })
 
 
 local has_words_before = function()
