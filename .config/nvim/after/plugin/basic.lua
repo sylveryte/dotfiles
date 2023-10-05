@@ -1,16 +1,5 @@
 local map = vim.keymap.set
 
--- require("pets").setup({
---   row=5,
---   col=0,
---   death_animation = true,
---   popup = {
---     width = "150%",
---     winblend = 100,
---   }
--- })
--- vim.cmd('PetsNewCustom dog black hectooor')
-
 require("nvim-surround").setup()
 require("nnn").setup()
 
