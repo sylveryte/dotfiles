@@ -10,6 +10,7 @@ require("neo-tree").setup({
       }
 })
 vim.keymap.set('n', '<leader>i', "<cmd>Neotree<CR>", {})
+require('leap').add_default_mappings()
 
 require('telescope').setup {
   matchup = {
