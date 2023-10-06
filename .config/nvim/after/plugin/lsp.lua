@@ -41,6 +41,7 @@ lspconfig.marksman.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
+vim.keymap.set("n", "<leader>rm", ":LspRestart marksman<CR>")
 lspconfig.angularls.setup {
   on_attach = on_attach,
   capabilities = capabilities
