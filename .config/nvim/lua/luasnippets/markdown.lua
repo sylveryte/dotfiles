@@ -57,7 +57,7 @@ return {
       dscr = "Conclusion for review of day/week/month/year",
     },
     fmt(
-    "## Conclusion for this {}. \n\n### Best thing happened this {}?\n\n1. {}\n\n### Worst thing happened this {}?\n\n1. {}\n\n### Things learned?\n\n- {}\n\n### Needs improvment for next {}.\n\n1. {}\n\n",
+    "## Conclusion for this {}\n\n### Best thing happened this {}?\n\n1. {}\n\n### Worst thing happened this {}?\n\n1. {}\n\n### Things learned?\n\n- {}\n\n### Needs improvment for the next {}\n\n1. {}\n\n",
       {
         ls.i(1, "sylplaceholder"),
         extras.rep(1),
