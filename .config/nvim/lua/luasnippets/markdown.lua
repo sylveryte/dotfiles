@@ -10,7 +10,7 @@ local function getFileNameWithoutExtension(snip)
 end
 
 return {
-  s( -- Link {{{
+  s( 
     {
       trig = "meeting",
       name = "Meeting Template",
@@ -27,7 +27,7 @@ return {
       ls.i(1),
     })
   ),
-  s( -- Link {{{
+  s( 
     {
       trig = "linkproperty",
       name = "Link Property",
@@ -38,7 +38,7 @@ return {
       ls.i(2),
     })
   ),
-  s( -- Link {{{
+  s( 
     {
       trig = "fileTitle",
       name = "file title",
@@ -50,7 +50,19 @@ return {
       end, {}),
     })
   ),
-  s( -- Link {{{
+  s( 
+    {
+      trig = "selflink",
+      name = "self link",
+      dscr = "Write the title of file without md in a link",
+    },
+    fmt("[[{}]]\n", {
+      ls.f(function(_, snip)
+        return getFileNameWithoutExtension(snip)
+      end, {}),
+    })
+  ),
+  s( 
     {
       trig = "conclusion",
       name = "conclusion_template",
@@ -69,21 +81,22 @@ return {
         ls.i(5),
       })
   ),
-  s( -- Link {{{
+  s( 
     {
       trig = "goals",
       name = "goals_template",
       dscr = "Goals for review of day/week/month/year",
     },
-    fmt("## Goals for this {}?\n\n- [ ] {}\n\n## Potential blocks for this {}?\n\n1. {}\n\n", {
+    fmt("## Goals for this {}?\n\n- [ ] Plan the {}\n- [ ] {}\n\n## Potential blocks for this {}?\n\n1. {}\n\n", {
       ls.i(1, "sylplaceholder"),
+      extras.rep(1),
       ls.i(2),
       extras.rep(1),
       ls.i(3)
     })
   ),
 
-  s( -- Link {{{
+  s( 
     {
       trig = "yearly",
       name = "yearly_template",
@@ -122,9 +135,9 @@ return {
 
       ls.i(0),
     })
-  ), --}}}
+  ), 
 
-  s( -- Link {{{
+  s( 
     {
       trig = "monthly",
       name = "monthly_template",
@@ -168,9 +181,9 @@ return {
         return d:fmt("%Y")
       end, {}),
     })
-  ), --}}}
+  ), 
 
-  s( -- Link {{{
+  s( 
     {
       trig = "weekly",
       name = "weekly_template",
@@ -211,9 +224,9 @@ return {
         return d:fmt("%Y")
       end, {}),
     })
-  ), --}}}
+  ), 
 
-  s( -- Link {{{
+  s( 
     {
       trig = "daily",
       name = "daily_template",
@@ -252,9 +265,9 @@ return {
           return d:fmt("%Y")
         end, {}),
       })
-  ), --}}}
+  ), 
 
-  s( -- Link {{{
+  s( 
     {
       trig = "wweekly",
       name = "work_weekly_template",
@@ -295,9 +308,9 @@ return {
         return d:fmt("%Y")
       end, {}),
     })
-  ), --}}}
+  ), 
 
-  s( -- Link {{{
+  s( 
     {
       trig = "wdaily",
       name = "work_daily_template",
@@ -345,9 +358,9 @@ return {
           return d:fmt("%Y")
         end, {}),
       })
-  ), --}}}
+  ), 
 
-  s( -- Link {{{
+  s( 
     {
       trig = "link",
       name = "markdown_link",
@@ -360,7 +373,7 @@ return {
       end, {}),
       ls.i(0),
     })
-  ), --}}}
+  ), 
 
   s( -- Codeblock {{{
     {
@@ -377,6 +390,6 @@ return {
       end, {}),
       ls.i(0),
     })
-  ), --}}}
+  ), 
 }
 
