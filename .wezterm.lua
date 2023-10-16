@@ -22,9 +22,12 @@ config.color_scheme = 'BlulocoDark'
 -- config.window_decorations = 'RESIZE' --frameless
 
 
-config.font_size=15.0
-config.font = wezterm.font("FiraCode Nerd Font", {weight="Regular", stretch="Normal", style="Normal" }) 
--- config.font = wezterm.font("Hack Nerd Font Propo", {weight="Regular", stretch="Normal", style="Normal"}) -- /Users/sandeep/Library/Fonts/HackNerdFontPro
+config.font_size=12.0
+-- config.font = wezterm.font("FiraCode Nerd Font", {weight="Regular", stretch="Normal", style="Normal" }) 
+config.font = wezterm.font("MesloLGM Nerd Font") 
+-- config.font = wezterm.font("Inconsolata Nerd Font") 
+-- config.font = wezterm.font("Cousine Nerd Font") 
+-- config.font = wezterm.font("Hack Nerd Font Propo")
 
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true

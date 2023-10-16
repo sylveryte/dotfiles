@@ -130,7 +130,7 @@ keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
 -- It also supports tagstack
 -- Use <C-t> to jump back
-keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
+keymap("n", "pt", "<cmd>Lspsaga peek_type_definition<CR>")
 -- Go to type definition
 -- keymap("n","gt", "<cmd>Lspsaga goto_type_definition<CR>")
 -- Show line diagnostics

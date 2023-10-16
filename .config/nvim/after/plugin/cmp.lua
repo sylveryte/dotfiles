@@ -78,6 +78,7 @@ cmp.setup({
     { name = 'nvim_lsp_signature_help' },
     { name = 'cmp-tw2css' },
     { name = 'path' },
+    { name = 'neorg' },
   }, {
     { name = 'buffer' },
   })
