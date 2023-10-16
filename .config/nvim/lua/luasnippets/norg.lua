@@ -132,7 +132,7 @@ return {
       name = "monthly_template",
       dscr = "Create Monthly Template Based on FileName",
     },
-    fmt("* {}\n\n{{:{}:}} < {{:{}:}} > {{:{}:}}\n\n{}\n___\n\ngoal{}\n* Links\n___\n{{:{}:}}\n", {
+    fmt("* {}\n\n{{:{}:}} < {{:{}:}} > {{:{}:}}\n\n{}\n___\n\ngoal{}\n===\n___\n{{:{}:}}\n", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
@@ -178,7 +178,7 @@ return {
       name = "weekly_template",
       dscr = "Create Weekly Template Based on FileName",
     },
-    fmt("* {}\n\n{{:{}:}}  < {{:{}:}} >  {{:{}:}}\n\n{}\n___\n\ngoal{}\n* Links\n___\n{{:{}:}} {{:{}:}}", {
+    fmt("* {}\n\n{{:{}:}}  < {{:{}:}} >  {{:{}:}}\n\n{}\n___\n\ngoal{}\n===\n___\n{{:{}:}} {{:{}:}}", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
@@ -222,7 +222,7 @@ return {
       dscr = "Create Daily Template Based on FileName",
     },
     fmt(
-    "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\ngoal{}\n* Links\n___\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
+    "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\ngoal{}\n===\n___\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
       {
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))

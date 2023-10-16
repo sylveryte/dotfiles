@@ -1,3 +1,4 @@
+local map = vim.keymap.set
 require("neorg").setup {
   load = {
     ["core.defaults"] = {}, -- Loads default behaviour
@@ -47,3 +48,9 @@ neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, key
     noremap = true,
   })
 end)
+
+-- mappings
+map("n", "<localleader>r", ":Neorg journal yesterday<CR>")
+map("n", "<localleader>t", ":Neorg journal today<CR>")
+map("n", "<localleader>y", ":Neorg journal tomorrow<CR>")
+map("n", "<localleader>p", "gg=G<C-o>zR:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })

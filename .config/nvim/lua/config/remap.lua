@@ -1,8 +1,7 @@
 local map = vim.keymap.set
 -- map("n","-",vim.cmd.Ex)
 
--- indent for neorg
-map("n", "<leader>op", "gg=G<C-o>zR:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
+-- indent
 map("n", "<leader>oi", "gg=G<C-o>zR", { desc = "Indent using =" })
 map("n", "<leader>nlr", ":%s/ SYLNEWLINE/\\r/g<CR>")
 
