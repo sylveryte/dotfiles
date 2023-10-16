@@ -50,8 +50,9 @@ neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, key
 end)
 
 -- mappings
-map("n", "<localleader>r", ":Neorg journal yesterday<CR>")
-map("n", "<localleader>t", ":Neorg journal today<CR>")
-map("n", "<localleader>y", ":Neorg journal tomorrow<CR>")
+map("n", "<localleader>y", ":Neorg journal yesterday<CR>")
+map("n", "<localleader>u", ":Neorg journal today<CR>")
+map("n", "<localleader>o", ":Neorg journal tomorrow<CR>")
+map("n", "<localleader>w", ":Neorg workspace")
 map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
 map("n", "<localleader>p", "gg=G<C-o>zR:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
