@@ -325,10 +325,11 @@ return {
       dscr = "Create Daily Template Based on FileName Work",
     },
     fmt(
-    "* {}\n\n{{:{}:}}  <== {{:{}:}} ==>  {{:{}:}}\n\n___\n\n* Tasks\n\n- ( ) {}\n\n___\nSprint: {{:{}:}}\nWeek: {{:{}:}}\nMonth: {{:{}:}}\nYear: {{:{}:}}",
+      "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\n* Tasks\n\n- ( ) {}\n\n* Footnotes\n___\n{}\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
       {
         ls.f(function(_, snip)
-          return getFileNameWithoutExtension(snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("%F %A")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -340,7 +341,20 @@ return {
           return d:fmt("%F")
         end, {}),
         ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          if d:getweekday() == 2 then
+            d = d:adddays(-3)
+          else
+            d = d:adddays(-1)
+          end
+          return d:fmt("%A")
+        end, {}),
+        ls.f(function(_, snip)
           return getFileNameWithoutExtension(snip)
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("%A")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -351,11 +365,24 @@ return {
           end
           return d:fmt("%F")
         end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          if d:getweekday() == 6 then
+            d = d:adddays(3)
+          else
+            d = d:adddays(1)
+          end
+          return d:fmt("%A")
+        end, {}),
         ls.i(0),
         ls.i(1),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y-W%W")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("W%W")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -400,4 +427,3 @@ return {
     })
   ), 
 }
-
