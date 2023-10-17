@@ -327,7 +327,7 @@ return {
       dscr = "Create Daily Template Based on FileName Work",
     },
     fmt(
-      "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\n* Tasks\n\n- ( ) {}\n\n* Footnotes\n___\n{}\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
+      "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\n* Tasks\n\n- ( ) {}\n\n===\n___\n{}\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
       {
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
