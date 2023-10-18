@@ -16,12 +16,12 @@ return {
       name = "Meeting Template",
       dscr = "Set boiler plate meeting",
     },
-    fmt("___\ndate : {}\n___\n\n* {}\n\n* Points\n\n- ( ) {}\n\n\n___\nlink day: {{:{}:}}", {
-      ls.f(function(_, snip)
-        return date():fmt("%F-%T")
-      end, {}),
+    fmt("* {}\n{} \n\n* Points\n\n- ( ) {}\n\n===\n___\nlink day: {}", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
+      end, {}),
+      ls.f(function(_, snip)
+        return date():fmt("%F-%T")
       end, {}),
       ls.i(2),
       ls.i(1),
@@ -33,9 +33,9 @@ return {
       name = "Link Property",
       dscr = "Write a label and link a file",
     },
-    fmt("{}: {{:{}:}}\n\n", {
+    fmt("{}: {}\n\n", {
       ls.i(1),
-      ls.i(2),
+      ls.i(2,'Press <C-l>'),
     })
   ),
   s(
@@ -57,7 +57,7 @@ return {
       dscr = "Conclusion for review of day/week/month/year",
     },
     fmt(
-      "* Conclusion for this {}\n\n** Best thing happened this {}?\n- {}\n\n** Worst thing happened this {}?\n- {}\n\n** Things learned?\n\n- {}\n\n** Needs improvment for the next {}\n- {}\n\n",
+    "* Conclusion for this {}\n\n** Best thing happened this {}?\n- {}\n\n** Worst thing happened this {}?\n- {}\n\n** Things learned?\n\n- {}\n\n** Needs improvement for the next {}\n- {}\n\n",
       {
         ls.i(1, "sylplaceholder"),
         extras.rep(1),
@@ -277,51 +277,6 @@ return {
 
   s(
     {
-      trig = "wweekly",
-      name = "work_weekly_template",
-      dscr = "Create Weekly Work Template Based on FileName",
-    },
-    fmt(
-    "* {}\n\n{{:{}:}}  <== {{:{}:}} ==>  {{:{}:}}\n\nWeek:\n{}\n___\n\ngoal{}\n\n___\nMonth: {{:{}:}}\nYear: {{:{}:}}\n",
-      {
-        ls.f(function(_, snip)
-          return getFileNameWithoutExtension(snip)
-        end, {}),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip) .. '-1')
-          d = d:adddays(-7)
-          return d:fmt("%Y-W%W")
-        end, {}),
-        ls.f(function(_, snip)
-          return getFileNameWithoutExtension(snip)
-        end, {}),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip) .. '-1')
-          d = d:adddays(7)
-          return d:fmt("%Y-W%W")
-        end, {}),
-        ls.f(function(_, snip)
-          local ds = ''
-          local d = date(getFileNameWithoutExtension(snip) .. '-1')
-          for i = 1, 5 do
-            ds = ds .. '{{:' .. d:setisoweekday(i):fmt("%F") .. ':}} SYLNEWLINE'
-          end
-          return ds
-        end, {}),
-        ls.i(0),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip) .. '-1')
-          return d:fmt("%Y-%B")
-        end, {}),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip) .. '-1')
-          return d:fmt("%Y")
-        end, {}),
-      })
-  ),
-
-  s(
-    {
       trig = "wdaily",
       name = "work_daily_template",
       dscr = "Create Daily Template Based on FileName Work",
@@ -403,11 +358,13 @@ return {
       name = "Work Ticket",
       dscr = "Write a ticket",
     },
-    fmt("* {}\n___\n\n** Tasks \n- ( ) {}\n\n===\n___\n{{{}}}[link]", {
+    fmt("* {}\n___\n\n** Tasks \n- ( ) {}\n\n** Unit Tests \n\n*** Setup \n ~ {} \n\n *** Features to test \n - {}\n\n===\n___\n{{{}}}[link]", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
-      ls.i(0),
+      ls.i(2),
+      ls.i(3),
+      ls.i(4),
       ls.i(1),
     })
   ),
