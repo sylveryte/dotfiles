@@ -1,14 +1,14 @@
 -- require('telescope').load_extension('fzf')
 -- require('telescope').load_extension('fzy_native')
--- require('telescope').load_extension('zoxide')
+require('telescope').load_extension('zoxide')
 -- require('telescope').load_extension'repo'
 -- require('telescope').load_extension'dap'
 -- require('telescope').load_extension("ag")
 
 require("neo-tree").setup({
-      filesystem = {
-        hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
-      }
+  filesystem = {
+    hijack_netrw_behavior = "disabled",     -- netrw disabled, opening a directory opens neo-tree
+  }
 })
 vim.keymap.set('n', '<leader>i', "<cmd>Neotree<CR>", {})
 require('leap').add_default_mappings()
@@ -38,6 +38,7 @@ require('telescope').setup {
 }
 
 local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>z', ":Telescope zoxide list<CR>")
 vim.keymap.set('n', '<leader>f', builtin.find_files, {})
 vim.keymap.set('n', '<leader>c', builtin.git_files, {})
 vim.keymap.set('n', '<leader>s', builtin.live_grep, {})

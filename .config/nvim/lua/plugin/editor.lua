@@ -10,7 +10,9 @@ return {
   },
   {
     'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    dependencies = { 'nvim-lua/plenary.nvim',
+    "jvgrootveld/telescope-zoxide",
+  }
   },
   "RRethy/vim-illuminate",
   'ggandor/leap.nvim',

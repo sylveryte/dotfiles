@@ -222,7 +222,7 @@ return {
       dscr = "Create Daily Template Based on FileName",
     },
     fmt(
-      "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\ngoal{}\n===\n___\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
+    "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\n* Improvement for today?\n - ( ) {} \n\ngoal{}\n===\n___\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
       {
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -255,6 +255,7 @@ return {
           d = d:adddays(1)
           return d:fmt("%A")
         end, {}),
+        ls.i(1),
         ls.i(0),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
