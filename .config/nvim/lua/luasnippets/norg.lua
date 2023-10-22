@@ -57,7 +57,7 @@ return {
       dscr = "Conclusion for review of day/week/month/year",
     },
     fmt(
-    "* Conclusion for this {}\n\n** Best thing happened this {}?\n- {}\n\n** Worst thing happened this {}?\n- {}\n\n** Things learned?\n\n- {}\n\n** Needs improvement for the next {}\n- {}\n\n",
+    "* Conclusion for this {}\n\n** Best thing happened this {}?\n- {}\n\n** Worst thing happened this {}?\n- {}\n\n** Things learned?\n- {}\n\n** Needs improvement for the next {}\n- {}\n\n",
       {
         ls.i(1, "sylplaceholder"),
         extras.rep(1),
@@ -75,7 +75,7 @@ return {
       name = "goals_template",
       dscr = "Goals for review of day/week/month/year",
     },
-    fmt("* Goals for this {}?\n- ( ) Plan the {} \n- ( ) {}\n\n* Potential blocks for this {}?\n- {}\n\n", {
+    fmt("* Goals for this {}?\n- ( ) Plan the {} \n- ( ) {}\n\n* Potential blockers for this {}?\n- {}\n\n", {
       ls.i(1, "sylplaceholder"),
       extras.rep(1),
       ls.i(2),
@@ -165,6 +165,49 @@ return {
 
       ls.i(0),
 
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        return d:fmt("%Y")
+      end, {}),
+    })
+  ),
+
+  s(
+    {
+      trig = "wweekly",
+      name = "wweekly_template",
+      dscr = "Create Weekly Work Template Based on FileName",
+    },
+    fmt("* {}\n\n{{:{}:}}  < {{:{}:}} >  {{:{}:}}\n\n{}\n___\n\ngoal{}\n===\n___\n{{:{}:}} {{:{}:}}", {
+      ls.f(function(_, snip)
+        return getFileNameWithoutExtension(snip)
+      end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(-7)
+        return d:fmt("%Y-W%W")
+      end, {}),
+      ls.f(function(_, snip)
+        return getFileNameWithoutExtension(snip)
+      end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(7)
+        return d:fmt("%Y-W%W")
+      end, {}),
+      ls.f(function(_, snip)
+        local ds = ''
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        for i = 1, 5 do
+          ds = ds .. '{:' .. d:setisoweekday(i):fmt("%F") .. ':}[' .. d:setisoweekday(i):fmt("%d %A") .. '] SYLNEWLINE'
+        end
+        return ds
+      end, {}),
+      ls.i(0),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        return d:fmt("%Y-%B")
+      end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
         return d:fmt("%Y")

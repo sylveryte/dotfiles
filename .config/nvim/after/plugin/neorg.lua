@@ -24,8 +24,11 @@ require("neorg").setup {
       config = {
         workspaces = {
           guthli = "~/kento/cloud/inkbox/notebooks/guthli",
+          sylbooks = "~/kento/cloud/blueworker/docs/sylbooks",
+          magma = "~/kento/cloud/paastry/notebooks/magma",
+          chippi= "~/kento/cloud/inkbox/notebooks/chippi",
         },
-        default_workspace = "guthli"
+        default_workspace = "magma"
       },
     },
   },
@@ -42,6 +45,7 @@ neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, key
     i = {     -- Bind in insert mode
       { "<C-f>", "core.integrations.telescope.insert_link" },
       { "<C-l>", "core.integrations.telescope.insert_file_link" },
+      { "<S-Enter>", "core.itero.next-iteration" },
     },
   }, {
     silent = true,
@@ -53,6 +57,4 @@ end)
 map("n", "<localleader>y", ":Neorg journal yesterday<CR>")
 map("n", "<localleader>u", ":Neorg journal today<CR>")
 map("n", "<localleader>o", ":Neorg journal tomorrow<CR>")
-map("n", "<localleader>w", ":Neorg workspace")
-map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
-map("n", "<localleader>p", "gg=G<C-o>zR:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
+map("n", "<localleader>w", ":Neorg keybind all core.integrations.telescope.switch_workspace<CR>")

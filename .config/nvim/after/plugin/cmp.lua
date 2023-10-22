@@ -73,12 +73,12 @@ cmp.setup({
     end, { 'i', 's' }),
   }),
   sources = cmp.config.sources({
+    { name = 'neorg' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'nvim_lsp_signature_help' },
     { name = 'cmp-tw2css' },
     { name = 'path' },
-    { name = 'neorg' },
   }, {
     { name = 'buffer' },
   })

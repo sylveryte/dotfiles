@@ -5,6 +5,7 @@ return {
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
+  "windwp/nvim-autopairs",
   -- 'hrsh7th/cmp-nvim-lsp-signature-help',
   'ray-x/lsp_signature.nvim',
   'hrsh7th/nvim-cmp',
