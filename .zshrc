@@ -94,8 +94,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git fzf zsh-autosuggestions  virtualenv zsh-syntax-highlighting)
 
 
-alias neofetch='neofetch --kitty $(sh ~/sylveryte/dotfiles/tools/motiv.sh -s)'
-alias noefetch='neofetch'
 alias gits='git status'
 alias zathura='zathura --fork'
 alias vifm='~/.config/vifm/scripts/vifmrun'
@@ -105,7 +103,7 @@ function cya(){
 	free -h
 	sleep 1s
 	echo "See you soon!"
-	systemctl sleep
+	systemctl hibernate
 }
 function bye(){
 	echo "I'll see you soooon!!!!!!!!!!!"

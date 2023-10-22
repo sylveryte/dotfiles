@@ -1,4 +1,5 @@
-vim.cmd.colorscheme "tokyonight"
+-- vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "kanagawa-wave"
 
 require 'colorizer'.setup()
 

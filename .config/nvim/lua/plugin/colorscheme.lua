@@ -1,7 +1,8 @@
 return {
   -- treesitter
   { "nvim-treesitter/nvim-treesitter" },
-  {'norcalli/nvim-colorizer.lua'},
+  { "rebelot/kanagawa.nvim" },
+  { 'norcalli/nvim-colorizer.lua' },
   {
     "folke/tokyonight.nvim",
     lazy = true,
