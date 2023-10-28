@@ -31,10 +31,18 @@ end
 
 lspconfig.astro.setup {
   on_attach = on_attach,
+  tsdk={},
   capabilities = capabilities
 }
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+    diagnostics = {
+        enable = true;
+      }
+}
 lspconfig.prismals.setup {
-  -- on_attach = on_attach,
+  on_attach = on_attach,
   capabilities = capabilities
 }
 lspconfig.marksman.setup {
@@ -66,7 +74,7 @@ lspconfig.lua_ls.setup {
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals", "astro", "marksman" }
+  ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals", "astro", "marksman", "rust_analyzer" }
 })
 
 

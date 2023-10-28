@@ -3,6 +3,8 @@ vim.cmd.colorscheme "kanagawa-wave"
 
 require 'colorizer'.setup()
 
+vim.api.nvim_exec([[ let g:lens#disabled_filetypes = ['neo-tree'] ]], false)
+
 vim.opt.runtimepath:append("$HOME/.local/share/treesitter")
 
 

@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
--- require("nvim-surround").setup()
+require("nvim-surround").setup()
 require("nnn").setup()
 
 map("n", "<leader>g", "<cmd>:Git<cr>")
