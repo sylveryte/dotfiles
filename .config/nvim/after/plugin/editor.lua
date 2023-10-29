@@ -28,8 +28,8 @@ require('telescope').setup {
     }
   },
   defaults = {
-    layout_strategy = 'flex',
-    layout_config = { height = 0.95, width = 0.95 },
+    layout_strategy = 'vertical',
+    layout_config = { height = 0.98, width = 0.98 },
     mappings = {
       i = { ["<c-t>"] = require('trouble').open_with_trouble },
       n = { ["<c-t>"] = require('trouble').open_with_trouble },
