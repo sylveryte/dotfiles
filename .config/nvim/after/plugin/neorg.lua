@@ -15,6 +15,7 @@ require("neorg").setup {
       }
     },
     -- ["core.ui.calendar"] = {},
+    ["core.summary"] = {},
     ["core.concealer"] = {
       config = {
         icon_preset = "diamond"

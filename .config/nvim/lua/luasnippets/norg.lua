@@ -40,6 +40,16 @@ return {
   ),
   s(
     {
+      trig = "footline",
+      name = "footline",
+      dscr = "Write a footer line start",
+    },
+    fmt("===\n___\n{}", {
+      ls.i(0),
+    })
+  ),
+  s(
+    {
       trig = "fileTitle",
       name = "file title",
       dscr = "Write the title of file without md",
