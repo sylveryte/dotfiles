@@ -10,7 +10,12 @@ return {
   },
   {
     'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim',
+    dependencies = { 
+      'prochri/telescope-all-recent.nvim',
+      "danielvolchek/tailiscope.nvim",
+      "nvim-telescope/telescope-frecency.nvim",
+      'kkharji/sqlite.lua',
+      'nvim-lua/plenary.nvim',
       "jvgrootveld/telescope-zoxide",
     }
   },
