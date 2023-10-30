@@ -3,7 +3,6 @@ require('telescope-all-recent').setup({})
 -- require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('zoxide')
 require('telescope').load_extension('frecency')
-require('telescope').load_extension('tailiscope')
 -- require('telescope').load_extension'repo'
 -- require('telescope').load_extension'dap'
 -- require('telescope').load_extension("ag")
@@ -28,7 +27,7 @@ require('telescope').setup {
       override_generic_sorter = true, -- override the generic sorter
       override_file_sorter = true,    -- override the file sorter
       case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
-    }
+    },
   },
   defaults = {
     layout_strategy = 'vertical',
@@ -42,7 +41,6 @@ require('telescope').setup {
 
 local builtin = require('telescope.builtin')
 vim.keymap.set("n", "<leader>m", ":Telescope frecency<CR>")
-vim.keymap.set("n", "<leader>gt", ":Telescope tailiscope<cr>")
 vim.keymap.set('n', '<leader>z', ":Telescope zoxide list<CR>")
 vim.keymap.set('n', '<leader>f', builtin.find_files, {})
 vim.keymap.set('n', '<leader>c', builtin.git_files, {})
