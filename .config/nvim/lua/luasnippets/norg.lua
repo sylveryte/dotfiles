@@ -227,6 +227,36 @@ return {
 
   s(
     {
+      trig = "dwdatom",
+      name = "dwtomdatename",
+      dscr = "Date and name of day after tomorrow",
+    },
+    fmt("*** {}", {
+      ls.f(function(_, snip)
+        local d = date()
+        d = d:adddays(2)
+        return d:fmt("%F %A")
+      end, {}),
+    })
+  ),
+
+  s(
+    {
+      trig = "dwtom",
+      name = "dwtomdatename",
+      dscr = "Date and name of tomorrow",
+    },
+    fmt("*** {}", {
+      ls.f(function(_, snip)
+        local d = date()
+        d = d:adddays(1)
+        return d:fmt("%F %A")
+      end, {}),
+    })
+  ),
+
+  s(
+    {
       trig = "weekly",
       name = "weekly_template",
       dscr = "Create Weekly Template Based on FileName",
