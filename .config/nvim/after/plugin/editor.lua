@@ -7,10 +7,14 @@ require('telescope').load_extension('frecency')
 -- require('telescope').load_extension'dap'
 -- require('telescope').load_extension("ag")
 
+-- config.filesystem.follow_current_file.enabled = true
 require("neo-tree").setup({
   filesystem = {
     hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
-  }
+    follow_current_file = {
+      enabled=true
+    },
+  },
 })
 vim.keymap.set('n', '<leader>i', "<cmd>Neotree<CR>", {})
 require('leap').add_default_mappings()
