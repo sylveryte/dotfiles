@@ -1,11 +1,10 @@
 return {
-  -- treesitter
-  { "nvim-treesitter/nvim-treesitter" },
   {
     "rebelot/kanagawa.nvim",
     lazy = true,
     opts = { style = "moon" },
   },
+   "folke/twilight.nvim",
   {
     'brenoprata10/nvim-highlight-colors',
     config = function()

@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 -- opt.autowrite = true -- Enable auto write
-opt.clipboard = "unnamedplus" -- Sync with system clipboard
+-- opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -22,13 +22,13 @@ opt.number = true -- Print line number
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.relativenumber = true -- Relative line numbers
-opt.scrolloff = 99 -- Lines of context
+opt.scrolloff = 8 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
 opt.shortmess:append({ W = true, I = true, c = true })
 opt.showmode = false -- Dont show mode since we have a statusline
-opt.sidescrolloff = 16 -- Columns of context
+opt.sidescrolloff = 8 -- Columns of context
 -- opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
