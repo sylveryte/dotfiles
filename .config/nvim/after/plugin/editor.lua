@@ -7,6 +7,9 @@ require('telescope').load_extension('frecency')
 -- require('telescope').load_extension'dap'
 -- require('telescope').load_extension("ag")
 
+require('todo-comments').setup({})
+require('which-key').setup({})
+
 -- config.filesystem.follow_current_file.enabled = true
 require("neo-tree").setup({
   filesystem = {

@@ -9,8 +9,22 @@ return {
     "MunifTanjim/nui.nvim",
   },
   {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+    }
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
     'nvim-telescope/telescope.nvim',
-    dependencies = { 
+    dependencies = {
       'prochri/telescope-all-recent.nvim',
       "nvim-telescope/telescope-frecency.nvim",
       'kkharji/sqlite.lua',
