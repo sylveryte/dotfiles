@@ -27,6 +27,7 @@ return {
     dependencies = {
       'prochri/telescope-all-recent.nvim',
       "nvim-telescope/telescope-frecency.nvim",
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       'kkharji/sqlite.lua',
       'nvim-lua/plenary.nvim',
       "jvgrootveld/telescope-zoxide",
