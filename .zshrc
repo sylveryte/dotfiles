@@ -10,6 +10,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$
 # nnn
 export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;p:!pcmanfm $nnn'
 export NNN_FIFO=/tmp/nnn.fifo
+alias n='nnn'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -145,11 +146,14 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
 }
-
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
 eval "$(zoxide init zsh)"
 
