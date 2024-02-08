@@ -11,6 +11,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$
 export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;p:!pcmanfm $nnn'
 export NNN_FIFO=/tmp/nnn.fifo
 alias n='nnn'
+alias ytfzf='ytfzf -T chafa --show-thumbnails'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

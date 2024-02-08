@@ -10,5 +10,8 @@ map("n", "<localleader>j", ":norm gg0}jgd<CR>", { desc = "Go syl back" })
 map("n", "<localleader>K", ":norm gg0}}j$gd<CR>", { desc = "Go syl next with meta" })
 map("n", "<localleader>J", ":norm gg0}}jgd<CR>", { desc = "Go syl back with meta" })
 
+map("n", "<localleader>r", ":set nowrap<CR>", { desc = "No Wrap" })
+map("n", "<localleader>R", ":set wrap<CR>", { desc = "Wrap" })
+
 
 -- vim.api.nvim_exec([[ autocmd BufWritePre * <localleader>p ]], false) --not working

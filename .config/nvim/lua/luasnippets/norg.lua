@@ -470,6 +470,24 @@ return {
 
   s( -- Codeblock {{:{
     {
+      trig = "plant",
+      name = "Plant Entry",
+      dscr = "All info needed for a plant care entry",
+    },
+    fmt("- Soil Mix: {}\n- Watering: {}\n- Fertilizer: {}\n- Light: {}\n- Pot size: {}\n- Benifits: {}\n- Issues: {}\n- Note: {}", {
+      ls.i(1),
+      ls.i(2),
+      ls.i(3),
+      ls.i(4),
+      ls.i(5),
+      ls.i(6),
+      ls.i(7),
+      ls.i(8),
+    })
+  ),
+
+  s( -- Codeblock {{:{
+    {
       trig = "codeblock",
       name = "Make code block",
       dscr = "Select text, Man press <C-s>, type codeblock.",
