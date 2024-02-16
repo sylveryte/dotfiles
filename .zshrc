@@ -3,8 +3,8 @@
 # android
 
 export JAVA_HOME=$HOME/linuxdata/android_things/android-studio/jbr
-export ANDROID_SDK_ROOT_ROOT=$HOME/linuxdata/android_things
-export ANDROID_SDK_ROOT=$HOME/linuxdata/android_things/android
+export ANDROID_SDK_ROOT_ROOT=$HOME/kento/android
+export ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT_ROOT/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT_ROOT/android-studio/bin
 
 # nnn
