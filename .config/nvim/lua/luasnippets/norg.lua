@@ -474,7 +474,7 @@ return {
       name = "Plant Entry",
       dscr = "All info needed for a plant care entry",
     },
-    fmt("- Soil Mix: {}\n- Watering: {}\n- Fertilizer: {}\n- Light: {}\n- Pot size: {}\n- Benifits: {}\n- Issues: {}\n- Note: {}", {
+    fmt("- Soil Mix: {}\n- Watering: {}\n- Fertilizer: {}\n- Light: {}\n- Pot size: {}\n- Benifits: {}\n- Issues: {}\n- Propogation: {}\n- Note: {}", {
       ls.i(1),
       ls.i(2),
       ls.i(3),
@@ -483,6 +483,7 @@ return {
       ls.i(6),
       ls.i(7),
       ls.i(8),
+      ls.i(9),
     })
   ),
 

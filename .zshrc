@@ -10,7 +10,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$
 # nnn
 export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;p:!pcmanfm $nnn'
 export NNN_FIFO=/tmp/nnn.fifo
-alias n='nnn'
+alias nn='nnn'
 alias ytfzf='ytfzf -T chafa --show-thumbnails'
 
 export NVM_DIR="$HOME/.nvm"
@@ -101,6 +101,9 @@ alias zathura='zathura --fork'
 alias vifm='~/.config/vifm/scripts/vifmrun'
 alias vim='nvim'
 alias v='nvim'
+alias n='nvim'
+alias vn='~/trisha/app/nvim-linux64/bin/nvim'
+alias nv='~/trisha/app/nvim-linux64/bin/nvim'
 function cya(){
 	free -h
 	sleep 1s
