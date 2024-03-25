@@ -31,15 +31,15 @@ end
 
 lspconfig.astro.setup {
   on_attach = on_attach,
-  tsdk={},
+  tsdk = {},
   capabilities = capabilities
 }
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-    diagnostics = {
-        enable = true;
-      }
+  diagnostics = {
+    enable = true,
+  }
 }
 lspconfig.prismals.setup {
   on_attach = on_attach,
@@ -51,6 +51,10 @@ lspconfig.marksman.setup {
 }
 vim.keymap.set("n", "<leader>rm", ":LspRestart marksman<CR>")
 lspconfig.angularls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+lspconfig.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
@@ -74,7 +78,8 @@ lspconfig.lua_ls.setup {
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals", "astro", "marksman", "rust_analyzer" }
+  ensure_installed = { "lua_ls", "gopls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals",
+    "astro", "marksman", "rust_analyzer" }
 })
 
 
@@ -105,6 +110,26 @@ require("mason-null-ls").setup({
   ensure_installed = nil,
   automatic_installation = true,
 })
+
+-- tailwind-tools ----------------------------------------------------
+
+require("tailwind-tools").setup({
+  document_color = {
+    enabled = true, -- can be toggled by commands
+    kind = "inline", -- "inline" | "foreground" | "background"
+    inline_symbol = "󰝤 ", -- only used in inline mode
+    debounce = 200, -- in milliseconds, only applied in insert mode
+  },
+  conceal = {
+    enabled = false, -- can be toggled by commands
+    symbol = "󱏿 ", -- only a single character is allowed
+    highlight = { -- extmark highlight options, see :h 'highlight'
+      fg = "#38BDF8",
+    },
+  },
+  custom_filetypes = {} -- see the extension section to learn how it works
+}
+)
 
 -- lspsaga ----------------------------------------------------
 require("lspsaga").setup({

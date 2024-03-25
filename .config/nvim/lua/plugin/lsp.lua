@@ -1,7 +1,12 @@
 return {
-    "mattn/emmet-vim",
+  "mattn/emmet-vim",
   {
     "williamboman/mason.nvim",
+  },
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {} -- your configuration
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -18,6 +23,6 @@ return {
   },
   {
     "folke/trouble.nvim",
-    lazy=true,
+    lazy = true,
   },
 }
