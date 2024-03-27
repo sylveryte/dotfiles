@@ -366,7 +366,7 @@ return {
       dscr = "Create Daily Template Based on FileName Work",
     },
     fmt(
-      "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\n* Tasks\n\n- ( ) {}\n\n===\n___\n{}\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
+      "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\n* Tasks\n\n- ( ) Check Schedule\n- ( ) {}\n\n===\n___\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
       {
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -416,7 +416,6 @@ return {
           return d:fmt("%A")
         end, {}),
         ls.i(0),
-        ls.i(1),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y-W%W")
