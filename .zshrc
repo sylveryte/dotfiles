@@ -98,49 +98,18 @@ plugins=(git fzf zsh-autosuggestions  virtualenv zsh-syntax-highlighting)
 
 alias gits='git status'
 alias zathura='zathura --fork'
-alias vifm='~/.config/vifm/scripts/vifmrun'
-alias vim='nvim'
-alias v='nvim'
-alias n='nvim'
-alias vn='~/trisha/app/nvim-linux64/bin/nvim'
-alias nv='~/trisha/app/nvim-linux64/bin/nvim'
+nvim10='/home/sylveryte/trisha/app/nvim-linux64/bin/nvim'
+alias vn="$nvim10"
+alias nv="$nvim10"
+alias nvim="$nvim10"
+alias vim="$nvim10"
+alias n="$nvim10"
 function cya(){
 	free -h
 	sleep 1s
 	echo "See you soon!"
 	systemctl hibernate
 }
-function bye(){
-	echo "I'll see you soooon!!!!!!!!!!!"
-	systemctl poweroff
-}
-function kwolski-analysis(){
-	echo '--------------------------------------------------------------'
-	acpi | awk '{print "Battery\t: " $4}'
-	nmcli connection show --active | sed "1,1 d" | awk '{print "WiFi\t: " $1}'
-	timedatectl|head -n 1 | awk '{print $3 " "  $4 " " $5}'
-	echo '--------------------------------------------------------------'
-}
-
-function lstart(){
-  sudo cp /home/sylveryte/sylveryte/dotfiles/display/xorg.conf /etc/X11/xorg.conf && startx
-}
-
-function zl(){
-  sudo cp /home/sylveryte/sylveryte/dotfiles/display/xorg.conf /etc/X11/xorg.conf && sudo systemctl start sddm
-}
-
-
-function zd(){
-  sudo cp /home/sylveryte/sylveryte/dotfiles/display/dual.nvidia.first.xorg.conf /etc/X11/xorg.conf && startx
-}
-
-
-alias t=task
-alias tm=timew
-alias bitchcolor='python ~/sylveryte/dotfiles/tools/colorscheme.py'
-alias sylfairygravity='python ~/sylveryte/dotfiles/tools/fairygravity.py'
-
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
@@ -161,7 +130,7 @@ export FZF_CTRL_T_OPTS="
 
 eval "$(zoxide init zsh)"
 
-export VISUAL=nvim
+export VISUAL="$nvim10"
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
