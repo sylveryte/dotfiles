@@ -2,7 +2,7 @@
 
 # android
 
-export JAVA_HOME=$HOME/linuxdata/android_things/android-studio/jbr
+export JAVA_HOME=$HOME/kento/android/android-studio/jbr
 export ANDROID_SDK_ROOT_ROOT=$HOME/kento/android
 export ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT_ROOT/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT_ROOT/android-studio/bin

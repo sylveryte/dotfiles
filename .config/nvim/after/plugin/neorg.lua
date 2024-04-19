@@ -27,7 +27,6 @@ require("neorg").setup {
           guthli = "~/kento/cloud/inkbox/notebooks/guthli",
           sylbooks = "~/kento/cloud/blueworker/docs/sylbooks",
           magma = "~/kento/cloud/paastry/notebooks/magma",
-          chippi= "~/kento/cloud/inkbox/notebooks/chippi",
         },
         default_workspace = "magma"
       },
@@ -56,7 +55,6 @@ end)
 
 -- mappings
 map("n", "<localleader>y", ":Neorg journal yesterday<CR>")
-map("n", "<localleader>e", ":normal F{f*dt}F{<CR>")
 map("n", "<localleader>u", ":Neorg journal today<CR>")
 map("n", "<localleader>o", ":Neorg journal tomorrow<CR>")
 map("n", "<localleader>w", ":Neorg keybind all core.integrations.telescope.switch_workspace<CR>")
