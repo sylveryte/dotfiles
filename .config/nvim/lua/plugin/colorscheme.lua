@@ -4,7 +4,17 @@ return {
     lazy = true,
     opts = { style = "moon" },
   },
-   "folke/twilight.nvim",
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = true,
+    priority = 1000,
+    config = true,
+    opts = ...
+  },
+  {
+    "folke/twilight.nvim",
+    lazy = true,
+  },
   {
     'brenoprata10/nvim-highlight-colors',
     config = function()
