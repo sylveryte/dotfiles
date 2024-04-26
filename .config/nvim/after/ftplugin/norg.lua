@@ -16,6 +16,7 @@ map("n", "<localleader>R", ":set wrap<CR>", { desc = "Wrap" })
 
 map("n", "<localleader>e", ":normal F{f*dt}F{<CR>")
 map("i", "<C-a>", ':normal f}a[]<CR>F/l"jyt:f["jpf]a')
+map("i", "<C-q>", ':normal F{f*dt}f]<CR>a')
 map("n", "<localleader>a", ':normal f}a[]<CR>F/l"jyt:f["jpf]<CR>')
 
 
