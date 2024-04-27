@@ -17,7 +17,7 @@ fterm.setup({
   },
 })
 map({ 'n', 't', 'i' }, '<A-a>', function() fterm.toggle() end, { desc = "Toggle floating term" })
-map("n", "<leader>v", function() fterm.scratch({ cmd = "nnn" }) end, { desc = "Open nnn" })
+map("n", "<leader>v", function() fterm.scratch({ cmd = {"nnn",vim.api.nvim_buf_get_name(0) }}) end, { desc = "Open nnn" })
 -- runners
 local runners = { lua = 'lua', javascript = 'node', go = "make run", rust = "cargo run" }
 map('n', '<leader><Enter>', function()
