@@ -9,7 +9,7 @@ return {
   "tpope/vim-repeat",
   "tpope/vim-commentary",
   "tpope/vim-eunuch",
-  'voldikss/vim-floaterm',
+  'numToStr/FTerm.nvim',
   'luukvbaal/nnn.nvim',
   "mbbill/undotree",
   -- { 'echasnovski/mini.ai', version = false },
