@@ -15,7 +15,7 @@ require("neo-tree").setup({
   filesystem = {
     hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
     follow_current_file = {
-      enabled=true
+      enabled = true
     },
   },
 })
@@ -49,15 +49,15 @@ require('telescope').setup {
 local builtin = require('telescope.builtin')
 vim.keymap.set("n", "<leader>m", ":Telescope frecency<CR>")
 vim.keymap.set('n', '<leader>z', ":Telescope zoxide list<CR>")
-vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-vim.keymap.set('n', '<leader>c', builtin.git_files, {})
-vim.keymap.set('n', '<leader>s', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>b', builtin.buffers, {})
-vim.keymap.set('n', '<leader>j', builtin.grep_string, {})
-vim.keymap.set('n', '<leader>k', builtin.oldfiles, {})
-vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {})
-vim.keymap.set('n', '<leader>t', builtin.treesitter, {})
-vim.keymap.set('n', 'gd', builtin.lsp_definitions, {})
-vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, {})
-vim.keymap.set('n', 'gr', builtin.lsp_references, {})
-vim.keymap.set('n', '<leader>l', builtin.builtin, {})
+vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = "telescope find files" })
+vim.keymap.set('n', '<leader>c', builtin.git_files, { desc = "telescope git files" })
+vim.keymap.set('n', '<leader>s', builtin.live_grep, { desc = "telescope live grep" })
+vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = "telescope buffers" })
+vim.keymap.set('n', '<leader>j', builtin.grep_string, { desc = "telescope grep string" })
+vim.keymap.set('n', '<leader>k', builtin.oldfiles, { desc = "telescope oldfiles" })
+vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = "telescope current_buffer_fuzzy_find" })
+vim.keymap.set('n', '<leader>t', builtin.treesitter, { desc = "telescope treesitter" })
+vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = "telescope lsp_definitions" })
+vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, { desc = "telescope lsp_implementations" })
+vim.keymap.set('n', 'gr', builtin.lsp_references, { desc="telescope lsp_references" })
+vim.keymap.set('n', '<leader>l', builtin.builtin, { desc="telescope list builtins" })

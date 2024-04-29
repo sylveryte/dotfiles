@@ -24,10 +24,23 @@ config.color_scheme = 'BlulocoDark'
 
 config.font_size=12.0
 -- config.font = wezterm.font("FiraCode Nerd Font", {weight="Regular", stretch="Normal", style="Normal" }) 
-config.font = wezterm.font("MesloLGM Nerd Font") 
+-- config.font = wezterm.font("MesloLGM Nerd Font") 
 -- config.font = wezterm.font("Inconsolata Nerd Font") 
--- config.font = wezterm.font("Cousine Nerd Font") 
+config.font = wezterm.font("Cousine Nerd Font") 
 -- config.font = wezterm.font("Hack Nerd Font Propo")
+wezterm.font_with_fallback({
+  -- /usr/share/fonts/TTF/JetBrainsMono-Regular.ttf, FontConfig
+  "JetBrains Mono",
+
+  -- /usr/share/fonts/TTF/SymbolsNerdFontMono-Regular.ttf, FontConfig
+  "Symbols Nerd Font Mono",
+
+  -- /usr/share/fonts/noto/NotoColorEmoji.ttf, FontConfig
+  -- Assumed to have Emoji Presentation
+  -- Pixel sizes: [128]
+  "Noto Color Emoji",
+
+})
 
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true

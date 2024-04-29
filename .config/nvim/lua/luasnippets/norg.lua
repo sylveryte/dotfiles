@@ -35,7 +35,7 @@ return {
     },
     fmt("{}: {}\n\n", {
       ls.i(1),
-      ls.i(2,'Press <C-l>'),
+      ls.i(2, 'Press <C-l>'),
     })
   ),
   s(
@@ -67,7 +67,7 @@ return {
       dscr = "Conclusion for review of day/week/month/year",
     },
     fmt(
-    "* Conclusion for this {}\n\n** Best thing happened this {}?\n- {}\n\n** Worst thing happened this {}?\n- {}\n\n** Things learned?\n- {}\n\n** Needs improvement for the next {}\n- {}\n\n",
+      "* Conclusion for this {}\n\n** Best thing happened this {}?\n- {}\n\n** Worst thing happened this {}?\n- {}\n\n** Things learned?\n- {}\n\n** Needs improvement for the next {}\n- {}\n\n",
       {
         ls.i(1, "sylplaceholder"),
         extras.rep(1),
@@ -305,7 +305,7 @@ return {
       dscr = "Create Daily Template Based on FileName",
     },
     fmt(
-    "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\n* Improvement for today?\n - ( ) {} \n\ngoal{}\n===\n___\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
+      "* {}\n\n{{:{}:}}[{}] < {{:{}:}}[{}] > {{:{}:}}[{}]\n\n___\n\n* Improvement for today?\n - ( ) {} \n\ngoal{}\n===\n___\n{{:{}:}}[{}] {{:{}:}} {{:{}:}}",
       {
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -441,15 +441,17 @@ return {
       name = "Work Ticket",
       dscr = "Write a ticket",
     },
-    fmt("* {}\n___\n\n** Tasks \n- ( ) {}\n\n** Unit Tests \n\n*** Setup \n ~ {} \n\n *** Features to test \n - {}\n\n===\n___\n{{{}}}[link]", {
-      ls.f(function(_, snip)
-        return getFileNameWithoutExtension(snip)
-      end, {}),
-      ls.i(2),
-      ls.i(3),
-      ls.i(4),
-      ls.i(1),
-    })
+    fmt(
+    "* {}\n___\n\n** Tasks \n- ( ) {}\n\n** Unit Tests \n\n*** Setup \n ~ {} \n\n *** Features to test \n - {}\n\n===\n___\n{{{}}}[link]",
+      {
+        ls.f(function(_, snip)
+          return getFileNameWithoutExtension(snip)
+        end, {}),
+        ls.i(2),
+        ls.i(3),
+        ls.i(4),
+        ls.i(1),
+      })
   ),
 
   s(
@@ -467,23 +469,39 @@ return {
     })
   ),
 
+  s(
+    {
+      trig = "fourpillar",
+      name = "Four Pillar questions",
+      dscr = "All planning in the start with a todo",
+    },
+    fmt("Pillar one: {}\n- ( ) Pillar t_w_o: {}\n- ( ) Pillar 3333: {}\n- ( ) Pillar fourth: {}\n", {
+      ls.i(1),
+      ls.i(2),
+      ls.i(3),
+      ls.i(4),
+    })
+  ),
+
   s( -- Codeblock {{:{
     {
       trig = "plant",
       name = "Plant Entry",
       dscr = "All info needed for a plant care entry",
     },
-    fmt("- Soil Mix: {}\n- Watering: {}\n- Fertilizer: {}\n- Light: {}\n- Pot size: {}\n- Benifits: {}\n- Issues: {}\n- Propogation: {}\n- Note: {}", {
-      ls.i(1),
-      ls.i(2),
-      ls.i(3),
-      ls.i(4),
-      ls.i(5),
-      ls.i(6),
-      ls.i(7),
-      ls.i(8),
-      ls.i(9),
-    })
+    fmt(
+    "- Soil Mix: {}\n- Watering: {}\n- Fertilizer: {}\n- Light: {}\n- Pot size: {}\n- Benifits: {}\n- Issues: {}\n- Propogation: {}\n- Note: {}",
+      {
+        ls.i(1),
+        ls.i(2),
+        ls.i(3),
+        ls.i(4),
+        ls.i(5),
+        ls.i(6),
+        ls.i(7),
+        ls.i(8),
+        ls.i(9),
+      })
   ),
 
   s( -- Codeblock {{:{
