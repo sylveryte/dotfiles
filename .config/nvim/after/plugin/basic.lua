@@ -33,10 +33,14 @@ map({'t','n'}, '<leader>rr', function()
 end, { desc = 'Toggle the program runner' })
 -- web runners
 local npmrundev = fterm:new({ ft = 'fterm_npmrundev', cmd = "npm run dev" })
+local npmrunstart = fterm:new({ ft = 'fterm_npmrunstart', cmd = "npm run start" })
 
 map({'n','t'}, '<leader>rd', function()
   npmrundev:toggle()
 end, { desc = "npm run dev" })
+map({'n','t'}, '<leader>rs', function()
+  npmrunstart:toggle()
+end, { desc = "npm run start" })
 
 
 map("n", "<leader>n", ":NnnExplorer<CR>")
