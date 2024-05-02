@@ -20,7 +20,7 @@ map({ 'n', 't', 'i' }, '<A-a>', function() fterm.toggle() end, { desc = "Toggle 
 map("n", "<leader>v", function() fterm.scratch({ cmd = {"nnn",vim.api.nvim_buf_get_name(0) }}) end, { desc = "Open nnn" })
 -- runners
 local runners = { lua = 'lua', javascript = 'node', go = "make run", rust = "cargo run" }
-map('n', '<leader><Enter>', function()
+map('n', '<leader>rp', function()
   local buf = vim.api.nvim_buf_get_name(0)
   local ftype = vim.filetype.match({ filename = buf })
   local exec = runners[ftype]
@@ -28,10 +28,13 @@ map('n', '<leader><Enter>', function()
     fterm.run(exec)
   end
 end, { desc = 'Run the program' })
+map({'t','n'}, '<leader>rr', function()
+    fterm.toggle()
+end, { desc = 'Toggle the program runner' })
 -- web runners
 local npmrundev = fterm:new({ ft = 'fterm_npmrundev', cmd = "npm run dev" })
 
-map({'n','t'}, '<leader>rr', function()
+map({'n','t'}, '<leader>rd', function()
   npmrundev:toggle()
 end, { desc = "npm run dev" })
 
