@@ -1,7 +1,5 @@
--- Set up nvim-cmp.
 local cmp = require 'cmp'
 local luasnip = require("luasnip")
-local lspkind = require('lspkind')
 
 require "lsp_signature".setup({})
 require "lsp_signature".on_attach({
@@ -11,10 +9,10 @@ require "lsp_signature".on_attach({
   }
 })
 
+
 require("luasnip.loaders.from_lua").lazy_load({ paths = { "./lua/luasnippets" } })
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/trisha/dotfiles/.vsnip" } })
-
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -33,7 +31,7 @@ cmp.setup({
     end,
   },
   formatting = {
-    format = require("tailwindcss-colorizer-cmp").formatter,
+   -- format = require("tailwindcss-colorizer-cmp").formatter,
     -- format = lspkind.cmp_format({
     --   mode = 'symbol_text',  -- show only symbol annotations
     --   maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
@@ -111,4 +109,11 @@ cmp.setup.cmdline(':', {
   })
 })
 
-require("nvim-autopairs").setup {}
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)

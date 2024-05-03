@@ -1,0 +1,114 @@
+# This is your rocks.nvim plugins declaration file.
+# Here is a small yet pretty detailed example on how to use it:
+#
+
+# List of non-Neovim rocks.
+# This includes things like `toml` or other lua packages.
+[rocks]
+
+# List of Neovim plugins to install alongside their versions.
+# If the plugin name contains a dot then you must add quotes to the key name!
+[plugins]
+"rocks.nvim" = "2.26.0"
+neorg = "8.4.0"
+"telescope.nvim" = "scm"
+"rocks-config.nvim" = "1.5.0"
+"rocks-git.nvim" = "1.5.0"
+"trouble.nvim" = "2.10.0"
+neorg-telescope = "1.1.0"
+luasnip = "2.3.0"
+"neo-tree.nvim" = "3.14"
+"which-key.nvim" = "1.6.0"
+"fterm.nvim" = "scm"
+nvim-lspconfig = "0.1.7"
+"mason.nvim" = "1.10.0"
+"mason-lspconfig.nvim" = "1.28.0"
+"lualine.nvim" = "scm"
+
+[plugins."formatter.nvim" ]
+git = "mhartington/formatter.nvim"
+
+[plugins.nvim-cmp]
+git = "hrsh7th/nvim-cmp"
+rev = "v0.0.1"
+
+[plugins.cmp-path ]
+git = "hrsh7th/cmp-path"
+
+[plugins.cmp_luasnip]
+git = "saadparwaiz1/cmp_luasnip"
+
+[plugins.cmp-tw2css]
+git = "jcha0713/cmp-tw2css"
+rev = "v1.2.0^{}"
+
+[plugins.cmp-nvim-lsp]
+git = "hrsh7th/cmp-nvim-lsp"
+
+[plugins.cmp-buffer]
+git = "hrsh7th/cmp-buffer"
+
+[plugins.cmp-cmdline]
+git = "hrsh7th/cmp-cmdline"
+
+[plugins."kanagawa.nvim"]
+version = "scm"
+opt = true
+
+[plugins."nnn.nvim"]
+git = "luukvbaal/nnn.nvim"
+
+[plugins.telescope-zoxide]
+git = "jvgrootveld/telescope-zoxide"
+rev = "v2.1"
+
+[plugins."telescope-fzf-native.nvim"]
+git = "nvim-telescope/telescope-fzf-native.nvim"
+
+[plugins."Comment.nvim"]
+git = "numToStr/Comment.nvim"
+rev = "v0.8.0"
+[plugins."Comment.nvim".config]
+opts = {}
+
+[plugins."leap.nvim"]
+git = "ggandor/leap.nvim"
+
+[plugins.nvim-treesitter]
+git = "nvim-treesitter/nvim-treesitter"
+rev = "v0.9.2^{}"
+
+[plugins.vim-fugitive]
+git = "tpope/vim-fugitive"
+rev = "v3.7^{}"
+
+[plugins.nvim-surround]
+git = "kylechui/nvim-surround"
+rev = "v2.1.7"
+[plugins.nvim-surround.config]
+opts = {}
+
+[plugins.nvim-autopairs]
+git = "windwp/nvim-autopairs"
+
+[plugins.vim-system-copy]
+git = "christoomey/vim-system-copy"
+
+[plugins.emmet-vim]
+git = "mattn/emmet-vim"
+
+[plugins."lsp_signature.nvim"]
+git = "ray-x/lsp_signature.nvim"
+rev = "v0.3.1"
+
+[plugins.vim-unimpaired]
+git = "tpope/vim-unimpaired"
+rev = "v2.1^{}"
+
+[plugins.vim-repeat]
+git = "tpope/vim-repeat"
+rev = "v1.2^{}"
+
+[config]
+plugins_dir = "plugins/"
+auto_setup = false

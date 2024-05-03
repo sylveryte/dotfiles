@@ -87,4 +87,14 @@ map("n", "<C-a>", "<cmd>bn|bd #<cr>", { desc = "Quit" })
 
 -- format
 
-map({ "v", "n" }, "<leader>p", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "Format file" })
+function FormatFunction()
+  vim.lsp.buf.format({
+    async = true,
+    range = {
+      ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+      ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+    }
+  })
+end
+map("v", "<leader>qf", "<Esc><cmd>lua FormatFunction()<CR>", {noremap = true, desc="Range format"})
+map({ "n" }, "<leader>qf", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "Format file" })
