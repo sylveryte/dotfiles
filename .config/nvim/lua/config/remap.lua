@@ -93,5 +93,5 @@ function FormatFunction()
     }
   })
 end
-map("v", "<leader>qf", "<Esc><cmd>lua FormatFunction()<CR>", { desc="LSP Range format"})
-map({ "n" }, "<leader>qf", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
+map("v", "<leader>o", "<Esc><cmd>lua FormatFunction()<CR>", { desc="LSP Range format"})
+map({ "n" }, "<leader>o", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
