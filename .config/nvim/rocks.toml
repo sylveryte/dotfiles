@@ -24,6 +24,7 @@ nvim-lspconfig = "0.1.7"
 "mason.nvim" = "1.10.0"
 "mason-lspconfig.nvim" = "1.28.0"
 "lualine.nvim" = "scm"
+"mini.indentscope" = "0.9.0"
 
 [plugins."formatter.nvim" ]
 git = "mhartington/formatter.nvim"
@@ -108,6 +109,14 @@ rev = "v2.1^{}"
 [plugins.vim-repeat]
 git = "tpope/vim-repeat"
 rev = "v1.2^{}"
+
+[plugins."gitsigns.nvim"]
+git = "lewis6991/gitsigns.nvim"
+rev = "v0.8.1"
+
+[plugins."indent-blankline.nvim"]
+git = "lukas-reineke/indent-blankline.nvim"
+rev = "v3.5.4"
 
 [config]
 plugins_dir = "plugins/"

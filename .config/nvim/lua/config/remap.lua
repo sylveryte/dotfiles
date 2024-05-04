@@ -2,7 +2,7 @@ local map = vim.keymap.set
 -- map("n","-",vim.cmd.Ex)
 
 -- indent
-map("n", "<leader>oi", "gg=G<C-o>zR", { desc = "Indent using =" })
+-- map("n", "<leader>oi", "gg=G<C-o>zR", { desc = "Indent using =" })
 -- map("n", "<leader>nlr", ":%s/ SYLNEWLINE/\\r/g<CR>")
 
 -- folds
@@ -11,8 +11,6 @@ map("n", "<space>", "za", { desc = "Fold" })
 --Remap '\\' as leader key
 -- keymap('', '\\', '<Nop>', opts)
 -- vim.g.mapleader = '\\'
-
-map("n", ",n", ":echom expand('%:p')<CR>")
 
 -- better up/down
 -- map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -86,7 +84,6 @@ map("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<C-a>", "<cmd>bn|bd #<cr>", { desc = "Quit" })
 
 -- format
-
 function FormatFunction()
   vim.lsp.buf.format({
     async = true,
@@ -96,5 +93,5 @@ function FormatFunction()
     }
   })
 end
-map("v", "<leader>qf", "<Esc><cmd>lua FormatFunction()<CR>", {noremap = true, desc="Range format"})
-map({ "n" }, "<leader>qf", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "Format file" })
+map("v", "<leader>qf", "<Esc><cmd>lua FormatFunction()<CR>", { desc="LSP Range format"})
+map({ "n" }, "<leader>qf", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
