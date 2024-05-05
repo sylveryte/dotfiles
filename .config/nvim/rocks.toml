@@ -25,6 +25,7 @@ nvim-lspconfig = "0.1.7"
 "mason-lspconfig.nvim" = "1.28.0"
 "lualine.nvim" = "scm"
 "mini.indentscope" = "0.9.0"
+"lspsaga.nvim" = "scm"
 
 [plugins."formatter.nvim" ]
 git = "mhartington/formatter.nvim"
