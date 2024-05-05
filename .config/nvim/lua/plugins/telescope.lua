@@ -28,8 +28,8 @@ require('telescope').setup {
   },
 }
 local builtin = require('telescope.builtin')
-map('n','<leader>tg',require('telescope').extensions.gitmoji.gitmoji)
-map("n", "<leader>m", ":Telescope frecency<CR>")
+map('n','<leader>tg',require('telescope').extensions.gitmoji.gitmoji, {desc="Telescope gitmoji"})
+map("n", "<leader>m", ":Telescope frecency<CR>", {desc="Telescope frecency"})
 map('n', '<leader>z', ":Telescope zoxide list<CR>", {desc="Telescope zoxide"})
 map('n', '<leader>f', builtin.find_files, { desc = "telescope find files" })
 map('n', '<leader>c', builtin.git_files, { desc = "telescope git files" })

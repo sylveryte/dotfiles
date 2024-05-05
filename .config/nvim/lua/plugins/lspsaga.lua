@@ -59,7 +59,7 @@ map("n", "]e", function()
 end)
 
 -- Toggle outline
-map("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+map("n", "<leader>lo", "<cmd>Lspsaga outline<CR>")
 
 -- Hover Doc
 -- If there is no hover doc,

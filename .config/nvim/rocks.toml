@@ -27,6 +27,7 @@ nvim-lspconfig = "0.1.7"
 "mini.indentscope" = "0.9.0"
 "lspsaga.nvim" = "scm"
 "telescope-frecency.nvim" = "scm"
+"lspkind.nvim" = "scm"
 
 [plugins."formatter.nvim" ]
 git = "mhartington/formatter.nvim"
@@ -119,6 +120,13 @@ rev = "v3.5.4"
 
 [plugins."telescope-gitmoji.nvim"]
 git = "olacin/telescope-gitmoji.nvim"
+
+[plugins.nvim-highlight-colors]
+git = "brenoprata10/nvim-highlight-colors"
+
+[plugins."tailwind-tools.nvim"]
+git = "luckasRanarison/tailwind-tools.nvim"
+rev = "v0.1.3"
 
 [config]
 plugins_dir = "plugins/"
