@@ -26,6 +26,7 @@ nvim-lspconfig = "0.1.7"
 "lualine.nvim" = "scm"
 "mini.indentscope" = "0.9.0"
 "lspsaga.nvim" = "scm"
+"telescope-frecency.nvim" = "scm"
 
 [plugins."formatter.nvim" ]
 git = "mhartington/formatter.nvim"
@@ -63,9 +64,6 @@ git = "luukvbaal/nnn.nvim"
 [plugins.telescope-zoxide]
 git = "jvgrootveld/telescope-zoxide"
 rev = "v2.1"
-
-[plugins."telescope-fzf-native.nvim"]
-git = "nvim-telescope/telescope-fzf-native.nvim"
 
 [plugins."Comment.nvim"]
 git = "numToStr/Comment.nvim"
@@ -118,6 +116,9 @@ rev = "v0.8.1"
 [plugins."indent-blankline.nvim"]
 git = "lukas-reineke/indent-blankline.nvim"
 rev = "v3.5.4"
+
+[plugins."telescope-gitmoji.nvim"]
+git = "olacin/telescope-gitmoji.nvim"
 
 [config]
 plugins_dir = "plugins/"
