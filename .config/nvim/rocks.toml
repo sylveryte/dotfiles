@@ -28,6 +28,7 @@ nvim-lspconfig = "0.1.7"
 "lspsaga.nvim" = "scm"
 "telescope-frecency.nvim" = "scm"
 "lspkind.nvim" = "scm"
+"image.nvim" = "1.2.0"
 
 [plugins."formatter.nvim" ]
 git = "mhartington/formatter.nvim"
