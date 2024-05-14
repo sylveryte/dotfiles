@@ -14,7 +14,7 @@ require("neorg").setup {
         name = "[Neorg]"
       }
     },
-    -- ["core.ui.calendar"] = {},
+    ["core.ui.calendar"] = {},
     ["core.summary"] = {},
     ["core.concealer"] = {
       config = {
@@ -57,6 +57,5 @@ end)
 map("n", "<localleader>y", ":Neorg journal yesterday<CR>")
 map("n", "<localleader>u", ":Neorg journal today<CR>")
 map("n", "<localleader>o", ":Neorg journal tomorrow<CR>")
-map("n", "<localleader>w", ":Neorg keybind all core.integrations.telescope.switch_workspace<CR>")
+map("n", "<localleader>w", ":Neorg workspace")
 map("n", "<localleader>f", ":Neorg keybind all core.integrations.telescope.find_norg_files<CR>")
-

@@ -483,7 +483,7 @@ return {
     })
   ),
 
-  s( -- Codeblock {{:{
+  s(
     {
       trig = "plant",
       name = "Plant Entry",
@@ -508,16 +508,11 @@ return {
     {
       trig = "codeblock",
       name = "Make code block",
-      dscr = "Select text, Man press <C-s>, type codeblock.",
+      dscr = "codeblock",
     },
-    fmt("```{}\n{}\n```\n{}", {
+    fmt("@code {}\n{}\n@end", {
       ls.i(1, "Language"),
-      ls.f(function(_, snip)
-        local tmp = snip.env.TM_SELECTED_TEXT
-        tmp[0] = nil
-        return tmp or {}
-      end, {}),
-      ls.i(0),
+      ls.i(0, ""),
     })
   ),
 }
