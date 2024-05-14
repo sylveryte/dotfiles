@@ -8,7 +8,7 @@ export ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT_ROOT/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT_ROOT/android-studio/bin
 
 # nnn
-export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;p:!pcmanfm $nnn'
+export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;e:!&dolphin "$PWD"'
 export NNN_FIFO=/tmp/nnn.fifo
 alias nn='nnn'
 alias ytfzf='ytfzf -T chafa --show-thumbnails'
