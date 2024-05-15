@@ -5,4 +5,4 @@ require("nnn").setup({
     session = "shared",
   },
 })
-map("n", "-", ":NnnPicker %f<CR>")
+map("n", "<leader>v", ":NnnPicker %f<CR>")
