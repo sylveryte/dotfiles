@@ -1,5 +1,32 @@
 local map = vim.keymap.set
 
+local buffer_to_string = function()
+  -- gets whole buffer local content = vim.api.nvim_buf_get_lines(0, 0, vim.api.nvim_buf_line_count(0), false)
+  local content = vim.api.nvim_buf_get_lines(0, 0, 2, false)
+  return table.concat(content, "\n")
+end
+
+local navigateForward =  function()
+  local text = buffer_to_string()
+  local isDoc = text:find('@document', 1, true)
+  if isDoc ~= nil then
+    vim.cmd([[:norm gg0}}j$gd<CR>]])
+  else
+    vim.cmd([[:norm gg0}j$gd<CR>]])
+  end
+end
+
+local navigateBack =  function()
+  local text = buffer_to_string()
+  local isDoc = text:find('@document', 1, true)
+  if isDoc ~= nil then
+    vim.cmd([[:norm gg0}}jgd<CR>]])
+  else
+    vim.cmd([[:norm gg0}jgd<CR>]])
+  end
+end
+
+
 vim.opt_local.wrap = false -- Disable line wrap
 map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
 map("n", "<localleader>im", ":Neorg inject-metadata<CR>")
@@ -7,10 +34,12 @@ map("n", "<localleader>b", ":Neorg toc<CR>")
 map("n", "<localleader>g", ":Neorg journal custom<CR>")
 map("n", "<localleader>p", "gg=G<C-o>zR:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
 
-map("n", "<localleader>k", ":norm gg0}j$gd<CR>", { desc = "Go syl next" })
-map("n", "<localleader>j", ":norm gg0}jgd<CR>", { desc = "Go syl back" })
-map("n", "<localleader>K", ":norm gg0}}j$gd<CR>", { desc = "Go syl next with meta" })
-map("n", "<localleader>J", ":norm gg0}}jgd<CR>", { desc = "Go syl back with meta" })
+map("n", "<localleader>k",function ()
+ navigateForward()
+end , { desc = "Go syl forward" })
+map("n", "<localleader>j",function ()
+ navigateBack()
+end , { desc = "Go syl back" })
 
 map("n", "<localleader>r", ":set nowrap<CR>", { desc = "No Wrap" })
 map("n", "<localleader>R", ":set wrap<CR>", { desc = "Wrap" })

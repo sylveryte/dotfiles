@@ -23,10 +23,10 @@ config.color_scheme = 'BlulocoDark'
 
 
 config.font_size=12.0
--- config.font = wezterm.font("FiraCode Nerd Font", {weight="Regular", stretch="Normal", style="Normal" }) 
--- config.font = wezterm.font("MesloLGM Nerd Font") 
--- config.font = wezterm.font("Inconsolata Nerd Font") 
-config.font = wezterm.font("Cousine Nerd Font") 
+-- config.font = wezterm.font("FiraCode Nerd Font", {weight="Regular", stretch="Normal", style="Normal" })
+-- config.font = wezterm.font("MesloLGM Nerd Font", {weight="Regular", stretch="Normal", style="Normal" })
+-- config.font = wezterm.font("Inconsolata Nerd Font", {weight="Regular", stretch="Normal", style="Normal" })
+config.font = wezterm.font("Cousine Nerd Font", {weight="Regular", stretch="Normal", style="Normal" })
 -- config.font = wezterm.font("Hack Nerd Font Propo")
 wezterm.font_with_fallback({
   -- /usr/share/fonts/TTF/JetBrainsMono-Regular.ttf, FontConfig
