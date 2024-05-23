@@ -10,13 +10,13 @@ fterm.setup({
 })
 map({ 'n', 't', 'i' }, '<A-a>', function() fterm.toggle() end, { desc = "Toggle floating term" })
 -- runners
-local runners = { lua = 'lua', javascript = 'node', go = "make run", rust = "cargo run" }
-map('n', '<leader>rp', function()
+local runners = { lua = 'lua', javascript = 'node', go = "go run", rust = "cargo run" }
+map('n', '<localleader>r', function()
   local buf = vim.api.nvim_buf_get_name(0)
   local ftype = vim.filetype.match({ filename = buf })
   local exec = runners[ftype]
   if exec ~= nil then
-    fterm.run(exec)
+    fterm.run(exec .. ' ' .. buf)
   end
 end, { desc = 'Run the program' })
 map({'t','n'}, '<leader>rr', function()
@@ -32,4 +32,3 @@ end, { desc = "npm run dev" })
 map({'n','t'}, '<leader>rs', function()
   npmrunstart:toggle()
 end, { desc = "npm run start" })
-

@@ -41,8 +41,8 @@ map("n", "<localleader>j",function ()
  navigateBack()
 end , { desc = "Go syl back" })
 
-map("n", "<localleader>r", ":set nowrap<CR>", { desc = "No Wrap" })
-map("n", "<localleader>R", ":set wrap<CR>", { desc = "Wrap" })
+map("n", "<localleader>Wn", ":set nowrap<CR>", { desc = "No Wrap" })
+map("n", "<localleader>W", ":set wrap<CR>", { desc = "Wrap" })
 
 map("n", "<localleader>e", ":normal F{f*dt}F{<CR>")
 map("i", "<C-a>", ':normal f}a[]<CR>F/l"jyt:f["jpf]a')
