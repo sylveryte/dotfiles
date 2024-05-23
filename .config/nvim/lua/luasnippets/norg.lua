@@ -471,6 +471,24 @@ return {
 
   s(
     {
+      trig = "ratings",
+      name = "Ratings",
+      dscr = "Rating for the period",
+    },
+    fmt("red: {}\nmarichi: {}\nazeel: {}\nsylveryte: {}\nparag: {}\nmystery: {}\nlight: {}\ntr: {}", {
+      ls.i(1),
+      ls.i(2),
+      ls.i(3),
+      ls.i(4),
+      ls.i(5),
+      ls.i(6),
+      ls.i(7),
+      ls.i(8),
+    })
+  ),
+
+  s(
+    {
       trig = "fourpillar",
       name = "Four Pillar questions",
       dscr = "All planning in the start with a todo",

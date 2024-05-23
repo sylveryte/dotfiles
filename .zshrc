@@ -98,12 +98,13 @@ plugins=(git fzf zsh-autosuggestions  virtualenv zsh-syntax-highlighting)
 
 alias gits='git status'
 alias zathura='zathura --fork'
-nvim10='/home/sylveryte/trisha/app/nvim-linux64/bin/nvim'
-alias vn="$nvim10"
-alias nv="$nvim10"
-alias nvim="$nvim10"
-alias vim="$nvim10"
-alias n="$nvim10"
+# nvim='/home/sylveryte/trisha/app/nvim-linux64/bin/nvim'
+nvim="nvim"
+alias vn="$nvim"
+alias nv="$nvim"
+alias nvim="$nvim"
+alias vim="$nvim"
+alias n="$nvim"
 function cya(){
 	free -h
 	sleep 1s

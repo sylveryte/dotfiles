@@ -9,18 +9,18 @@
 # List of Neovim plugins to install alongside their versions.
 # If the plugin name contains a dot then you must add quotes to the key name!
 [plugins]
-"rocks.nvim" = "2.27.1"
-neorg = "8.4.0"
+"rocks.nvim" = "2.29.0"
+neorg = "8.5.0"
 "telescope.nvim" = "scm"
-"rocks-config.nvim" = "1.5.0"
-"rocks-git.nvim" = "1.5.0"
+"rocks-config.nvim" = "1.6.0"
+"rocks-git.nvim" = "1.5.1"
 "trouble.nvim" = "2.10.0"
 neorg-telescope = "1.1.0"
 luasnip = "2.3.0"
-"neo-tree.nvim" = "3.14"
+"neo-tree.nvim" = "3.26"
 "which-key.nvim" = "1.6.0"
 "fterm.nvim" = "scm"
-nvim-lspconfig = "0.1.7"
+nvim-lspconfig = "0.1.8"
 "mason.nvim" = "1.10.0"
 "mason-lspconfig.nvim" = "1.29.0"
 "lualine.nvim" = "scm"
@@ -28,8 +28,8 @@ nvim-lspconfig = "0.1.7"
 "lspsaga.nvim" = "scm"
 "telescope-frecency.nvim" = "scm"
 "lspkind.nvim" = "scm"
-"image.nvim" = "1.2.0"
-"oil.nvim" = "2.8.0"
+"image.nvim" = "1.3.0"
+"oil.nvim" = "2.9.0"
 
 [plugins."formatter.nvim" ]
 git = "mhartington/formatter.nvim"
@@ -87,9 +87,7 @@ rev = "v3.7^{}"
 
 [plugins.nvim-surround]
 git = "kylechui/nvim-surround"
-rev = "v2.1.7"
-[plugins.nvim-surround.config]
-opts = {}
+rev = "v2.1.8"
 
 [plugins.nvim-autopairs]
 git = "windwp/nvim-autopairs"
@@ -118,7 +116,7 @@ rev = "v0.8.1"
 
 [plugins."indent-blankline.nvim"]
 git = "lukas-reineke/indent-blankline.nvim"
-rev = "v3.5.4"
+rev = "v3.6.1"
 
 [plugins."telescope-gitmoji.nvim"]
 git = "olacin/telescope-gitmoji.nvim"
@@ -128,7 +126,10 @@ git = "brenoprata10/nvim-highlight-colors"
 
 [plugins."tailwind-tools.nvim"]
 git = "luckasRanarison/tailwind-tools.nvim"
-rev = "v0.1.3"
+rev = "v0.2.0"
+
+[plugins.neorg-conceal-wrap]
+git = "benlubas/neorg-conceal-wrap"
 
 [config]
 plugins_dir = "plugins/"

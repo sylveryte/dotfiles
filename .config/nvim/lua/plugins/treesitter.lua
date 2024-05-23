@@ -1,6 +1,6 @@
 vim.opt.runtimepath:append("$HOME/.local/share/treesitter")
 
-require("nvim-treesitter.install").prefer_git = true
+-- require("nvim-treesitter.install").prefer_git = true
 require('nvim-treesitter.configs').setup {
   parser_install_dir = "$HOME/.local/share/treesitter",
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -9,6 +9,7 @@ require('nvim-treesitter.configs').setup {
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
+   ignore_install = { "html" },
 
   highlight = {
     enable = true,

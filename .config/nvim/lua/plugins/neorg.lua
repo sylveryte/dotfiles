@@ -31,6 +31,7 @@ require("neorg").setup {
         default_workspace = "magma"
       },
     },
+    ["external.conceal-wrap"] = {},
   },
 }
 local neorg_callbacks = require("neorg.core.callbacks")
