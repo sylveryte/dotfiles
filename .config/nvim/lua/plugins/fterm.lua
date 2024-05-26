@@ -16,7 +16,7 @@ map('n', '<localleader>r', function()
   local ftype = vim.filetype.match({ filename = buf })
   local exec = runners[ftype]
   if exec ~= nil then
-    fterm.run(exec .. ' ' .. buf)
+    fterm.run(' ' .. exec .. ' ' .. buf)
   end
 end, { desc = 'Run the program' })
 map({'t','n'}, '<leader>rr', function()
@@ -26,9 +26,16 @@ end, { desc = 'Toggle the program runner' })
 local npmrundev = fterm:new({ ft = 'fterm_npmrundev', cmd = "npm run dev" })
 local npmrunstart = fterm:new({ ft = 'fterm_npmrunstart', cmd = "npm run start" })
 
+map({'n','t','i'}, '<A-f>', function ()
+  local buf = vim.api.nvim_buf_get_name(0)
+  local exec = ' ' .. buf:match("(.*/)")
+  fterm.run(exec)
+end, {desc = "Toggle floating term at buf location"})
+
 map({'n','t'}, '<leader>rd', function()
   npmrundev:toggle()
 end, { desc = "npm run dev" })
 map({'n','t'}, '<leader>rs', function()
   npmrunstart:toggle()
 end, { desc = "npm run start" })
+

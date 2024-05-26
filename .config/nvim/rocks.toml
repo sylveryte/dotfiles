@@ -68,12 +68,6 @@ git = "luukvbaal/nnn.nvim"
 git = "jvgrootveld/telescope-zoxide"
 rev = "v2.1"
 
-[plugins."Comment.nvim"]
-git = "numToStr/Comment.nvim"
-rev = "v0.8.0"
-[plugins."Comment.nvim".config]
-opts = {}
-
 [plugins."leap.nvim"]
 git = "ggandor/leap.nvim"
 
@@ -130,6 +124,10 @@ rev = "v0.2.0"
 
 [plugins.neorg-conceal-wrap]
 git = "benlubas/neorg-conceal-wrap"
+
+[plugins."ts-comments.nvim"]
+git = "folke/ts-comments.nvim"
+rev = "v1.1.0"
 
 [config]
 plugins_dir = "plugins/"
