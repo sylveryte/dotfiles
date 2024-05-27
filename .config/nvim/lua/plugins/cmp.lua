@@ -25,11 +25,11 @@ cmp.setup({
   view = {
     entries = "custom"
   },
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-    end,
-  },
+  -- snippet = {
+  --   expand = function(args)
+  --     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+  --   end,
+  -- },
   formatting = {
     -- is in lspkind
   },
@@ -47,11 +47,44 @@ cmp.setup({
     --   },
     --   { "i", "c" }
     -- ),
-    ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }, { "i", "c" }
-    ), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    -- ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }, { "i", "c" }
+    -- ), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.abort(),
+
+
+    -- luasnip mappings
+    ['<CR>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        if luasnip.expandable() then
+          luasnip.expand()
+        else
+          cmp.confirm({
+            select = true,
+          })
+        end
+      else
+        fallback()
+      end
+    end),
+
+    ["<C-j>"] = cmp.mapping(function(fallback)
+      if luasnip.locally_jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<C-k>"] = cmp.mapping(function(fallback)
+      if luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
   }),
   sources = cmp.config.sources({
     { name = 'neorg' },
@@ -92,7 +125,7 @@ cmp.setup.cmdline(':', {
 })
 
 require('nvim-autopairs').setup({
-  disable_filetype = { "TelescopePrompt" , "vim" },
+  disable_filetype = { "TelescopePrompt", "vim" },
 })
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
