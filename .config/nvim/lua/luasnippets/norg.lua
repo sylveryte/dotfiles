@@ -297,6 +297,63 @@ return {
       end, {}),
     })
   ),
+  s(
+    {
+      trig = "lnyesterday",
+      name = "link of yesterday in norg",
+      dscr = "Create a link to yesterday's file",
+    },
+    fmt(
+      "{{:$/journal/{}:}}[{}]",
+      {
+        ls.f(function(_, _)
+          local d = date():adddays(-1)
+          return d:fmt("%F")
+        end, {}),
+        ls.f(function(_, _)
+          local d = date():adddays(-1)
+          return d:fmt("%F %A")
+        end, {}),
+      })
+  ),
+  s(
+    {
+      trig = "lntomorrow",
+      name = "link of tomorrow in norg",
+      dscr = "Create a link to tomorrow's file",
+    },
+    fmt(
+      "{{:$/journal/{}:}}[{}]",
+      {
+        ls.f(function(_, _)
+          local d = date():adddays(1)
+          return d:fmt("%F")
+        end, {}),
+        ls.f(function(_, _)
+          local d = date():adddays(1)
+          return d:fmt("%F %A")
+        end, {}),
+      })
+  ),
+  s(
+    {
+      trig = "lntoday",
+      name = "link of today in norg",
+      dscr = "Create a link to today's file",
+    },
+    fmt(
+      "{{:$/journal/{}:}}[{}]",
+      {
+        ls.f(function(_, _)
+          local d = date()
+          return d:fmt("%F")
+        end, {}),
+        ls.f(function(_, _)
+          local d = date()
+          return d:fmt("%F %A")
+        end, {}),
+      })
+  ),
 
   s(
     {
