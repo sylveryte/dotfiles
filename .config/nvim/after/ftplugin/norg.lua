@@ -28,11 +28,12 @@ end
 
 
 vim.opt_local.wrap = false -- Disable line wrap
+vim.opt_local.textwidth = 60 -- for gqip formatting
 map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
 map("n", "<localleader>im", ":Neorg inject-metadata<CR>")
 map("n", "<localleader>b", ":Neorg toc<CR>")
 map("n", "<localleader>g", ":Neorg journal custom<CR>")
-map("n", "<localleader>p", "gg=G<C-o>zR:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
+map("n", "<localleader>p", "gg=G:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
 
 map("n", "<localleader>k",function ()
  navigateForward()

@@ -18,7 +18,24 @@ require("neorg").setup {
     ["core.summary"] = {},
     ["core.concealer"] = {
       config = {
-        icon_preset = "diamond"
+        icon_preset = "diamond",
+            icons = {
+              todo = {
+                undone = {
+                  icon = " ",
+                },
+              },
+              heading = {
+                icons = { "◆", "❖", "◈", "◇", "⟡", "⋄" },
+              },
+              code_block = {
+                conceal = true,
+                spell_check = false,
+                content_only = false,
+                width = "content",
+                min_width = 85,
+              },
+            },
       }
     },                  -- Adds pretty icons to your documents
     ["core.dirman"] = { -- Manages Neorg workspaces
