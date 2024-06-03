@@ -20,8 +20,6 @@ require("formatter").setup {
     css = require("formatter.defaults.prettierd"),
     scss = require("formatter.defaults.prettierd"),
     json = require("formatter.defaults.prettierd"),
-    go = require("formatter.filetypes.go").gofmt(),
-    rust = require("formatter.filetypes.rust").rustfmt(),
 
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype

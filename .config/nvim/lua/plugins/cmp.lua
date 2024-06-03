@@ -11,17 +11,19 @@ require "lsp_signature".on_attach({
 
 
 require("luasnip.loaders.from_lua").lazy_load({ paths = { "./lua/luasnippets" } })
+require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/trisha/dotfiles/.vsnip" } })
 
 cmp.setup({
   preselect = cmp.PreselectMode.Item,
   view = {
     entries = "custom"
   },
-  -- snippet = {
-  --   expand = function(args)
-  --     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-  --   end,
-  -- },
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
   formatting = {
     -- is in lspkind
   },

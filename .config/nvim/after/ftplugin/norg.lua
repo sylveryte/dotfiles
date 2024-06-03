@@ -10,9 +10,9 @@ local navigateForward =  function()
   local text = buffer_to_string()
   local isDoc = text:find('@document', 1, true)
   if isDoc ~= nil then
-    vim.cmd([[:norm gg0}}j$gd<CR>]])
+    vim.cmd([[:norm gg0}}j$gdCR]])
   else
-    vim.cmd([[:norm gg0}j$gd<CR>]])
+    vim.cmd([[:norm gg0}j$gd]])
   end
 end
 
@@ -20,11 +20,28 @@ local navigateBack =  function()
   local text = buffer_to_string()
   local isDoc = text:find('@document', 1, true)
   if isDoc ~= nil then
-    vim.cmd([[:norm gg0}}jgd<CR>]])
+    vim.cmd([[:norm gg0}}jgd]])
   else
-    vim.cmd([[:norm gg0}jgd<CR>]])
+    vim.cmd([[:norm gg0}jgd]])
   end
 end
+
+local indentAndFormat =  function()
+  local content = vim.api.nvim_buf_get_lines(0,0,-1,false)
+  local text = table.concat(content,"\n")
+  local isSyl = text:find('SYLNEWLINE',200,true)
+  if isSyl ~= nil then
+    vim.cmd([[:%s/ SYLNEWLINE/\r/g]])
+    vim.cmd([[:norm gg=G]])
+    -- map("n", "<localleader>p", "gg=G:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
+  else
+    vim.cmd([[:norm gg=G]])
+  end
+end
+
+
+
+
 
 
 vim.opt_local.wrap = false -- Disable line wrap
@@ -33,13 +50,16 @@ map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
 map("n", "<localleader>im", ":Neorg inject-metadata<CR>")
 map("n", "<localleader>b", ":Neorg toc<CR>")
 map("n", "<localleader>g", ":Neorg journal custom<CR>")
-map("n", "<localleader>p", "gg=G:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
+map("n", "<localleader>p", "", { desc = "Indent using =" })
+map("n", "<localleader>p",function ()
+  indentAndFormat()
+end , { desc = "Indent = and format SYLNEWLINE" })
 
 map("n", "<localleader>k",function ()
- navigateForward()
+  navigateForward()
 end , { desc = "Go syl forward" })
 map("n", "<localleader>j",function ()
- navigateBack()
+  navigateBack()
 end , { desc = "Go syl back" })
 
 map("n", "<localleader>Wn", ":set nowrap<CR>", { desc = "No Wrap" })
