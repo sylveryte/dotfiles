@@ -29,7 +29,7 @@ end
 local indentAndFormat =  function()
   local content = vim.api.nvim_buf_get_lines(0,0,-1,false)
   local text = table.concat(content,"\n")
-  local isSyl = text:find('SYLNEWLINE',200,true)
+  local isSyl = text:find('SYLNEWLINE',0,true)
   if isSyl ~= nil then
     vim.cmd([[:%s/ SYLNEWLINE/\r/g]])
     vim.cmd([[:norm gg=G]])

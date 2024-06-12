@@ -17,6 +17,9 @@ lspconfig.rust_analyzer.setup {
     enable = true,
   }
 }
+lspconfig.marksman.setup {
+  capabilities = capabilities
+}
 lspconfig.cssls.setup {
   capabilities = capabilities
 }
