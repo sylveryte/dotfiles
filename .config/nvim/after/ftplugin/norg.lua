@@ -10,7 +10,7 @@ local navigateForward =  function()
   local text = buffer_to_string()
   local isDoc = text:find('@document', 1, true)
   if isDoc ~= nil then
-    vim.cmd([[:norm gg0}}j$gdCR]])
+    vim.cmd([[:norm gg0}}j$gd]])
   else
     vim.cmd([[:norm gg0}j$gd]])
   end
