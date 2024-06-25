@@ -83,6 +83,10 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<C-a>", "<cmd>bn|bd #<cr>", { desc = "Quit" })
 
+-- background set
+-- map("n", "<leader>d", "<cmd>set bg=dark<cr>", { desc = "Set background=dark" })
+map("n", "<leader>d", ':exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>', {noremap = true, silent = true, desc="Toggle dark light bg"})
+
 -- format
 function FormatFunction()
   vim.lsp.buf.format({

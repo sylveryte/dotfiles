@@ -18,15 +18,36 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'BlulocoDark'
+
+local function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
+end
+
+local function setcolorscheme(appearance)
+  if appearance:find 'Dark' then
+    config.color_scheme = 'Tango (base16)'
+  else
+    -- config.color_scheme = 'Tomorrow (Gogh)'
+    -- config.color_scheme = 'Alabaster'
+    -- config.color_scheme = 'Toy Chest (Gogh)'
+    -- config.color_scheme = 'Atelierdune (light) (terminal.sexy)'
+    config.color_scheme = 'Belafonte Day'
+  end
+end
+
+print(get_appearance())
+setcolorscheme(get_appearance())
 -- config.window_decorations = 'RESIZE' --frameless
 
 
-config.font_size=12.0
+config.font_size = 12.0
 -- config.font = wezterm.font("FiraCode Nerd Font", {weight="Regular", stretch="Normal", style="Normal" })
 -- config.font = wezterm.font("MesloLGM Nerd Font", {weight="Regular", stretch="Normal", style="Normal" })
 -- config.font = wezterm.font("Inconsolata Nerd Font", {weight="Regular", stretch="Normal", style="Normal" })
-config.font = wezterm.font("Cousine Nerd Font", {weight="Regular", stretch="Normal", style="Normal" })
+config.font = wezterm.font("Cousine Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" })
 -- config.font = wezterm.font("Hack Nerd Font Propo")
 wezterm.font_with_fallback({
   -- /usr/share/fonts/TTF/JetBrainsMono-Regular.ttf, FontConfig
@@ -45,11 +66,11 @@ wezterm.font_with_fallback({
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
-config.window_background_gradient = {
-  colors = {  '#020311','#160107' },
-  -- Specifices a Linear gradient starting in the top left corner.
-  orientation = { Linear = { angle = -45.0 } },
-}
+-- config.window_background_gradient = {
+--   colors = {  '#020311','#160107' },
+--   -- Specifices a Linear gradient starting in the top left corner.
+--   orientation = { Linear = { angle = -45.0 } },
+-- }
 config.window_padding = {
   left = 0,
   right = 0,
