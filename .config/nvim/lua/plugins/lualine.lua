@@ -183,26 +183,27 @@ end
 
 
 local function lsp()
-  local mascot = '🦉'
-  local msg = ''
-  local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-  local clients = vim.lsp.get_active_clients()
-  if next(clients) == nil then
-    return mascot .. msg
+  local clients = vim.lsp.get_clients({bufnr=vim.api.nvim_get_current_buf()})
+  local count = 0;
+  for _, _ in pairs(clients) do
+    count = count + 1
   end
-  for _, client in ipairs(clients) do
-    local filetypes = client.config.filetypes
-    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-      return mascot .. client.name
+  if next(clients) ~= nil then
+    if count == 1 then
+      return '🌸(' .. count .. ')'
     end
+    if count == 2 then
+      return '🌼(' .. count .. ')'
+    end
+    return '💐(' .. count .. ')'
   end
-  return mascot .. msg
+  return '📚'
 end
 
 local config = {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'catppuccin',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {
@@ -225,9 +226,11 @@ local config = {
       symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
       cond = conditions.hide_in_width,
     }, 'diagnostics' },
-    lualine_c = { 'filename' },
+    lualine_c = { 'filename','filesize' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'location', 'progress' },
+    lualine_y = {
+      'progress',
+    },
     lualine_z = { 'branch' }
   },
   inactive_sections = {

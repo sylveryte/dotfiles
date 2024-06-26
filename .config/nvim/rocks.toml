@@ -132,6 +132,10 @@ rev = "v1.2.0"
 [plugins."bg.nvim"]
 git = "typicode/bg.nvim"
 
+[plugins.nvim]
+git = "catppuccin/nvim"
+rev = "v1.7.0"
+
 # [plugins."auto-dark-mode.nvim"]
 # git = "f-person/auto-dark-mode.nvim"
 
