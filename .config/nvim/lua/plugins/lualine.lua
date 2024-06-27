@@ -190,12 +190,12 @@ local function lsp()
   end
   if next(clients) ~= nil then
     if count == 1 then
-      return '🌸(' .. count .. ')'
+      return '🌷(' .. count .. ')'
     end
     if count == 2 then
-      return '🌼(' .. count .. ')'
+      return '🍁(' .. count .. ')'
     end
-    return '💐(' .. count .. ')'
+    return '🪴(' .. count .. ')'
   end
   return '📚'
 end
