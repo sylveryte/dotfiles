@@ -183,7 +183,7 @@ end
 
 
 local function lsp()
-  local clients = vim.lsp.get_clients({bufnr=vim.api.nvim_get_current_buf()})
+  local clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
   local count = 0;
   for _, _ in pairs(clients) do
     count = count + 1
@@ -220,13 +220,15 @@ local config = {
     }
   },
   sections = {
-    lualine_a = { { lsp, color = { gui = 'bold' } } },
-    lualine_b = { hello, {
-      'diff',
-      symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
-      cond = conditions.hide_in_width,
-    }, 'diagnostics' },
-    lualine_c = { 'filename','filesize' },
+    lualine_a = {},
+    lualine_b = { hello,
+      { lsp, color = { gui = 'bold' } },
+      {
+        'diff',
+        symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
+        cond = conditions.hide_in_width,
+      }, 'diagnostics' },
+    lualine_c = { 'filename', 'filesize' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = {
       'progress',
