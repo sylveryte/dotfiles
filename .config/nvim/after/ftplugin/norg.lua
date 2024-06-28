@@ -30,18 +30,18 @@ local indentAndFormat =  function()
   local content = vim.api.nvim_buf_get_lines(0,0,-1,false)
   local text = table.concat(content,"\n")
   local isSyl = text:find('SYLNEWLINE',0,true)
+    local curWin = vim.api.nvim_get_current_win()
+    local lp = vim.api.nvim_win_get_cursor(curWin)
   if isSyl ~= nil then
     vim.cmd([[:%s/ SYLNEWLINE/\r/g]])
     vim.cmd([[:norm gg=G]])
-    -- map("n", "<localleader>p", "gg=G:%s/ SYLNEWLINE/\\r/g<CR>gg=G<C-o>zR", { desc = "Indent using =" })
+    -- vim.cmd([[:norm <C-o>]])
   else
     vim.cmd([[:norm gg=G]])
+    vim.print("hel")
   end
+  vim.api.nvim_win_set_cursor(curWin,lp)
 end
-
-
-
-
 
 
 vim.opt_local.wrap = false -- Disable line wrap
