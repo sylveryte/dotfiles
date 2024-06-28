@@ -41,6 +41,7 @@ local indentAndFormat =  function()
     vim.print("hel")
   end
   vim.api.nvim_win_set_cursor(curWin,lp)
+  vim.cmd([[:norm zz]])
 end
 
 
