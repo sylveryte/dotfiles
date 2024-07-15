@@ -25,6 +25,7 @@ end, { desc = 'Toggle the program runner' })
 -- web runners
 local npmrundev = fterm:new({ ft = 'fterm_npmrundev', cmd = "npm run dev" })
 local npmrunstart = fterm:new({ ft = 'fterm_npmrunstart', cmd = "npm run start" })
+local makerun = fterm:new({ ft = 'fterm_makerun', cmd = "make run" })
 
 map({'n','t','i'}, '<A-f>', function ()
   local buf = vim.api.nvim_buf_get_name(0)
@@ -38,4 +39,6 @@ end, { desc = "npm run dev" })
 map({'n','t'}, '<leader>rs', function()
   npmrunstart:toggle()
 end, { desc = "npm run start" })
-
+map({'n','t'}, '<leader>ru', function()
+  makerun:toggle()
+end, { desc = "make run" })

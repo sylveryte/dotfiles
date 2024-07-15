@@ -227,10 +227,34 @@ local config = {
         'diff',
         symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
         cond = conditions.hide_in_width,
-      }, 'diagnostics' },
-    lualine_c = { 'filename', 'filesize' },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+      }, 'diagnostics'
+    },
+    lualine_c = { 'filename', {
+      'filesize',
+      cond = conditions.hide_in_width,
+    }
+    },
+    lualine_x = {
+      {
+        'encoding',
+        cond = conditions.hide_in_width,
+      },
+      {
+
+        'fileformat',
+        cond = conditions.hide_in_width,
+      },
+      {
+
+        'filetype',
+        cond = conditions.hide_in_width,
+      }
+    },
     lualine_y = {
+      {
+        'location',
+        cond = conditions.hide_in_width,
+      },
       'progress',
     },
     lualine_z = { 'branch' }
