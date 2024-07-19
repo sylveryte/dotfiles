@@ -3,7 +3,7 @@ require("mason").setup()
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("mason-lspconfig").setup({
   ensure_installed = { "lua_ls", "gopls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals",
-    "astro", "marksman", "rust_analyzer", "cssls", "eslint" }
+    "astro", "marksman", "rust_analyzer", "cssls", "eslint","sqls" }
 })
 
 
@@ -16,6 +16,9 @@ lspconfig.rust_analyzer.setup {
   diagnostics = {
     enable = true,
   }
+}
+lspconfig.sqls.setup {
+  capabilities = capabilities
 }
 lspconfig.marksman.setup {
   capabilities = capabilities
