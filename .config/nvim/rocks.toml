@@ -136,6 +136,16 @@ git = "typicode/bg.nvim"
 git = "catppuccin/nvim"
 rev = "v1.7.0"
 
+[plugins.vim-dadbod]
+git = "tpope/vim-dadbod"
+rev = "v1.4^{}"
+
+[plugins.vim-dadbod-ui]
+git = "kristijanhusak/vim-dadbod-ui"
+
+[plugins.vim-dadbod-completion]
+git = "kristijanhusak/vim-dadbod-completion"
+
 # [plugins."auto-dark-mode.nvim"]
 # git = "f-person/auto-dark-mode.nvim"
 
