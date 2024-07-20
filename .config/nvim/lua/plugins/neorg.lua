@@ -57,12 +57,12 @@ neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, key
   -- Map all the below keybinds only when the "norg" mode is active
   keybinds.map_event_to_mode("norg", {
     n = {     -- Bind keys in normal mode
-      { "<localleader>f", "core.integrations.telescope.find_linkable" },
+      -- { "<localleader>f", "Telescope neorg find_linkables" }, already there check below
     },
 
     i = {     -- Bind in insert mode
-      { "<C-f>", "core.integrations.telescope.insert_link" },
-      { "<C-l>", "core.integrations.telescope.insert_file_link" },
+      { "<C-f>", ":Telescope neorg insert_link<CR>" },
+      { "<C-l>", ":Telescope neorg insert_file_link<CR>" },
       { "<S-Enter>", "core.itero.next-iteration" },
     },
   }, {
@@ -76,4 +76,4 @@ map("n", "<localleader>y", ":Neorg journal yesterday<CR>")
 map("n", "<localleader>u", ":Neorg journal today<CR>")
 map("n", "<localleader>o", ":Neorg journal tomorrow<CR>")
 map("n", "<localleader>w", ":Neorg workspace")
-map("n", "<localleader>f", ":Neorg keybind all core.integrations.telescope.find_norg_files<CR>")
+map("n", "<localleader>f", ":Telescope neorg find_linkable<CR>")
