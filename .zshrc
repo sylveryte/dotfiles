@@ -131,7 +131,7 @@ export FZF_CTRL_T_OPTS="
 
 eval "$(zoxide init zsh)"
 
-export VISUAL="$nvim10"
+export VISUAL="$nvim"
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
