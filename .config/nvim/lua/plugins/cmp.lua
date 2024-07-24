@@ -111,6 +111,7 @@ cmp.setup.filetype('gitcommit', {
 cmp.setup.filetype({ "sql" }, {
   sources = {
     { name = "vim-dadbod-completion" },
+    { name = 'nvim_lsp' },
     { name = "buffer" }
   }
 })

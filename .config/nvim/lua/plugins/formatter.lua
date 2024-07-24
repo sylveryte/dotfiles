@@ -20,6 +20,7 @@ require("formatter").setup {
     css = require("formatter.defaults.prettierd"),
     scss = require("formatter.defaults.prettierd"),
     json = require("formatter.defaults.prettierd"),
+    sql = require("formatter.filetypes.sql").pgformat,
 
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype

@@ -55,15 +55,16 @@ local neorg_callbacks = require("neorg.core.callbacks")
 
 neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
   -- Map all the below keybinds only when the "norg" mode is active
+ keybinds.remap_event("norg", "i", "<S-Enter>", "core.itero.next-iteration nested")
   keybinds.map_event_to_mode("norg", {
-    n = {     -- Bind keys in normal mode
-      -- { "<localleader>f", "Telescope neorg find_linkables" }, already there check below
-    },
-
+    -- n = {     -- Bind keys in normal mode
+    --   -- { "<localleader>f", "Telescope neorg find_linkables" }, already there check below
+    -- },
+    --
     i = {     -- Bind in insert mode
-      { "<C-f>", ":Telescope neorg insert_link<CR>" },
-      { "<C-l>", ":Telescope neorg insert_file_link<CR>" },
-      { "<S-Enter>", "core.itero.next-iteration" },
+    --   { "<C-f>", ":Telescope neorg insert_link<CR>" },
+    --   { "<C-l>", ":Telescope neorg insert_file_link<CR>" },
+    { "<S-Enter>", "core.itero.next-iteration" },
     },
   }, {
     silent = true,
