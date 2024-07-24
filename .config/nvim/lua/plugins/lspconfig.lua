@@ -3,14 +3,15 @@ require("mason").setup()
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("mason-lspconfig").setup({
   ensure_installed = { "lua_ls", "gopls", "angularls", "tailwindcss", "tsserver", "html", "emmet_ls", "prismals",
-    "astro", "marksman", "rust_analyzer", "cssls", "eslint", "sqls" }
+    "astro", "marksman", "rust_analyzer", "cssls", "eslint", "sqlls","sqlfluff","sql-formatter" }
 })
 
 
 lspconfig.astro.setup {}
 lspconfig.emmet_ls.setup {}
 lspconfig.rust_analyzer.setup {}
-lspconfig.sqls.setup {}
+lspconfig.sqlls.setup {}
+lspconfig.sqlfluff.setup { }
 lspconfig.marksman.setup {}
 lspconfig.cssls.setup {}
 lspconfig.prismals.setup {}
