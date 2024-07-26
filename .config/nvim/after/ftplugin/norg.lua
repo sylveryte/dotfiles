@@ -10,9 +10,9 @@ local navigateForward = function()
   local text = buffer_to_string()
   local isDoc = text:find('@document', 1, true)
   if isDoc ~= nil then
-    vim.cmd([[:norm gg0}}j$gd]])
+   vim.cmd([[:exe "norm gg0}}j$\<CR>0M"]])
   else
-    vim.cmd([[:norm gg0}j$gd]])
+   vim.cmd([[:exe "norm gg0}j$\<CR>0M"]])
   end
 end
 
@@ -20,9 +20,9 @@ local navigateBack = function()
   local text = buffer_to_string()
   local isDoc = text:find('@document', 1, true)
   if isDoc ~= nil then
-    vim.cmd([[:norm gg0}}jgd]])
+   vim.cmd([[:exe "norm gg0}}j\<CR>0M"]])
   else
-    vim.cmd([[:norm gg0}jgd]])
+   vim.cmd([[:exe "norm gg0}j\<CR>0M"]])
   end
 end
 
