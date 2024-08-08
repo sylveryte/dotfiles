@@ -27,7 +27,7 @@ local npmrundev = fterm:new({ ft = 'fterm_npmrundev', cmd = "npm run dev" })
 local npmrunstart = fterm:new({ ft = 'fterm_npmrunstart', cmd = "npm run start" })
 local makerun = fterm:new({ ft = 'fterm_makerun', cmd = "make run" })
 
-map({'n','t','i'}, '<A-f>', function ()
+map({'n','t','i'}, '<A-b>', function ()
   local buf = vim.api.nvim_buf_get_name(0)
   local exec = ' ' .. buf:match("(.*/)")
   fterm.run(exec)
