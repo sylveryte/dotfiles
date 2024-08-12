@@ -1,0 +1,4 @@
+[no border]
+Description=no border
+noborder=true
+noborderrule=3
