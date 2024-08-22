@@ -5,12 +5,15 @@
 export JAVA_HOME=$HOME/kento/android/android-studio/jbr
 export ANDROID_SDK_ROOT_ROOT=$HOME/kento/android
 export ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT_ROOT/Android/Sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT_ROOT/android-studio/bin
+export GOPATH="$HOME/go"
+export PATH=$PATH:$GOPATH/bin:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT_ROOT/android-studio/bin
 
 # nnn
 export NNN_PLUG='z:autojump;f:fzcd;l:fzplug;g:dragdrop;d:diffs;t:nmount;v:imgview;r:preview-tui;i:xdgdefault;e:!&dolphin "$PWD"'
 export NNN_FIFO=/tmp/nnn.fifo
 alias nn='nnn'
+alias zl='zellij --layout ~/sylveryte/dotfiles/zellij/wolf.kdl'
+alias zw='zellij --layout ~/work.kdl'
 alias ytfzf='ytfzf -T chafa --show-thumbnails'
 
 export NVM_DIR="$HOME/.nvm"
