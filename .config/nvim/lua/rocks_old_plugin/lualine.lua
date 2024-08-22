@@ -1,3 +1,5 @@
+local lualine = require('lualine')
+
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
@@ -115,10 +117,5 @@ local config = {
   theme = "auto"
 }
 
-return {
-  'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
-  config = function()
-    require("lualine").setup(config)
-  end
-}
+
+lualine.setup(config)
