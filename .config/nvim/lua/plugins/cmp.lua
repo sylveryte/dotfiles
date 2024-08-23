@@ -5,10 +5,12 @@ return {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
+    "mattn/emmet-vim", -- hehe different but cmp
     'L3MON4D3/LuaSnip',
     "luckasRanarison/tailwind-tools.nvim",
     "onsails/lspkind.nvim",
-    'saadparwaiz1/cmp_luasnip'
+    'saadparwaiz1/cmp_luasnip',
+    "rafamadriz/friendly-snippets"
   },
   config = function()
     local cmp = require 'cmp'
