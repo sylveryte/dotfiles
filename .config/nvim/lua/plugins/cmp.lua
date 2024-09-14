@@ -10,7 +10,7 @@ return {
     "luckasRanarison/tailwind-tools.nvim",
     "onsails/lspkind.nvim",
     'saadparwaiz1/cmp_luasnip',
-    "rafamadriz/friendly-snippets"
+    -- "rafamadriz/friendly-snippets"
   },
   config = function()
     local cmp = require 'cmp'

@@ -1,5 +1,4 @@
   local map = vim.keymap.set
-map("i", "<S-Enter>", "<Plug>(neorg.itero.next-iteration)", {})
 map("n", "<localleader>y", ":Neorg journal yesterday<CR>")
 map("n", "<localleader>u", ":Neorg journal today<CR>")
 map("n", "<localleader>o", ":Neorg journal tomorrow<CR>")

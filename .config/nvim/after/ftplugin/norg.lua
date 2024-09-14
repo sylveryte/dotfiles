@@ -47,6 +47,8 @@ end
 
 vim.opt_local.wrap = false   -- Disable line wrap
 vim.opt_local.textwidth = 60 -- for gqip formatting
+map("i", "<S-Enter>", "<Plug>(neorg.itero.next-iteration)", {})
+map("i", "<Tab>", "<Plug>(neorg.itero.next-iteration)", {})
 map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
 map("n", "<localleader>im", ":Neorg inject-metadata<CR>")
 map("n", "<localleader>b", ":Neorg toc<CR>")
