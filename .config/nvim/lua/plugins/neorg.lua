@@ -12,6 +12,11 @@ return {
     "benlubas/neorg-conceal-wrap",
     "nvim-neorg/neorg-telescope"
   },
+   opts = {
+      luarocks_build_args = {
+        "--with-lua-include=/usr/include",
+      },
+    },
   -- options for neorg. This will automatically call `require("neorg").setup(opts)`
   config = function()
     require("neorg").setup {
@@ -56,9 +61,9 @@ return {
         ["core.dirman"] = { -- Manages Neorg workspaces
           config = {
             workspaces = {
-              guthli = "~/kento/cloud/inkbox/notebooks/guthli",
-              sylbooks = "~/kento/cloud/blueworker/docs/sylbooks",
-              magma = "~/kento/cloud/paastry/notebooks/magma",
+              guthli = "~/cloud/inkbox/notebooks/guthli",
+              sylbooks = "~/cloud/blueworkerbee/docs/sylbooks",
+              magma = "~/cloud/paastry/notebooks/magma",
             },
             default_workspace = "magma"
           },

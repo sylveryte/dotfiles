@@ -14,4 +14,22 @@ return {
       ls.i(1),
     })
   ),
+  s(
+    {
+      trig = "vl",
+      name = "Validate tag",
+      dscr = "Add validate tag inside already a tag",
+    },
+    fmt("validate:\"{}\"", {
+      ls.i(1),
+    })
+  ),
+  s(
+    {
+      trig = "vlr",
+      name = "Validate tag required",
+      dscr = "Add validate tag inside already a tag",
+    },
+    ls.text_node("validate:\"required\"")
+  ),
 }
