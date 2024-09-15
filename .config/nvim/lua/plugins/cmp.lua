@@ -118,7 +118,7 @@ return {
         --   },
         --   { "i", "c" }
         -- ),
-        -- ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }, { "i", "c" }
+        ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }, { "i", "c" }),
         -- ), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -132,21 +132,22 @@ return {
             luasnip.change_choice(1)
           end
         end),
-        ['<CR>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            if luasnip.expandable() then
-              luasnip.expand()
-            else
-              cmp.confirm({
-                select = true,
-              })
-            end
-          else
-            fallback()
-          end
-        end),
+        -- this selects the snippet if available no matter sel3ected or not
+        -- ['<CR>'] = cmp.mapping(function(fallback)
+        --   if cmp.visible() then
+        --     if luasnip.expandable() then
+        --       luasnip.expand()
+        --     else
+        --       cmp.confirm({
+        --         select = true,
+        --       })
+        --     end
+        --   else
+        --     fallback()
+        --   end
+        -- end),
 
-        ["<A-n>"] = cmp.mapping(function(fallback)
+        ["<C-."] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(1) then
             luasnip.jump(1)
           else
@@ -155,7 +156,7 @@ return {
         end, { "i", "s" }),
 
 
-        ["<A-p>"] = cmp.mapping(function(fallback)
+        ["<C-,"] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
           else
