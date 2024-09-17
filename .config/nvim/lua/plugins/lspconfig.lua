@@ -20,7 +20,18 @@ return {
     lspconfig.angularls.setup {}
     lspconfig.gopls.setup {}
     lspconfig.tsserver.setup {}
-    lspconfig.tailwindcss.setup {}
+    lspconfig.tailwindcss.setup {
+      settings = {
+        tailwindCSS = {
+          experimental = {
+            classRegex = {
+              { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+              { "cx\\(([^)]*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" }
+            },
+          },
+        },
+      },
+    }
     lspconfig.eslint.setup {}
     lspconfig.html.setup {}
     lspconfig.lua_ls.setup {
