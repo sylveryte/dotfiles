@@ -21,6 +21,9 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/trisha/dotfiles/.vsnip" } })
 
+    vim.keymap.set({ "i", "s" }, "<C-.>", function() luasnip.jump(1) end)
+    vim.keymap.set({ "i", "s" }, "<C-,>", function() luasnip.jump(-1) end)
+
     require("tailwind-tools").setup({
       document_color = {
         enabled = false, -- can be toggled by commands
@@ -127,27 +130,7 @@ return {
 
 
         -- luasnip mappings
-        ['<C-e>'] = cmp.mapping(function(fallback)
-          if luasnip.choice_active() then
-            luasnip.change_choice(1)
-          end
-        end),
-        -- this selects the snippet if available no matter sel3ected or not
-        -- ['<CR>'] = cmp.mapping(function(fallback)
-        --   if cmp.visible() then
-        --     if luasnip.expandable() then
-        --       luasnip.expand()
-        --     else
-        --       cmp.confirm({
-        --         select = true,
-        --       })
-        --     end
-        --   else
-        --     fallback()
-        --   end
-        -- end),
-
-        ["<C-."] = cmp.mapping(function(fallback)
+        ["<A-n>"] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(1) then
             luasnip.jump(1)
           else
@@ -155,14 +138,35 @@ return {
           end
         end, { "i", "s" }),
 
-
-        ["<C-,"] = cmp.mapping(function(fallback)
+        ["<A-p>"] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
           else
             fallback()
           end
         end, { "i", "s" }),
+        ['<C-e>'] = cmp.mapping(function(fallback)
+          if luasnip.choice_active() then
+            luasnip.change_choice(1)
+          else
+            fallback()
+          end
+        end),
+        -- -- this selects the snippet if available no matter sel3ected or not
+        -- -- ['<CR>'] = cmp.mapping(function(fallback)
+        -- --   if cmp.visible() then
+        -- --     if luasnip.expandable() then
+        -- --       luasnip.expand()
+        -- --     else
+        -- --       cmp.confirm({
+        -- --         select = true,
+        -- --       })
+        -- --     end
+        -- --   else
+        -- --     fallback()
+        -- --   end
+        -- -- end),
+        --
 
       }),
       sources = cmp.config.sources({

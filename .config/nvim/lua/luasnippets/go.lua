@@ -3,6 +3,20 @@ local fmt = require("luasnip.extras.fmt").fmt
 local s = ls.snippet
 local f = ls.function_node
 
+local function fn(
+    args,     -- text from i(2) in this example i.e. { { "456" } }
+    parent,   -- parent snippet or parent node
+    user_args -- user_args from opts.user_args
+)
+  local env = parent.snippet.env
+  local trimmed = string.gsub(env.TM_CURRENT_LINE, "^%s+", "") --trim start
+  local fwf = string.gmatch(trimmed, "(%S*)")                  -- get matching pattern anything not %s %S is complementary
+  local fwl = string.gsub(fwf(), "^%u", string.lower)
+
+  return fwl
+end
+
+
 return {
   s(
     {
@@ -10,8 +24,9 @@ return {
       name = "JSON tag",
       dscr = "Add json tag",
     },
-    fmt("`json:\"{}\"`", {
-      ls.i(1),
+    fmt("`json:\"{}\"{}`", {
+      f(fn),
+      ls.i(1)
     })
   ),
   s(
@@ -93,7 +108,7 @@ return {
     fmt([[
 		msg := "{}"
 		h.ErrorResponse(fmt.Errorf(msg), {}, msg, w)
-    ]], { ls.i(1),ls.i(2) }
+    ]], { ls.i(1), ls.i(2) }
     )
   ),
 }

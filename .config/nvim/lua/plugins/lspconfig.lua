@@ -19,7 +19,7 @@ return {
     lspconfig.cssls.setup {}
     lspconfig.angularls.setup {}
     lspconfig.gopls.setup {}
-    lspconfig.tsserver.setup {}
+    lspconfig.ts_ls.setup {}
     lspconfig.tailwindcss.setup {
       settings = {
         tailwindCSS = {

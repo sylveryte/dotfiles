@@ -13,12 +13,11 @@ keybinds {
         bind "Alt f" { ToggleFocusFullscreen;}
         bind "Alt u" { GoToPreviousTab; }
         bind "Alt i" { GoToNextTab; }
-        bind "Alt p" { SwitchToMode "Pane"; }
+        bind "Alt o" { SwitchToMode "Pane"; }
         bind "Alt t" { SwitchToMode "Tab"; }
-        bind "Alt n" { SwitchToMode "Resize"; }
+        bind "Alt r" { SwitchToMode "Resize"; }
     }
     resize {
-        bind "Alt n" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
         bind "j" "Down" { Resize "Increase Down"; }
         bind "k" "Up" { Resize "Increase Up"; }
@@ -31,7 +30,6 @@ keybinds {
         bind "-" { Resize "Decrease"; }
     }
     pane {
-        bind "Alt p" { SwitchToMode "Locked"; }
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
         bind "j" "Down" { MoveFocus "Down"; }
@@ -147,7 +145,6 @@ keybinds {
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Quit; }
-        bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt j" "Alt Down" { MoveFocus "Down"; }
