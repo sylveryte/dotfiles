@@ -12,6 +12,9 @@ local function fn(
   return env.TM_FILENAME_BASE
 end
 
+local function rep1(arg)
+  return string.gsub(arg[1][1], "^%l", string.upper)
+end
 
 
 return {
@@ -69,6 +72,44 @@ export const {} = () {{
   ]], {
       ls.function_node(fn),
       ls.i(1)
+    })
+  ),
+  s(
+    {
+      trig = "cl",
+      name = "consolelog",
+      dscr = "consolelog",
+    },
+    fmt("console.log('sylc {}')", {
+      ls.i(1),
+    })
+  ),
+  s(
+    {
+      trig = "tsi",
+      name = "tsignore next line",
+      dscr = "tsignore next line typescript",
+    },
+    fmt("// @ts-ignore:next-line ", {})
+  ),
+  s(
+    {
+      trig = "tsix",
+      name = "tsignore next line",
+      dscr = "tsignore next line tsx",
+    },
+    ls.text_node("{/* @ts-ignore:next-line */}")
+  ),
+  s({
+      trig = "us",
+      name = "Use state",
+      dscr = "Use state",
+    },
+    fmt([[const [{},set{}] = useState<{}>({}) ]], {
+      ls.i(1),
+      ls.function_node(rep1, { 1 }),
+      ls.i(2),
+      ls.i(0),
     })
   )
 }
