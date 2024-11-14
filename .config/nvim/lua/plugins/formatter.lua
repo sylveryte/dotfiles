@@ -15,14 +15,14 @@ return {
       filetype = {
         -- Formatter configurations for filetype "lua" go here
         -- and will be executed in order
-        typescriptreact = require("formatter.defaults.prettierd"),
-        typescript = require("formatter.defaults.prettierd"),
-        javascript = require("formatter.defaults.prettierd"),
-        javascriptreact = require("formatter.defaults.prettierd"),
-        html = require("formatter.defaults.prettierd"),
-        css = require("formatter.defaults.prettierd"),
-        scss = require("formatter.defaults.prettierd"),
-        json = require("formatter.defaults.prettierd"),
+        typescriptreact = require("formatter.defaults.prettier"),
+        typescript = require("formatter.defaults.prettier"),
+        javascript = require("formatter.defaults.prettier"),
+        javascriptreact = require("formatter.defaults.prettier"),
+        html = require("formatter.defaults.prettier"),
+        css = require("formatter.defaults.prettier"),
+        scss = require("formatter.defaults.prettier"),
+        json = require("formatter.defaults.prettier"),
         sql = require("formatter.filetypes.sql").pgformat,
 
         -- Use the special "*" filetype for defining formatter configurations on

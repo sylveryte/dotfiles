@@ -47,7 +47,7 @@ return {
 interface OwnProps {{
     {}
 }}
-export const {} = ({{ }}:OwnProps) {{
+export const {} = ({{ }}:OwnProps) => {{
   return (
   {}
   )
@@ -64,7 +64,7 @@ export const {} = ({{ }}:OwnProps) {{
       dscr = "React Functional COmponent",
     },
     fmt([[
-export const {} = () {{
+export const {} = ()=> {{
   return (
   {}
   )
@@ -110,6 +110,18 @@ export const {} = () {{
       ls.function_node(rep1, { 1 }),
       ls.i(2),
       ls.i(0),
+    })
+  ),
+  s({
+      trig = "uf",
+      name = "Use effect",
+      dscr = "Use effect",
+    },
+    fmt([[useEffect(()=>{{
+      {}
+    }},[{}])]], {
+      ls.i(0),
+      ls.i(1),
     })
   )
 }

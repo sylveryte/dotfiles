@@ -111,4 +111,15 @@ return {
     ]], { ls.i(1), ls.i(2) }
     )
   ),
+  s(
+    {
+      trig = "ps",
+      name = "Print struct better",
+      dscr = "Print struct better",
+    },
+    fmt([[
+  fmt.Printf("%+v\n",{})
+    ]], { ls.i(1)}
+    )
+  ),
 }
