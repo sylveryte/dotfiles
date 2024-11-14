@@ -10,6 +10,10 @@ return {
   config = function()
     require('telescope').load_extension('zoxide')
     require('telescope').load_extension('frecency')
+    require("frecency.config").setup {
+      auto_validate = true,
+      db_validate_threshold = 100
+    }
     require('telescope').setup(
       {
         matchup = {
