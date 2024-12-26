@@ -207,7 +207,7 @@ return {
         position = 'left',
         -- Amount of padding to add around the language
         -- If a floating point value < 1 is provided it is treated as a percentage of the available window space
-        language_pad = 0,
+        language_pad = 1,
         -- Whether to include the language name next to the icon
         language_name = true,
         -- A list of language names for which background highlighting will be disabled
@@ -218,24 +218,24 @@ return {
         -- Width of the code block background:
         --  block: width of the code block
         --  full:  full width of the window
-        width = 'full',
+        width = 'block',
         -- Amount of margin to add to the left of code blocks
         -- If a floating point value < 1 is provided it is treated as a percentage of the available window space
         -- Margin available space is computed after accounting for padding
         left_margin = 0,
         -- Amount of padding to add to the left of code blocks
         -- If a floating point value < 1 is provided it is treated as a percentage of the available window space
-        left_pad = 0,
+        left_pad = 2,
         -- Amount of padding to add to the right of code blocks when width is 'block'
         -- If a floating point value < 1 is provided it is treated as a percentage of the available window space
-        right_pad = 0,
+        right_pad = 2,
         -- Minimum width to use for code blocks when width is 'block'
         min_width = 0,
         -- Determines how the top / bottom of code block are rendered:
         --  none:  do not render a border
         --  thick: use the same highlight as the code body
         --  thin:  when lines are empty overlay the above & below icons
-        border = 'thin',
+        border = 'thick',
         -- Used above code blocks for thin border
         above = '▄',
         -- Used below code blocks for thin border
