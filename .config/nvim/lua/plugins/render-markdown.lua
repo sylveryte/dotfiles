@@ -97,8 +97,32 @@ return {
         -- Replaces '#+' of 'atx_h._marker'
         -- The number of '#' in the heading determines the 'level'
         -- The 'level' is used to index into the list using a cycle
-        icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+        -- icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
         -- icons = { "◆ ", "❖ ", "◈ ", "◇ ", "⟡ ", "⋄ " },
+        -- icons = {
+        --    "█ ",
+        --    "██ ",
+        --    "███ ",
+        --    "████ ",
+        --    "█████ ",
+        --    "██████ ",
+        --  },
+        icons = {
+          "█ ",
+          "██ ",
+          "███ ",
+          "████ ",
+          "█████ ",
+          "██████ ",
+        },
+        -- icons = {
+        --   " ",
+        --   " ",
+        --   " ",
+        --   " ",
+        --   " ",
+        --   " ",
+        -- },
         -- Added to the sign column if enabled
         -- The 'level' is used to index into the list using a cycle
         signs = { '󰫎 ' },
@@ -107,7 +131,8 @@ return {
         --  full:  full width of the window
         -- Can also be a list of the above values in which case the 'level' is used
         -- to index into the list using a clamp
-        width = {'full','full','block','block','block','block'},
+        -- width = { 'full', 'full', 'block', 'block', 'block', 'block' },
+        width = 'full',
         -- Amount of margin to add to the left of headings
         -- If a floating point value < 1 is provided it is treated as a percentage of the available window space
         -- Margin available space is computed after accounting for padding
@@ -140,20 +165,20 @@ return {
         backgrounds = {
           'RenderMarkdownH1Bg',
           'RenderMarkdownH2Bg',
-          'RenderMarkdownH2Bg',
-          'RenderMarkdownH2Bg',
-          'RenderMarkdownH2Bg',
-          'RenderMarkdownH2Bg',
+          'RenderMarkdownH3Bg',
+          'RenderMarkdownH4Bg',
+          'RenderMarkdownH5Bg',
+          'RenderMarkdownH6Bg',
         },
         -- The 'level' is used to index into the list using a clamp
         -- Highlight for the heading and sign icons
         foregrounds = {
           'RenderMarkdownH1',
           'RenderMarkdownH2',
-          'RenderMarkdownH2',
-          'RenderMarkdownH2',
-          'RenderMarkdownH2',
-          'RenderMarkdownH2',
+          'RenderMarkdownH3',
+          'RenderMarkdownH4',
+          'RenderMarkdownH5',
+          'RenderMarkdownH6',
         },
       },
       paragraph = {
