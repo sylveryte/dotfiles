@@ -239,7 +239,7 @@ return {
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
         for i = 1, 7 do
-          ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F-%A") .. '|' .. d:setisoweekday(i):fmt("%A") .. ']] SYLNEWLINE'
+          ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F") .. '|' .. d:setisoweekday(i):fmt("%A") .. ']] SYLNEWLINE'
         end
         return ds
       end, {}),
