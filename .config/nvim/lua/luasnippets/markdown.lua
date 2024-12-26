@@ -10,7 +10,7 @@ local function getFileNameWithoutExtension(snip)
 end
 
 return {
-  s( 
+  s(
     {
       trig = "meeting",
       name = "Meeting Template",
@@ -27,7 +27,7 @@ return {
       ls.i(1),
     })
   ),
-  s( 
+  s(
     {
       trig = "linkproperty",
       name = "Link Property",
@@ -38,7 +38,7 @@ return {
       ls.i(2),
     })
   ),
-  s( 
+  s(
     {
       trig = "fileTitle",
       name = "file title",
@@ -50,7 +50,7 @@ return {
       end, {}),
     })
   ),
-  s( 
+  s(
     {
       trig = "selflink",
       name = "self link",
@@ -62,14 +62,14 @@ return {
       end, {}),
     })
   ),
-  s( 
+  s(
     {
       trig = "conclusion",
       name = "conclusion_template",
       dscr = "Conclusion for review of day/week/month/year",
     },
     fmt(
-    "## Conclusion for this {}\n\n### Best thing happened this {}?\n\n1. {}\n\n### Worst thing happened this {}?\n\n1. {}\n\n### Things learned?\n\n- {}\n\n### Needs improvment for the next {}\n\n1. {}\n\n",
+      "## Conclusion for this {}\n\n### Best thing happened this {}?\n\n1. {}\n\n### Worst thing happened this {}?\n\n1. {}\n\n### Things learned?\n\n- {}\n\n### Needs improvment for the next {}\n\n1. {}\n\n",
       {
         ls.i(1, "sylplaceholder"),
         extras.rep(1),
@@ -81,7 +81,7 @@ return {
         ls.i(5),
       })
   ),
-  s( 
+  s(
     {
       trig = "goals",
       name = "goals_template",
@@ -96,13 +96,13 @@ return {
     })
   ),
 
-  s( 
+  s(
     {
       trig = "yearly",
       name = "yearly_template",
       dscr = "Create Yearly Template Based on FileName",
     },
-    fmt("# {}\n\n[[{}]]  <== [[{}]] ==>  [[{}]]\n\nYear:\n{}\n---\n\ngoal{}\n\n---\n\n:)\n", {
+    fmt("# {}\n\n[[{}]]  < [[{}]] >  [[{}]]\n\n{}\n---\n\ngoal{}\n\n---\n\n:)\n", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
@@ -127,7 +127,7 @@ return {
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1-1')
         for i = 1, 12 do
-          ds = ds .. '[[' .. d:fmt("%Y-%B") .. ']] SYLNEWLINE'
+          ds = ds .. '[[' .. d:fmt("%Y-%B") .. '|' .. d:fmt("%B") .. ']] SYLNEWLINE'
           d = d:addmonths(1)
         end
         return ds
@@ -135,15 +135,15 @@ return {
 
       ls.i(0),
     })
-  ), 
+  ),
 
-  s( 
+  s(
     {
       trig = "monthly",
       name = "monthly_template",
       dscr = "Create Monthly Template Based on FileName",
     },
-    fmt("# {}\n\n[[{}]]  <== [[{}]] ==>  [[{}]]\n\nMonth:\n{}\n---\n\ngoal{}\n\n---\nYear: [[{}]]\n", {
+    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n{}\n---\n\ngoal{}\n\n---\n[[{}]]\n", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
@@ -153,9 +153,18 @@ return {
         d = d:addmonths(-1)
         return d:fmt("%Y-%B")
       end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:addmonths(-1)
+        return d:fmt("%B")
+      end, {}),
 
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
+      end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        return d:fmt("%B")
       end, {}),
 
       ls.f(function(_, snip)
@@ -163,12 +172,18 @@ return {
         d = d:addmonths(1)
         return d:fmt("%Y-%B")
       end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:addmonths(1)
+        return d:fmt("%B")
+      end, {}),
+
 
       ls.f(function(_, snip)
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
         for i = 1, 5 do
-          ds = ds .. '[[' .. d:fmt("%Y-W%W") .. ']] SYLNEWLINE'
+          ds = ds .. '[[' .. d:fmt("%Y-W%W") .. '|' .. d:fmt("W%W") .. ']] SYLNEWLINE'
           d = d:adddays(7)
         end
         return ds
@@ -181,15 +196,15 @@ return {
         return d:fmt("%Y")
       end, {}),
     })
-  ), 
+  ),
 
-  s( 
+  s(
     {
       trig = "weekly",
       name = "weekly_template",
       dscr = "Create Weekly Template Based on FileName",
     },
-    fmt("# {}\n\n[[{}]]  <== [[{}]] ==>  [[{}]]\n\nWeek:\n{}\n---\n\ngoal{}\n\n---\nMonth: [[{}]]\nYear: [[{}]]\n", {
+    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n{}\n---\n\ngoal{}\n\n---\n[[{}|{}]] [[{}]]\n", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
@@ -199,7 +214,16 @@ return {
         return d:fmt("%Y-W%W")
       end, {}),
       ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(-7)
+        return d:fmt("W%W")
+      end, {}),
+      ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
+      end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        return d:fmt("W%W")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
@@ -207,10 +231,15 @@ return {
         return d:fmt("%Y-W%W")
       end, {}),
       ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(7)
+        return d:fmt("W%W")
+      end, {}),
+      ls.f(function(_, snip)
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
         for i = 1, 7 do
-          ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F-%A") .. ']] SYLNEWLINE'
+          ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F-%A") .. '|' .. d:setisoweekday(i):fmt("%A") .. ']] SYLNEWLINE'
         end
         return ds
       end, {}),
@@ -221,35 +250,55 @@ return {
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        return d:fmt("%B")
+      end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
         return d:fmt("%Y")
       end, {}),
     })
-  ), 
+  ),
 
-  s( 
+  s(
     {
       trig = "daily",
       name = "daily_template",
       dscr = "Create Daily Template Based on FileName",
     },
     fmt(
-      "# {}\n\n[[{}]]  <== [[{}]] ==>  [[{}]]\n\n---\ngoal{}\n---\nWeek: [[{}]]\nMonth: [[{}]]\nYear: [[{}]]\n",
+      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]]  [[{}|{}]] [[{}]]",
       {
         ls.f(function(_, snip)
-          return getFileNameWithoutExtension(snip)
+          local fname = getFileNameWithoutExtension(snip)
+          local d = date(fname)
+          return fname .. d:fmt(" %A")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
           d = d:adddays(-1)
-          return d:fmt("%F-%A")
+          return d:fmt("%F")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          d = d:adddays(-1)
+          return d:fmt("%A")
         end, {}),
         ls.f(function(_, snip)
           return getFileNameWithoutExtension(snip)
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("%A")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
           d = d:adddays(1)
-          return d:fmt("%F-%A")
+          return d:fmt("%F")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          d = d:adddays(1)
+          return d:fmt("%A")
         end, {}),
         ls.i(0),
         ls.f(function(_, snip)
@@ -258,22 +307,30 @@ return {
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("W%W")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y-%B")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("%B")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y")
         end, {}),
       })
-  ), 
+  ),
 
-  s( 
+  s(
     {
       trig = "wweekly",
       name = "work_weekly_template",
       dscr = "Create Weekly Work Template Based on FileName",
     },
-    fmt("# {}\n\n[[{}]]  <== [[{}]] ==>  [[{}]]\n\nWeek:\n{}\n---\n\ngoal{}\n\n---\nMonth: [[{}]]\nYear: [[{}]]\n", {
+    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n{}\n---\n\ngoal{}\n\n---\n[[{}|{}]] [[{}]]\n", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
@@ -283,7 +340,16 @@ return {
         return d:fmt("%Y-W%W")
       end, {}),
       ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(-7)
+        return d:fmt("W%W")
+      end, {}),
+      ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
+      end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        return d:fmt("W%W")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
@@ -291,10 +357,15 @@ return {
         return d:fmt("%Y-W%W")
       end, {}),
       ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(7)
+        return d:fmt("W%W")
+      end, {}),
+      ls.f(function(_, snip)
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
         for i = 1, 5 do
-          ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F-%A") .. ']] SYLNEWLINE'
+          ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F-%A") .. '|' .. d:setisoweekday(i):fmt("%A") .. ']] SYLNEWLINE'
         end
         return ds
       end, {}),
@@ -305,22 +376,28 @@ return {
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        return d:fmt("%B")
+      end, {}),
+      ls.f(function(_, snip)
+        local d = date(getFileNameWithoutExtension(snip) .. '-1')
         return d:fmt("%Y")
       end, {}),
     })
-  ), 
+  ),
 
-  s( 
+  s(
     {
       trig = "wdaily",
       name = "work_daily_template",
       dscr = "Create Daily Template Based on FileName Work",
     },
     fmt(
-    "# {}\n\n[[{}]]  <== [[{}]] ==>  [[{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\nSprint: [[{}]]\nWeek: [[{}]]\nMonth: [[{}]]\nYear: [[{}]]",
+      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]]  [[{}|{}]] [[{}]]",
       {
         ls.f(function(_, snip)
-          return getFileNameWithoutExtension(snip)
+          local fname = getFileNameWithoutExtension(snip)
+          local d = date(fname)
+          return fname .. d:fmt(" %A")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -329,10 +406,23 @@ return {
           else
             d = d:adddays(-1)
           end
-          return d:fmt("%F-%A")
+          return d:fmt("%F")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          if d:getweekday() == 2 then
+            d = d:adddays(-3)
+          else
+            d = d:adddays(-1)
+          end
+          return d:fmt("%A")
         end, {}),
         ls.f(function(_, snip)
           return getFileNameWithoutExtension(snip)
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("%A")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -341,13 +431,25 @@ return {
           else
             d = d:adddays(1)
           end
-          return d:fmt("%F-%A")
+          return d:fmt("%F")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          if d:getweekday() == 6 then
+            d = d:adddays(3)
+          else
+            d = d:adddays(1)
+          end
+          return d:fmt("%A")
         end, {}),
         ls.i(0),
-        ls.i(1),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y-W%W")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("W%W")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -355,12 +457,16 @@ return {
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("%B")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y")
         end, {}),
       })
-  ), 
+  ),
 
-  s( 
+  s(
     {
       trig = "link",
       name = "markdown_link",
@@ -373,11 +479,23 @@ return {
       end, {}),
       ls.i(0),
     })
-  ), 
+  ),
 
   s( -- Codeblock {{{
     {
       trig = "codeblock",
+      name = "New code block",
+      dscr = "Codeblock",
+    },
+    fmt("```{}\n{}\n```\n", {
+      ls.i(1, "Language"),
+      ls.i(0),
+    })
+  ),
+
+  s( -- Codeblock {{{
+    {
+      trig = "codeblockmake",
       name = "Make code block",
       dscr = "Select text, Man press <C-s>, type codeblock.",
     },
@@ -390,6 +508,5 @@ return {
       end, {}),
       ls.i(0),
     })
-  ), 
+  ),
 }
-

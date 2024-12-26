@@ -171,7 +171,15 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'neorg' },
-        { name = 'nvim_lsp' },
+        {
+          name = 'nvim_lsp',
+          option = {
+            markdown_oxide = {
+              keyword_pattern = [[\(\k\| \|\/\|#\)\+]]
+            }
+          }
+        },
+        { name = 'render-markdown' },
         { name = 'luasnip' }, -- For luasnip users.
         { name = 'nvim_lsp_signature_help' },
         { name = 'cmp-tw2css' },
