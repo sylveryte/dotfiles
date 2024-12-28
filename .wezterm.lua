@@ -31,14 +31,14 @@ local function setcolorscheme(appearance)
     -- config.color_scheme = 'UnderTheSea'
     -- config.color_scheme = 'Tango (base16)'
     -- config.color_scheme = 'VWbug (terminal.sexy)' -- coffeeeee
-    config.color_scheme = 'Unsifted Wheat (terminal.sexy)'
+    -- config.color_scheme = 'Unsifted Wheat (terminal.sexy)'
     config.color_scheme = 'Bamboo Multiplex'
+    -- config.color_scheme = 'Toy Chest (Gogh)'
   else
     -- config.color_scheme = 'Tomorrow (Gogh)'
     -- config.color_scheme = 'Alabaster'
-    -- config.color_scheme = 'Toy Chest (Gogh)'
-    -- config.color_scheme = 'Atelierdune (light) (terminal.sexy)'
-    config.color_scheme = 'Tokyo Night Day'
+    config.color_scheme = 'Atelierdune (light) (terminal.sexy)'
+    -- config.color_scheme = 'Tokyo Night Day'
     -- config.color_scheme = 'Bamboo Light'
     -- config.color_scheme = 'Belafonte Day'
   end
