@@ -68,7 +68,7 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<localleader>r', ':RunCode<CR>', { noremap = true, silent = false })
+    vim.keymap.set('n', '<localleader>r', ':RunCode<CR>', { desc="Run code based on file code_runner" ,noremap = true, silent = false })
     -- vim.keymap.set('n', '<localleader>rf', ':RunFile<CR>', { noremap = true, silent = false })
     -- vim.keymap.set('n', '<localleader>rft', ':RunFile tab<CR>', { noremap = true, silent = false })
     -- vim.keymap.set('n', '<localleader>rp', ':RunProject<CR>', { noremap = true, silent = false })

@@ -37,9 +37,9 @@ local function setcolorscheme(appearance)
     -- config.color_scheme = 'Tomorrow (Gogh)'
     -- config.color_scheme = 'Alabaster'
     -- config.color_scheme = 'Toy Chest (Gogh)'
-    config.color_scheme = 'Atelierdune (light) (terminal.sexy)'
+    -- config.color_scheme = 'Atelierdune (light) (terminal.sexy)'
     config.color_scheme = 'Tokyo Night Day'
-    config.color_scheme = 'Bamboo Light'
+    -- config.color_scheme = 'Bamboo Light'
     -- config.color_scheme = 'Belafonte Day'
   end
 end

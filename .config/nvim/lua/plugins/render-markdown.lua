@@ -47,7 +47,7 @@ return {
       render_modes = { 'n', 'c', 't' },
       anti_conceal = {
         -- This enables hiding any added text on the line the cursor is on
-        enabled = true,
+        enabled = false,
         -- Which elements to always show, ignoring anti conceal behavior. Values can either be booleans
         -- to fix the behavior or string lists representing modes where anti conceal behavior will be
         -- ignored. Possible keys are:
@@ -299,10 +299,10 @@ return {
         -- Determines how icons fill the available space:
         --  inline:  underlying text is concealed resulting in a left aligned icon
         --  overlay: result is left padded with spaces to hide any additional text
-        position = 'inline',
+        position = 'overlay',
         unchecked = {
           -- Replaces '[ ]' of 'task_list_marker_unchecked'
-          icon = '󰄱 ',
+          icon = '󰝦 ',
           -- Highlight for the unchecked icon
           highlight = 'RenderMarkdownUnchecked',
           -- Highlight for item associated with unchecked checkbox
@@ -310,7 +310,7 @@ return {
         },
         checked = {
           -- Replaces '[x]' of 'task_list_marker_checked'
-          icon = '󰱒 ',
+          icon = '󰗠 ',
           -- Highlight for the checked icon
           highlight = 'RenderMarkdownChecked',
           -- Highlight for item associated with checked checkbox
@@ -325,9 +325,28 @@ return {
         --   'highlight':       Highlight for the 'rendered' icon
         --   'scope_highlight': Highlight for item associated with custom checkbox
         custom = {
-          todo = { raw = '[-]', rendered = '󰥔 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
-          canceled = { raw = '[c]', rendered = '󰩹 ', highlight = 'RenderMarkdownCancelled', scope_highlight = nil },
-          question = { raw = '[q]', rendered = ' ', highlight = 'RenderMarkdownCancelled', scope_highlight = nil },
+          todo = { raw = '[ ]', rendered = '󰝦 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+          incomplete = { raw = '[/]', rendered = '󱎖 ', highlight = 'RenderMarkdownWarn', scope_highlight = nil },
+          done = { raw = '[x]', rendered = '󰄳 ', highlight = 'RenderMarkdownDone', scope_highlight = nil },
+          canceled = { raw = '[-]', rendered = '󰩺 ', highlight = 'RenderMarkdownWarn', scope_highlight = nil },
+          forwarded = { raw = '[>]', rendered = '󰷹 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          scheduling = { raw = '[<]', rendered = '󰻙 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          question = { raw = '[?]', rendered = '󱍊 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          important = { raw = '[!]', rendered = '󱈸 ', highlight = 'RenderMarkdownError', scope_highlight = nil },
+          star = { raw = '[*]', rendered = '󰓒 ', highlight = 'RenderMarkdownHint', scope_highlight = nil },
+          quote = { raw = '["]', rendered = '󱀢 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          location = { raw = '[l]', rendered = '󱋼 ', highlight = 'RenderMarkdownWarn', scope_highlight = nil },
+          bookmark = { raw = '[b]', rendered = '󰃃 ', highlight = 'RenderMarkdownError', scope_highlight = nil },
+          information = { raw = '[i]', rendered = '󰋽 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          savings = { raw = '[S]', rendered = '󱀇 ', highlight = 'RenderMarkdownSuccess', scope_highlight = nil },
+          idea = { raw = '[e]', rendered = '󱩓 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          pros = { raw = '[p]', rendered = '󰔔 ', highlight = 'RenderMarkdownSuccess', scope_highlight = nil },
+          cons = { raw = '[c]', rendered = '󰔒 ', highlight = 'RenderMarkdownWarn', scope_highlight = nil },
+          fire = { raw = '[f]', rendered = '󰈸 ', highlight = 'RenderMarkdownError', scope_highlight = nil },
+          key = { raw = '[k]', rendered = '󰌋 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          win = { raw = '[w]', rendered = '󰔻 ', highlight = 'RenderMarkdownWarn', scope_highlight = nil },
+          up = { raw = '[u]', rendered = '󰸇 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          down = { raw = '[d]', rendered = '󰮏 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
         },
       },
       quote = {
@@ -342,7 +361,7 @@ return {
         -- to avoid adding these to your main configuration then set them in win_options for this plugin.
         repeat_linebreak = false,
         -- Highlight for the quote icon
-        highlight = 'RenderMarkdownQuote',
+        highlight = 'RenderMarkdownInfo',
       },
       pipe_table = {
         -- Turn on / off pipe table rendering
@@ -420,8 +439,8 @@ return {
         error = { raw = '[!ERROR]', rendered = '󱐌 Error', highlight = 'RenderMarkdownError' },
         bug = { raw = '[!BUG]', rendered = '󰨰 Bug', highlight = 'RenderMarkdownError' },
         example = { raw = '[!EXAMPLE]', rendered = '󰉹 Example', highlight = 'RenderMarkdownHint' },
-        quote = { raw = '[!QUOTE]', rendered = '󱆨 Quote', highlight = 'RenderMarkdownQuote' },
-        cite = { raw = '[!CITE]', rendered = '󱆨 Cite', highlight = 'RenderMarkdownQuote' },
+        quote = { raw = '[!QUOTE]', rendered = '󱆨 Quote', highlight = 'RenderMarkdownInfo' },
+        cite = { raw = '[!CITE]', rendered = '󱆨 Cite', highlight = 'RenderMarkdownInfo' },
       },
       link = {
         -- Turn on / off inline link icon rendering
@@ -541,5 +560,7 @@ return {
       -- See 'Custom Handlers' document for more info
       custom_handlers = {},
     })
+
+    vim.keymap.set('n', '<C-e>', ':RenderMarkdown toggle<CR>', { noremap = true, desc="RenderMarkdown toggle" , silent = false })
   end
 }
