@@ -47,7 +47,7 @@ return {
       render_modes = { 'n', 'c', 't' },
       anti_conceal = {
         -- This enables hiding any added text on the line the cursor is on
-        enabled = false,
+        enabled = true,
         -- Which elements to always show, ignoring anti conceal behavior. Values can either be booleans
         -- to fix the behavior or string lists representing modes where anti conceal behavior will be
         -- ignored. Possible keys are:
@@ -56,6 +56,11 @@ return {
         ignore = {
           code_background = true,
           sign = true,
+          check_icon=true,
+          -- head_icon=true,
+          head_background=true,
+          dash=true,
+          -- bullet=true,
         },
         -- Number of lines above cursor to show
         above = 0,
@@ -299,7 +304,7 @@ return {
         -- Determines how icons fill the available space:
         --  inline:  underlying text is concealed resulting in a left aligned icon
         --  overlay: result is left padded with spaces to hide any additional text
-        position = 'overlay',
+        position = 'inline',
         unchecked = {
           -- Replaces '[ ]' of 'task_list_marker_unchecked'
           icon = '󰝦 ',
