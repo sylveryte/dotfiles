@@ -103,5 +103,4 @@ map("n", "<S-x>", function()
   resetToggle()
 end, { desc = "Reverse toggle task" })
 
-map("n", "<localleader>Wn", ":set nowrap<CR>", { desc = "No Wrap" })
-map("n", "<localleader>W", ":set wrap<CR>", { desc = "Wrap" })
+map("n", "<localleader>W", ":set wrap!<CR>", { desc = "Wrap" })
