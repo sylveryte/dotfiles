@@ -77,6 +77,7 @@ return {
           --
           -- default: {}
           symbol_map = {
+            NatDat = "󰭧",
             Text = "󰉿",
             Method = "󰆧",
             Function = "󰊕",
@@ -171,6 +172,7 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'neorg' },
+        { name = "natdat" },
         {
           name = 'nvim_lsp',
           option = {
@@ -184,7 +186,6 @@ return {
         { name = 'nvim_lsp_signature_help' },
         { name = 'cmp-tw2css' },
         { name = 'path' },
-      }, {
         { name = 'buffer' },
       })
     })

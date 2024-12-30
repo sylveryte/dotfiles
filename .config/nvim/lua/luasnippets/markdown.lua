@@ -10,6 +10,7 @@ local function getFileNameWithoutExtension(snip)
 end
 
 return {
+  s("skull",ls.text_node("󰯈")),
   s(
     {
       trig = "meeting",
