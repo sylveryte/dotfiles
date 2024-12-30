@@ -104,3 +104,4 @@ map("n", "<S-x>", function()
 end, { desc = "Reverse toggle task" })
 
 map("n", "<localleader>W", ":set wrap!<CR>", { desc = "Wrap" })
+map("n", "<localleader>l", ":LspRestart markdown_oxide<CR>", { desc = "Wrap" })
