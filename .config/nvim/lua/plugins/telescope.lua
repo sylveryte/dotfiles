@@ -10,6 +10,7 @@ return {
   config = function()
     require('telescope').load_extension('zoxide')
     require('telescope').load_extension('frecency')
+    local spath = require('utils/path')
     require("frecency.config").setup {
       auto_validate = true,
       db_validate_threshold = 100
@@ -45,10 +46,10 @@ return {
     map('n', '<leader>z', ":Telescope zoxide list<CR>", { desc = "Telescope zoxide" })
     map('n', '<leader>f', builtin.find_files, { desc = "telescope find files og" })
     map('n', '<leader>v', function()
-      builtin.git_files({ cwd = vim.fn.expand('%:p:h'), show_untracked=true })
+      builtin.git_files({ cwd = vim.fn.expand('%:p:h'), show_untracked = true })
     end, { desc = "telescope find files with cur dir context" })
     map('n', '<leader>c', function()
-      builtin.find_files({ cwd = vim.fn.expand('%:p:h') })
+      builtin.find_files({ cwd = spath.find_syl_root_dir() })
     end, { desc = "telescope find files from current file's dir" })
     map('n', '<leader>s', builtin.live_grep, { desc = "telescope live grep" })
     map('n', '<leader>b', builtin.buffers, { desc = "telescope buffers" })
