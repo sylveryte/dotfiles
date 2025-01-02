@@ -46,7 +46,7 @@ return {
     map('n', '<leader>z', ":Telescope zoxide list<CR>", { desc = "Telescope zoxide" })
     map('n', '<leader>f', builtin.find_files, { desc = "telescope find files og" })
     map('n', '<leader>v', function()
-      builtin.git_files({ cwd = vim.fn.expand('%:p:h'), show_untracked = true })
+      builtin.git_files({ cwd = vim.fn.expand('%:p:h')})
     end, { desc = "telescope find files with cur dir context" })
     map('n', '<leader>c', function()
       builtin.find_files({ cwd = spath.find_syl_root_dir() })
