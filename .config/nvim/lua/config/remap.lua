@@ -81,7 +81,7 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- quit
 map("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
-map("n", "<C-a>", "<cmd>bn|bd #<cr>", { desc = "Quit" })
+-- map("n", "<C-a>", "<cmd>bn|bd #<cr>", { desc = "Quit" })
 
 -- background set
 -- map("n", "<leader>d", "<cmd>set bg=dark<cr>", { desc = "Set background=dark" })

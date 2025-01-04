@@ -1,0 +1,32 @@
+window-decoration = false
+gtk-wide-tabs=false
+gtk-tabs-location=hidden
+theme = dark:carbonfox,light:iceberg-light
+unfocused-split-opacity=0.9
+cursor-style = block
+
+shell-integration-features = no-cursor
+resize-overlay=never
+mouse-hide-while-typing=true
+
+keybind = alt+shift+n=new_window
+keybind = alt+shift+d=toggle_window_decorations
+keybind = alt+shift+q=toggle_quick_terminal
+
+keybind = alt+j=goto_split:bottom
+keybind = alt+k=goto_split:top
+keybind = alt+h=goto_split:left
+keybind = alt+l=goto_split:right
+keybind = alt+f=toggle_split_zoom
+keybind = alt+f=toggle_split_zoom
+keybind = alt+e=equalize_splits
+keybind = alt+w=toggle_tab_overview
+
+keybind = alt+t=new_tab
+keybind = alt+u=previous_tab
+keybind = alt+i=next_tab
+
+keybind = alt+shift+j=new_split:down
+keybind = alt+shift+k=new_split:up
+keybind = alt+shift+h=new_split:left
+keybind = alt+shift+l=new_split:right
