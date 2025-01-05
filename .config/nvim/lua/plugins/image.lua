@@ -12,15 +12,15 @@ return {
         clear_in_insert_mode = true,
         download_remote_images = false,
         only_render_image_at_cursor = false,
-        floating_windows = false,             -- if true, images will be rendered in floating markdown windows
+        floating_windows = true,             -- if true, images will be rendered in floating markdown windows
         filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
       },
       neorg = {
-        enabled = true,
+        enabled = false,
         filetypes = { "norg" },
       },
       typst = {
-        enabled = true,
+        enabled = false,
         filetypes = { "typst" },
       },
       html = {
