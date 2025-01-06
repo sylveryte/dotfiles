@@ -104,4 +104,18 @@ map("n", "<S-x>", function()
 end, { desc = "Reverse toggle task" })
 
 map("n", "<localleader>W", ":set wrap!<CR>", { desc = "Wrap" })
-map("n", "<localleader>l", ":LspRestart markdown_oxide<CR>", { desc = "Wrap" })
+
+map("n", "<localleader>l", function()
+  for _, client in pairs(vim.lsp.get_clients({name="markdown_oxide"})) do
+    if client.name == "markdown_oxide" then
+      client.stop() -- Stop the markdown_oxide LSP server
+    end
+  end
+
+  vim.defer_fn(function()
+    vim.cmd([[LspStart markdown_oxide]])
+    -- vim.lsp.start({
+    --   name = 'markdown_oxide',
+    -- })
+  end, 1000)
+end, { desc = "Stop and start markdown_oxide lsp" })
