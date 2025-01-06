@@ -5,12 +5,27 @@ return {
     'nvim-lua/plenary.nvim',
     "nvim-lua/popup.nvim",
     "nvim-telescope/telescope-frecency.nvim",
-    "jvgrootveld/telescope-zoxide"
+    "jvgrootveld/telescope-zoxide",
+    'ghassan0/telescope-glyph.nvim',
+    "AckslD/nvim-neoclip.lua",
+    "princejoogie/dir-telescope.nvim",
+    'nvim-telescope/telescope-ui-select.nvim',
+    "debugloop/telescope-undo.nvim",
+
   },
   config = function()
     require('telescope').load_extension('zoxide')
     require('telescope').load_extension('frecency')
+    require('telescope').load_extension('glyph')
+    require('neoclip').setup()
+    require('telescope').load_extension('neoclip')
+    require("dir-telescope").setup()
+    require("telescope").load_extension("dir")
+    require("telescope").load_extension("ui-select")
+    require("telescope").load_extension("undo")
+
     local spath = require('utils/path')
+    local ut = require('utils/telescope')
     require("frecency.config").setup {
       auto_validate = true,
       db_validate_threshold = 100
@@ -42,15 +57,26 @@ return {
     )
     local map = vim.keymap.set
     local builtin = require('telescope.builtin')
+    map("n", "<leader>gs", "<cmd>Telescope dir live_grep<CR>", { noremap = true, silent = true })
+    map("n", "<leader>gg", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
     map("n", "<leader>m", ":Telescope frecency<CR>", { desc = "Telescope frecency" })
     map('n', '<leader>z', ":Telescope zoxide list<CR>", { desc = "Telescope zoxide" })
     map('n', '<leader>f', builtin.find_files, { desc = "telescope find files og" })
-    map('n', '<leader>v', function()
-      builtin.git_files({ cwd = vim.fn.expand('%:p:h')})
+    map('n', '<leader>vg', function()
+      builtin.git_files({ cwd = vim.fn.expand('%:p:h') })
     end, { desc = "telescope find files with cur dir context" })
-    map('n', '<leader>c', function()
+    map('n', '<leader>vv', function()
       builtin.find_files({ cwd = spath.find_syl_root_dir() })
     end, { desc = "telescope find files from current file's dir" })
+    map('n', '<leader>vs', function()
+      builtin.live_grep({ cwd = spath.find_syl_root_dir() })
+    end, { desc = "telescope search in files from current file's dir" })
+    map('n', '<leader>zz', function()
+      ut.find_dir_with_zoxide(1)
+    end, { desc = "telescope zoxide then find files" })
+    map('n', '<leader>zs', function()
+      ut.find_dir_with_zoxide(2)
+    end, { desc = "telescope zoxide then search in files" })
     map('n', '<leader>s', builtin.live_grep, { desc = "telescope live grep" })
     map('n', '<leader>b', builtin.buffers, { desc = "telescope buffers" })
     map('n', '<leader>j', builtin.grep_string, { desc = "telescope grep string" })
@@ -61,5 +87,7 @@ return {
     map('n', '<leader>gi', builtin.lsp_implementations, { desc = "telescope lsp_implementations" })
     map('n', 'gr', builtin.lsp_references, { desc = "telescope lsp_references" })
     map('n', '<leader>l', builtin.builtin, { desc = "telescope list builtins" })
+
+    require('utils/telescope')
   end
 }

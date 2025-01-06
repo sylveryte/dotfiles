@@ -16,7 +16,6 @@ local function find_syl_root_dir()
     end
     -- Go up one directory
     cwd = vim.fn.fnamemodify(cwd, ":h")
-    print('searching in' .. cwd)
   end
 
   -- Return current directory if no root is found
