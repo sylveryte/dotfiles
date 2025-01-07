@@ -30,6 +30,27 @@ return {
   ),
   s(
     {
+      trig = "jsticker",
+      name = "journal_sticker",
+      dscr = "Put a sticker in journal",
+    },
+    fmt("![](../stickers/{})\n\n", {
+      ls.i(1),
+    })
+  ),
+  s(
+    {
+      trig = "ln",
+      name = "link",
+      dscr = "Markdown link",
+    },
+    fmt("[{}]({})\n\n", {
+      ls.i(1),
+      ls.i(2),
+    })
+  ),
+  s(
+    {
       trig = "linkproperty",
       name = "Link Property",
       dscr = "Write a label and link a file",
@@ -510,4 +531,36 @@ return {
       ls.i(0),
     })
   ),
+
+  s(
+    {
+      trig = "wticket",
+      name = "Work Ticket",
+      dscr = "Write a ticket",
+    },
+    fmt(
+    "### CASN-{} {}\n\n[link](https://accreteai.atlassian.net/browse/CASN-{})\n\n---\n\n",
+      {
+        ls.i(1),
+        ls.i(2),
+        extras.rep(1),
+      })
+  ),
+  s(
+    {
+      trig = "wticket",
+      name = "Work Ticket",
+      dscr = "Write a ticket",
+    },
+    fmt(
+    "# {}\n___\n\n## Tasks \n- ( ) {}\n\n---\n[link](https://accreteai.atlassian.net/browse/CASN-{})",
+      {
+        ls.f(function(_, snip)
+          return getFileNameWithoutExtension(snip)
+        end, {}),
+        ls.i(2),
+        ls.i(1),
+      })
+  ),
+
 }

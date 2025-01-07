@@ -26,6 +26,7 @@ return {
 
     local spath = require('utils/path')
     local ut = require('utils/telescope')
+    local themes = require('telescope.themes')
     require("frecency.config").setup {
       auto_validate = true,
       db_validate_threshold = 100
@@ -47,7 +48,19 @@ return {
         },
         defaults = {
           layout_strategy = 'vertical',
-          layout_config = { height = 0.98, width = 0.98 },
+        wrap_results = true,
+        layout_config = {
+          height = 0.98,
+          width = 0.98,
+          horizontal = {
+            preview_cutoff = 50,
+            prompt_position = "bottom",
+          },
+          vertical = {
+            preview_cutoff = 30,
+            prompt_position = "bottom",
+          }
+        },
           mappings = {
             i = { ["<c-t>"] = require('trouble').open_with_trouble },
             n = { ["<c-t>"] = require('trouble').open_with_trouble },
@@ -61,7 +74,6 @@ return {
     map("n", "<leader>gg", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
     map("n", "<leader>gf", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
     map("n", "<leader>m", ":Telescope frecency<CR>", { desc = "Telescope frecency" })
-    map('n', '<leader>z', ":Telescope zoxide list<CR>", { desc = "Telescope zoxide" })
     map('n', '<leader>f', builtin.find_files, { desc = "telescope find files og" })
     map('n', '<leader>vg', function()
       builtin.git_files({ cwd = vim.fn.expand('%:p:h') })
@@ -75,6 +87,10 @@ return {
     map('n', '<leader>vs', function()
       builtin.live_grep({ cwd = spath.find_syl_root_dir() })
     end, { desc = "telescope search in files from current file's dir" })
+    map('n', '<leader>zc', ":Telescope zoxide list<CR>", { desc = "Telescope zoxide" })
+    map('n', '<leader>z', function()
+      ut.find_dir_with_zoxide(1)
+    end, { desc = "telescope zoxide then find files" })
     map('n', '<leader>zz', function()
       ut.find_dir_with_zoxide(1)
     end, { desc = "telescope zoxide then find files" })
