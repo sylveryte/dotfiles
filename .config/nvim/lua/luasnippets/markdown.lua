@@ -414,7 +414,7 @@ return {
       dscr = "Create Daily Template Based on FileName Work",
     },
     fmt(
-      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]]  [[{}|{}]] [[{}]]",
+      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]] [[{}]]",
       {
         ls.f(function(_, snip)
           local fname = getFileNameWithoutExtension(snip)
@@ -465,14 +465,6 @@ return {
           return d:fmt("%A")
         end, {}),
         ls.i(0),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("%Y-W%W")
-        end, {}),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("W%W")
-        end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y-%B")
@@ -539,7 +531,7 @@ return {
       dscr = "Write a ticket",
     },
     fmt(
-    "### CASN-{} {}\n\n[link](https://accreteai.atlassian.net/browse/CASN-{})\n\n---\n\n",
+    "## CASN-{} {}\n\n[link](https://accreteai.atlassian.net/browse/CASN-{})\n\n---\n\n",
       {
         ls.i(1),
         ls.i(2),
