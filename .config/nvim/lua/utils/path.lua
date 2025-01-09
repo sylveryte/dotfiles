@@ -1,5 +1,12 @@
 local function current_dir_path()
-  return vim.fn.expand('%:p:h') --current file dir
+  local path = vim.fn.expand('%:p:h') --current file dir
+
+  if string.sub(path, 1, 7) == "oil://" then
+    -- Remove the "oil://" prefix
+    return string.sub(path, 8)
+  else
+    return path
+  end
 end
 
 local function find_syl_root_dir()

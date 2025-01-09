@@ -1,3 +1,22 @@
+local function open_in(prog)
+  if vim.bo.filetype == 'markdown' then
+    local line = vim.fn.getline('.')
+    local pattern = '!%[%](%b())'
+    local path = line:match(pattern)
+
+    if path then
+      path = path:sub(2, -2)
+      local current_file_path = vim.fn.expand('%:p:h')
+      local full_path = current_file_path .. '/' .. path
+      vim.fn.system(prog .. ' ' .. full_path)
+    else
+      print("No image path found in the current line")
+    end
+  else
+    vim.cmd([[!nsxiv %]])
+  end
+end
+
 local map = vim.keymap.set
 -- map("n","-",vim.cmd.Ex)
 
@@ -85,7 +104,8 @@ map("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
 
 -- background set
 -- map("n", "<leader>d", "<cmd>set bg=dark<cr>", { desc = "Set background=dark" })
-map("n", "<leader>d", ':exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>', {noremap = true, silent = true, desc="Toggle dark light bg"})
+map("n", "<leader>d", ':exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>',
+  { noremap = true, silent = true, desc = "Toggle dark light bg" })
 
 -- format
 function FormatFunction()
@@ -97,8 +117,9 @@ function FormatFunction()
     }
   })
 end
-map("v", "<leader>o", "<Esc><cmd>lua FormatFunction()<CR>", { desc="LSP Range format"})
+
+map("v", "<leader>o", "<Esc><cmd>lua FormatFunction()<CR>", { desc = "LSP Range format" })
 map({ "n" }, "<leader>o", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
 
-map("n", "<localleader>oo", "<cmd>!nsxiv %<cr>", { desc = "Open in sxiv" })
-map("n", "<localleader>og", "<cmd>!org.kde.gwenview %<cr>", { desc = "Open in sxiv" })
+map("n", "<localleader>oo", function() open_in('nsxiv') end , { desc = "Open in sxiv" })
+map("n", "<localleader>og", function() open_in('com.kde.gwenview') end , { desc = "Open in sxiv" })
