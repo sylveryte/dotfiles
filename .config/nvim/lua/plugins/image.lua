@@ -6,13 +6,14 @@ return {
   opts = {
     backend = "kitty",
     processor = "magick_cli", -- or "magick_cli"
+    -- scale_factor = 0.4,
     integrations = {
       markdown = {
         enabled = true,
         clear_in_insert_mode = true,
         download_remote_images = false,
         only_render_image_at_cursor = false,
-        floating_windows = true,             -- if true, images will be rendered in floating markdown windows
+        floating_windows = false,             -- if true, images will be rendered in floating markdown windows
         filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
       },
       neorg = {

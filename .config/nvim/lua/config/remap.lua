@@ -99,3 +99,6 @@ function FormatFunction()
 end
 map("v", "<leader>o", "<Esc><cmd>lua FormatFunction()<CR>", { desc="LSP Range format"})
 map({ "n" }, "<leader>o", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
+
+map("n", "<localleader>oo", "<cmd>!nsxiv %<cr>", { desc = "Open in sxiv" })
+map("n", "<localleader>og", "<cmd>!org.kde.gwenview %<cr>", { desc = "Open in sxiv" })
