@@ -1,19 +1,25 @@
 local function current_file_dir_path()
+  -- print("current_file_dir_path")
   local path = vim.fn.expand('%:p:h') --current file dir
+  -- print(path)
+  -- print("subpathis:",string.sub(path, 1, 7))
 
-  if string.sub(path, 1, 7) == "oil://" then
+  if string.sub(path, 1, 7) == "oil:///" then
+    -- print('oil is here')
     -- Remove the "oil://" prefix
-    return string.sub(path, 8)
+    return string.sub(path, 7)
   else
     return path
   end
 end
 
 local function find_syl_root_dir()
+  -- print("find_syl_root_dir is ")
   local markers = { ".sylroot" }
 
   -- Go up the directory tree looking for a root marker
   local cwd = current_file_dir_path()
+  -- print("cwd is ",cwd)
   while cwd ~= "/" do
     for _, marker in ipairs(markers) do
       local marker_path = cwd .. "/" .. marker
