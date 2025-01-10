@@ -9,12 +9,12 @@ local function open_in(prog)
       path = path:sub(2, -2)
       local current_file_dir_path = vim.fn.expand('%:p:h')
       local full_path = current_file_dir_path .. '/' .. path
-      vim.fn.system(prog .. ' ' .. full_path)
+      vim.fn.system(prog .. ' ' .. full_path .. ' &')
     else
       print("No image path found in the current line")
     end
   else
-    vim.fn.system(prog.. ' '..spath.current_file_path())
+    vim.fn.system(prog .. ' ' .. spath.current_file_path() .. ' &')
   end
 end
 
@@ -122,5 +122,6 @@ end
 map("v", "<leader>o", "<Esc><cmd>lua FormatFunction()<CR>", { desc = "LSP Range format" })
 map({ "n" }, "<leader>o", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
 
-map("n", "<localleader>oo", function() open_in('nsxiv') end , { desc = "Open in sxiv" })
-map("n", "<localleader>og", function() open_in('org.kde.gwenview') end , { desc = "Open in sxiv" })
+map("n", "<localleader>oo", function() open_in('nsxiv') end, { desc = "Open in nsxiv" })
+map("n", "<localleader>od", function() open_in('dolphin') end, { desc = "Open in dolphin" })
+map("n", "<localleader>og", function() open_in('org.kde.gwenview') end, { desc = "Open in org.kde.gwenview" })
