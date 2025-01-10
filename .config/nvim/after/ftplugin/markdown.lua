@@ -80,8 +80,7 @@ vim.opt_local.wrap = false   -- Disable line wrap
 vim.opt_local.textwidth = 60 -- for gqip formatting
 map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
 map("n", "<localleader>u", ":Today<CR>")
-map("n", "<localleader>o", ":Tommorow<CR>")
-map("n", "<localleader>y", ":Tommorow<CR>")
+map("n", "<localleader>o", ":Tomorow<CR>")
 map("n", "<localleader>p", function()
   replace()
 end, { desc = "replace SYLNEWLINE" })
