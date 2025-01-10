@@ -1,4 +1,3 @@
-local spath = require('utils/path')
 return {
   "HakonHarnes/img-clip.nvim",
   event = "VeryLazy",

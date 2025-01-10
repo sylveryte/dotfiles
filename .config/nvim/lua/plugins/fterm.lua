@@ -1,4 +1,4 @@
-local path = require "utils.path"
+local sylpath = require "utils.sylpath"
 return {
   "numToStr/FTerm.nvim",
   config = function()
@@ -12,7 +12,8 @@ return {
         width = 0.85,
       },
     })
-    map({ 'n', 't', 'i' }, '<A-a>', function() fterm.toggle({"cd",path.current_dir_path()}) end, { desc = "Toggle floating term" })
+    map({ 'n', 't', 'i' }, '<A-a>', function() fterm.toggle({ "cd", sylpath.current_file_dir_path() }) end,
+      { desc = "Toggle floating term" })
     -- runners
     local runners = { lua = 'lua', javascript = 'node', go = "go run", rust = "cargo run" }
     map('n', '<localleader>r', function()
@@ -32,7 +33,7 @@ return {
     -- local makerun = fterm:new({ ft = 'fterm_makerun', cmd = "make run" })
 
     map({ 'n', 't', 'i' }, '<A-a>', function()
-      fterm.run({'cd', path.current_dir_path()})
+      fterm.run({ 'cd', sylpath.current_file_dir_path() })
     end, { desc = "Toggle floating term at buf location" })
 
     -- map({ 'n', 't' }, '<leader>rd', function()

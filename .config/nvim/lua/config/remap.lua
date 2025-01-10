@@ -1,3 +1,4 @@
+local spath = require "utils.sylpath"
 local function open_in(prog)
   if vim.bo.filetype == 'markdown' then
     local line = vim.fn.getline('.')
@@ -14,6 +15,7 @@ local function open_in(prog)
     end
   else
     vim.cmd([[!nsxiv %]])
+    vim.fn.system(prog.. ' '..spath.current_dir_path())
   end
 end
 

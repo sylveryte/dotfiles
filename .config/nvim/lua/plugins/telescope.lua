@@ -1,3 +1,4 @@
+local syllsp = require "utils.syllsp"
 return {
   'nvim-telescope/telescope.nvim',
   tag = '0.1.8',
@@ -23,10 +24,9 @@ return {
     require("telescope").load_extension("dir")
     require("telescope").load_extension("ui-select")
     require("telescope").load_extension("undo")
-
-    local spath = require('utils/path')
+    local spath = require('utils.sylpath')
     local ut = require('utils/telescope')
-    local themes = require('telescope.themes')
+    -- local themes = require('telescope.themes')
     require("frecency.config").setup {
       auto_validate = true,
       db_validate_threshold = 100
@@ -48,19 +48,19 @@ return {
         },
         defaults = {
           layout_strategy = 'vertical',
-        wrap_results = true,
-        layout_config = {
-          height = 0.98,
-          width = 0.98,
-          horizontal = {
-            preview_cutoff = 50,
-            prompt_position = "bottom",
+          wrap_results = true,
+          layout_config = {
+            height = 0.98,
+            width = 0.98,
+            horizontal = {
+              preview_cutoff = 50,
+              prompt_position = "bottom",
+            },
+            vertical = {
+              preview_cutoff = 30,
+              prompt_position = "bottom",
+            }
           },
-          vertical = {
-            preview_cutoff = 30,
-            prompt_position = "bottom",
-          }
-        },
           mappings = {
             i = { ["<c-t>"] = require('trouble').open_with_trouble },
             n = { ["<c-t>"] = require('trouble').open_with_trouble },
@@ -106,7 +106,8 @@ return {
     map('n', '<leader>k', builtin.oldfiles, { desc = "telescope oldfiles" })
     map('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = "telescope current_buffer_fuzzy_find" })
     map('n', '<leader>t', builtin.treesitter, { desc = "telescope treesitter" })
-    map('n', 'gd', builtin.lsp_definitions, { desc = "telescope lsp_definitions" })
+    map('n', 'gd', function() syllsp.better_link_action(builtin.lsp_definitions) end,
+      { desc = "telescope syl lsp_definitions" })
     map('n', '<leader>gi', builtin.lsp_implementations, { desc = "telescope lsp_implementations" })
     map('n', 'gr', builtin.lsp_references, { desc = "telescope lsp_references" })
     map('n', '<leader>l', builtin.builtin, { desc = "telescope list builtins" })
