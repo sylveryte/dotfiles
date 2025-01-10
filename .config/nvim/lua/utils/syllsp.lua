@@ -13,7 +13,6 @@ local function better_link_action(action)
     if wikilink then
       if cursor_col < wikilink then
         local wikilinkstart = line:find('%[%[')
-        print('wikilinkstart',wikilinkstart, 'and ' ,wikilink, 'co',cursor_col)
         if wikilinkstart <= cursor_col then
           action()
           return

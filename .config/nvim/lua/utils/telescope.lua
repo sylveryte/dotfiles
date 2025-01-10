@@ -12,8 +12,9 @@ local find_dir_with_zoxide = function(selector)
     if selected_dir then
       if selector == 2 then
         builtin.live_grep({ cwd = selected_dir })
+      else
+        builtin.find_files({ cwd = selected_dir })
       end
-      builtin.find_files({ cwd = selected_dir })
     end
   end)
 end
