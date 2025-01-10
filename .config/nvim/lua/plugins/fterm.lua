@@ -12,8 +12,6 @@ return {
         width = 0.85,
       },
     })
-    map({ 'n', 't', 'i' }, '<A-a>', function() fterm.toggle({ "cd", sylpath.current_file_dir_path() }) end,
-      { desc = "Toggle floating term" })
     -- runners
     local runners = { lua = 'lua', javascript = 'node', go = "go run", rust = "cargo run" }
     map('n', '<localleader>r', function()

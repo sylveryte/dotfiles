@@ -7,15 +7,14 @@ local function open_in(prog)
 
     if path then
       path = path:sub(2, -2)
-      local current_file_path = vim.fn.expand('%:p:h')
-      local full_path = current_file_path .. '/' .. path
+      local current_file_dir_path = vim.fn.expand('%:p:h')
+      local full_path = current_file_dir_path .. '/' .. path
       vim.fn.system(prog .. ' ' .. full_path)
     else
       print("No image path found in the current line")
     end
   else
-    vim.cmd([[!nsxiv %]])
-    vim.fn.system(prog.. ' '..spath.current_file_dir_path())
+    vim.fn.system(prog.. ' '..spath.current_file_path())
   end
 end
 

@@ -13,6 +13,19 @@ local function current_file_dir_path()
   end
 end
 
+local function current_file_path()
+  -- print("current_file_dir_path")
+  local path = vim.fn.expand('%') --current file dir
+  -- print(path)
+  -- print("subpathis:",string.sub(path, 1, 7))
+
+  if string.sub(path, 1, 7) == "oil:///" then
+    return current_file_dir_path()
+  else
+    return path
+  end
+end
+
 local function find_syl_root_dir()
   -- print("find_syl_root_dir is ")
   local markers = { ".sylroot" }
@@ -35,5 +48,5 @@ local function find_syl_root_dir()
   return vim.fn.getcwd()
 end
 
-local M = { find_syl_root_dir = find_syl_root_dir, current_file_dir_path = current_file_dir_path }
+local M = { find_syl_root_dir = find_syl_root_dir, current_file_dir_path = current_file_dir_path, current_file_path=current_file_path}
 return M
