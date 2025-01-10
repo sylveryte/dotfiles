@@ -15,7 +15,7 @@ local function open_in(prog)
     end
   else
     vim.cmd([[!nsxiv %]])
-    vim.fn.system(prog.. ' '..spath.current_dir_path())
+    vim.fn.system(prog.. ' '..spath.current_file_dir_path())
   end
 end
 
@@ -124,4 +124,4 @@ map("v", "<leader>o", "<Esc><cmd>lua FormatFunction()<CR>", { desc = "LSP Range 
 map({ "n" }, "<leader>o", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
 
 map("n", "<localleader>oo", function() open_in('nsxiv') end , { desc = "Open in sxiv" })
-map("n", "<localleader>og", function() open_in('com.kde.gwenview') end , { desc = "Open in sxiv" })
+map("n", "<localleader>og", function() open_in('org.kde.gwenview') end , { desc = "Open in sxiv" })
