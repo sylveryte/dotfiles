@@ -1,3 +1,4 @@
+local sylmarkdown = require "utils.sylmarkdown"
 local map = vim.keymap.set
 -- toggling stuff
 local function reverseTable(t)
@@ -78,6 +79,10 @@ end
 
 vim.opt_local.wrap = false   -- Disable line wrap
 vim.opt_local.textwidth = 60 -- for gqip formatting
+map("n", "<localleader>y", function()
+  local d = os.date("%M:%S")
+  print(sylmarkdown.better_link_action(print), d)
+end)
 map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
 map("n", "<localleader>u", ":Today<CR>")
 map("n", "<localleader>o", ":Tomorrow<CR>")
@@ -105,7 +110,7 @@ end, { desc = "Reverse toggle task" })
 map("n", "<localleader>W", ":set wrap!<CR>", { desc = "Wrap" })
 
 map("n", "<localleader>l", function()
-  for _, client in pairs(vim.lsp.get_clients({name="markdown_oxide"})) do
+  for _, client in pairs(vim.lsp.get_clients({ name = "markdown_oxide" })) do
     if client.name == "markdown_oxide" then
       client.stop() -- Stop the markdown_oxide LSP server
     end
@@ -113,8 +118,5 @@ map("n", "<localleader>l", function()
 
   vim.defer_fn(function()
     vim.cmd([[LspStart markdown_oxide]])
-    -- vim.lsp.start({
-    --   name = 'markdown_oxide',
-    -- })
   end, 1000)
 end, { desc = "Stop and start markdown_oxide lsp" })

@@ -1,5 +1,6 @@
 local ls = require("luasnip")
 local fmt = require("luasnip.extras.fmt").fmt
+local sylpath = require("utils.sylpath")
 local s = ls.snippet
 local date = require("utils.date")
 local extras = require("luasnip.extras")
@@ -30,11 +31,14 @@ return {
   ),
   s(
     {
-      trig = "jsticker",
+      trig = "sticker",
       name = "journal_sticker",
-      dscr = "Put a sticker in journal",
+      dscr = "Put a sticker",
     },
-    fmt("![](../stickers/{})\n\n", {
+    fmt("![]({}stickers{})\n\n", {
+      ls.f(function(_, snip)
+        return sylpath.relative_to_syl_root_dir()
+      end, {}),
       ls.i(1),
     })
   ),

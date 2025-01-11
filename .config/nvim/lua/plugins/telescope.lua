@@ -106,7 +106,10 @@ return {
     map('n', '<leader>k', builtin.oldfiles, { desc = "telescope oldfiles" })
     map('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = "telescope current_buffer_fuzzy_find" })
     map('n', '<leader>t', builtin.treesitter, { desc = "telescope treesitter" })
-    map('n', 'gd', function() syllsp.better_link_action(builtin.lsp_definitions) end,
+    map('n', 'gd', function()
+      syllsp.better_link_action(builtin.lsp_definitions)
+      -- builtin.lsp_definitions()
+    end,
       { desc = "telescope syl lsp_definitions" })
     map('n', '<leader>gi', builtin.lsp_implementations, { desc = "telescope lsp_implementations" })
     map('n', 'gr', builtin.lsp_references, { desc = "telescope lsp_references" })
