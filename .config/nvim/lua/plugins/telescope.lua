@@ -105,7 +105,6 @@ return {
     map('n', '<leader>j', builtin.grep_string, { desc = "telescope grep string" })
     map('n', '<leader>k', builtin.oldfiles, { desc = "telescope oldfiles" })
     map('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = "telescope current_buffer_fuzzy_find" })
-    map('n', '<leader>t', builtin.treesitter, { desc = "telescope treesitter" })
     map('n', 'gd', function()
       syllsp.better_link_action(builtin.lsp_definitions)
       -- builtin.lsp_definitions()
@@ -113,7 +112,13 @@ return {
       { desc = "telescope syl lsp_definitions" })
     map('n', '<leader>gi', builtin.lsp_implementations, { desc = "telescope lsp_implementations" })
     map('n', 'gr', builtin.lsp_references, { desc = "telescope lsp_references" })
-    map('n', '<leader>l', builtin.builtin, { desc = "telescope list builtins" })
+    map('n', '<leader>tl', builtin.builtin, { desc = "telescope list builtins" })
+    map('n', '<leader>th', builtin.help_tags, { desc = "telescope help tags" })
+    map('n', '<leader>tt', builtin.treesitter, { desc = "telescope treesitter" })
+    map('n', '<leader>tc', builtin.commands, { desc = "telescope commands" })
+    map('n', '<leader>tgb', builtin.git_bcommits, { desc = "telescope buffer commits" })
+    map('n', '<leader>tgc', builtin.git_commits, { desc = "telescope commits" })
+    map('n', '<leader>tk', builtin.keymaps, { desc = "telescope keymaps" })
 
     require('utils/telescope')
   end

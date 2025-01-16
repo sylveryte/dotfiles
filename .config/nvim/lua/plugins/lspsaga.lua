@@ -24,13 +24,13 @@ return {
     -- Rename all occurrences of the hovered word for the entire file
     -- map("n", "gr", "<cmd>Lspsaga rename<CR>")
     -- Rename all occurrences of the hovered word for the selected files
-    map("n", "<leader>gr", "<cmd>Lspsaga rename ++project<CR>")
+    map("n", "<leader>lr", "<cmd>Lspsaga rename ++project<CR>")
     -- Peek definition
     -- You can edit the file containing the definition in the floating window
     -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
     -- It also supports tagstack
     -- Use <C-t> to jump back
-    map("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
+    map("n", "<leader>lp", "<cmd>Lspsaga peek_definition<CR>")
     -- Go to definition
     -- map("n","<leader>gd", "<cmd>Lspsaga goto_definition<CR>")
     -- Peek type definition
@@ -38,15 +38,15 @@ return {
     -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
     -- It also supports tagstack
     -- Use <C-t> to jump back
-    map("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
+    map("n", "<leader>lt", "<cmd>Lspsaga peek_type_definition<CR>")
     -- Go to type definition
     -- map("n","gt", "<cmd>Lspsaga goto_type_definition<CR>")
     -- Show line diagnostics
     -- You can pass argument ++unfocus to
     -- unfocus the show_line_diagnostics floating window
-    map("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+    map("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>")
     -- Show cursor diagnostics
-    map("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+    map("n", "<leader>lc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
 
     -- Diagnostic jump
     -- You can use <C-o> to jump back to your previous location

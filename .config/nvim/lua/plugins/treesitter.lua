@@ -6,7 +6,8 @@ return {
     require('nvim-treesitter.configs').setup {
       parser_install_dir = "$HOME/.local/share/treesitter",
       -- A list of parser names, or "all" (the five listed parsers should always be installed)
-      -- ensure_installed = { "all" },
+      ensure_installed = { "javascript",'markdown' },
+      sync_install = false,
 
       -- Automatically install missing parsers when entering buffer
       -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
@@ -22,10 +23,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<Leader>ss",
-          node_incremental = "<Leader>sn",
-          scope_incremental = "<Leader>si",
-          node_decremental = "<Leader>sd",
+          -- init_selection = "<Leader>ss",
+          -- node_incremental = "<Leader>sn",
+          -- scope_incremental = "<Leader>si",
+          -- node_decremental = "<Leader>sd",
         },
       },
 

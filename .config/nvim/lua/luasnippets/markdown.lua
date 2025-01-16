@@ -31,6 +31,19 @@ return {
   ),
   s(
     {
+      trig = "fourpillar",
+      name = "Four Pillar questions",
+      dscr = "All planning in the start with a todo",
+    },
+    fmt("Book: {}\n- [ ] Exercise: {}\n- [ ] Tamiation: {}\n- [ ] Hobby: {}\n", {
+      ls.i(1),
+      ls.i(2),
+      ls.i(3),
+      ls.i(4),
+    })
+  ),
+  s(
+    {
       trig = "sticker",
       name = "journal_sticker",
       dscr = "Put a sticker",
