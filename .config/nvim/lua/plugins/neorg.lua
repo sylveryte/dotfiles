@@ -1,11 +1,12 @@
-local map = vim.keymap.set
+-- local map = vim.keymap.set
 -- map("n", "<localleader>y", ":Neorg journal yesterday<CR>")
-map("n", "<localleader>u", ":Neorg journal today<CR>")
+-- map("n", "<localleader>u", ":Neorg journal today<CR>")
 -- map("n", "<localleader>o", ":Neorg journal tomorrow<CR>")
-map("n", "<localleader>w", ":Neorg workspace")
+-- map("n", "<localleader>w", ":Neorg workspace")
 -- map("n", "<localleader>f", ":Telescope neorg find_linkable<CR>")
 return {
   "nvim-neorg/neorg",
+  enabled = false,
   -- lazy-load on filetype
   -- ft = "norg",
   dependencies = {

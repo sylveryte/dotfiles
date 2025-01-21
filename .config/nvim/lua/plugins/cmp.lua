@@ -171,7 +171,6 @@ return {
 
       }),
       sources = cmp.config.sources({
-        { name = 'neorg' },
         { name = "natdat" },
         {
           name = 'nvim_lsp',

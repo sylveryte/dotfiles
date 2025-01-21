@@ -76,7 +76,7 @@ export const {} = ()=> {{
   ),
   s(
     {
-      trig = "cl",
+      trig = "sylc",
       name = "consolelog",
       dscr = "consolelog",
     },

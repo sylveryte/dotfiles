@@ -31,6 +31,17 @@ return {
   ),
   s(
     {
+      trig = "sylc",
+      name = "sylc",
+      dscr = "Consoling sylc",
+    },
+    fmt("fmt.Println(\"sylc {}\",{})", {
+      ls.i(1),
+      ls.i(2),
+    })
+  ),
+  s(
+    {
       trig = "vl",
       name = "Validate tag",
       dscr = "Add validate tag inside already a tag",

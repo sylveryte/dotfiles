@@ -1,19 +1,6 @@
--- return {
---   "hedyhli/outline.nvim",
---   -- lazy = true,
---   cmd = { "Outline", "OutlineOpen" },
---   keys = { -- Example mapping to toggle outline
---     { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
---   },
---   opts = {
---     -- Your setup opts here
---   },
---   config = function()
---     require("outline.nvim").setup()
---   end
--- }
 return {
   "hedyhli/outline.nvim",
+  event="VeryLazy",
   config = function()
     -- Example mapping to toggle outline
     vim.keymap.set("n", "<leader>u", "<cmd>Outline<CR>",
@@ -198,7 +185,7 @@ return {
         -- These fold actions are collapsing tree nodes, not code folding
         fold = 'h',
         unfold = 'l',
-        fold_toggle = '<Tab>',
+        fold_toggle = '<Space>',
         -- Toggle folds for all nodes.
         -- If at least one node is folded, this action will fold all nodes.
         -- If all nodes are folded, this action will unfold all nodes.
