@@ -5,6 +5,9 @@ return {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-emoji',
+    'hrsh7th/cmp-calc',
+    "lukas-reineke/cmp-rg",
     "mattn/emmet-vim", -- hehe different but cmp
     'L3MON4D3/LuaSnip',
     "luckasRanarison/tailwind-tools.nvim",
@@ -180,6 +183,9 @@ return {
             }
           }
         },
+        { name = 'emoji' },
+        { name = 'calc' },
+        -- { name = 'rg' },
         { name = 'render-markdown' },
         { name = 'luasnip' }, -- For luasnip users.
         { name = 'nvim_lsp_signature_help' },
@@ -192,9 +198,8 @@ return {
     -- Set configuration for specific filetype.
     cmp.setup.filetype('gitcommit', {
       sources = cmp.config.sources({
-        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-      }, {
         { name = 'buffer' },
+        { name = 'emoji' },
       })
     })
 

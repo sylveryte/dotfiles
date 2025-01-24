@@ -16,7 +16,7 @@ return {
         -- Formatter configurations for filetype "lua" go here
         -- and will be executed in order
         typescriptreact = require("formatter.defaults.prettier"),
-        markdown = require("formatter.defaults.prettier"),
+        markdown = require("formatter.defaults.prettierd"),
         typescript = require("formatter.defaults.prettier"),
         javascript = require("formatter.defaults.prettier"),
         javascriptreact = require("formatter.defaults.prettier"),
