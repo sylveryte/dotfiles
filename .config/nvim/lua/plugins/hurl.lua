@@ -41,6 +41,7 @@ return {
     -- Run API request
     { ",A", "<cmd>HurlRunner<CR>", desc = "Run All requests" },
     { ",a", "<cmd>HurlRunnerAt<CR>", desc = "Run Api request" },
+    { ",r", "<cmd>HurlRunnerAt<CR>", desc = "Run Api request" },
     { ",te", "<cmd>HurlRunnerToEntry<CR>", desc = "Run Api request to entry" },
     { ",tE", "<cmd>HurlRunnerToEnd<CR>", desc = "Run Api request from current entry to end" },
     { ",tm", "<cmd>HurlToggleMode<CR>", desc = "Hurl Toggle Mode" },

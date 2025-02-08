@@ -9,6 +9,8 @@ shell-integration-features = no-cursor
 resize-overlay=never
 mouse-hide-while-typing=true
 
+keybind = ctrl+enter=ignore
+
 keybind = alt+shift+n=new_window
 keybind = alt+shift+e=write_scrollback_file:open
 keybind = alt+shift+d=toggle_window_decorations

@@ -7,12 +7,12 @@ return {
       parser_install_dir = "$HOME/.local/share/treesitter",
       -- A list of parser names, or "all" (the five listed parsers should always be installed)
       ensure_installed = { "javascript",'markdown' },
-      sync_install = false,
+      sync_install = true,
 
       -- Automatically install missing parsers when entering buffer
       -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
       auto_install = true,
-      ignore_install = { "html" },
+      -- ignore_install = { "html" },
 
       highlight = {
         enable = true,

@@ -3,12 +3,17 @@ local fmt = require("luasnip.extras.fmt").fmt
 local sylpath = require("utils.sylpath")
 local s = ls.snippet
 local date = require("utils.date")
+local syldate = require("utils.syldate")
 local extras = require("luasnip.extras")
 
 local function getFileNameWithoutExtension(snip)
   local fileName = snip.env.TM_FILENAME:match("(.+)%..+$")
   return fileName
 end
+local function getMonthDate(snip)
+  return date(syldate.get_date_string_for_month(getFileNameWithoutExtension(snip)))
+end
+
 
 return {
   s("skull",ls.text_node("󰯈")),
@@ -166,7 +171,7 @@ return {
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1-1')
         for i = 1, 12 do
-          ds = ds .. '[[' .. d:fmt("%Y-%B") .. '|' .. d:fmt("%B") .. ']] SYLNEWLINE'
+          ds = ds .. '[[' .. d:fmt("%Y-%m-%B") .. '|' .. d:fmt("%B") .. ']] SYLNEWLINE'
           d = d:addmonths(1)
         end
         return ds
@@ -188,12 +193,12 @@ return {
       end, {}),
 
       ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        local d = getMonthDate(snip)
         d = d:addmonths(-1)
-        return d:fmt("%Y-%B")
+        return d:fmt("%Y-%m-%B")
       end, {}),
       ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        local d = getMonthDate(snip)
         d = d:addmonths(-1)
         return d:fmt("%B")
       end, {}),
@@ -202,17 +207,17 @@ return {
         return getFileNameWithoutExtension(snip)
       end, {}),
       ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        local d = getMonthDate(snip)
         return d:fmt("%B")
       end, {}),
 
       ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        local d = getMonthDate(snip)
         d = d:addmonths(1)
-        return d:fmt("%Y-%B")
+        return d:fmt("%Y-%m-%B")
       end, {}),
       ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        local d = getMonthDate(snip)
         d = d:addmonths(1)
         return d:fmt("%B")
       end, {}),
@@ -220,9 +225,9 @@ return {
 
       ls.f(function(_, snip)
         local ds = ''
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        local d = getMonthDate(snip)
         for i = 1, 5 do
-          ds = ds .. '[[' .. d:fmt("%Y-W%W") .. '|' .. d:fmt("W%W") .. ']] SYLNEWLINE'
+          ds = ds .. '[[' .. d:fmt("%Y-%m-%d-W%W") .. '|' .. d:fmt("W%W") .. ']] SYLNEWLINE'
           d = d:adddays(7)
         end
         return ds
@@ -231,12 +236,11 @@ return {
       ls.i(0),
 
       ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        local d = getMonthDate(snip)
         return d:fmt("%Y")
       end, {}),
     })
   ),
-
   s(
     {
       trig = "weekly",
@@ -249,12 +253,10 @@ return {
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(-7)
         return d:fmt("%Y-W%W")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(-7)
         return d:fmt("W%W")
       end, {}),
       ls.f(function(_, snip)
@@ -262,21 +264,23 @@ return {
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d:adddays(7)
         return d:fmt("W%W")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
+        d = d:adddays(14)
         return d:fmt("%Y-W%W")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
+        d = d:adddays(14)
         return d:fmt("W%W")
       end, {}),
       ls.f(function(_, snip)
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d:adddays(7)
         for i = 1, 7 do
           ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F") .. '|' .. d:setisoweekday(i):fmt("%A") .. ']] SYLNEWLINE'
         end
@@ -285,14 +289,17 @@ return {
       ls.i(0),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        return d:fmt("%Y-%B")
+        d:adddays(7)
+        return d:fmt("%Y-%m-%B")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d:adddays(7)
         return d:fmt("%B")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d:adddays(7)
         return d:fmt("%Y")
       end, {}),
     })
@@ -350,7 +357,7 @@ return {
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("%Y-%B")
+          return d:fmt("%Y-%m-%B")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -375,12 +382,10 @@ return {
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(-7)
         return d:fmt("%Y-W%W")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(-7)
         return d:fmt("W%W")
       end, {}),
       ls.f(function(_, snip)
@@ -388,21 +393,23 @@ return {
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(7)
         return d:fmt("W%W")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
+        d = d:adddays(14)
         return d:fmt("%Y-W%W")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
+        d = d:adddays(14)
         return d:fmt("W%W")
       end, {}),
       ls.f(function(_, snip)
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(7)
         for i = 1, 5 do
           ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F") .. '|' .. d:setisoweekday(i):fmt("%A") .. ']] SYLNEWLINE'
         end
@@ -411,14 +418,17 @@ return {
       ls.i(0),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        return d:fmt("%Y-%B")
+        d = d:adddays(7)
+        return d:fmt("%Y-%m-%B")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(7)
         return d:fmt("%B")
       end, {}),
       ls.f(function(_, snip)
         local d = date(getFileNameWithoutExtension(snip) .. '-1')
+        d = d:adddays(7)
         return d:fmt("%Y")
       end, {}),
     })
@@ -484,7 +494,7 @@ return {
         ls.i(0),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("%Y-%B")
+          return d:fmt("%Y-%m-%B")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
