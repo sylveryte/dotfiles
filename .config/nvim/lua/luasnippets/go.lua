@@ -31,6 +31,16 @@ return {
   ),
   s(
     {
+      trig = "ie",
+      name = "if_error_not_nil",
+      dscr = "If error is not nil",
+    },
+    fmt("if err != nil {{\n{}\n}}", {
+      ls.i(1)
+    })
+  ),
+  s(
+    {
       trig = "sylc",
       name = "sylc",
       dscr = "Consoling sylc",
