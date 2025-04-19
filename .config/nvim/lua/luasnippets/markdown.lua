@@ -190,7 +190,7 @@ return {
       name = "monthly_template",
       dscr = "Create Monthly Template Based on FileName",
     },
-    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\ngoal{}\n\n---\n{}\n---\n[[{}]]\n", {
+    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\ngoal{}\n\n---\n{}\n[[{}]]\n", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
@@ -246,7 +246,7 @@ return {
               days = date.diff(ned, sd):spandays()
             end
           end
-          ds = ds .. '## ' .. d:fmt("%Y-W%W") .. ' SYLNEWLINE*' .. sd:fmt("%d->") .. ed:fmt("%d ") .. days .. '*days SYLNEWLINE'
+          ds = ds .. '## ' .. d:fmt("%Y-W%W") .. ' SYLNEWLINE*' .. sd:fmt("%d->") .. ed:fmt("%d ") .. days .. '*days SYLNEWLINE --- SYLNEWLINE'
           d = d:adddays(7)
         end
         return ds
@@ -457,11 +457,10 @@ return {
       dscr = "Write a ticket",
     },
     fmt(
-      "## CASN-{} {}\n\n[link](https://accreteai.atlassian.net/browse/CASN-{})\n\n---\n\n",
+      "### CASN-{} {}\n\n",
       {
         ls.i(1),
         ls.i(2),
-        extras.rep(1),
       })
   ),
   s(
