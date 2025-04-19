@@ -14,9 +14,12 @@ local function getMonthDate(snip)
   return date(syldate.get_date_string_for_month(getFileNameWithoutExtension(snip)))
 end
 
+local function getWeekDate(snip)
+  return date(syldate.get_date_string_for_week(getFileNameWithoutExtension(snip)))
+end
 
 return {
-  s("skull",ls.text_node("󰯈")),
+  s("skull", ls.text_node("󰯈")),
   s(
     {
       trig = "meeting",
@@ -187,7 +190,7 @@ return {
       name = "monthly_template",
       dscr = "Create Monthly Template Based on FileName",
     },
-    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n{}\n---\n\ngoal{}\n\n---\n[[{}]]\n", {
+    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\ngoal{}\n\n---\n{}\n---\n[[{}]]\n", {
       ls.f(function(_, snip)
         return getFileNameWithoutExtension(snip)
       end, {}),
@@ -222,84 +225,35 @@ return {
         return d:fmt("%B")
       end, {}),
 
+
+      ls.i(0),
 
       ls.f(function(_, snip)
         local ds = ''
         local d = getMonthDate(snip)
         for i = 1, 5 do
-          ds = ds .. '[[' .. d:fmt("%Y-%m-%d-W%W") .. '|' .. d:fmt("W%W") .. ']] SYLNEWLINE'
+          local days = 7
+          local sd = date(d:fmt("%Y-%m-%d"))
+          sd:setisoweekday(1)
+          local ed = date(d:fmt("%Y-%m-%d"))
+          ed:setisoweekday(7)
+          if sd:getmonth() ~= ed:getmonth() then
+            if i == 1 then
+              days = ed:getday()
+            else
+              local ned = date(ed:fmt("%Y-%m-%d"))
+              ned:setday(1)
+              days = date.diff(ned, sd):spandays()
+            end
+          end
+          ds = ds .. '## ' .. d:fmt("%Y-W%W") .. ' SYLNEWLINE*' .. sd:fmt("%d->") .. ed:fmt("%d ") .. days .. '*days SYLNEWLINE'
           d = d:adddays(7)
         end
         return ds
       end, {}),
 
-      ls.i(0),
-
       ls.f(function(_, snip)
         local d = getMonthDate(snip)
-        return d:fmt("%Y")
-      end, {}),
-    })
-  ),
-  s(
-    {
-      trig = "weekly",
-      name = "weekly_template",
-      dscr = "Create Weekly Template Based on FileName",
-    },
-    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n{}\n---\n\ngoal{}\n\n---\n[[{}|{}]] [[{}]]\n", {
-      ls.f(function(_, snip)
-        return getFileNameWithoutExtension(snip)
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        return d:fmt("%Y-W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        return d:fmt("W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        return getFileNameWithoutExtension(snip)
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d:adddays(7)
-        return d:fmt("W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(14)
-        return d:fmt("%Y-W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(14)
-        return d:fmt("W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        local ds = ''
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d:adddays(7)
-        for i = 1, 7 do
-          ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F") .. '|' .. d:setisoweekday(i):fmt("%A") .. ']] SYLNEWLINE'
-        end
-        return ds
-      end, {}),
-      ls.i(0),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d:adddays(7)
-        return d:fmt("%Y-%m-%B")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d:adddays(7)
-        return d:fmt("%B")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d:adddays(7)
         return d:fmt("%Y")
       end, {}),
     })
@@ -312,7 +266,7 @@ return {
       dscr = "Create Daily Template Based on FileName",
     },
     fmt(
-      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]]  [[{}|{}]] [[{}]]",
+      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]] [[{}|{}]] [[{}]]",
       {
         ls.f(function(_, snip)
           local fname = getFileNameWithoutExtension(snip)
@@ -349,7 +303,7 @@ return {
         ls.i(0),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("%Y-W%W")
+          return d:fmt("%Y-%m-%B#%Y-W%W")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -370,69 +324,6 @@ return {
       })
   ),
 
-  s(
-    {
-      trig = "wweekly",
-      name = "work_weekly_template",
-      dscr = "Create Weekly Work Template Based on FileName",
-    },
-    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n{}\n---\n\ngoal{}\n\n---\n[[{}|{}]] [[{}]]\n", {
-      ls.f(function(_, snip)
-        return getFileNameWithoutExtension(snip)
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        return d:fmt("%Y-W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        return d:fmt("W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        return getFileNameWithoutExtension(snip)
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
-        return d:fmt("W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(14)
-        return d:fmt("%Y-W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(14)
-        return d:fmt("W%W")
-      end, {}),
-      ls.f(function(_, snip)
-        local ds = ''
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
-        for i = 1, 5 do
-          ds = ds .. '[[' .. d:setisoweekday(i):fmt("%F") .. '|' .. d:setisoweekday(i):fmt("%A") .. ']] SYLNEWLINE'
-        end
-        return ds
-      end, {}),
-      ls.i(0),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
-        return d:fmt("%Y-%m-%B")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
-        return d:fmt("%B")
-      end, {}),
-      ls.f(function(_, snip)
-        local d = date(getFileNameWithoutExtension(snip) .. '-1')
-        d = d:adddays(7)
-        return d:fmt("%Y")
-      end, {}),
-    })
-  ),
 
   s(
     {
@@ -441,7 +332,7 @@ return {
       dscr = "Create Daily Template Based on FileName Work",
     },
     fmt(
-      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]] [[{}]]",
+      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]] [[{}|{}]] [[{}]]",
       {
         ls.f(function(_, snip)
           local fname = getFileNameWithoutExtension(snip)
@@ -492,6 +383,14 @@ return {
           return d:fmt("%A")
         end, {}),
         ls.i(0),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("%Y-%m-%B#%Y-W%W")
+        end, {}),
+        ls.f(function(_, snip)
+          local d = date(getFileNameWithoutExtension(snip))
+          return d:fmt("W%W")
+        end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y-%m-%B")
@@ -558,7 +457,7 @@ return {
       dscr = "Write a ticket",
     },
     fmt(
-    "## CASN-{} {}\n\n[link](https://accreteai.atlassian.net/browse/CASN-{})\n\n---\n\n",
+      "## CASN-{} {}\n\n[link](https://accreteai.atlassian.net/browse/CASN-{})\n\n---\n\n",
       {
         ls.i(1),
         ls.i(2),
@@ -572,7 +471,7 @@ return {
       dscr = "Write a ticket",
     },
     fmt(
-    "# {}\n___\n\n## Tasks \n- ( ) {}\n\n---\n[link](https://accreteai.atlassian.net/browse/CASN-{})",
+      "# {}\n___\n\n## Tasks \n- ( ) {}\n\n---\n[link](https://accreteai.atlassian.net/browse/CASN-{})",
       {
         ls.f(function(_, snip)
           return getFileNameWithoutExtension(snip)
