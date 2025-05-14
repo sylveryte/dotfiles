@@ -240,10 +240,11 @@ return {
           if sd:getmonth() ~= ed:getmonth() then
             if i == 1 then
               days = ed:getday()
+              sd:adddays(1)
             else
-              local ned = date(ed:fmt("%Y-%m-%d"))
-              ned:setday(1)
-              days = date.diff(ned, sd):spandays()
+              ed:setday(1)
+              days = date.diff(ed, sd):spandays()
+              ed:adddays(-1)
             end
           end
           ds = ds .. '## ' .. d:fmt("%Y-W%W") .. ' SYLNEWLINE*' .. sd:fmt("%d->") .. ed:fmt("%d ") .. days .. '*days SYLNEWLINE --- SYLNEWLINE'

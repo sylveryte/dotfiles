@@ -29,52 +29,52 @@ local function get_current_line_links()
 end
 
 local function better_link_action(action)
-  local positions = get_current_line_links()
-  local c = vim.api.nvim_win_get_cursor(0)
-  local cl = c[1]
-  local cr = c[2]
-  local cra = cr + 1 --adjust with link pos
-
-  local left, right
-  for _, pos in ipairs(positions) do
-    if pos.start_col <= cra and pos.end_col >= cra then
-      action()
-      return true
-    else
-      if pos.end_col < cra then
-        local distance = cra - pos.end_col
-        if left then
-          if left.distance > distance then
-            left = pos
-            left.distance = distance
-          end
-        else
-          left = pos
-          left.distance = distance
-        end
-      end
-      if pos.start_col > cra then
-        local distance = pos.start_col - cra
-        if right then
-          if right.distance > distance then
-            right = pos
-            right.distance = distance
-          end
-        else
-          right = pos
-          right.distance = distance
-        end
-      end
-    end
-  end
-  if right then
-    vim.api.nvim_win_set_cursor(0, { cl, right.start_col - 1 })
-  elseif left then
-    vim.api.nvim_win_set_cursor(0, { cl, left.end_col - 1 })
-  else
-    local d = os.date("%M:%S")
-    print("No link found", d)
-  end
+  -- local positions = get_current_line_links()
+  -- local c = vim.api.nvim_win_get_cursor(0)
+  -- local cl = c[1]
+  -- local cr = c[2]
+  -- local cra = cr + 1 --adjust with link pos
+  --
+  -- local left, right
+  -- for _, pos in ipairs(positions) do
+  --   if pos.start_col <= cra and pos.end_col >= cra then
+  --     action()
+  --     return true
+  --   else
+  --     if pos.end_col < cra then
+  --       local distance = cra - pos.end_col
+  --       if left then
+  --         if left.distance > distance then
+  --           left = pos
+  --           left.distance = distance
+  --         end
+  --       else
+  --         left = pos
+  --         left.distance = distance
+  --       end
+  --     end
+  --     if pos.start_col > cra then
+  --       local distance = pos.start_col - cra
+  --       if right then
+  --         if right.distance > distance then
+  --           right = pos
+  --           right.distance = distance
+  --         end
+  --       else
+  --         right = pos
+  --         right.distance = distance
+  --       end
+  --     end
+  --   end
+  -- end
+  -- if right then
+  --   vim.api.nvim_win_set_cursor(0, { cl, right.start_col - 1 })
+  -- elseif left then
+  --   vim.api.nvim_win_set_cursor(0, { cl, left.end_col - 1 })
+  -- else
+  --   local d = os.date("%M:%S")
+  --   print("No link found", d)
+  -- end
   action()
   return true
 end

@@ -8,6 +8,7 @@ return {
     'hrsh7th/cmp-emoji',
     'hrsh7th/cmp-calc',
     "lukas-reineke/cmp-rg",
+    { "Gelio/cmp-natdat", config = true },
     "mattn/emmet-vim", -- hehe different but cmp
     'L3MON4D3/LuaSnip',
     "luckasRanarison/tailwind-tools.nvim",

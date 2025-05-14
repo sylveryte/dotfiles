@@ -78,7 +78,6 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- buffers
 map("n", "<C-,>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<C-.>", "<cmd>bnext<cr>", { desc = "Next buffer" })
--- map("n", "K", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -128,6 +127,6 @@ map("v", "<leader>o", "<Esc><cmd>lua FormatFunction()<CR>", { desc = "LSP Range 
 map({ "n" }, "<leader>o", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
 
 map("n", "<localleader>oo", function() open_in('nsxiv') end, { desc = "Open in nsxiv" })
-map("n", "<localleader>od", function() open_in('dolphin',true) end, { desc = "Open in dolphin" })
+map("n", "<localleader>od", function() open_in('dolphin', true) end, { desc = "Open in dolphin" })
 map("n", "<localleader>og", function() open_in('org.kde.gwenview') end, { desc = "Open in org.kde.gwenview" })
-map("n", "<localleader>oy", function() open_in('ghostty -e yazi',true) end, { desc = "Open in yazi" })
+map("n", "<localleader>oy", function() open_in('ghostty -e yazi', true) end, { desc = "Open in yazi" })

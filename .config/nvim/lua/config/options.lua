@@ -57,3 +57,17 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+vim.diagnostic.config(
+  {
+    virtual_text = {
+      severity = {
+        max = vim.diagnostic.severity.WARN,
+      },
+    },
+    virtual_lines = {
+      severity = {
+        min = vim.diagnostic.severity.ERROR,
+      },
+    },
+  }
+)
