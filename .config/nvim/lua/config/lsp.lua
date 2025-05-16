@@ -4,6 +4,13 @@ vim.lsp.config.sylmark = {
   filetypes = { 'markdown' },
 }
 
+vim.lsp.config.ledger_lsp = {
+  cmd = { "/home/sylveryte/projects/ledger-lsp/ledger-lsp" },
+  root_markers = { '.git' },
+  filetypes = { 'ledger' },
+}
+
+
 vim.lsp.config.markdown_oxide = {
   on_attach = function(client, bufnr)
     vim.api.nvim_create_user_command(
@@ -44,4 +51,5 @@ vim.lsp.config.lua_ls = {
   }
 }
 
-vim.lsp.enable({ "sylmark", "lua_ls", "gopls", "ts_ls", "cssls", "astro", "svelte", "markdown_oxide", "tailwindcss" })
+vim.lsp.enable({ "sylmark", "ledger_lsp",
+  "lua_ls", "gopls", "ts_ls", "cssls", "astro", "svelte", "markdown_oxide", "tailwindcss" })
