@@ -24,8 +24,8 @@ return {
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
-      ghost_text = {enabled = true,show_with_menu = true},
-      list = { selection = { preselect = true } },
+      ghost_text = { enabled = true, show_with_menu = true },
+      list = { selection = { preselect = false } },
       documentation = { auto_show = true },
       accept = { auto_brackets = { enabled = true } },
     },

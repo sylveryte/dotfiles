@@ -72,10 +72,11 @@ return {
     local prettier = require('efmls-configs.formatters.prettier')
     local prettierd = require('efmls-configs.formatters.prettier_d')
     local sql_formatter = require('efmls-configs.formatters.sql-formatter')
-    local golangcilint = {
-      lintCommand = "golangci-lint run",
-      lintSource = "golanci-lint",
-    }
+    -- local goci = require('efmls-configs.linters.golangci_lint')
+    -- local golangcilint = {
+    --   lintCommand = "golangci-lint run",
+    --   lintSource = "golanci-lint",
+    -- }
     -- local golangci_lint = require('efmls-configs.formatters.golangci_lint')
     local languages = {
       typescript = { eslint, prettier },
@@ -88,7 +89,7 @@ return {
       css = { prettier },
       scss = { prettier },
       json = { prettier },
-      go = { golangcilint },
+      -- go = { goci },
       sql = { sql_formatter }
     }
     vim.lsp.config.efm = {
@@ -112,15 +113,15 @@ return {
     vim.lsp.enable({
       -- custom
       "sylmark", "ledger_lsp",
+      -- general
+      "efm",
+      -- web
+      "ts_ls", "cssls", "astro", "svelte", "tailwindcss", "html",
       -- specific langs
       "lua_ls",
       "gopls",
       "sqls",
       "markdown_oxide",
-      -- web
-      "ts_ls", "cssls", "astro", "svelte", "tailwindcss", "html",
-      -- general
-      "efm",
     })
   end
 }
