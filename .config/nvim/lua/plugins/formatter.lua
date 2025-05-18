@@ -1,5 +1,6 @@
 return {
   "mhartington/formatter.nvim",
+  enabled = false,
   config = function()
     local map = vim.keymap.set
     -- Utilities for creating configurations

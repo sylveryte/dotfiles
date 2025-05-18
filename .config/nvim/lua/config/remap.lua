@@ -111,10 +111,11 @@ map("n", "<C-q>", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<leader>d", ':exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>',
   { noremap = true, silent = true, desc = "Toggle dark light bg" })
 
--- format
-function FormatFunction()
+-- format range
+function RangeFormatFunction()
   vim.lsp.buf.format({
     async = true,
+    -- name = 'efm', -- to format using efm only
     range = {
       ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
       ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
@@ -122,11 +123,24 @@ function FormatFunction()
   })
 end
 
-map({ "n" }, "<localleader>ll", "<cmd>:LspRestart<CR>", { desc = "LSP Format file" })
-map("v", "<leader>o", "<Esc><cmd>lua FormatFunction()<CR>", { desc = "LSP Range format" })
-map({ "n" }, "<leader>o", "<cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP Format file" })
+vim.api.nvim_create_user_command("SylFormatRange", function()
+  RangeFormatFunction()
+end, {})
+vim.api.nvim_create_user_command("SylFormat", function()
+  vim.lsp.buf.format()
+end, {})
+vim.api.nvim_create_user_command("SylFormatEfm", function()
+  vim.lsp.buf.format({ name = "efm" })
+end, {})
+
+
+map({ "n" }, "<localleader>ll", "<cmd>:LspRestart<CR>", { desc = "LSP restart" })
+map("v", "<leader>o", "<Esc><cmd>:SylFormatRange<CR>", { desc = "LSP Range format" })
+map({ "n" }, "<leader>o", "<cmd>:SylFormat<CR>", { desc = "LSP Format file" })
+map({ "n" }, "<leader>p", "<cmd>:SylFormatEfm<CR>", { desc = "LSP Format file with efm only" })
 
 map("n", "<localleader>oo", function() open_in('nsxiv') end, { desc = "Open in nsxiv" })
 map("n", "<localleader>od", function() open_in('dolphin', true) end, { desc = "Open in dolphin" })
 map("n", "<localleader>og", function() open_in('org.kde.gwenview') end, { desc = "Open in org.kde.gwenview" })
 map("n", "<localleader>oy", function() open_in('ghostty -e yazi', true) end, { desc = "Open in yazi" })
+map("n", "<localleader>ox", function() open_in('xdg-open', true) end, { desc = "Open in GUI" })
