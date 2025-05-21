@@ -92,8 +92,13 @@ return {
       -- go = { goci },
       sql = { sql_formatter }
     }
+    local langKeys = {}
+    for key, _ in pairs(languages) do
+      table.insert(langKeys, key)
+    end
     vim.lsp.config.efm = {
       init_options = { documentFormatting = true },
+      filetypes = langKeys,
       settings = {
         rootMarkers = { ".git/", ".sylroot" },
         languages = languages
@@ -105,8 +110,12 @@ return {
     local lsp_fmt_group = vim.api.nvim_create_augroup('LspFormattingGroup', {})
     vim.api.nvim_create_autocmd('BufWritePost', {
       group = lsp_fmt_group,
-      callback = function()
-        vim.cmd([[:SylFormat]])
+      callback = function(args)
+        local bufn = args.buf
+        local clients = vim.lsp.get_clients({ bufnr = bufn })
+        if next(clients) ~= nil then
+          vim.cmd("SylFormatSync")
+        end
       end,
     })
 

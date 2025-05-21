@@ -129,6 +129,11 @@ end, {})
 vim.api.nvim_create_user_command("SylFormat", function()
   vim.lsp.buf.format()
 end, {})
+vim.api.nvim_create_user_command("SylFormatSync", function()
+  vim.lsp.buf.format({
+    async = false
+  })
+end, {})
 vim.api.nvim_create_user_command("SylFormatEfm", function()
   vim.lsp.buf.format({ name = "efm" })
 end, {})
