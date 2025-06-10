@@ -5,7 +5,7 @@
 #
 # Distributed under terms of the MIT license.
 #
-choice=$( printf "cya\nbye\nhotboot\nlock" | dmenu -p 'Powermenu')
+choice=$( printf "cya\nbye\nhotboot\nlock" | fuzzel --dmenu -p 'Choose:')
 case $choice in
 	'bye')
 		systemctl poweroff
@@ -17,6 +17,7 @@ case $choice in
 		systemctl reboot
 		;;
 	'lock')
-		~/sylveryte/dotfiles/tools/scrlock.sh
+		# ~/sylveryte/dotfiles/tools/scrlock.sh
+    swaylock
 		;;
 esac
