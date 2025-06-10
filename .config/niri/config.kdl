@@ -120,9 +120,9 @@ layout {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
-        proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 0.33333
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
@@ -258,7 +258,14 @@ layout {
 // spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "flatpak" "run" "com.nextcloud.desktopclient.nextcloud"
-// spawn-at-startup "pasystray" no need it's spawing itself
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "pasystray" //no need it's spawing itself
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store" 
+spawn-at-startup "xwayland-satellite"
+
+environment {
+    DISPLAY ":0"
+}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -323,8 +330,8 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
+window-rule {
+    geometry-corner-radius 6
     clip-to-geometry true
 }
 
@@ -350,6 +357,7 @@ binds {
     Mod+A hotkey-overlay-title="Quick actions" { spawn "~/sylveryte/dotfiles/tools/quick_actions_wm.sh"; }
     Mod+X hotkey-overlay-title="Quick actions" { spawn "~/sylveryte/dotfiles/tools/powermenu.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+V hotkey-overlay-title="Clipboard history" { spawn "~/sylveryte/dotfiles/tools/cliphist-fuzzel-img.sh"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.

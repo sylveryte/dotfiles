@@ -3,8 +3,12 @@
 - Read niri wikis
 - Read waybar wikis
 - Keybind
-- use `wev` to find keybinds
+- `wev` to find keybinds
 - `camorama` to control webcam
+- `cliphist` for clipboard management
+- `swayidle`
+- `nm-applet`
+- `gnome-polkit`
 
 ## Fedora / common
 
