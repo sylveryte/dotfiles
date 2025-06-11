@@ -277,7 +277,7 @@ environment {
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -306,6 +306,10 @@ window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
+// window-rule {
+//     match app-id=r#"ghostty"#
+//     default-column-width {}
+// }
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
@@ -358,6 +362,8 @@ binds {
     Mod+X hotkey-overlay-title="Quick actions" { spawn "~/sylveryte/dotfiles/tools/powermenu.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+V hotkey-overlay-title="Clipboard history" { spawn "~/sylveryte/dotfiles/tools/cliphist-fuzzel-img.sh"; }
+    Mod+M hotkey-overlay-title="Clipboard history" { spawn "~/sylveryte/dotfiles/tools/laptop_monitor_on_off.sh" "on"; }
+    Mod+Shift+M hotkey-overlay-title="Clipboard history" { spawn "~/sylveryte/dotfiles/tools/laptop_monitor_on_off.sh" "off"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -552,6 +558,7 @@ binds {
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
+    Mod+S { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
