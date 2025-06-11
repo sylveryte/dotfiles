@@ -4,7 +4,7 @@ pngfile="/tmp/sclock.png"
 bmpfile="/tmp/sclock.bmp"
 glitchedfile="/tmp/sclock_g.bmp"
 
-scrot -z $pngfile
+grim $pngfile
 
 # convert to bmp and pixelate
 magick convert -scale 20% -scale 500% $pngfile $bmpfile
@@ -25,6 +25,6 @@ magick convert -rotate -90 $glitchedfile $glitchedfile
      -pointsize 0 -draw "text 0,240 ''" -channel RGBA -fill '#bf616a' \
      $glitchedfile $pngfile
 
-i3lock -i $pngfile
+swaylock -f -i $pngfile 
 #feh $pngfile
 rm $pngfile $bmpfile $glitchedfile

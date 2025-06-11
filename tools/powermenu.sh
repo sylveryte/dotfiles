@@ -11,17 +11,16 @@ case $choice in
 		systemctl poweroff
 		;;
 	'cya')
+		sh ~/sylveryte/dotfiles/tools/scrlock.sh
 		systemctl suspend
 		;;
 	'hotboot')
 		systemctl reboot
 		;;
 	'hibernate')
-		# ~/sylveryte/dotfiles/tools/scrlock.sh
     systemctl hibernate
 		;;
 	'lock')
-		# ~/sylveryte/dotfiles/tools/scrlock.sh
-    swaylock
+		sh ~/sylveryte/dotfiles/tools/scrlock.sh
 		;;
 esac

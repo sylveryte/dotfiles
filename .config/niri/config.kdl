@@ -367,8 +367,9 @@ binds {
     Mod+X hotkey-overlay-title="Quick actions" { spawn "~/sylveryte/dotfiles/tools/powermenu.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+V hotkey-overlay-title="Clipboard history" { spawn "~/sylveryte/dotfiles/tools/cliphist-fuzzel-img.sh"; }
-    Mod+M hotkey-overlay-title="Clipboard history" { spawn "~/sylveryte/dotfiles/tools/laptop_monitor_on_off.sh" "on"; }
-    Mod+Shift+M hotkey-overlay-title="Clipboard history" { spawn "~/sylveryte/dotfiles/tools/laptop_monitor_on_off.sh" "off"; }
+    Mod+B hotkey-overlay-title="Screen lock" { spawn "~/sylveryte/dotfiles/tools/scrlock.sh"; }
+    Mod+M hotkey-overlay-title="Laptop monitor on" { spawn "~/sylveryte/dotfiles/tools/laptop_monitor_on_off.sh" "on"; }
+    Mod+Shift+M hotkey-overlay-title="Laptop monitor off" { spawn "~/sylveryte/dotfiles/tools/laptop_monitor_on_off.sh" "off"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
