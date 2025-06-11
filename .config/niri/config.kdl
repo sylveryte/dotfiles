@@ -265,6 +265,7 @@ spawn-at-startup "xwayland-satellite"
 
 environment {
     DISPLAY ":0"
+    // XDG_CURRENT_DESKTOP "Sway" // for flameshot to work check Recommendation.md for flameshot
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -310,6 +311,10 @@ window-rule {
 //     match app-id=r#"ghostty"#
 //     default-column-width {}
 // }
+window-rule {
+    match title=r#"flameshot"#
+    open-floating true
+}
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
@@ -601,7 +606,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
+    // Print { screenshot; }
+    // Print { spawn  "flameshot" "gui"; }
+    Print { spawn "~/sylveryte/dotfiles/tools/screenshot.sh" "satty" ; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
