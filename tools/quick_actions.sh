@@ -4,6 +4,7 @@ ACTION=$(echo -e "Dark Mode\nLight Mode\nTurn laptop screen on\nTurn laptop scre
 
 case "$ACTION" in
   "Dark Mode")
+      echo "dark" > /tmp/sylscheme
       # plasma-apply-lookandfeel -a com.github.vinceliuice.WhiteSur-dark && plasma-apply-cursortheme oreo_blue_cursors
       # Set mode for GTK3 applications. Install arc-gtk-theme, because there is no Adwaita-dark theme anymore
           gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark
@@ -19,11 +20,19 @@ case "$ACTION" in
           makoctl mode -s dark
       # Set fuzzel
           ln -sf "$HOME"/.config/fuzzel/dark_fuzzel.ini "$HOME"/.config/fuzzel/fuzzel.ini
+      # Set foot
+          ln -sf "$HOME"/.config/foot/foot_dark.ini "$HOME"/.config/foot/foot.ini
+      pkill -USR1 zsh # check foot wiki for day night
+
+      # waybar
+          ln -sf "$HOME"/.config/waybar/style_dark.css "$HOME"/.config/waybar/style.css
+       killall -SIGUSR2 waybar
 
       # Notification (for debug purposes)
           notify-send -c "system" "  Dark mode"
     ;;
     "Light Mode")
+      echo "light" > /tmp/sylscheme
       # plasma-apply-lookandfeel -a com.github.vinceliuice.WhiteSur-alt && plasma-apply-cursortheme oreo_blue_cursors
       # Make sure that you set env variable QT_QPA_PLATFORMTHEME=gtk3 for QT applications
       # Set mode for GTK3 applications
@@ -40,6 +49,13 @@ case "$ACTION" in
           makoctl mode -r dark
       # Set fuzzel
           ln -sf "$HOME"/.config/fuzzel/light_fuzzel.ini "$HOME"/.config/fuzzel/fuzzel.ini
+      # Set foot
+          ln -sf "$HOME"/.config/foot/foot_light.ini "$HOME"/.config/foot/foot.ini
+      pkill -USR1 zsh # check foot wiki for day night
+
+      # waybar
+          ln -sf "$HOME"/.config/waybar/style_light.css "$HOME"/.config/waybar/style.css
+       killall -SIGUSR2 waybar
 
       # Notification
           notify-send -c "system" "  Light mode"
@@ -56,3 +72,4 @@ case "$ACTION" in
       sh ~/sylveryte/dotfiles/tools/screentools.sh colorpick
     ;;
 esac
+echo scheme is $scheme

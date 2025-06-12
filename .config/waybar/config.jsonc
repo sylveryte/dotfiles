@@ -4,25 +4,26 @@
     "ipc": true,
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
+    // "margin": "8 16 0",
+    // "mod": "dock",
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    // "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "niri/workspaces",
-        "niri/mode",
-        "niri/scratchpad",
+        // "niri/mode",
+        // "niri/scratchpad",
         "custom/media"
     ],
     "modules-center": [
         "niri/window"
     ],
     "modules-right": [
+        "network",
         "mpd",
         "idle_inhibitor",
-        "tray",
         "pulseaudio",
-        "network",
         "power-profiles-daemon",
         "cpu",
         "memory",
@@ -30,11 +31,11 @@
         "backlight",
         // "backlight/slider",
         "keyboard-state",
-        "niri/language",
         "battery",
         "battery#bat2",
         "clock",
-        "custom/power"
+        "tray"
+        // "custom/power"
     ],
     // Modules configuration
     "niri/workspaces": {
@@ -43,14 +44,16 @@
         "warp-on-scroll": false,
         "format": "{name}{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
+            "1": " ",
+            "2": " ",
+            "3": "󰘯 ",
+            "4": " ",
+            "5": "󰗆 ",
+            "6": " ",
+            "7": " ",
             "urgent": "",
-            "focused": "",
-            "default": ""
+            // "focused": "",
+            "default": "󰘯 ",
         }
     },
     "keyboard-state": {
