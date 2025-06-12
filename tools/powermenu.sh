@@ -5,9 +5,9 @@
 #
 # Distributed under terms of the MIT license.
 #
-choice=$( printf "cya\nbye\nhibernate\nhotboot\nlock" | fuzzel --dmenu -p 'Choose:')
+choice=$( printf "cya\nbye\nhibernate\nhotboot\nlock\nlogout" | fuzzel --dmenu -p 'Choose:')
 case $choice in
-	'bye')
+	'Bye')
 		systemctl poweroff
 		;;
 	'cya')
@@ -23,4 +23,7 @@ case $choice in
 	'lock')
 		sh ~/sylveryte/dotfiles/tools/scrlock.sh
 		;;
+  'logout')
+    niri msg action quit
+    ;;
 esac

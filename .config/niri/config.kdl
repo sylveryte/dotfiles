@@ -363,7 +363,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+O hotkey-overlay-title="Toggle waybar" { spawn "killall" "-SIGUSR1" "waybar"; }
-    Mod+A hotkey-overlay-title="Quick actions" { spawn "~/sylveryte/dotfiles/tools/quick_actions_wm.sh"; }
+    Mod+A hotkey-overlay-title="Quick actions" { spawn "~/sylveryte/dotfiles/tools/quick_actions.sh"; }
     Mod+X hotkey-overlay-title="Quick actions" { spawn "~/sylveryte/dotfiles/tools/powermenu.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+V hotkey-overlay-title="Clipboard history" { spawn "~/sylveryte/dotfiles/tools/cliphist-fuzzel-img.sh"; }
@@ -609,7 +609,7 @@ binds {
 
     // Print { screenshot; }
     // Print { spawn  "flameshot" "gui"; }
-    Print { spawn "~/sylveryte/dotfiles/tools/screenshot.sh" "satty" ; }
+    Print { spawn "~/sylveryte/dotfiles/tools/screentools.sh" "sattyshot" ; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
