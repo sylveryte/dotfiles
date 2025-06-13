@@ -60,7 +60,7 @@ function setTheme(){
 TRAPUSR1() {
   setTheme
 }
-# setTheme // incase you want to
+setTheme # incase you want to
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
