@@ -29,4 +29,6 @@ for  = "unix"
 run  = 'shell -- org.kde.gwenview $1'
 desc = "Open gwenview with current file(should be imge)"
 
-
+[[mgr.prepend_keymap]]
+on  = ["g","d"]
+run = 'shell -- dragon-drop -x -i -T "$1"'
