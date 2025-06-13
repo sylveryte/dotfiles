@@ -8,6 +8,25 @@ desc = "Open $SHELL here"
 on   = ["g","o"]
 for  = "unix"
 run  = 'shell -- nautilus $1'
-desc = "Open $SHELL here"
+desc = "Open nautilus file manager here"
+
+[[mgr.prepend_keymap]]
+on   = ["g","i"]
+for  = "unix"
+run  = 'shell -- imv-dir $1'
+desc = "Open imv-dir with current file(should be imge)"
+
+[[mgr.prepend_keymap]]
+on   = ["g","n"]
+for  = "unix"
+run  = 'shell -- nsxiv $1'
+desc = "Open nsxiv with current file and dir(should be imge)"
+
+
+[[mgr.prepend_keymap]]
+on   = ["g","w"]
+for  = "unix"
+run  = 'shell -- org.kde.gwenview $1'
+desc = "Open gwenview with current file(should be imge)"
 
 
