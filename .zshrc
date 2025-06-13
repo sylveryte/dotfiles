@@ -12,7 +12,7 @@ export JAVA_HOME=$HOME/kento/android/android-studio/jbr
 export ANDROID_SDK_ROOT_ROOT=$HOME/kento/android
 export ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT_ROOT/Android/Sdk
 export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT_ROOT/android-studio/bin
+export PATH=$HOME/.local/bin:$PATH:$GOPATH/bin:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT_ROOT/android-studio/bin
 alias zl='zellij --layout ~/sylveryte/dotfiles/zellij/wolf.kdl'
 alias zw='zellij --layout ~/work.kdl'
 alias ytfzf='ytfzf -T chafa --show-thumbnails'
@@ -49,7 +49,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # 	# Interactively load a dark theme
 # 	alias thd='theme.sh --dark -i'
 # fi
-TRAPUSR1() {
+function setTheme(){
   scheme=$(cat /tmp/sylscheme)
   if [ "$scheme" = "dark" ];then
     /usr/bin/theme.sh rose-pine-moon
@@ -57,6 +57,10 @@ TRAPUSR1() {
     /usr/bin/theme.sh rose-pine-dawn
   fi
 }
+TRAPUSR1() {
+  setTheme
+}
+# setTheme // incase you want to
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
