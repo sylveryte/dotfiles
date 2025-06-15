@@ -7,7 +7,7 @@
 #
 choice=$( printf "cya\nbye\nhibernate\nhotboot\nlock\nlogout" | fuzzel --dmenu -p 'Choose:')
 case $choice in
-	'Bye')
+	'bye')
 		systemctl poweroff
 		;;
 	'cya')
