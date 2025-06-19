@@ -261,6 +261,7 @@ spawn-at-startup "flatpak" "run" "com.nextcloud.desktopclient.nextcloud"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "pasystray" //no need it's spawing itself
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store" 
+spawn-at-startup "~/sylveryte/dotfiles/tools/quick_actions.sh" "Light Mode"
 spawn-at-startup "xwayland-satellite"
 
 environment {

@@ -1,6 +1,11 @@
 #!/bin/bash
 
-ACTION=$(echo -e "Dark Mode\nLight Mode\nTurn laptop screen on\nTurn laptop screen off\nColor Picker"| fuzzel --dmenu "Choose:")
+if [ -n "$1" ]
+then
+	ACTION=$1
+else
+  ACTION=$(echo -e "Dark Mode\nLight Mode\nTurn laptop screen on\nTurn laptop screen off\nColor Picker"| fuzzel --dmenu "Choose:")
+fi
 
 case "$ACTION" in
   "Dark Mode")
