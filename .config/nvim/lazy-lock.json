@@ -7,6 +7,7 @@
   "code_runner.nvim": { "branch": "main", "commit": "386bcaa8aa7ae8703281afce4465ecfdb7c44e65" },
   "dir-telescope.nvim": { "branch": "main", "commit": "805405b9f98dc3470f8676773dc0e6151a9158ed" },
   "efmls-configs-nvim": { "branch": "main", "commit": "8d7ede48afa7d0344fa62fefb95132c0dad41e97" },
+  "emmet-vim": { "branch": "master", "commit": "6c511a8d7d2863066f32e25543e2bb99d505172c" },
   "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
   "formatter.nvim": { "branch": "master", "commit": "eb89a1f3e079f1b9680bc7293b75fffccb5e1598" },

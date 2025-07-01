@@ -142,7 +142,7 @@ end, {})
 map({ "n" }, "<localleader>ll", "<cmd>:LspRestart<CR>", { desc = "LSP restart" })
 map("v", "<leader>o", "<Esc><cmd>:SylFormatRange<CR>", { desc = "LSP Range format" })
 map({ "n" }, "<leader>o", "<cmd>:SylFormat<CR>", { desc = "LSP Format file" })
-map({ "n" }, "<leader>p", "<cmd>:SylFormatEfm<CR>", { desc = "LSP Format file with efm only" })
+-- map({ "n" }, "<leader>p", "<cmd>:SylFormatEfm<CR>", { desc = "LSP Format file with efm only" })
 
 map("n", "<localleader>oo", function() open_in('nsxiv') end, { desc = "Open in nsxiv" })
 map("n", "<localleader>od", function() open_in('dolphin', true) end, { desc = "Open in dolphin" })
