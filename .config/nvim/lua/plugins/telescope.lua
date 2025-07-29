@@ -12,7 +12,7 @@ return {
     "princejoogie/dir-telescope.nvim",
     'nvim-telescope/telescope-ui-select.nvim',
     "debugloop/telescope-undo.nvim",
-
+    "nvim-telescope/telescope-symbols.nvim",
   },
   config = function()
     require('telescope').load_extension('zoxide')
@@ -119,6 +119,7 @@ return {
     map('n', '<leader>tgb', builtin.git_bcommits, { desc = "telescope buffer commits" })
     map('n', '<leader>tgc', builtin.git_commits, { desc = "telescope commits" })
     map('n', '<leader>tk', builtin.keymaps, { desc = "telescope keymaps" })
+    map('n', '<leader>ts', builtin.symbols, { desc = "telescope symbols" })
 
     require('utils/telescope')
   end
