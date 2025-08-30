@@ -11,7 +11,7 @@ return {
     require("mason").setup()
 
     vim.lsp.config.sylmark = {
-      cmd = { "/home/sylveryte/projects/sylmark/sylmark" },
+      cmd = { "/home/sylveryte/projects/sylmark-server/tmp/main" },
       root_markers = { '.sylroot' },
       filetypes = { 'markdown' },
     }
@@ -121,7 +121,8 @@ return {
 
     vim.lsp.enable({
       -- custom
-      "sylmark", "ledger_lsp",
+      "sylmark",
+      "ledger_lsp",
       -- general
       "efm",
       -- web
@@ -130,7 +131,7 @@ return {
       "lua_ls",
       "gopls",
       "sqls",
-      "markdown_oxide",
+      -- "markdown_oxide",
     })
   end
 }

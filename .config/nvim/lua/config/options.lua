@@ -59,17 +59,18 @@ end
 vim.g.markdown_recommended_style = 0
 vim.diagnostic.config(
   {
-    virtual_text = true,
     -- below instead of true for only Warn, no err
-    -- {
-    --   -- severity = {
-    --   --   max = vim.diagnostic.severity.WARN,
-    --   -- },
-    -- },
+    virtual_text = {
+      severity = {
+        min = vim.diagnostic.severity.HINT,
+      },
+      source = "if_many", -- show source (LSP server name) if multiple
+      prefix = " ",
+    },
     virtual_lines = {
       current_line = true,
       severity = {
-        min = vim.diagnostic.severity.ERROR,
+        min = vim.diagnostic.severity.WARN,
       },
     },
   }
