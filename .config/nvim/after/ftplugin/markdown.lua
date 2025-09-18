@@ -79,12 +79,14 @@ end
 
 vim.opt_local.wrap = false   -- Disable line wrap
 vim.opt_local.textwidth = 60 -- for gqip formatting
+vim.opt_local.formatoptions = vim.o.formatoptions:gsub('t', '') -- this removes autowrap :h fo-table
 map("n", "<localleader>y", function()
   local d = os.date("%M:%S")
   print(sylmarkdown.better_link_action(print), d)
 end)
 map("n", "<localleader>c", ":Neorg toggle-concealer<CR>")
 map("n", "<localleader>u", ":Daily today<CR>")
+map("n", "<localleader>g", ":Graph<CR>")
 map("n", "<localleader>p", function()
   replace()
 end, { desc = "replace SYLNEWLINE", silent=true })

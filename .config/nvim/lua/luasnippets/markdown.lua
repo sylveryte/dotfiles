@@ -267,7 +267,7 @@ return {
       dscr = "Create Daily Template Based on FileName",
     },
     fmt(
-      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]] [[{}|{}]]",
+      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n- [ ] {}\n\n---\n[[{}|{}]]",
       {
         ls.f(function(_, snip)
           local fname = getFileNameWithoutExtension(snip)
@@ -301,22 +301,14 @@ return {
           d = d:adddays(1)
           return d:fmt("%A")
         end, {}),
-        ls.i(0),
+        ls.i(1),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("%Y-%m-%B#%Y-W%W")
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("W%W")
-        end, {}),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("%Y-%m-%B")
-        end, {}),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("%B")
+          return d:fmt("W%W-%B")
         end, {}),
       })
   ),
@@ -329,7 +321,7 @@ return {
       dscr = "Create Daily Template Based on FileName Work",
     },
     fmt(
-      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]] [[{}|{}]]",
+      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]]",
       {
         ls.f(function(_, snip)
           local fname = getFileNameWithoutExtension(snip)
@@ -386,15 +378,7 @@ return {
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("W%W")
-        end, {}),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("%Y-%m-%B")
-        end, {}),
-        ls.f(function(_, snip)
-          local d = date(getFileNameWithoutExtension(snip))
-          return d:fmt("%B")
+          return d:fmt("W%W-%B")
         end, {}),
       })
   ),

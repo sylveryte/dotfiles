@@ -13,7 +13,7 @@ return {
       },
     })
     -- runners
-    local runners = { lua = 'lua', javascript = 'node', go = "go run", rust = "cargo run" }
+    local runners = { lua = 'lua', javascript = 'node', go = "go run", rust = "cargo run", python='python' }
     map('n', '<localleader>r', function()
       local buf = vim.api.nvim_buf_get_name(0)
       local ftype = vim.filetype.match({ filename = buf })

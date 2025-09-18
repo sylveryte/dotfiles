@@ -43,7 +43,7 @@ return {
           "java $fileNameWithoutExt"
         },
         lua = "lua",
-        python = "python3 -u",
+        python = "python",
         typescript = "deno run",
         rust = {
           "cd $dir &&",

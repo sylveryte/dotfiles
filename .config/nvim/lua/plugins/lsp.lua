@@ -11,10 +11,39 @@ return {
     require("mason").setup()
 
     vim.lsp.config.sylmark = {
-      cmd = { "/home/sylveryte/projects/sylmark-server/tmp/main" },
+      cmd = { "/home/sylveryte/projects/sylmark/tmp/main" },
       root_markers = { '.sylroot' },
       filetypes = { 'markdown' },
+      on_attach = function(client, bufnr)
+        vim.api.nvim_create_user_command(
+          "Daily",
+          function(args)
+            local input = args.args
+
+            client:exec_cmd({
+              title = "Show",
+              command = "show",
+              arguments = { input }, -- Also works with `vim.NIL`
+            }, { bufnr = bufnr })
+          end,
+          { desc = 'Open daily note', nargs = "*" }
+        )
+        vim.api.nvim_create_user_command(
+          "Graph",
+          function(args)
+            local input = args.args
+
+            client:exec_cmd({
+              title = "Open Graph",
+              command = "graph",
+              arguments = { input }, -- Also works with `vim.NIL`
+            }, { bufnr = bufnr })
+          end,
+          { desc = 'Start graph server and open', nargs = "*" }
+        )
+      end
     }
+
 
     vim.lsp.config.ledger_lsp = {
       cmd = { "/home/sylveryte/projects/ledger-lsp/ledger-lsp" },
@@ -129,6 +158,7 @@ return {
       "ts_ls", "cssls", "astro", "svelte", "tailwindcss", "html",
       -- specific langs
       "lua_ls",
+      "pylsp",
       "gopls",
       "sqls",
       -- "markdown_oxide",
