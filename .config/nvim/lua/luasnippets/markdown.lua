@@ -267,7 +267,7 @@ return {
       dscr = "Create Daily Template Based on FileName",
     },
     fmt(
-      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n- [ ] {}\n\n---\n[[{}|{}]]",
+      "# {}\n\n[[{}|{}]]  < {} >  [[{}|{}]]\n\n---\n\n## Tasks\n- [ ] {}\n\n---\n[[{}|{}]]",
       {
         ls.f(function(_, snip)
           local fname = getFileNameWithoutExtension(snip)
@@ -283,9 +283,6 @@ return {
           local d = date(getFileNameWithoutExtension(snip))
           d = d:adddays(-1)
           return d:fmt("%A")
-        end, {}),
-        ls.f(function(_, snip)
-          return getFileNameWithoutExtension(snip)
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
@@ -321,7 +318,7 @@ return {
       dscr = "Create Daily Template Based on FileName Work",
     },
     fmt(
-      "# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]]",
+      "# {}\n\n[[{}|{}]]  < {} >  [[{}|{}]]\n\n---\n\n## Tasks\n\n- [ ] {}\n\n---\n[[{}|{}]]",
       {
         ls.f(function(_, snip)
           local fname = getFileNameWithoutExtension(snip)
@@ -345,9 +342,6 @@ return {
             d = d:adddays(-1)
           end
           return d:fmt("%A")
-        end, {}),
-        ls.f(function(_, snip)
-          return getFileNameWithoutExtension(snip)
         end, {}),
         ls.f(function(_, snip)
           local d = date(getFileNameWithoutExtension(snip))
