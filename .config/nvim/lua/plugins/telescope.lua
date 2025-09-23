@@ -110,7 +110,7 @@ return {
     end,
       { desc = "telescope syl lsp_definitions" })
     map('n', '<leader>gi', builtin.lsp_implementations, { desc = "telescope lsp_implementations" })
-    map('n', 'gr', builtin.lsp_references, { desc = "telescope lsp_references" })
+    map('n', 'grt', builtin.lsp_references, { desc = "telescope lsp_references" })
     map('n', '<leader>tl', builtin.builtin, { desc = "telescope list builtins" })
     map('n', '<leader>th', builtin.help_tags, { desc = "telescope help tags" })
     map('n', '<leader>tt', builtin.treesitter, { desc = "telescope treesitter" })

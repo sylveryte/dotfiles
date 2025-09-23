@@ -160,6 +160,7 @@ return {
       "lua_ls",
       "pylsp",
       "gopls",
+      "rust_analyzer",
       "sqls",
       -- "markdown_oxide",
     })
