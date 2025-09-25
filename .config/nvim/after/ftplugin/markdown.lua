@@ -76,9 +76,23 @@ local replace = function()
 end
 
 
+-- to have textwidth and autowrap only in normal mode to do gq
+vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave", "TextChanged", "TextChangedI" }, {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.textwidth = 0
+  end,
+})
 
+-- Enable textwidth in Normal mode
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*:[nN]*",  -- when switching to Normal mode (from anything)
+  callback = function()
+    vim.opt_local.textwidth = 60
+  end,
+})
+-- vim.opt_local.textwidth = 60 -- for gqip formatting, causing autowrap
 vim.opt_local.wrap = false   -- Disable line wrap
-vim.opt_local.textwidth = 60 -- for gqip formatting
 vim.opt_local.formatoptions = vim.o.formatoptions:gsub('t', '') -- this removes autowrap :h fo-table
 map("n", "<localleader>y", function()
   local d = os.date("%M:%S")
