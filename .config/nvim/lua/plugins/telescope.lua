@@ -72,6 +72,7 @@ return {
     map("n", "<leader>gs", "<cmd>Telescope dir live_grep<CR>", { noremap = true, silent = true })
     map("n", "<leader>gg", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
     map("n", "<leader>gf", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
+    map("n", "<leader>a", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true, silent = true })
     map("n", "<leader>m", ":Telescope frecency<CR>", { desc = "Telescope frecency" })
     map('n', '<leader>f', builtin.find_files, { desc = "telescope find files og" })
     map('n', '<leader>vg', function()

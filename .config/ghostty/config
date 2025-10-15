@@ -1,7 +1,7 @@
 window-decoration = false
 gtk-wide-tabs=false
 gtk-tabs-location=hidden
-theme = dark:carbonfox,light:iceberg-light
+theme = dark:Electron Highlighter,light:Light Owl
 unfocused-split-opacity=0.9
 cursor-style = block
 

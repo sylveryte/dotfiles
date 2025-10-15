@@ -1,6 +1,5 @@
 local ls = require("luasnip")
 local fmt = require("luasnip.extras.fmt").fmt
-local sylpath = require("utils.sylpath")
 local s = ls.snippet
 local date = require("utils.date")
 local syldate = require("utils.syldate")
@@ -14,12 +13,52 @@ local function getMonthDate(snip)
   return date(syldate.get_date_string_for_month(getFileNameWithoutExtension(snip)))
 end
 
-local function getWeekDate(snip)
-  return date(syldate.get_date_string_for_week(getFileNameWithoutExtension(snip)))
-end
+-- local function getWeekDate(snip)
+--   return date(syldate.get_date_string_for_week(getFileNameWithoutExtension(snip)))
+-- end
 
 return {
-  s("skull", ls.text_node("󰯈")),
+  s(
+    {
+      trig = "link",
+      name = "markdown_link",
+      dscr = "Create markdown link [txt](url).\nSelect link, press C-s, type link.",
+    },
+    fmt("[{}]({})\n{}", {
+      ls.i(1),
+      ls.f(function(_, snip)
+        return snip.env.TM_SELECTED_TEXT[1] or {}
+      end, {}),
+      ls.i(0),
+    })
+  ),
+
+  s( -- Codeblock
+    {
+      trig = "codeblock",
+      name = "New code block",
+      dscr = "Codeblock",
+    },
+    fmt("```{}\n{}\n```\n{}", {
+      ls.i(1, "Language"),
+      ls.i(2),
+      ls.i(0),
+    })
+  ),
+
+  s(
+    {
+      trig = "wticket",
+      name = "Work Ticket",
+      dscr = "Write a ticket",
+    },
+    fmt(
+      "### CASN-{} {}\n\n",
+      {
+        ls.i(1),
+        ls.i(2),
+      })
+  ),
   s(
     {
       trig = "meeting",
@@ -27,7 +66,7 @@ return {
       dscr = "Set boiler plate meeting",
     },
     fmt("---\ndate : {}\n---\n\n# {}\n\n## Points\n\n- [ ] {}\n\n\n---\nlink day: [[{}]]", {
-      ls.f(function(_, snip)
+      ls.f(function()
         return date():fmt("%F-%T-%A")
       end, {}),
       ls.f(function(_, snip)
@@ -50,26 +89,26 @@ return {
       ls.i(4),
     })
   ),
-  s(
-    {
-      trig = "sticker",
-      name = "journal_sticker",
-      dscr = "Put a sticker",
-    },
-    fmt("![]({}stickers{})\n\n", {
-      ls.f(function(_, snip)
-        return sylpath.relative_to_syl_root_dir()
-      end, {}),
-      ls.i(1),
-    })
-  ),
+  -- s(
+  --   {
+  --     trig = "sticker",
+  --     name = "journal_sticker",
+  --     dscr = "Put a sticker",
+  --   },
+  --   fmt("![]({}stickers{})\n\n", {
+  --     ls.f(function(_, snip)
+  --       return sylpath.relative_to_syl_root_dir()
+  --     end, {}),
+  --     ls.i(1),
+  --   })
+  -- ),
   s(
     {
       trig = "ln",
       name = "link",
       dscr = "Markdown link",
     },
-    fmt("[{}]({})\n\n", {
+    fmt("[{}]({})", {
       ls.i(1),
       ls.i(2),
     })
@@ -173,7 +212,7 @@ return {
       ls.f(function(_, snip)
         local ds = ''
         local d = date(getFileNameWithoutExtension(snip) .. '-1-1')
-        for i = 1, 12 do
+        for _ = 1, 12 do
           ds = ds .. '[[' .. d:fmt("%Y-%m-%B") .. '|' .. d:fmt("%B") .. ']] SYLNEWLINE'
           d = d:addmonths(1)
         end
@@ -374,80 +413,6 @@ return {
           local d = date(getFileNameWithoutExtension(snip))
           return d:fmt("W%W-%B")
         end, {}),
-      })
-  ),
-
-  s(
-    {
-      trig = "link",
-      name = "markdown_link",
-      dscr = "Create markdown link [txt](url).\nSelect link, press C-s, type link.",
-    },
-    fmt("[{}]({})\n{}", {
-      ls.i(1),
-      ls.f(function(_, snip)
-        return snip.env.TM_SELECTED_TEXT[1] or {}
-      end, {}),
-      ls.i(0),
-    })
-  ),
-
-  s( -- Codeblock {{{
-    {
-      trig = "codeblock",
-      name = "New code block",
-      dscr = "Codeblock",
-    },
-    fmt("```{}\n{}\n```\n", {
-      ls.i(1, "Language"),
-      ls.i(0),
-    })
-  ),
-
-  s( -- Codeblock {{{
-    {
-      trig = "codeblockmake",
-      name = "Make code block",
-      dscr = "Select text, Man press <C-s>, type codeblock.",
-    },
-    fmt("```{}\n{}\n```\n{}", {
-      ls.i(1, "Language"),
-      ls.f(function(_, snip)
-        local tmp = snip.env.TM_SELECTED_TEXT
-        tmp[0] = nil
-        return tmp or {}
-      end, {}),
-      ls.i(0),
-    })
-  ),
-
-  s(
-    {
-      trig = "wticket",
-      name = "Work Ticket",
-      dscr = "Write a ticket",
-    },
-    fmt(
-      "### CASN-{} {}\n\n",
-      {
-        ls.i(1),
-        ls.i(2),
-      })
-  ),
-  s(
-    {
-      trig = "wticket",
-      name = "Work Ticket",
-      dscr = "Write a ticket",
-    },
-    fmt(
-      "# {}\n___\n\n## Tasks \n- ( ) {}\n\n---\n[link](https://accreteai.atlassian.net/browse/CASN-{})",
-      {
-        ls.f(function(_, snip)
-          return getFileNameWithoutExtension(snip)
-        end, {}),
-        ls.i(2),
-        ls.i(1),
       })
   ),
 

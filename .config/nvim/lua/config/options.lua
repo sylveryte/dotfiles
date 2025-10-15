@@ -9,6 +9,7 @@ opt.conceallevel = 3         -- Hide * markup for bold and italic
 opt.foldenable = false
 opt.confirm = true           -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true        -- Enable highlighting of the current line
+-- opt.cursorcolumn = true      -- Enable highlighting of current column
 opt.expandtab = true         -- Use spaces instead of tabs
 opt.formatoptions = "jroqln" -- check :h fo-table
 opt.grepformat = "%f:%l:%c:%m"
