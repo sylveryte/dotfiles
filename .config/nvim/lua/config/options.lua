@@ -71,7 +71,7 @@ vim.diagnostic.config(
     virtual_lines = {
       current_line = true,
       severity = {
-        min = vim.diagnostic.severity.HINT,
+        min = vim.diagnostic.severity.WARN,
       },
     },
   }

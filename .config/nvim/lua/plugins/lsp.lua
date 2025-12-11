@@ -11,8 +11,11 @@ return {
     require("mason").setup()
 
     vim.lsp.config.sylmark = {
-      cmd = { "/home/sylveryte/projects/sylmark/tmp/main" },
-      root_markers = { '.sylroot' },
+      -- cmd = { "/home/sylveryte/trisha/sylmark-linux-amd64" },
+      -- cmd = { "/home/sylveryte/projects/sylmark/tmp/main" },
+      cmd = { "/home/sylveryte/projects/sylmark-out/sylmark-0.7.2-linux-amd64" },
+      -- cmd = { "/home/sylveryte/projects/sylmark_play/tmp/main" },
+      root_markers = { '.sylroot.toml' },
       filetypes = { 'markdown' },
       on_attach = function(client, bufnr)
         vim.api.nvim_create_user_command(
@@ -163,6 +166,7 @@ return {
       "rust_analyzer",
       "sqls",
       -- "markdown_oxide",
+      -- "marksman"
     })
   end
 }
