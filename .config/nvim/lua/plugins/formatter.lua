@@ -24,6 +24,7 @@ return {
         html = require("formatter.defaults.prettier"),
         css = require("formatter.defaults.prettier"),
         scss = require("formatter.defaults.prettier"),
+        astro = require("formatter.defaults.prettier"),
         json = require("formatter.defaults.prettier"),
         sql = require("formatter.filetypes.sql").pgformat,
 
