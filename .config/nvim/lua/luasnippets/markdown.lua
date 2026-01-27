@@ -10,7 +10,11 @@ local function getFileNameWithoutExtension(snip)
   return fileName
 end
 local function getMonthDate(snip)
-  return date(syldate.get_date_string_for_month(getFileNameWithoutExtension(snip)))
+  local ds = syldate.get_date_string_for_month(getFileNameWithoutExtension(snip))
+  if ds ~= nil then
+    return date(ds)
+  end
+  return date()
 end
 
 -- local function getWeekDate(snip)
@@ -290,6 +294,71 @@ return {
           d = d:adddays(7)
         end
         return ds
+      end, {}),
+
+      ls.f(function(_, snip)
+        local d = getMonthDate(snip)
+        return d:fmt("%Y")
+      end, {}),
+    })
+  ),
+
+  s(
+    {
+      trig = "monthlyd",
+      name = "monthly_templated",
+      dscr = "Create Monthly-Daily Template Based on FileName",
+    },
+    fmt("# {}\n\n[[{}|{}]]  < [[{}|{}]] >  [[{}|{}]]\n\n---\n\ngoal{}\n\n---\n{}\n[[{}]]\n", {
+      ls.f(function(_, snip)
+        return getFileNameWithoutExtension(snip)
+      end, {}),
+
+      ls.f(function(_, snip)
+        local d = getMonthDate(snip)
+        d = d:addmonths(-1)
+        return d:fmt("%Y-%m-%B")
+      end, {}),
+      ls.f(function(_, snip)
+        local d = getMonthDate(snip)
+        d = d:addmonths(-1)
+        return d:fmt("%B")
+      end, {}),
+
+      ls.f(function(_, snip)
+        return getFileNameWithoutExtension(snip)
+      end, {}),
+      ls.f(function(_, snip)
+        local d = getMonthDate(snip)
+        return d:fmt("%B")
+      end, {}),
+
+      ls.f(function(_, snip)
+        local d = getMonthDate(snip)
+        d = d:addmonths(1)
+        return d:fmt("%Y-%m-%B")
+      end, {}),
+      ls.f(function(_, snip)
+        local d = getMonthDate(snip)
+        d = d:addmonths(1)
+        return d:fmt("%B")
+      end, {}),
+
+
+      ls.i(0),
+
+      ls.f(function(_, snip)
+        local ds = ''
+        local d = getMonthDate(snip)
+        local ld = syldate.get_last_date_of_month(d)
+        for i = 1, ld do
+          local cd = d:copy():setday(i)
+          if i == 1 or cd:getisoweekday()==1   then
+           ds = ds .. '--- SYLNEWLINE ## ' .. cd:fmt("%Y-W%W") .. ' SYLNEWLINE'
+          end
+          ds = ds .. '### ' .. cd:fmt("%d %A") .. ' SYLNEWLINE'
+        end
+        return ds .. '--- SYLNEWLINE'
       end, {}),
 
       ls.f(function(_, snip)
