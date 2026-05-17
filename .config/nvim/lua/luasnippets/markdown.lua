@@ -119,6 +119,36 @@ return {
   ),
   s(
     {
+      trig = "- [ ]",
+      name = "Task",
+      dscr = "Markdown open task",
+    },
+    fmt("- [ ] {}", {
+      ls.i(1),
+    })
+  ),
+  s(
+    {
+      trig = "- [x]",
+      name = "Task Done",
+      dscr = "Markdown task done",
+    },
+    fmt("- [x] {}", {
+      ls.i(1),
+    })
+  ),
+  s(
+    {
+      trig = "- [/]",
+      name = "Task In progress",
+      dscr = "Markdown task in progress",
+    },
+    fmt("- [/] {}", {
+      ls.i(1),
+    })
+  ),
+  s(
+    {
       trig = "linkproperty",
       name = "Link Property",
       dscr = "Write a label and link a file",

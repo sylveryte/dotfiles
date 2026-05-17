@@ -12,9 +12,9 @@ end
 local specialBucket = {
   ["[ ]"] = "[/]",
   ["[/]"] = "[x]",
-  ["[x]"] = "[-]",
-  ["[-]"] = "[>]",
-  ["[>]"] = "[?]",
+  ["[x]"] = "[>]",
+  ["[>]"] = "[-]",
+  ["[-]"] = "[?]",
   ["[?]"] = "[!]",
   ["[!]"] = "[*]",
   ["[*]"] = "[\"]",
@@ -92,6 +92,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 -- vim.opt_local.textwidth = 60 -- for gqip formatting, causing autowrap
+vim.opt_local.scrolloff = 5   -- Disable line wrap
 vim.opt_local.wrap = false   -- Disable line wrap
 vim.opt_local.formatoptions = vim.o.formatoptions:gsub('t', '') -- this removes autowrap :h fo-table
 map("n", "<localleader>y", function()

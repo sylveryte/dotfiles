@@ -350,7 +350,7 @@ return {
           incomplete = { raw = '[/]', rendered = '󱎖 ', highlight = 'RenderMarkdownWarn', scope_highlight = nil },
           done = { raw = '[x]', rendered = '󰄳 ', highlight = 'RenderMarkdownDone', scope_highlight = nil },
           canceled = { raw = '[-]', rendered = '󰩺 ', highlight = 'RenderMarkdownWarn', scope_highlight = nil },
-          forwarded = { raw = '[>]', rendered = '󰷹 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+          forwarded = { raw = '[>]', rendered = '󰷹 ', highlight = 'RenderMarkdownError', scope_highlight = nil },
           scheduling = { raw = '[<]', rendered = '󰻙 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
           question = { raw = '[?]', rendered = '󱍊 ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
           important = { raw = '[!]', rendered = '󱈸 ', highlight = 'RenderMarkdownError', scope_highlight = nil },
