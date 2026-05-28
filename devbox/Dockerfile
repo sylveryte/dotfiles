@@ -15,8 +15,10 @@ RUN pacman -Syu --noconfirm \
     git \
     base-devel \
     pnpm \
+    npm \
     nodejs \
     ripgrep \
+    gopls,
     zip \
     curl \
     && pacman -Scc --noconfirm

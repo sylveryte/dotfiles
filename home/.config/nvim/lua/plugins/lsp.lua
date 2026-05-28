@@ -19,9 +19,9 @@ return {
       -- specific langs
       "lua_ls",
       "pylsp",
-      "gopls",
+      -- "gopls",
       "rust_analyzer",
-      "sqls",
+      -- "sqls",
       "clangd",
   },
 }
