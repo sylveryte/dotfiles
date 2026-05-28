@@ -1,0 +1,11 @@
+tmp/
+.local/
+.npm/
+.zim/
+.cache/
+.zcompdump
+.zcompdump.dat
+.zcompdump.zwc
+.zshrcspare
+.zhistory
+.config/go/

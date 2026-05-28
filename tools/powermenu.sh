@@ -1,0 +1,29 @@
+#! /bin/sh
+#
+# powermenu.sh
+# Copyright (C) 2020 sylveryte <sylveryte@pm.me>
+#
+# Distributed under terms of the MIT license.
+#
+choice=$( printf "hibernate\nbye\ncya\nreboot\nlock\nlogout" | fuzzel --dmenu -p 'Choose:')
+case $choice in
+	'bye')
+		systemctl poweroff
+		;;
+	'cya')
+		sh ~/sylveryte/dotfiles/tools/scrlock.sh
+		systemctl suspend
+		;;
+	'reboot')
+		systemctl reboot
+		;;
+	'hibernate')
+    systemctl hibernate
+		;;
+	'lock')
+		sh ~/sylveryte/dotfiles/tools/scrlock.sh
+		;;
+  'logout')
+    niri msg action quit
+    ;;
+esac

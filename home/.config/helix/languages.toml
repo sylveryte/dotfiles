@@ -1,0 +1,6 @@
+[[language]]
+name = "angular"
+scope = "source.angular"
+roots = ["angular.json"]
+language-server = { command = "ngserver", args = ["--stdio", "--tsProbeLocations", "$(npm -g root)", "--ngProbeLocations", "$(npm -g root)"] }
+file-types = ["ts", "html"]
