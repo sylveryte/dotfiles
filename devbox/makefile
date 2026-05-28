@@ -1,7 +1,7 @@
-HOME=/home/${USER}/sylveryte/dotfiles/home/
+DBOX_HOME=$(CURDIR)/../home
 
-.PHONY setup
+.PHONY: setup
 
 setup:
 	podman build -t devbox .
-	distrobox-create --image devbox --home $(pwd)/../home/ devbox
+	distrobox-create --image devbox --home $(DBOX_HOME) devbox
