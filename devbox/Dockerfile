@@ -45,3 +45,5 @@ RUN git clone https://github.com/sylveryte/sylmark.git /tmp/sylmark && \
     \
     # Remove source
     rm -rf /tmp/sylmark
+
+RUN curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh

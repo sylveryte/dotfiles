@@ -1,6 +1,7 @@
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
   dependencies = { 'neovim/nvim-lspconfig',
+  "mason-org/mason-lspconfig.nvim",
     {
       'creativenull/efmls-configs-nvim',
       version = 'v1.x.x', -- version is optional, but recommended
@@ -9,10 +10,25 @@ return {
   },
   config = function()
     require("mason").setup()
+    require("mason-lspconfig").setup {
+    ensure_installed = {
+      -- general
+      "efm",
+      -- web
+      "ts_ls", "cssls", "astro", "svelte", "tailwindcss", "html",
+      -- specific langs
+      "lua_ls",
+      "pylsp",
+      "gopls",
+      "rust_analyzer",
+      "sqls",
+      "clangd",
+  },
+}
 
     vim.lsp.config.sylmark = {
       -- cmd = { "/home/sylveryte/trisha/sylmark-linux-amd64" },
-      cmd = { "/home/sylveryte/projects/sylmark/sylmark/tmp/main" },
+      cmd = { "sylmark" },
       -- cmd = { "/home/sylveryte/projects/sylmark-out/sylmark-0.7.2-linux-amd64" },
       -- cmd = { "/home/sylveryte/projects/sylmark_play/tmp/main" },
       root_markers = { '.sylroot.toml' },
