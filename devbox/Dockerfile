@@ -18,7 +18,7 @@ RUN pacman -Syu --noconfirm \
     npm \
     nodejs \
     ripgrep \
-    gopls,
+    gopls \
     zip \
     curl \
     && pacman -Scc --noconfirm
