@@ -4,4 +4,4 @@ HOME=/home/${USER}/sylveryte/dotfiles/home/
 
 setup:
 	podman build -t devbox .
-	distrobox-create --image devbox --home /home/${USER}/sylveryte/dotfiles/home/ devbox
+	distrobox-create --image devbox --home $(pwd)/../home/ devbox
